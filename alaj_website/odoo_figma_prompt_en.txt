@@ -1,0 +1,82 @@
+You are building an Odoo website module from a Figma design.
+
+Your job is not to create a generic HTML website. Your job is to recreate the Figma design as a real Odoo Website module that works correctly inside Odoo Website Builder and remains fully editable by non-technical users.
+
+Follow these rules exactly:
+
+1. Core objective
+- Reproduce the Figma design as closely as possible.
+- Keep the same visual identity, layout, spacing, typography scale, colors, hierarchy, imagery placement, desktop/mobile behavior, and overall feel.
+- The result must look polished and production-ready on desktop, tablet, and mobile.
+
+2. Odoo-first implementation
+- Build it in the Odoo way, not as a static frontend export.
+- Use Odoo XML templates, website pages, website menus, and website layout inheritance.
+- Use standard Odoo/Bootstrap structures wherever possible: `container`, `row`, `col-*`, `card`, standard sections, and editable website blocks.
+- Every section that should be editable in Website Builder must be implemented in a way Odoo can edit.
+- Do not say the environment does not support Odoo. Even if Odoo cannot be executed, still generate the module files in correct Odoo structure.
+
+3. Editability requirements
+- The website must be fully editable from Odoo Website Builder as much as possible.
+- Images must be replaceable from the editor.
+- Cards must be editable, duplicate-able, removable, and extendable where appropriate.
+- Buttons, icons, logos, labels, headings, texts, hero media, card media, and repeated content must be editable.
+- Do not trap content inside non-editable wrappers when an editable Odoo structure can be used.
+- Prefer real `<img>` or properly editable Odoo image elements for images.
+- If a background image is required, use an Odoo-editable approach such as `oe_img_bg` only when appropriate.
+- Repeated cards/grids should be built with standard Odoo-friendly structures so the editor can manage them.
+
+4. Standard Odoo behavior
+- Header, footer, desktop menu, mobile menu, and language switcher must work correctly.
+- Website menus must remain manageable from Odoo menus whenever possible.
+- Standard Odoo pages such as login, portal, cart, shop, wishlist, checkout, and forms should inherit the same visual identity when requested.
+- Do not break Odoo default behavior.
+
+5. Assets and images
+- Put all project images inside the module locally when assets are available.
+- Store images under the module static folder, for example `static/src/img/`.
+- Reference local module assets instead of external hotlinks whenever possible.
+- Preserve image quality and proportions.
+
+6. Responsiveness
+- The implementation must be responsive on all common widths.
+- Desktop, tablet, and mobile layouts must be intentionally designed, not merely scaled down.
+- Mobile menu must be well organized, not cramped, and usable.
+- Sticky header behavior, spacing, card stacking, image scaling, and typography must remain clean on small screens.
+- Avoid overflow, clipping, broken grids, and hidden actions.
+
+7. Content and translations
+- Keep visible code text in English unless explicitly told otherwise.
+- Put Arabic translations in the `.po` translation file, not directly in the XML, unless the project explicitly requires otherwise.
+- Do not mix Arabic UI text into the XML templates if translation files are expected.
+
+8. Local module structure
+- Create or update a valid Odoo module with correct `__manifest__.py`.
+- Add XML files for layout, pages, menus, records, and any needed view inheritance.
+- If backend records or dynamic content models are required, implement them in the proper module structure.
+
+9. When Python is needed
+- Use XML only if the required functionality can truly be achieved with XML alone.
+- If the design requires dynamic detail pages, galleries, backend-managed records, or structured content models, then add Python models/controllers in a separate backend/custom module if requested.
+- Do not force XML-only when the feature clearly requires backend logic.
+
+10. Quality bar
+- No placeholder-style output.
+- No generic Odoo default blocks unless they are intentionally styled to match the design.
+- No mismatched spacing, weak mobile layout, or partially editable sections.
+- No unnecessary hardcoded text if the content is supposed to come from backend forms.
+- Do not leave obvious gaps, duplicate sections, or unfinished states.
+
+11. Deliverable expectation
+- Output a complete Odoo-ready implementation.
+- Keep the existing visual identity of the target project.
+- Ensure the final result is editable, responsive, organized, and close to the Figma design.
+
+12. Important implementation preferences
+- Prefer Odoo-standard editable card/grid structures over fully custom rigid wrappers.
+- Keep menus and repeated website items manageable from Odoo where possible.
+- Use local images in the module.
+- Make sure hero images, card images, icons, and logos can be changed from Odoo if they are meant to be editable.
+- Preserve website performance and avoid unnecessary complexity.
+
+If something cannot be made editable in the exact same way, choose the closest Odoo-standard implementation that preserves the design while maximizing editor control.
