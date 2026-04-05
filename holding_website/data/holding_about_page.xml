@@ -1,0 +1,1452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="holding_about_template" name="Holding About Page">
+            <t t-call="website.layout">
+                <style>
+                    .holding-about-page {
+                        position: relative;
+                        overflow: hidden;
+                        background: #ffffff;
+                    }
+
+                    .holding-about-shell {
+                        width: min(100%, 1280px);
+                        margin: 0 auto;
+                        padding-left: 24px;
+                        padding-right: 24px;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    .holding-about-hero-section {
+                        position: relative;
+                        overflow: hidden;
+                        padding-top: 56px;
+                        padding-bottom: 56px;
+                    }
+
+                    .holding-about-blob {
+                        position: absolute;
+                        top: -300px;
+                        left: 50%;
+                        width: 1600px;
+                        height: 760px;
+                        transform: translateX(-50%);
+                        pointer-events: none;
+                        z-index: 0;
+                    }
+
+                    .holding-about-blob svg {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .holding-about-intro,
+                    .holding-about-history-intro {
+                        text-align: center;
+                    }
+
+                    .holding-about-title {
+                        margin: 0;
+                        color: #0a090f;
+                        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+                        font-size: clamp(48px, 8vw, 96px);
+                        font-weight: 500;
+                        line-height: 1.1;
+                        letter-spacing: -2px;
+                    }
+
+                    .holding-about-copy,
+                    .holding-about-history-copy {
+                        margin: 24px auto 0;
+                        max-width: 960px;
+                        color: #000000;
+                        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 28px;
+                    }
+
+                    .holding-about-card-grid {
+                        margin-top: 40px;
+                        --bs-gutter-x: 16px;
+                        --bs-gutter-y: 16px;
+                    }
+
+                    .holding-about-card {
+                        height: 100%;
+                        overflow: hidden;
+                        border: 0;
+                        border-radius: 20px;
+                        background: #ffffff;
+                        box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.08);
+                    }
+
+                    .holding-about-card.is-glass {
+                        background: rgba(255, 255, 255, 0.8);
+                    }
+
+                    .holding-about-card-body {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 24px;
+                        min-height: 320px;
+                        padding: 32px;
+                    }
+
+                    .holding-about-card-header {
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                    }
+
+                    .holding-about-icon-badge {
+                        width: 44px;
+                        height: 44px;
+                        flex-shrink: 0;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid #e1261c;
+                        border-radius: 24px;
+                        background: #ffffff;
+                    }
+
+                    .holding-about-card-icon {
+                        width: 24px;
+                        height: 24px;
+                        display: block;
+                        object-fit: contain;
+                    }
+
+                    .holding-about-card-title {
+                        margin: 0;
+                        color: #0a090f;
+                        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+                        font-size: clamp(28px, 3vw, 36px);
+                        font-weight: 500;
+                        line-height: 1.2;
+                    }
+
+                    .holding-about-card-text {
+                        margin: 0;
+                        color: #000000;
+                        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 28px;
+                        flex: 1 1 auto;
+                    }
+
+                    .holding-about-card-mark {
+                        display: block;
+                        align-self: flex-start;
+                        width: 34px;
+                        height: 12px;
+                        margin-top: auto;
+                        border-radius: 2px;
+                        background: linear-gradient(90deg, #0a090f 0 72%, #7c3aed 72% 100%);
+                        color: transparent;
+                        font-size: 0;
+                        line-height: 0;
+                    }
+
+                    .holding-about-history-section {
+                        position: relative;
+                        padding-top: 24px;
+                        padding-bottom: 88px;
+                    }
+
+                    .holding-about-history-title {
+                        margin: 0;
+                        color: #000000;
+                        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+                        font-size: clamp(32px, 5vw, 55px);
+                        font-weight: 500;
+                        line-height: 1.1;
+                    }
+
+                    .holding-about-history-copy {
+                        max-width: 840px;
+                        font-weight: 300;
+                        line-height: 30px;
+                    }
+
+                    .holding-about-timeline-desktop {
+                        position: relative;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        margin-top: 56px;
+                    }
+
+                    .holding-about-timeline-line {
+                        position: absolute;
+                        top: 47px;
+                        left: 10%;
+                        right: 10%;
+                        height: 1px;
+                        background: rgba(76, 29, 149, 0.2);
+                    }
+
+                    .holding-about-timeline-item {
+                        position: relative;
+                        z-index: 1;
+                        flex: 1 1 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 8px;
+                    }
+
+                    .holding-about-year-badge {
+                        width: 94px;
+                        height: 94px;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 9999px;
+                        background: #7826eb;
+                        box-shadow: 0 18px 40px rgba(120, 38, 235, 0.22);
+                    }
+
+                    .holding-about-year-badge span {
+                        color: #ffffff;
+                        font-family: Arial, sans-serif;
+                        font-size: 15px;
+                        font-weight: 700;
+                    }
+
+                    .holding-about-year-label {
+                        margin: 0;
+                        color: #4c1d95;
+                        font-family: Arial, sans-serif;
+                        font-size: 12px;
+                        font-weight: 400;
+                    }
+
+                    .holding-about-timeline-logos {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 8px;
+                        min-height: 78px;
+                    }
+
+                    .holding-about-logo1984 {
+                        width: 92px;
+                        height: 18px;
+                        position: relative;
+                    }
+
+                    .holding-about-logo1984 svg {
+                        position: absolute;
+                        display: block;
+                    }
+
+                    .holding-about-logo1984-primary {
+                        left: 71%;
+                        top: 0;
+                        width: 21px;
+                        height: 13px;
+                    }
+
+                    .holding-about-logo1984-top {
+                        left: 0;
+                        top: 6%;
+                        width: 66px;
+                        height: 5px;
+                    }
+
+                    .holding-about-logo1984-bottom {
+                        left: 0;
+                        top: 43%;
+                        width: 66px;
+                        height: 4px;
+                    }
+
+                    .holding-about-timeline-image {
+                        display: block;
+                        width: auto;
+                        height: auto;
+                        max-width: 120px;
+                        max-height: 72px;
+                        object-fit: contain;
+                    }
+
+                    .holding-about-timeline-stack {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 10px;
+                    }
+
+                    .holding-about-sky-logo {
+                        width: 79px;
+                        height: 41px;
+                        display: block;
+                    }
+
+                    .holding-about-timeline-mobile {
+                        display: none;
+                        margin-top: 40px;
+                    }
+
+                    .holding-about-mobile-item {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 16px;
+                    }
+
+                    .holding-about-mobile-marker {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        flex-shrink: 0;
+                    }
+
+                    .holding-about-mobile-line {
+                        width: 1px;
+                        height: 60px;
+                        margin-top: 8px;
+                        background: rgba(76, 29, 149, 0.2);
+                    }
+
+                    .holding-about-mobile-copy {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                        padding-top: 8px;
+                    }
+
+                    .holding-about-timeline-standard {
+                        position: relative;
+                        display: grid;
+                        grid-template-columns: repeat(4, minmax(0, 1fr));
+                        gap: 24px;
+                        align-items: start;
+                        margin-top: 56px;
+                    }
+
+                    .holding-about-timeline-standard-line {
+                        position: absolute;
+                        top: 47px;
+                        left: 10%;
+                        right: 10%;
+                        height: 1px;
+                        background: rgba(76, 29, 149, 0.2);
+                    }
+
+                    .holding-about-timeline-standard-item {
+                        position: relative;
+                        z-index: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 12px;
+                        text-align: center;
+                    }
+
+                    .holding-about-timeline-company {
+                        margin: 0;
+                        color: #000000;
+                        font-family: Arial, sans-serif;
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 1.45;
+                        max-width: 200px;
+                    }
+
+                    .holding-about-timeline-desktop,
+                    .holding-about-timeline-mobile {
+                        display: none;
+                    }
+
+                    .holding-about-cta {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 48px;
+                    }
+
+                    .holding-about-page[dir="rtl"] .holding-about-copy,
+                    .holding-about-page[dir="rtl"] .holding-about-history-copy {
+                        text-align: right;
+                    }
+
+                    .holding-about-page[dir="rtl"] .holding-about-card-header {
+                        flex-direction: row-reverse;
+                    }
+
+                    .holding-about-page[dir="rtl"] .holding-about-card-title,
+                    .holding-about-page[dir="rtl"] .holding-about-card-text {
+                        text-align: right;
+                    }
+
+                    .holding-about-page[dir="rtl"] .holding-about-mobile-item {
+                        flex-direction: row-reverse;
+                    }
+
+                    .holding-about-page[dir="rtl"] .holding-about-mobile-copy {
+                        align-items: flex-end;
+                        text-align: right;
+                    }
+
+                    @media (max-width: 767px) {
+                        .holding-about-shell {
+                            padding-left: 16px;
+                            padding-right: 16px;
+                        }
+
+                        .holding-about-hero-section {
+                            padding-top: 40px;
+                            padding-bottom: 40px;
+                        }
+
+                        .holding-about-blob {
+                            top: -260px;
+                            width: 1100px;
+                            height: 560px;
+                        }
+
+                        .holding-about-card-body {
+                            min-height: auto;
+                            padding: 24px;
+                        }
+
+                        .holding-about-timeline-standard {
+                            grid-template-columns: 1fr;
+                            gap: 20px;
+                            margin-top: 32px;
+                        }
+
+                        .holding-about-timeline-standard-line {
+                            display: none;
+                        }
+
+                        .holding-about-timeline-standard-item {
+                            padding: 24px;
+                            border: 1px solid rgba(76, 29, 149, 0.12);
+                            border-radius: 32px;
+                            background: #ffffff;
+                            box-shadow: 0 18px 40px rgba(120, 38, 235, 0.08);
+                        }
+
+                        .holding-about-history-section {
+                            padding-bottom: 64px;
+                        }
+                    }
+                </style>
+
+                <div id="wrap" class="oe_structure oe_empty holding-page holding-about-page" t-attf-dir="#{request.env.lang and request.env.lang.startswith('ar') and 'rtl' or 'ltr'}">
+                    <section class="holding-about-hero-section">
+                        <div class="holding-about-blob" aria-hidden="true">
+                            <svg fill="none" viewBox="0 0 2892 1216" preserveAspectRatio="xMidYMid slice">
+                                <g filter="url(#holding-about-bgblur)">
+                                    <path d="M885.527 679.511H2069.18C2064.37 681.069 2053.15 681.888 2044.54 682.88C1953.15 693.406 1861.26 703.879 1770.01 714.421C1759.97 715.58 1749.76 716.005 1735.79 716C1563.41 715.958 1391.07 715.963 1218.7 715.984C1207.61 715.984 1198.49 715.822 1189.93 714.835C1089.97 703.312 989.605 691.831 889.421 680.34C888.413 680.225 887.955 680.041 885.482 679.511H885.527Z" fill="#37116b"/>
+                                    <path d="M2074.96 679.175V543.756C2083.29 543.441 2086 544.26 2089.84 544.701C2185.45 555.625 2280.73 566.581 2376.56 577.485C2387.79 578.76 2392.05 580.082 2392 581.877C2391.54 601.459 2391.59 621.042 2391.91 640.624C2391.91 642.183 2389.57 643.426 2379.22 644.602C2283.98 655.442 2189.25 666.346 2094.29 677.223C2089.48 677.774 2084.07 678.257 2074.96 679.17V679.175Z" fill="#37116b"/>
+                                    <path d="M1676.05 500C1687.73 500 1695.89 500.42 1704.04 501.359C1801.43 512.573 1899 523.765 1996.9 534.92C2006.24 535.985 2010.32 537.066 2010.32 538.593C2010 582.559 2009.95 626.525 2010.5 670.491C2010.5 672.658 2004.23 673.11 1986.87 673.094C1896.81 673.01 1806.79 672.989 1716.73 673.109C1696.85 673.136 1690.57 672.569 1690.85 670.208C1691.99 660.333 1691.35 650.452 1691.35 640.577V637.775C1689.34 637.676 1687.28 637.575 1685.26 637.476L1685.12 637.466C1634.18 643.348 1583.33 649.24 1532.3 655.111C1484.43 660.626 1436.24 666.105 1388.56 671.641C1379.81 672.653 1370.51 673.063 1358.14 673.063C1183.38 673.031 1008.66 673.026 833.901 673.073C821.121 673.073 812.6 672.511 804.079 671.535C706.644 660.327 609.071 649.141 511.178 637.985C502.795 637.03 500 636.049 500 634.742C500.275 614.814 500.275 594.885 500 574.956C500 573.534 503.665 572.506 512.506 571.498C691.298 551.071 869.816 530.612 1048.33 510.164C1074.21 507.199 1100.28 504.25 1125.7 501.228C1133.22 500.33 1141.05 499.995 1151.82 500C1326.58 500.032 1501.29 500.032 1676.05 500ZM879.16 536.615C836.008 536.615 819.562 538.509 819.562 543.426C819.517 572.186 819.517 600.945 819.562 629.705C819.563 634.595 836.329 636.474 879.572 636.474H1630.52C1675.04 636.474 1691.21 634.622 1691.21 629.522V543.504C1691.21 538.504 1675.23 536.615 1632.4 536.615C1381.32 536.605 1130.24 536.605 879.16 536.615Z" fill="#7826ea"/>
+                                </g>
+                                <defs>
+                                    <filter id="holding-about-bgblur" x="0" y="0" width="2892" height="1216" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape"/>
+                                        <feGaussianBlur stdDeviation="250" result="effect1"/>
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <div class="holding-about-shell">
+                            <div class="holding-about-intro">
+                                <h1 class="holding-about-title">About Us</h1>
+                                <p class="holding-about-copy">ABULJADYEL SKY Holding is the parent holding company of Abdullatif H. Abuljadayel &amp; Sons, serving as a strategic platform for managing and developing a diverse portfolio of companies across investment, real estate, industry, and technology. Its subsidiaries include Secure Growth, SKY Details, Abdullatif H. Abuljadayel &amp; Sons Co., ALAJCHEM Factory, and Cloud System. The holding company focuses on sustainable growth, value creation, and providing strategic support to ensure each subsidiary remains a leader and innovator in its sector.</p>
+                            </div>
+
+                            <div class="row d-flex align-items-stretch holding-about-card-grid">
+                                <div class="col-lg-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-about-card card text-bg-white h-100 is-glass">
+                                        <div class="card-body holding-about-card-body">
+                                            <div class="holding-about-card-header">
+                                                <span class="holding-about-icon-badge">
+                                                    <img src="/holding_website/static/src/img/about_icon_who.svg" alt="Who we are icon" class="holding-about-card-icon"/>
+                                                </span>
+                                                <h2 class="holding-about-card-title card-title">Who we are</h2>
+                                            </div>
+                                            <p class="holding-about-card-text card-text">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands, HACH-For Water Quality.</p>
+                                            <div class="holding-about-card-mark">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-about-card card text-bg-white h-100">
+                                        <div class="card-body holding-about-card-body">
+                                            <div class="holding-about-card-header">
+                                                <span class="holding-about-icon-badge">
+                                                    <img src="/holding_website/static/src/img/about_icon_vision.svg" alt="Vision icon" class="holding-about-card-icon"/>
+                                                </span>
+                                                <h2 class="holding-about-card-title card-title">Vision</h2>
+                                            </div>
+                                            <p class="holding-about-card-text card-text">SKY Details is a real estate company specializing in property management and providing comprehensive solutions for investors and clients.</p>
+                                            <div class="holding-about-card-mark">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-about-card card text-bg-white h-100 is-glass">
+                                        <div class="card-body holding-about-card-body">
+                                            <div class="holding-about-card-header">
+                                                <span class="holding-about-icon-badge">
+                                                    <img src="/holding_website/static/src/img/about_icon_message.svg" alt="Message icon" class="holding-about-card-icon"/>
+                                                </span>
+                                                <h2 class="holding-about-card-title card-title">Message</h2>
+                                            </div>
+                                            <p class="holding-about-card-text card-text">Cloud Systems for IT is a Saudi company under Abuljadyel Sky Holding, featuring a team of professional engineers, consultants, and experts in IT, digital transformation, ERP systems, and software development.</p>
+                                            <div class="holding-about-card-mark">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-about-card card text-bg-white h-100">
+                                        <div class="card-body holding-about-card-body">
+                                            <div class="holding-about-card-header">
+                                                <span class="holding-about-icon-badge">
+                                                    <img src="/holding_website/static/src/img/about_icon_values.svg" alt="Values icon" class="holding-about-card-icon"/>
+                                                </span>
+                                                <h2 class="holding-about-card-title card-title">Values</h2>
+                                            </div>
+                                            <p class="holding-about-card-text card-text">Cloud Systems for IT is a Saudi company under Abuljadyel Sky Holding, featuring a team of professional engineers, consultants, and experts in IT, digital transformation, ERP systems, and software development.</p>
+                                            <div class="holding-about-card-mark">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="holding-about-history-section">
+                        <div class="holding-about-shell">
+                            <div class="holding-about-history-intro">
+                                <h2 class="holding-about-history-title">History of Success</h2>
+                                <p class="holding-about-history-copy">ABULJADYEL SKY Holding is the parent holding company of Abdullatif H. Abuljadayel &amp; Sons, serving as a strategic platform for managing and developing a diverse portfolio of companies across investment, real estate, industry, and technology. Its subsidiaries include Secure Growth, SKY Details, Abdullatif H. Abuljadayel &amp; Sons Co., ALAJCHEM Factory, and Cloud System. The holding company focuses on sustainable growth, value creation, and providing strategic support to ensure each subsidiary remains a leader and innovator in its sector.</p>
+                            </div>
+
+                            <div class="holding-about-timeline-standard">
+                                <div class="holding-about-timeline-standard-line"></div>
+
+                                <div class="holding-about-timeline-standard-item">
+                                    <span class="holding-about-year-badge"><span>1984</span></span>
+                                    <p class="holding-about-year-label">Founded</p>
+                                    <p class="holding-about-timeline-company">Abdullatif H. Abuljadayel &amp; Sons Co.</p>
+                                </div>
+
+                                <div class="holding-about-timeline-standard-item">
+                                    <span class="holding-about-year-badge"><span>2023</span></span>
+                                    <p class="holding-about-year-label">Founded</p>
+                                    <p class="holding-about-timeline-company">Cloud Systems Tech</p>
+                                    <img class="holding-about-timeline-image img img-fluid" src="/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png" alt="Cloud Systems Tech"/>
+                                </div>
+
+                                <div class="holding-about-timeline-standard-item">
+                                    <span class="holding-about-year-badge"><span>2023</span></span>
+                                    <p class="holding-about-year-label">Founded</p>
+                                    <p class="holding-about-timeline-company">ALAJCHEM Factory</p>
+                                    <img class="holding-about-timeline-image img img-fluid" src="/holding_website/static/src/img/b502299d4187931475eea934395209906bfd8008.png" alt="ALAJCHEM Factory"/>
+                                </div>
+
+                                <div class="holding-about-timeline-standard-item">
+                                    <span class="holding-about-year-badge"><span>2025</span></span>
+                                    <p class="holding-about-year-label">Founded</p>
+                                    <p class="holding-about-timeline-company">Secure Growth</p>
+                                    <div class="holding-about-timeline-stack">
+                                        <img class="holding-about-timeline-image img img-fluid" src="/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png" alt="Abuljadyel Sky Holding"/>
+                                        <img class="holding-about-timeline-image img img-fluid" src="/holding_website/static/src/img/d32546a2c1f63b13c15d94e35cc97f0321afd97c.png" alt="Secure Growth"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="holding-about-timeline-desktop">
+                                <div class="holding-about-timeline-line"></div>
+
+                                <div class="holding-about-timeline-item">
+                                    <span class="holding-about-year-badge"><span>1984</span></span>
+                                    <p class="holding-about-year-label">Founded</p>
+                                    <div class="holding-about-timeline-logos">
+                                        <div class="holding-about-logo1984">
+                                            <svg class="holding-about-logo1984-primary" fill="none" viewBox="0 0 21.3163 12.7126">
+                                                <path d="M5.23419 12.6809C4.80723 12.6809 2.95708 12.6016 1.56551 11.2543C0.537645 10.2556 0 8.82904 0 7.00617H1.13856C1.13856 8.51202 1.54969 9.66915 2.35617 10.4459C3.55798 11.603 5.25 11.5554 5.26582 11.5554C8.80799 11.3969 9.2982 8.73394 9.34564 8.41691V1.14128H1.99247V0H10.4842V8.49617C10.4842 8.52787 9.99398 12.4589 5.31325 12.665C5.31325 12.665 5.28163 12.665 5.23419 12.665V12.6809Z" fill="#003764"/>
+                                                <path d="M5.29744 11.2384C2.73569 11.2384 1.73945 9.24117 1.58132 8.17915C1.53388 7.90968 1.21761 5.56372 2.2771 4.34319C2.67243 3.86766 3.24171 3.62989 3.89005 3.62989H7.95407V2.75808H2.00828V1.61681H9.09262V7.18053C9.10844 7.43415 9.1875 9.00341 8.17546 10.1447C7.5113 10.8738 6.54668 11.2543 5.31325 11.2543L5.29744 11.2384ZM3.87424 4.77117C3.54217 4.77117 3.30497 4.86628 3.11521 5.08819C2.51431 5.78564 2.59337 7.43415 2.68825 8.02064C2.71988 8.2267 3.09939 10.113 5.28162 10.113C7.46385 10.113 6.86295 9.85936 7.28991 9.38383C8.03313 8.55957 7.92244 7.27564 7.92244 7.27564V7.21223V4.77117H3.85843H3.87424Z" fill="#79242f"/>
+                                                <path d="M16.0979 12.6809C16.0505 12.6809 16.0188 12.6809 16.0188 12.6809C11.3381 12.4748 10.8637 8.54372 10.8479 8.51202V8.44862V1.5217H18.6755V1.17298H10.8005V0.0317024H19.7982V2.66298H11.9706V8.43277C12.0181 8.73394 12.5083 11.4128 16.0505 11.5713C16.0505 11.5713 17.7741 11.6188 18.9759 10.4617C19.7824 9.685 20.1777 8.52787 20.1777 7.03787H21.3163C21.3163 8.86075 20.7944 10.2873 19.7508 11.286C18.3592 12.6333 16.5091 12.7126 16.0821 12.7126L16.0979 12.6809Z" fill="#003764"/>
+                                                <path d="M18.6438 7.05372V7.21224C18.6438 8.1633 18.3908 8.8766 17.9006 9.36798C17.1574 10.0813 16.0821 10.0654 16.0821 10.0654C13.7892 9.97032 13.5362 8.41691 13.5362 8.33766C13.4571 7.86213 13.3938 6.40383 13.9315 5.73809H17.5211V4.59681H13.4097V4.21638H17.8848V3.07511H12.2711V5.72223H12.6348C12.1762 6.87936 12.3818 8.29011 12.3976 8.48032C12.5083 9.36798 13.3938 11.0799 16.0188 11.1909C16.0188 11.1909 16.0505 11.1909 16.0821 11.1909C16.3826 11.1909 17.6792 11.1274 18.6597 10.1922C19.3871 9.49479 19.7666 8.48032 19.7666 7.21224V7.05372H18.628H18.6438Z" fill="#79242f"/>
+                                                <path d="M16.0663 8.17915C16.3807 8.17915 16.6356 7.92367 16.6356 7.60851C16.6356 7.29336 16.3807 7.03787 16.0663 7.03787C15.7519 7.03787 15.497 7.29336 15.497 7.60851C15.497 7.92367 15.7519 8.17915 16.0663 8.17915Z" fill="#003764"/>
+                                            </svg>
+                                            <svg class="holding-about-logo1984-top" fill="none" viewBox="0 0 65.9145 5.24348">
+                                                <path d="M1.61535 3.27585V4.17936H0.96701C0.808877 4.17936 0.682371 4.16351 0.571678 4.11596C0.460985 4.0684 0.381918 4.02085 0.318665 3.94159C0.255412 3.87819 0.207973 3.78308 0.176347 3.70383C0.14472 3.62457 0.128906 3.52947 0.128906 3.43436C0.128906 3.33925 0.144719 3.19659 0.192159 3.08564C0.223785 2.97468 0.287038 2.87957 0.350291 2.80032C0.413544 2.72106 0.508425 2.65766 0.603304 2.6101C0.698184 2.56255 0.808877 2.5467 0.91957 2.5467C1.03026 2.5467 1.12514 2.56255 1.20421 2.59425C1.28328 2.62595 1.36234 2.68936 1.42559 2.75276C1.48885 2.81617 1.53629 2.89542 1.56791 2.99053C1.59954 3.08563 1.61535 3.18074 1.61535 3.2917V3.27585ZM0.951196 3.87819H1.34653V3.41851C1.34653 3.22829 1.29909 3.08563 1.22002 2.99053C1.14095 2.89542 1.03026 2.83202 0.872129 2.83202C0.713997 2.83202 0.745625 2.83202 0.698185 2.86372C0.634932 2.89542 0.587492 2.92712 0.540052 2.97468C0.492613 3.02223 0.460984 3.06978 0.429358 3.13319C0.397731 3.19659 0.38192 3.27585 0.38192 3.3551C0.38192 3.43436 0.381918 3.52947 0.429358 3.59287C0.460984 3.65627 0.508424 3.71968 0.555864 3.75138C0.603304 3.79893 0.666558 3.83063 0.729811 3.84649C0.793064 3.86234 0.872131 3.87819 0.935384 3.87819H0.951196Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M3.46552 4.17936H2.05814V3.87819H3.2125V3.3551C3.2125 3.24415 3.2125 3.14904 3.16506 3.08564C3.13344 3.02223 3.10181 2.95883 3.03856 2.92713C2.99112 2.89542 2.91205 2.86372 2.8488 2.84787C2.76973 2.84787 2.69067 2.83202 2.59579 2.83202H2.29533V2.5467H2.69067C2.78555 2.5467 2.88043 2.5467 2.97531 2.5784C3.07019 2.59425 3.14925 2.6418 3.22832 2.70521C3.30739 2.76861 3.35482 2.84787 3.40226 2.94298C3.4497 3.03808 3.46552 3.18074 3.46552 3.33925V4.21106V4.17936Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M6.01145 1.34202V4.17936H3.87665V3.87819H4.74638V2.13457H4.9994V3.87819H5.75843V1.34202H6.02726H6.01145Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M7.8458 4.17936H7.45047C7.29233 4.17936 7.16583 4.16351 7.05514 4.11596C6.94444 4.0684 6.86538 4.02085 6.80212 3.94159C6.73887 3.87819 6.69143 3.78308 6.6598 3.70383C6.62818 3.62457 6.61236 3.52947 6.61236 3.43436C6.61236 3.33925 6.62818 3.19659 6.67562 3.08564C6.70724 2.97468 6.7705 2.87957 6.83375 2.80032C6.897 2.72106 6.99188 2.65766 7.08676 2.6101C7.18164 2.56255 7.29233 2.5467 7.40303 2.5467C7.51372 2.5467 7.6086 2.56255 7.68767 2.59425C7.76673 2.62595 7.8458 2.68936 7.90905 2.75276C7.9723 2.81617 8.01975 2.89542 8.05137 2.99053C8.083 3.08564 8.09881 3.18074 8.09881 3.2917V4.22691C8.09881 4.38542 8.06718 4.52808 8.01974 4.63904C7.9723 4.75 7.90905 4.8451 7.81417 4.90851C7.71929 4.97191 7.62441 5.03532 7.49791 5.06702C7.3714 5.09872 7.2449 5.11457 7.10258 5.11457C6.96026 5.11457 7.0077 5.11457 6.94444 5.11457C6.897 5.11457 6.83375 5.11457 6.7705 5.11457L6.80212 4.82925C6.86538 4.82925 6.91282 4.82925 6.96026 4.82925C7.0077 4.82925 7.05513 4.82925 7.11839 4.82925C7.21327 4.82925 7.30815 4.82925 7.38721 4.79755C7.46628 4.7817 7.54535 4.75 7.6086 4.70244C7.67185 4.65489 7.71929 4.59149 7.76673 4.51223C7.79836 4.43298 7.82998 4.32202 7.82998 4.19521L7.8458 4.17936ZM7.43465 3.87819H7.82998V3.41851C7.82998 3.22829 7.78254 3.08564 7.70348 2.99053C7.62441 2.89542 7.51372 2.83202 7.35559 2.83202C7.19745 2.83202 7.22908 2.83202 7.16583 2.86372C7.10258 2.89542 7.05514 2.92712 7.0077 2.97468C6.96026 3.02223 6.92863 3.06978 6.897 3.13319C6.86538 3.19659 6.84956 3.27585 6.84956 3.3551C6.84956 3.43436 6.86538 3.52947 6.897 3.59287C6.92863 3.65627 6.97607 3.71968 7.02351 3.75138C7.07095 3.79893 7.1342 3.83063 7.19745 3.84649C7.26071 3.86234 7.33978 3.87819 7.41884 3.87819H7.43465Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M9.06342 0.3117V0.438507C9.03179 0.438507 9.01598 0.438507 9.00017 0.438507H8.96854C8.90528 0.438507 8.84203 0.438507 8.79459 0.48606C8.74715 0.517763 8.73134 0.565317 8.73134 0.628722C8.73134 0.692126 8.76296 0.739678 8.8104 0.803082C8.85784 0.850635 8.95273 0.882337 9.07923 0.882337V1.00915H8.52577V0.882337H8.76297C8.71553 0.834784 8.66808 0.787232 8.65227 0.739678C8.63646 0.692125 8.62065 0.644572 8.62065 0.612869C8.62065 0.533614 8.65227 0.454358 8.69971 0.406805C8.76296 0.343401 8.84203 0.32755 8.93691 0.32755H8.98435C9.00016 0.32755 9.03179 0.32755 9.0476 0.32755L9.06342 0.3117ZM8.69971 4.17936H8.95272V1.34202H8.69971V4.17936Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M10.7555 4.17936H10.3601C10.202 4.17936 10.0755 4.16351 9.96479 4.11596C9.8541 4.0684 9.77503 4.02085 9.71178 3.94159C9.64852 3.87819 9.60108 3.78308 9.56946 3.70383C9.53783 3.62457 9.52202 3.52947 9.52202 3.43436C9.52202 3.33925 9.53783 3.19659 9.58527 3.08564C9.6169 2.97468 9.68015 2.87957 9.7434 2.80032C9.80666 2.72106 9.90153 2.65766 9.99641 2.6101C10.0913 2.56255 10.202 2.5467 10.3127 2.5467C10.4234 2.5467 10.5183 2.56255 10.5973 2.59425C10.6764 2.62595 10.7555 2.68936 10.8187 2.75276C10.882 2.81617 10.9294 2.89542 10.961 2.99053C10.9927 3.08564 11.0085 3.18074 11.0085 3.2917V4.22691C11.0085 4.38542 10.9768 4.52808 10.9294 4.63904C10.882 4.75 10.8187 4.8451 10.7238 4.90851C10.6289 4.97191 10.5341 5.03532 10.4076 5.06702C10.2811 5.09872 10.1545 5.11457 10.0122 5.11457C9.86991 5.11457 9.91735 5.11457 9.8541 5.11457C9.80666 5.11457 9.7434 5.11457 9.68015 5.11457L9.71178 4.82925C9.77503 4.82925 9.82247 4.82925 9.86991 4.82925C9.91735 4.82925 9.96479 4.82925 10.028 4.82925C10.1229 4.82925 10.2178 4.82925 10.2969 4.79755C10.3759 4.7817 10.455 4.75 10.5183 4.70244C10.5815 4.65489 10.6289 4.59149 10.6764 4.51223C10.708 4.43298 10.7396 4.32202 10.7396 4.19521L10.7555 4.17936ZM10.3601 3.87819H10.7555V3.41851C10.7555 3.22829 10.708 3.08564 10.6289 2.99053C10.5499 2.89542 10.4392 2.83202 10.2811 2.83202C10.1229 2.83202 10.1545 2.83202 10.0913 2.86372C10.028 2.89542 9.9806 2.92712 9.93316 2.97468C9.88572 3.02223 9.8541 3.06978 9.82247 3.13319C9.79084 3.19659 9.77503 3.27585 9.77503 3.3551C9.77503 3.43436 9.79084 3.52947 9.82247 3.59287C9.8541 3.65627 9.90154 3.71968 9.94898 3.75138C9.99642 3.79893 10.0597 3.83063 10.1229 3.84649C10.1862 3.86234 10.2652 3.87819 10.3443 3.87819H10.3601Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M14.8036 3.87819H14.8827C14.9302 3.87819 14.946 3.89404 14.946 3.94159V4.1001C14.946 4.16351 14.9302 4.17936 14.8827 4.17936H14.8195C14.772 4.17936 14.7246 4.17936 14.693 4.17936C14.6455 4.17936 14.6139 4.17936 14.5664 4.14766C14.5348 4.14766 14.4874 4.11595 14.4558 4.08425C14.4241 4.05255 14.3925 4.005 14.3609 3.95744H14.3134C14.3134 4.13181 14.2818 4.29032 14.2344 4.43298C14.1869 4.57564 14.1079 4.68659 14.013 4.7817C13.9181 4.87681 13.8074 4.95606 13.6651 5.00361C13.5386 5.05117 13.3805 5.08287 13.2223 5.08287C13.0642 5.08287 12.8428 5.05117 12.7005 4.98776C12.5582 4.92436 12.4475 4.8451 12.3684 4.75C12.2893 4.65489 12.2261 4.54393 12.1945 4.43298C12.1628 4.32202 12.147 4.19521 12.147 4.08425C12.147 3.97329 12.147 3.84649 12.1945 3.73553C12.2261 3.62457 12.2735 3.51361 12.3368 3.41851C12.3684 3.41851 12.3842 3.43436 12.4 3.45021C12.4 3.45021 12.4317 3.46606 12.4475 3.48191C12.4633 3.48191 12.4949 3.51361 12.5107 3.51361C12.5265 3.51361 12.5423 3.52946 12.574 3.54532C12.5265 3.62457 12.4791 3.71968 12.4633 3.81478C12.4475 3.90989 12.4317 4.005 12.4317 4.08425C12.4317 4.16351 12.4317 4.22691 12.4633 4.30617C12.4949 4.38542 12.5265 4.46468 12.5898 4.52808C12.653 4.59149 12.7321 4.65489 12.8428 4.70244C12.9535 4.75 13.08 4.76585 13.2539 4.76585C13.4279 4.76585 13.4595 4.76585 13.5544 4.71829C13.6493 4.68659 13.7442 4.63904 13.8232 4.57564C13.9023 4.51223 13.9655 4.43298 14.013 4.33787C14.0604 4.24276 14.0762 4.13181 14.0762 3.98915V1.32617H14.3292V3.37095C14.3292 3.54532 14.3767 3.67212 14.4558 3.73553C14.5348 3.79893 14.6613 3.84649 14.8195 3.84649L14.8036 3.87819Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M15.7208 4.17936H14.8353C14.7878 4.17936 14.772 4.16351 14.772 4.11595V3.95744C14.772 3.89404 14.7878 3.86234 14.8353 3.86234H15.452V2.67351H15.7208V4.16351V4.17936ZM15.9106 1.24691L15.8789 1.42127C15.8631 1.42127 15.8473 1.42127 15.8157 1.42127C15.7841 1.42127 15.7682 1.42127 15.7524 1.42127C15.6576 1.42127 15.5943 1.43712 15.531 1.46883C15.4678 1.50053 15.4362 1.56393 15.4362 1.64319C15.4362 1.72244 15.4362 1.72244 15.4678 1.75414C15.4836 1.78585 15.5152 1.8334 15.5469 1.84925C15.5785 1.88095 15.6259 1.89681 15.6892 1.92851C15.7366 1.94436 15.8157 1.96021 15.8789 1.96021H15.9422V2.15042H15.1673V1.96021H15.4678C15.4045 1.8968 15.3571 1.84925 15.3413 1.78585C15.3255 1.72244 15.3097 1.65904 15.3097 1.61149C15.3097 1.51638 15.3413 1.42127 15.4204 1.34202C15.4994 1.26276 15.5943 1.23106 15.7366 1.23106C15.8789 1.23106 15.8473 1.23106 15.8948 1.23106L15.9106 1.24691Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M16.3691 1.34202H16.6222V4.17936H16.3691V1.34202Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M18.9625 3.87819H19.0574C19.1048 3.87819 19.1206 3.89404 19.1206 3.94159V4.1001C19.1206 4.16351 19.1048 4.17936 19.0574 4.17936H18.9625C18.9151 4.17936 18.8676 4.17936 18.8202 4.17936C18.7728 4.17936 18.7253 4.14766 18.6937 4.1318C18.6462 4.11595 18.6146 4.0684 18.583 4.0367C18.5514 3.98915 18.5356 3.94159 18.5197 3.86234H18.4723C18.4723 3.92574 18.4249 3.97329 18.3932 4.005C18.3616 4.05255 18.33 4.08425 18.2825 4.1001C18.2351 4.11595 18.1877 4.14765 18.1402 4.16351C18.0928 4.16351 18.0453 4.17936 17.9979 4.17936H17.1124V3.87819H17.9663C18.077 3.87819 18.1402 3.84649 18.1877 3.79893C18.2193 3.75138 18.2509 3.67212 18.2509 3.57702C18.2509 3.48191 18.2509 3.33925 18.2509 3.24415C18.2509 3.14904 18.2193 3.06978 18.1719 3.00638C18.1402 2.94298 18.077 2.89542 17.9979 2.86372C17.9188 2.83202 17.8081 2.81617 17.6658 2.81617H17.3812V2.53085H17.7765C17.9188 2.53085 18.0453 2.5467 18.1402 2.59425C18.2351 2.6418 18.3142 2.68936 18.3774 2.76861C18.4407 2.84787 18.4723 2.92712 18.5039 3.02223C18.5356 3.11734 18.5356 3.22829 18.5356 3.3551C18.5356 3.52946 18.5672 3.67212 18.6463 3.75138C18.7253 3.83063 18.8518 3.87819 19.0258 3.87819H18.9625Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                                <path d="M20.0378 4.17936H18.9942C18.9467 4.17936 18.9309 4.16351 18.9309 4.11596V3.95744C18.9309 3.89404 18.9467 3.86234 18.9942 3.86234H20.3383C20.3067 3.81478 20.2592 3.73553 20.2434 3.65627C20.2276 3.57702 20.196 3.45021 20.1644 3.2917C20.1485 3.11734 20.1011 2.99053 20.022 2.92713C19.943 2.86372 19.8481 2.81617 19.7058 2.81617C19.5634 2.81617 19.5951 2.81617 19.516 2.83202C19.4369 2.83202 19.3737 2.86372 19.3104 2.89542L19.2314 2.6101C19.2946 2.59425 19.3895 2.56255 19.4844 2.5467C19.5793 2.53085 19.69 2.515 19.7848 2.515C19.8797 2.515 19.9904 2.53085 20.0695 2.5784C20.1485 2.62595 20.2118 2.67351 20.2592 2.73691C20.3067 2.80031 20.3383 2.87957 20.3699 2.95883C20.3857 3.03808 20.4016 3.11734 20.4174 3.19659C20.4174 3.2917 20.4332 3.37095 20.449 3.45021C20.4648 3.52946 20.4964 3.59287 20.5281 3.65627C20.5597 3.71968 20.6071 3.76723 20.6546 3.79893C20.702 3.83064 20.7811 3.84649 20.8601 3.84649H20.9076C20.955 3.84649 20.9708 3.86234 20.9708 3.90989V4.0684C20.9708 4.13181 20.955 4.14766 20.9076 4.14766H20.8285C20.7178 4.14766 20.6229 4.1318 20.5439 4.08425C20.4648 4.0367 20.3857 3.9733 20.3067 3.87819C20.2434 3.98915 20.1802 4.0684 20.1327 4.1001C20.0853 4.13181 20.0378 4.14766 19.9904 4.14766L20.0378 4.17936ZM19.6741 4.82925C19.6741 4.7817 19.6741 4.73415 19.7216 4.70244C19.7532 4.67074 19.7848 4.65489 19.8323 4.65489C19.8797 4.65489 19.9113 4.67074 19.943 4.70244C19.9746 4.73415 19.9904 4.7817 19.9904 4.82925C19.9904 4.87681 19.9904 4.92436 19.943 4.95606C19.9113 4.98776 19.8797 5.00361 19.8323 5.00361C19.7848 5.00361 19.7532 4.98776 19.7216 4.95606C19.69 4.92436 19.6741 4.87681 19.6741 4.82925Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                            </svg>
+                                            <svg class="holding-about-logo1984-bottom" fill="none" viewBox="0 0 66.3287 4.10406">
+                                                <path d="M2.54617 3.12992H2.27734L1.96107 2.24226H0.822518L0.506253 3.12992H0.237428L1.29692 0.245028H1.50249L2.56198 3.12992H2.54617ZM1.88201 2.02035L1.3918 0.673009L0.901584 2.02035H1.86619H1.88201Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M4.96559 2.0045C4.96559 2.16301 4.93396 2.30567 4.88652 2.43248C4.83908 2.57514 4.76002 2.68609 4.66514 2.79705C4.57026 2.90801 4.45956 2.98726 4.33306 3.03482C4.20655 3.09822 4.06423 3.12993 3.92192 3.12993H2.86243V0.22918H3.09963V1.3229C3.14707 1.2595 3.19451 1.1961 3.25776 1.14854C3.32101 1.10099 3.38426 1.05343 3.46333 1.00588C3.5424 0.958328 3.60565 0.942478 3.68472 0.910776C3.76378 0.879074 3.84285 0.879072 3.92192 0.879072C4.06423 0.879072 4.20655 0.910775 4.33306 0.974179C4.45956 1.03758 4.57026 1.11684 4.66514 1.21195C4.76002 1.3229 4.83908 1.43386 4.88652 1.57652C4.94978 1.71918 4.96559 1.86184 4.96559 2.0045ZM4.72839 2.0045C4.72839 1.87769 4.71258 1.76673 4.66514 1.65578C4.6177 1.54482 4.57026 1.44971 4.49119 1.37046C4.41213 1.2912 4.33306 1.2278 4.23818 1.18024C4.1433 1.13269 4.03261 1.11684 3.92192 1.11684C3.81122 1.11684 3.70053 1.14854 3.60565 1.19609C3.51077 1.24365 3.41589 1.30705 3.35264 1.40216C3.27357 1.48141 3.22613 1.57652 3.17869 1.68748C3.13125 1.79843 3.11544 1.90939 3.11544 2.02035V2.90801C3.22613 2.90801 3.35264 2.90801 3.44752 2.90801H3.92192C4.03261 2.90801 4.1433 2.89216 4.23818 2.84461C4.33306 2.79705 4.42794 2.73365 4.49119 2.65439C4.57026 2.57514 4.6177 2.48003 4.66514 2.36907C4.71258 2.25812 4.72839 2.14716 4.72839 2.02035V2.0045Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M7.40083 3.12992H7.16364V2.73365C7.08457 2.86046 6.97388 2.97141 6.84737 3.05067C6.70505 3.12992 6.56273 3.17748 6.38878 3.17748C6.21484 3.17748 6.11996 3.14577 5.99345 3.09822C5.86695 3.05067 5.74044 2.97141 5.64556 2.86045C5.55068 2.76535 5.4558 2.63854 5.40836 2.51173C5.36092 2.38492 5.31348 2.24226 5.31348 2.08375C5.31348 1.92524 5.34511 1.76673 5.40836 1.63992C5.47162 1.51311 5.55068 1.37045 5.64556 1.27535C5.74044 1.16439 5.86695 1.08514 5.99345 1.03758C6.11996 0.974178 6.26228 0.942477 6.4046 0.942477H7.17945V0.245029H7.41665V3.14577L7.40083 3.12992ZM7.16364 2.08375V1.16439H6.38878C6.26228 1.16439 6.15159 1.19609 6.05671 1.24365C5.94601 1.2912 5.86695 1.3546 5.78788 1.44971C5.70882 1.52897 5.64556 1.62407 5.61393 1.73503C5.58231 1.84599 5.55068 1.95694 5.55068 2.08375C5.55068 2.21056 5.5665 2.32152 5.61393 2.41663C5.66137 2.52758 5.70882 2.60684 5.78788 2.68609C5.86695 2.76535 5.94601 2.82875 6.05671 2.87631C6.1674 2.92386 6.27809 2.93971 6.38878 2.93971C6.49948 2.93971 6.61017 2.92386 6.70505 2.87631C6.79993 2.82875 6.879 2.76535 6.94225 2.68609C7.0055 2.60684 7.06875 2.51173 7.10038 2.41663C7.13201 2.30567 7.14782 2.19471 7.14782 2.08375H7.16364Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M9.75702 3.12992H9.51982V2.7812C9.44075 2.90801 9.33006 3.00311 9.20355 3.06652C9.07705 3.12992 8.91891 3.16163 8.76078 3.16163C8.60265 3.16163 8.5394 3.14577 8.4287 3.09822C8.31801 3.05067 8.23895 3.00312 8.15988 2.92386C8.08081 2.84461 8.01756 2.7495 7.97012 2.65439C7.92268 2.55929 7.90687 2.44833 7.90687 2.32152V0.910776H8.14407V2.33737C8.14407 2.41663 8.15988 2.49588 8.19151 2.57514C8.22313 2.65439 8.27057 2.70195 8.33382 2.76535C8.39708 2.8129 8.46033 2.86046 8.5394 2.89216C8.61846 2.92386 8.69753 2.93971 8.7766 2.93971C8.85566 2.93971 8.95054 2.92386 9.02961 2.89216C9.12449 2.86046 9.20356 2.8129 9.26681 2.7495C9.34587 2.68609 9.39331 2.60684 9.44075 2.52758C9.48819 2.44833 9.50401 2.35322 9.50401 2.25812V0.942477H9.74121V3.14577L9.75702 3.12992Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M10.5477 3.12993H10.2947V0.22918H10.5477V3.12993Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M11.3225 3.12993H11.0695V0.22918H11.3225V3.12993Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M13.8685 3.12992H13.6313V2.73365C13.5522 2.87631 13.4415 2.98727 13.2992 3.05067C13.1727 3.12992 13.0145 3.16163 12.8248 3.16163C12.635 3.16163 12.5402 3.12992 12.4136 3.06652C12.2871 3.00311 12.1764 2.92386 12.0658 2.82875C11.9709 2.73365 11.8918 2.60684 11.8286 2.46418C11.7653 2.32152 11.7337 2.17886 11.7337 2.02035C11.7337 1.86184 11.7653 1.71918 11.8286 1.59237C11.8918 1.44971 11.9709 1.33875 12.0658 1.2278C12.1606 1.13269 12.2871 1.05344 12.4136 0.990031C12.5402 0.926627 12.6825 0.894924 12.8248 0.894924H13.8685V3.09822V3.12992ZM13.6155 2.05205V1.14854H12.8406C12.7299 1.14854 12.6192 1.18024 12.5243 1.2278C12.4295 1.27535 12.3346 1.33875 12.2555 1.41801C12.1764 1.49726 12.1132 1.59237 12.0658 1.70333C12.0183 1.81429 12.0025 1.92524 12.0025 2.05205C12.0025 2.17886 12.0183 2.28982 12.0658 2.40077C12.1132 2.51173 12.1764 2.60684 12.2555 2.68609C12.3346 2.76535 12.4295 2.82875 12.5243 2.87631C12.6192 2.92386 12.7299 2.93971 12.8406 2.93971C12.9513 2.93971 13.062 2.92386 13.1569 2.87631C13.2517 2.82875 13.3308 2.76535 13.3941 2.68609C13.4573 2.60684 13.5206 2.51173 13.5522 2.40077C13.5838 2.28982 13.6155 2.17886 13.6155 2.0679V2.05205Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M15.3549 3.12993H15.0545C14.9754 3.12993 14.8963 3.12992 14.8331 3.08237C14.7698 3.05067 14.7066 3.00312 14.6591 2.95556C14.6117 2.90801 14.5801 2.84461 14.5484 2.76535C14.5168 2.68609 14.5168 2.62269 14.5168 2.54343V1.13269H14.2322V0.926625H14.5168V0.340137H14.754V0.926625H15.3549V1.13269H14.754V2.51173C14.754 2.55929 14.754 2.60684 14.7698 2.65439C14.7698 2.70195 14.8015 2.7495 14.8331 2.7812C14.8647 2.8129 14.8963 2.8446 14.9438 2.87631C14.9912 2.90801 15.0386 2.90801 15.1019 2.90801H15.3549V3.11407V3.12993Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M16.0349 0.40354C16.0349 0.466944 16.0191 0.514499 15.9716 0.546201C15.9242 0.577903 15.8768 0.609604 15.8293 0.609604C15.7819 0.609604 15.7186 0.593754 15.687 0.546201C15.6396 0.498648 15.6237 0.451093 15.6237 0.40354C15.6237 0.355987 15.6396 0.308434 15.687 0.260881C15.7186 0.213328 15.7819 0.197478 15.8293 0.197478C15.8768 0.197478 15.94 0.213328 15.9716 0.260881C16.0191 0.308434 16.0349 0.355987 16.0349 0.40354ZM15.9558 3.12992H15.7028V0.926625H15.9558V3.12992Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                                <path d="M17.3948 0.435244H17.2051C17.0944 0.435244 17.0153 0.466945 16.952 0.530349C16.8888 0.593753 16.8572 0.688859 16.8572 0.799817V0.926626H17.3948V1.13269H16.8572V3.12993H16.62V1.13269H16.3195V0.926626H16.62V0.768115C16.62 0.68886 16.62 0.625455 16.6516 0.562051C16.6832 0.498646 16.7149 0.435244 16.7623 0.38769C16.8097 0.340137 16.873 0.292584 16.9362 0.276733C16.9995 0.245031 17.0786 0.22918 17.1576 0.22918H17.3948V0.435244Z" fill="#003764" stroke="#003764" stroke-width="0.331474" stroke-miterlimit="10"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="holding-about-timeline-item">
+                                    <span class="holding-about-year-badge"><span>2023</span></span>
+                                    <p class="holding-about-year-label">Founded</p>
+                                    <div class="holding-about-timeline-logos">
+                                        <img class="holding-about-timeline-image" src="/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png" alt="SKY Details" style="width:66px;height:45px;"/>
+                                    </div>
+                                </div>
+
+                                <div class="holding-about-timeline-item">
+                                    <span class="holding-about-year-badge"><span>2023</span></span>
+                                    <p class="holding-about-year-label">Founded</p>
+                                    <div class="holding-about-timeline-logos">
+                                        <img class="holding-about-timeline-image" src="/holding_website/static/src/img/b502299d4187931475eea934395209906bfd8008.png" alt="ALAJCHEM" style="width:111px;height:65px;"/>
+                                    </div>
+                                </div>
+
+                                <div class="holding-about-timeline-item">
+                                    <span class="holding-about-year-badge"><span>2025</span></span>
+                                    <p class="holding-about-year-label">Founded</p>
+                                    <div class="holding-about-timeline-logos">
+                                        <div class="holding-about-timeline-stack">
+                                            <img class="holding-about-timeline-image" src="/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png" alt="ABULJADYEL SKY" style="width:80px;height:24px;"/>
+                                            <img class="holding-about-timeline-image" src="/holding_website/static/src/img/d32546a2c1f63b13c15d94e35cc97f0321afd97c.png" alt="Logo" style="width:79px;height:33px;"/>
+                                            <svg class="holding-about-sky-logo" fill="none" viewBox="0 0 78.9996 40.9993">
+                                                <path d="M9.51293 29.3942C6.53198 29.3942 3.55104 29.3942 0.570092 29.3942C0.392963 29.3942 0.215217 29.389 0.0380884 29.3772C0.0232762 29.3765 -0.00881676 29.2939 0.00229236 29.2768C0.0707986 29.1765 0.143625 29.0774 0.226326 28.9902C1.36316 27.7952 2.50123 26.6016 3.63929 25.4079C4.49655 24.5087 5.35318 23.6102 6.21044 22.711C6.30857 22.608 6.41163 22.509 6.50483 22.4007C6.61839 22.2689 6.74985 22.1981 6.92142 22.2053C7.0788 22.2119 7.23741 22.206 7.39541 22.206C11.1268 22.206 14.8576 22.206 18.5891 22.206C18.8452 22.206 19.1001 22.2086 19.355 22.1489C19.721 22.063 20.0067 21.8597 20.2227 21.5409C20.2801 21.4563 20.3375 21.3678 20.3758 21.2727C20.6541 20.5801 20.6585 19.8894 20.3474 19.2054C20.2696 19.0342 20.1635 18.8827 20.0326 18.7522C19.7796 18.4984 19.4834 18.3469 19.1322 18.3318C18.9742 18.3252 18.8162 18.3265 18.6582 18.3265C17.5331 18.3252 16.4074 18.337 15.2823 18.3193C14.0924 18.3003 12.9222 18.1166 11.7946 17.6982C9.54502 16.8633 7.86693 15.3319 6.84057 13.0324C6.3888 12.0197 6.13514 10.9494 6.04071 9.82915C5.9 8.16261 6.13144 6.56164 6.78564 5.04529C7.93605 2.37723 9.88755 0.771679 12.5945 0.198454C13.2937 0.050229 14.0022 0.00103919 14.7138 0.00103919C18.7606 -0.000928402 22.8081 0.000383325 26.8549 0.00103919C26.9931 0.00103919 27.1314 0.00169505 27.269 0.0128447C27.2968 0.0148123 27.3245 0.0613786 27.3449 0.0928601C27.3517 0.10401 27.34 0.133524 27.3301 0.150576C27.3097 0.185993 27.2881 0.220753 27.2622 0.250923C27.2227 0.29749 27.1789 0.340777 27.1369 0.384719C25.1083 2.53071 23.0796 4.67669 21.051 6.82268C21.0368 6.83776 21.0232 6.85219 21.009 6.86727C20.6615 7.23849 20.6924 7.21947 20.2375 7.22603C19.8228 7.23194 19.4087 7.22997 18.9939 7.228C17.6121 7.2221 16.2302 7.21423 14.8484 7.20898C14.7305 7.20898 14.6114 7.21554 14.4941 7.22734C14.0313 7.27325 13.6721 7.50871 13.4203 7.91994C12.9753 8.64598 12.9784 9.57927 13.4122 10.3007C13.6856 10.7559 14.0911 10.9894 14.5947 11.0281C14.7521 11.0399 14.9107 11.0327 15.0681 11.0333C16.213 11.0346 17.3584 11.0307 18.5033 11.0392C19.5364 11.0471 20.548 11.2216 21.5305 11.5554C23.3938 12.1896 24.9188 13.3269 26.034 15.0505C26.7722 16.191 27.2332 17.4496 27.4301 18.8204C27.693 20.6529 27.4862 22.4198 26.7567 24.1021C25.7625 26.393 24.1078 27.9264 21.8823 28.7692C21.1189 29.0584 20.3283 29.2329 19.5185 29.3162C18.9273 29.3765 18.3373 29.3968 17.7448 29.3962C15.0008 29.3942 12.2569 29.3955 9.51231 29.3955L9.51293 29.3942Z" fill="#2c3e50"/>
+                                                <path d="M57.4547 23.1501C57.4547 21.3248 57.4547 19.4995 57.4547 17.6743C57.4547 17.5064 57.4504 17.3385 57.4547 17.1706C57.4578 17.0368 57.417 16.9233 57.3337 16.8275C57.2127 16.6891 57.0881 16.5547 56.964 16.4196C54.1139 13.3069 51.2638 10.1948 48.4149 7.0814C48.2779 6.93187 48.1489 6.7738 48.0218 6.61377C48.0045 6.59213 48.0088 6.52917 48.0261 6.50162C48.0687 6.4321 48.1206 6.36782 48.1755 6.3088C49.1518 5.26925 50.1294 4.23102 51.1071 3.19344C51.1484 3.1495 51.1928 3.1049 51.2434 3.07473C51.2712 3.05834 51.3274 3.05506 51.349 3.07473C51.4558 3.1659 51.5607 3.26165 51.657 3.36528C52.9505 4.75047 54.2423 6.1363 55.5347 7.5228C56.9936 9.08769 58.4526 10.6526 59.9116 12.2175C60.0505 12.3664 60.1918 12.5126 60.3338 12.6582C60.3875 12.7133 60.4899 12.7107 60.5486 12.6523C60.6634 12.5375 60.7775 12.4214 60.8899 12.304C62.2958 10.8316 63.7017 9.35856 65.1076 7.88549C67.4405 5.43978 69.7734 2.99341 72.1064 0.547691C72.2187 0.429636 72.3353 0.316171 72.444 0.194181C72.5612 0.062352 72.7013 0.00857119 72.8692 0.0177533C72.9482 0.0223443 73.0272 0.0177533 73.1062 0.0177533C74.9423 0.0177533 76.7784 0.0177533 78.6145 0.019065C78.7305 0.019065 78.8477 0.0321823 78.9625 0.0498906C78.9792 0.0525141 79.0082 0.131218 78.9971 0.147614C78.928 0.247306 78.8545 0.345029 78.7724 0.433571C77.622 1.67381 76.4698 2.91142 75.3181 4.15035C71.4478 8.31508 67.5775 12.4805 63.7079 16.6452C63.5832 16.7797 63.4592 16.9148 63.3363 17.0512C63.2505 17.1463 63.2098 17.2591 63.2117 17.3929C63.2147 17.5818 63.2117 17.7707 63.2117 17.9596C63.2117 21.5052 63.2117 25.0508 63.211 28.5964C63.211 28.8056 63.2036 29.0148 63.1962 29.224C63.1931 29.3047 63.1172 29.3801 63.0419 29.3847C62.9629 29.3893 62.8839 29.3939 62.8056 29.3939C61.1472 29.3939 59.4889 29.3939 57.8305 29.3939C57.7515 29.3939 57.6701 29.3978 57.5948 29.3781C57.5429 29.3644 57.4818 29.329 57.4781 29.2529C57.4689 29.0653 57.4559 28.8771 57.4559 28.6895C57.4541 26.8432 57.4547 24.997 57.4547 23.1507V23.1501Z" fill="#2c3e50"/>
+                                                <path d="M28.6129 16.8918C28.6129 14.4376 28.6117 11.9827 28.6142 9.52843C28.6148 8.8706 28.5525 8.99456 29.0289 8.4961C29.7461 7.74514 30.4626 6.99352 31.1829 6.24583C32.1284 5.26335 33.077 4.28415 34.0256 3.30429C34.0959 3.23149 34.1718 3.16459 34.2453 3.09507C34.2798 3.06227 34.3162 3.05965 34.3527 3.09244C34.3656 3.10425 34.3817 3.12196 34.3823 3.1377C34.3891 3.32593 34.3983 3.51416 34.3983 3.7024C34.3996 6.2196 34.3983 8.73746 34.3996 11.2547C34.3996 11.4219 34.4057 11.5898 34.4175 11.7564C34.4187 11.7761 34.4897 11.8154 34.5039 11.8056C34.5847 11.7485 34.6643 11.6862 34.7335 11.6134C35.3229 10.9936 35.9098 10.3712 36.4973 9.74946C39.3641 6.71412 42.2296 3.67682 45.0995 0.644103C45.7691 -0.0635738 45.5278 0.0505465 46.4289 0.047923C48.2255 0.0420202 50.0221 0.0452995 51.8187 0.0472671C51.9952 0.0472671 52.1723 0.0597285 52.3488 0.0689106C52.3661 0.0695665 52.3957 0.0839955 52.3976 0.0951452C52.4025 0.133185 52.4111 0.183031 52.3932 0.210577C52.3488 0.278787 52.2945 0.341094 52.2383 0.399466C51.0959 1.58855 49.9511 2.77435 48.8099 3.96474C47.8379 4.97871 46.8714 5.99857 45.9 7.01319C43.6331 9.38086 41.3656 11.7472 39.0975 14.1136C37.0411 16.2596 34.9846 18.4055 32.9276 20.5502C31.6309 21.9013 30.3324 23.2511 29.0332 24.5995C28.9499 24.6861 28.8543 24.7596 28.7629 24.8369C28.7253 24.8691 28.6327 24.814 28.6308 24.7582C28.6241 24.57 28.6154 24.3818 28.6154 24.1929C28.6142 21.7596 28.6148 19.3257 28.6148 16.8925L28.6129 16.8918Z" fill="#7f8c8d"/>
+                                                <path d="M52.592 29.3939C51.5662 29.3939 50.5411 29.3939 49.5154 29.3939C49.3574 29.3939 49.2 29.3899 49.042 29.3919C48.9358 29.3932 48.8525 29.3434 48.7809 29.268C48.655 29.1355 48.5316 28.9997 48.4082 28.8646C45.0137 25.1524 41.6193 21.4396 38.2254 17.7274C38.1156 17.6074 38.0076 17.4847 37.8996 17.3627C37.836 17.2906 37.8366 17.2171 37.902 17.1443C38.0113 17.0236 38.1199 16.9023 38.2316 16.7842C39.3357 15.6162 40.4405 14.4487 41.5458 13.2826C41.6433 13.1796 41.7489 13.0858 41.8507 12.9875C41.8877 12.952 41.9223 12.9533 41.955 12.9888C42.0932 13.1376 42.2358 13.2819 42.3697 13.4348C43.9695 15.2594 45.5679 17.0853 47.1658 18.9112C50.0535 22.2102 52.9407 25.5099 55.8284 28.8089C55.9358 28.9315 56.0426 29.0548 56.1488 29.1788C56.2024 29.2417 56.2179 29.327 56.1802 29.3467C56.1481 29.3637 56.1148 29.3899 56.0821 29.3906C55.9247 29.3958 55.7667 29.3939 55.6087 29.3939C54.6027 29.3939 53.5974 29.3939 52.5914 29.3939H52.592Z" fill="#2c3e50"/>
+                                                <path d="M20.8452 38.6193C20.8452 37.9693 20.8452 37.32 20.8452 36.67C20.8452 36.6071 20.8464 36.5441 20.8495 36.4818C20.8569 36.3218 20.923 36.245 21.0588 36.2378C21.118 36.2345 21.1773 36.2326 21.2359 36.2326C22.0246 36.2326 22.8134 36.2319 23.6027 36.2326C23.6811 36.2326 23.7626 36.2313 23.8379 36.2522C23.8903 36.2667 23.944 36.3093 23.9477 36.3828C23.9527 36.4661 23.9595 36.5494 23.9582 36.6326C23.9564 36.7474 23.8829 36.8268 23.7737 36.8274C23.2411 36.832 22.7091 36.8314 22.1765 36.8366C21.9796 36.8386 21.7827 36.8465 21.5864 36.8609C21.5556 36.8629 21.5192 36.9068 21.5019 36.9409C21.484 36.9757 21.4803 37.0216 21.4797 37.0622C21.4778 37.3764 21.4809 37.6912 21.4772 38.0054C21.4747 38.229 21.5895 38.2507 21.7395 38.2526C22.0154 38.2572 22.2919 38.2546 22.5677 38.2566C22.8831 38.2592 23.1985 38.2618 23.5139 38.2677C23.6089 38.2697 23.6836 38.3602 23.691 38.4789C23.6947 38.5412 23.6941 38.6042 23.6898 38.6671C23.6842 38.7537 23.6163 38.8324 23.5441 38.8357C23.4065 38.8423 23.2689 38.8488 23.1306 38.8495C22.6572 38.8521 22.1839 38.8501 21.7105 38.8534C21.5568 38.8547 21.4809 38.9249 21.4797 39.0679C21.4766 39.424 21.4766 39.7801 21.4791 40.1363C21.4797 40.276 21.5618 40.3534 21.7093 40.354C22.3406 40.3566 22.9714 40.3553 23.6027 40.3586C23.72 40.3586 23.8385 40.3698 23.9545 40.3868C23.9848 40.3914 24.0261 40.434 24.0341 40.4668C24.065 40.5888 24.0761 40.7154 24.0255 40.8354C24.0107 40.8695 23.9761 40.8997 23.944 40.9181C23.9107 40.9371 23.8694 40.9489 23.8317 40.9489C22.9047 40.9489 21.9783 40.9489 21.0514 40.9463C20.9458 40.9463 20.8545 40.8577 20.852 40.7574C20.8471 40.5062 20.8446 40.2543 20.844 40.0031C20.8427 39.5421 20.844 39.081 20.844 38.6199L20.8452 38.6193Z" fill="#4d4c4c"/>
+                                                <path d="M28.6129 16.8918C28.6129 14.4376 28.6117 11.9827 28.6142 9.52843C28.6148 8.8706 28.5525 8.99456 29.0289 8.4961C29.7461 7.74514 30.4626 6.99352 31.1829 6.24583C32.1284 5.26335 33.077 4.28415 34.0256 3.30429C34.0959 3.23149 34.1718 3.16459 34.2453 3.09507C34.2798 3.06227 34.3162 3.05965 34.3527 3.09244C34.3656 3.10425 34.3817 3.12196 34.3823 3.1377C34.3891 3.32593 34.3983 3.51416 34.3983 3.7024C34.3996 6.2196 34.3983 8.73746 34.3996 11.2547C34.3996 11.4219 34.4057 11.5898 34.4175 11.7564C34.4187 11.7761 34.4897 11.8154 34.5039 11.8056C34.5847 11.7485 34.6643 11.6862 34.7335 11.6134C35.3229 10.9936 35.9098 10.3712 36.4973 9.74946C39.3641 6.71412 42.2296 3.67682 45.0995 0.644103C45.7691 -0.0635738 45.5278 0.0505465 46.4289 0.047923C48.2255 0.0420202 50.0221 0.0452995 51.8187 0.0472671C51.9952 0.0472671 52.1723 0.0597285 52.3488 0.0689106C52.3661 0.0695665 52.3957 0.0839955 52.3976 0.0951452C52.4025 0.133185 52.4111 0.183031 52.3932 0.210577C52.3488 0.278787 52.2945 0.341094 52.2383 0.399466C51.0959 1.58855 49.9511 2.77435 48.8099 3.96474C47.8379 4.97871 46.8714 5.99857 45.9 7.01319C43.6331 9.38086 41.3656 11.7472 39.0975 14.1136C37.0411 16.2596 34.9846 18.4055 32.9276 20.5502C31.6309 21.9013 30.3324 23.2511 29.0332 24.5995C28.9499 24.6861 28.8543 24.7596 28.7629 24.8369C28.7253 24.8691 28.6327 24.814 28.6308 24.7582C28.6241 24.57 28.6154 24.3818 28.6154 24.1929C28.6142 21.7596 28.6148 19.3257 28.6148 16.8925L28.6129 16.8918Z" fill="#4c4c4c"/>
+                                                <path d="M69.3229 36.1965C69.7222 36.1913 70.1055 36.2608 70.4696 36.4431C70.7159 36.5664 70.7412 36.6353 70.6196 36.9271C70.6116 36.9462 70.6042 36.9665 70.5931 36.9829C70.582 36.9993 70.5684 37.017 70.5517 37.0262C70.5178 37.0445 70.4746 37.0786 70.4468 37.0688C70.3357 37.0288 70.2308 36.9678 70.1203 36.9258C69.6852 36.7625 69.2421 36.6871 68.7909 36.8445C68.6811 36.8832 68.5718 36.9416 68.4786 37.0144C68.2892 37.1619 68.2089 37.4485 68.291 37.6912C68.3225 37.7843 68.3848 37.884 68.4601 37.9385C68.5879 38.0316 68.7323 38.107 68.8792 38.1615C69.0829 38.2362 69.2958 38.2841 69.5044 38.3445C69.6753 38.3936 69.8506 38.431 70.0148 38.4973C70.1789 38.5635 70.3419 38.6448 70.4888 38.7465C70.7505 38.9282 70.8918 39.1912 70.9115 39.5309C70.9436 40.093 70.7282 40.499 70.2629 40.7633C70.0685 40.8735 69.8605 40.9404 69.6463 40.9692C69.0267 41.0525 68.4293 40.9673 67.8689 40.6583C67.7991 40.6203 67.7343 40.5724 67.6689 40.5265C67.5769 40.4622 67.5436 40.3593 67.5862 40.2563C67.6177 40.1802 67.6473 40.0982 67.6979 40.0372C67.73 39.9992 67.8072 39.9671 67.8491 39.9815C67.9411 40.013 68.0232 40.0759 68.1102 40.1251C68.599 40.4032 69.1193 40.4531 69.6587 40.3717C69.8191 40.3475 69.9611 40.2779 70.0839 40.1691C70.2104 40.0576 70.282 39.9152 70.2907 39.7355C70.3005 39.5296 70.2271 39.3702 70.0747 39.2482C69.9302 39.1335 69.7642 39.0659 69.5951 39.0115C69.4069 38.9511 69.2118 38.9151 69.0236 38.8567C68.7977 38.7865 68.5712 38.7144 68.3521 38.6232C68.2256 38.5707 68.1046 38.492 67.9972 38.4028C67.7868 38.2284 67.6726 37.9955 67.6455 37.7063C67.585 37.0517 67.8769 36.5795 68.4527 36.3336C68.7348 36.2129 69.0273 36.1991 69.3229 36.1958V36.1965Z" fill="#4c4c4c"/>
+                                                <path d="M58.3508 38.5478C58.3508 37.9188 58.3496 37.2898 58.3521 36.6609C58.3521 36.5572 58.365 36.4529 58.3841 36.3519C58.3903 36.3185 58.428 36.2778 58.4601 36.266C58.6131 36.2096 58.7705 36.2168 58.9229 36.2693C58.9532 36.2798 58.9877 36.329 58.9914 36.3637C59.005 36.4884 59.0112 36.6143 59.0112 36.7396C59.0124 37.7037 59.0112 38.6685 59.0124 39.6326C59.0124 39.8005 59.0124 39.9677 59.0174 40.1356C59.0211 40.2747 59.1019 40.3501 59.2494 40.3527C59.4272 40.356 59.6043 40.3553 59.782 40.3553C60.2159 40.3553 60.6504 40.354 61.0843 40.358C61.1608 40.3586 61.2373 40.3809 61.3133 40.3973C61.3312 40.4012 61.3546 40.417 61.3602 40.4327C61.4126 40.5737 61.4151 40.718 61.3602 40.8577C61.3472 40.8905 61.3058 40.9213 61.2725 40.9318C61.217 40.9489 61.1565 40.9548 61.0979 40.9548C60.2887 40.9561 59.4803 40.9561 58.6711 40.9548C58.6125 40.9548 58.5483 40.9535 58.4977 40.9286C58.4496 40.9056 58.3916 40.8571 58.3798 40.8079C58.3558 40.7082 58.3533 40.6013 58.3527 40.497C58.3508 39.847 58.3514 39.1971 58.3514 38.5471L58.3508 38.5478Z" fill="#515151"/>
+                                                <path d="M32.3783 38.858C32.3783 39.487 32.3796 40.1166 32.3777 40.7456C32.3777 40.861 32.3024 40.9417 32.1932 40.9456C32.095 40.9495 31.9944 40.9535 31.8994 40.9318C31.8543 40.922 31.7957 40.8584 31.7871 40.8105C31.7655 40.6885 31.763 40.5613 31.763 40.436C31.7612 39.4712 31.7624 38.5058 31.7618 37.541C31.7618 37.3941 31.7605 37.2472 31.7599 37.1003C31.7593 36.876 31.6655 36.8419 31.5069 36.8386C31.1514 36.832 30.7965 36.834 30.441 36.8281C30.3003 36.8261 30.246 36.7546 30.2441 36.5802C30.2435 36.5179 30.2491 36.4549 30.254 36.3926C30.2559 36.3723 30.2596 36.3473 30.2713 36.3336C30.2966 36.3034 30.3238 36.2667 30.3571 36.2555C30.4126 36.2378 30.4731 36.2326 30.5311 36.2326C31.5575 36.2313 32.5845 36.2313 33.6108 36.2326C33.6694 36.2326 33.7361 36.2293 33.7849 36.2562C33.8305 36.2811 33.87 36.3401 33.8879 36.3926C33.9071 36.449 33.9021 36.5159 33.9015 36.5789C33.8997 36.7487 33.8416 36.8255 33.7046 36.8288C33.4479 36.834 33.1918 36.8347 32.935 36.8353C32.3604 36.8366 32.3808 36.7999 32.382 37.4099C32.3833 37.8926 32.382 38.3746 32.382 38.8573H32.3777L32.3783 38.858Z" fill="#4d4d4d"/>
+                                                <path d="M51.2274 38.6147C51.2274 39.241 51.228 39.8667 51.2268 40.4931C51.2268 40.5967 51.2206 40.701 51.2077 40.8039C51.2033 40.84 51.1762 40.8866 51.1472 40.903C51.0003 40.985 50.8466 40.9653 50.6966 40.9128C50.667 40.9023 50.6386 40.8551 50.6287 40.819C50.6127 40.76 50.6065 40.6964 50.6065 40.6341C50.6053 39.2777 50.6053 37.9208 50.6065 36.5644C50.6065 36.5021 50.6109 36.4385 50.625 36.3788C50.6337 36.3414 50.6559 36.2936 50.6855 36.2785C50.833 36.2017 50.9873 36.2234 51.1385 36.2673C51.1675 36.2759 51.1996 36.327 51.2046 36.3631C51.2194 36.4654 51.2268 36.5703 51.2268 36.674C51.2286 37.3207 51.2274 37.968 51.228 38.6147H51.2274Z" fill="#4d4d4d"/>
+                                                <path d="M11.7088 36.2341C12.066 36.2361 12.4141 36.3038 12.743 36.4519C13.5391 36.8107 13.9857 37.4448 14.0486 38.3689C14.0714 38.7039 14.0621 39.0402 13.9598 39.3601C13.6888 40.2107 13.1093 40.6882 12.2996 40.8738C12.1849 40.9 12.0662 40.9138 11.949 40.9236C11.301 40.9761 10.6523 40.9553 10.0037 40.9422C9.93457 40.9408 9.84555 40.8528 9.84061 40.7859C9.83321 40.6824 9.8256 40.5779 9.82499 40.4744C9.82375 39.8475 9.82401 39.2204 9.82401 38.5935C9.82401 37.9458 9.82288 37.2979 9.82596 36.6502C9.82599 36.5473 9.8421 36.4435 9.86307 36.3425C9.86996 36.3099 9.91152 36.2743 9.94413 36.2625C9.99844 36.2434 10.0586 36.2348 10.116 36.2341C10.6467 36.2322 11.1781 36.2309 11.7088 36.2341ZM10.6131 36.8474C10.5391 36.8482 10.4656 36.9289 10.4656 37.0095C10.4644 37.5333 10.4646 38.0571 10.4646 38.5808H10.4549C10.4549 39.0418 10.4524 39.5036 10.4549 39.9646C10.4573 40.3305 10.4803 40.3536 10.824 40.3562C11.1201 40.3588 11.4156 40.3529 11.7117 40.3562C11.953 40.3588 12.1857 40.3019 12.406 40.2127C12.8519 40.0323 13.1656 39.7065 13.3328 39.2214C13.4235 38.9571 13.4411 38.6886 13.4207 38.4158C13.3774 37.8335 13.1277 37.3808 12.6433 37.0877C12.4175 36.9512 12.1753 36.8553 11.9148 36.8494C11.481 36.8402 11.0469 36.8461 10.6131 36.8474Z" fill="#4b4b4b"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="holding-about-timeline-mobile">
+                                <div class="holding-about-mobile-item">
+                                    <div class="holding-about-mobile-marker">
+                                        <span class="holding-about-year-badge" style="width:70px;height:70px;"><span style="font-size:13px;">1984</span></span>
+                                        <span class="holding-about-mobile-line"></span>
+                                    </div>
+                                    <div class="holding-about-mobile-copy">
+                                        <p class="holding-about-year-label">Founded</p>
+                                        <div class="holding-about-logo1984">
+                                            <svg class="holding-about-logo1984-primary" fill="none" viewBox="0 0 21.3163 12.7126">
+                                                <path d="M5.23419 12.6809C4.80723 12.6809 2.95708 12.6016 1.56551 11.2543C0.537645 10.2556 0 8.82904 0 7.00617H1.13856C1.13856 8.51202 1.54969 9.66915 2.35617 10.4459C3.55798 11.603 5.25 11.5554 5.26582 11.5554C8.80799 11.3969 9.2982 8.73394 9.34564 8.41691V1.14128H1.99247V0H10.4842V8.49617C10.4842 8.52787 9.99398 12.4589 5.31325 12.665C5.31325 12.665 5.28163 12.665 5.23419 12.665V12.6809Z" fill="#003764"/>
+                                                <path d="M5.29744 11.2384C2.73569 11.2384 1.73945 9.24117 1.58132 8.17915C1.53388 7.90968 1.21761 5.56372 2.2771 4.34319C2.67243 3.86766 3.24171 3.62989 3.89005 3.62989H7.95407V2.75808H2.00828V1.61681H9.09262V7.18053C9.10844 7.43415 9.1875 9.00341 8.17546 10.1447C7.5113 10.8738 6.54668 11.2543 5.31325 11.2543L5.29744 11.2384ZM3.87424 4.77117C3.54217 4.77117 3.30497 4.86628 3.11521 5.08819C2.51431 5.78564 2.59337 7.43415 2.68825 8.02064C2.71988 8.2267 3.09939 10.113 5.28162 10.113C7.46385 10.113 6.86295 9.85936 7.28991 9.38383C8.03313 8.55957 7.92244 7.27564 7.92244 7.27564V7.21223V4.77117H3.85843H3.87424Z" fill="#79242f"/>
+                                                <path d="M16.0979 12.6809C16.0505 12.6809 16.0188 12.6809 16.0188 12.6809C11.3381 12.4748 10.8637 8.54372 10.8479 8.51202V8.44862V1.5217H18.6755V1.17298H10.8005V0.0317024H19.7982V2.66298H11.9706V8.43277C12.0181 8.73394 12.5083 11.4128 16.0505 11.5713C16.0505 11.5713 17.7741 11.6188 18.9759 10.4617C19.7824 9.685 20.1777 8.52787 20.1777 7.03787H21.3163C21.3163 8.86075 20.7944 10.2873 19.7508 11.286C18.3592 12.6333 16.5091 12.7126 16.0821 12.7126L16.0979 12.6809Z" fill="#003764"/>
+                                                <path d="M18.6438 7.05372V7.21224C18.6438 8.1633 18.3908 8.8766 17.9006 9.36798C17.1574 10.0813 16.0821 10.0654 16.0821 10.0654C13.7892 9.97032 13.5362 8.41691 13.5362 8.33766C13.4571 7.86213 13.3938 6.40383 13.9315 5.73809H17.5211V4.59681H13.4097V4.21638H17.8848V3.07511H12.2711V5.72223H12.6348C12.1762 6.87936 12.3818 8.29011 12.3976 8.48032C12.5083 9.36798 13.3938 11.0799 16.0188 11.1909C16.0188 11.1909 16.0505 11.1909 16.0821 11.1909C16.3826 11.1909 17.6792 11.1274 18.6597 10.1922C19.3871 9.49479 19.7666 8.48032 19.7666 7.21224V7.05372H18.628H18.6438Z" fill="#79242f"/>
+                                                <path d="M16.0663 8.17915C16.3807 8.17915 16.6356 7.92367 16.6356 7.60851C16.6356 7.29336 16.3807 7.03787 16.0663 7.03787C15.7519 7.03787 15.497 7.29336 15.497 7.60851C15.497 7.92367 15.7519 8.17915 16.0663 8.17915Z" fill="#003764"/>
+                                            </svg>
+                                            <svg class="holding-about-logo1984-top" fill="none" viewBox="0 0 65.9145 5.24348">
+                                                <path d="M1.61535 3.27585V4.17936H0.96701C0.808877 4.17936 0.682371 4.16351 0.571678 4.11596C0.460985 4.0684 0.381918 4.02085 0.318665 3.94159C0.255412 3.87819 0.207973 3.78308 0.176347 3.70383C0.14472 3.62457 0.128906 3.52947 0.128906 3.43436C0.128906 3.33925 0.144719 3.19659 0.192159 3.08564C0.223785 2.97468 0.287038 2.87957 0.350291 2.80032C0.413544 2.72106 0.508425 2.65766 0.603304 2.6101C0.698184 2.56255 0.808877 2.5467 0.91957 2.5467C1.03026 2.5467 1.12514 2.56255 1.20421 2.59425C1.28328 2.62595 1.36234 2.68936 1.42559 2.75276C1.48885 2.81617 1.53629 2.89542 1.56791 2.99053C1.59954 3.08563 1.61535 3.18074 1.61535 3.2917V3.27585ZM0.951196 3.87819H1.34653V3.41851C1.34653 3.22829 1.29909 3.08563 1.22002 2.99053C1.14095 2.89542 1.03026 2.83202 0.872129 2.83202C0.713997 2.83202 0.745625 2.83202 0.698185 2.86372C0.634932 2.89542 0.587492 2.92712 0.540052 2.97468C0.492613 3.02223 0.460984 3.06978 0.429358 3.13319C0.397731 3.19659 0.38192 3.27585 0.38192 3.3551C0.38192 3.43436 0.381918 3.52947 0.429358 3.59287C0.460984 3.65627 0.508424 3.71968 0.555864 3.75138C0.603304 3.79893 0.666558 3.83063 0.729811 3.84649C0.793064 3.86234 0.872131 3.87819 0.935384 3.87819H0.951196Z" fill="#003764" stroke="#003764" stroke-width="0.257813" stroke-miterlimit="10"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="holding-about-mobile-item">
+                                    <div class="holding-about-mobile-marker">
+                                        <span class="holding-about-year-badge" style="width:70px;height:70px;"><span style="font-size:13px;">2023</span></span>
+                                        <span class="holding-about-mobile-line"></span>
+                                    </div>
+                                    <div class="holding-about-mobile-copy">
+                                        <p class="holding-about-year-label">Founded</p>
+                                        <img class="holding-about-timeline-image" src="/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png" alt="SKY Details" style="width:66px;height:45px;"/>
+                                    </div>
+                                </div>
+
+                                <div class="holding-about-mobile-item">
+                                    <div class="holding-about-mobile-marker">
+                                        <span class="holding-about-year-badge" style="width:70px;height:70px;"><span style="font-size:13px;">2023</span></span>
+                                        <span class="holding-about-mobile-line"></span>
+                                    </div>
+                                    <div class="holding-about-mobile-copy">
+                                        <p class="holding-about-year-label">Founded</p>
+                                        <img class="holding-about-timeline-image" src="/holding_website/static/src/img/b502299d4187931475eea934395209906bfd8008.png" alt="ALAJCHEM" style="width:111px;height:65px;"/>
+                                    </div>
+                                </div>
+
+                                <div class="holding-about-mobile-item">
+                                    <div class="holding-about-mobile-marker">
+                                        <span class="holding-about-year-badge" style="width:70px;height:70px;"><span style="font-size:13px;">2025</span></span>
+                                    </div>
+                                    <div class="holding-about-mobile-copy">
+                                        <p class="holding-about-year-label">Founded</p>
+                                        <div class="holding-about-timeline-stack" style="align-items:flex-start;">
+                                            <img class="holding-about-timeline-image" src="/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png" alt="ABULJADYEL SKY" style="width:80px;height:24px;"/>
+                                            <img class="holding-about-timeline-image" src="/holding_website/static/src/img/d32546a2c1f63b13c15d94e35cc97f0321afd97c.png" alt="Logo" style="width:79px;height:33px;"/>
+                                            <svg class="holding-about-sky-logo" fill="none" viewBox="0 0 78.9996 40.9993">
+                                                <path d="M9.51293 29.3942C6.53198 29.3942 3.55104 29.3942 0.570092 29.3942C0.392963 29.3942 0.215217 29.389 0.0380884 29.3772C0.0232762 29.3765 -0.00881676 29.2939 0.00229236 29.2768C0.0707986 29.1765 0.143625 29.0774 0.226326 28.9902C1.36316 27.7952 2.50123 26.6016 3.63929 25.4079C4.49655 24.5087 5.35318 23.6102 6.21044 22.711C6.30857 22.608 6.41163 22.509 6.50483 22.4007C6.61839 22.2689 6.74985 22.1981 6.92142 22.2053C7.0788 22.2119 7.23741 22.206 7.39541 22.206C11.1268 22.206 14.8576 22.206 18.5891 22.206C18.8452 22.206 19.1001 22.2086 19.355 22.1489C19.721 22.063 20.0067 21.8597 20.2227 21.5409C20.2801 21.4563 20.3375 21.3678 20.3758 21.2727C20.6541 20.5801 20.6585 19.8894 20.3474 19.2054C20.2696 19.0342 20.1635 18.8827 20.0326 18.7522C19.7796 18.4984 19.4834 18.3469 19.1322 18.3318C18.9742 18.3252 18.8162 18.3265 18.6582 18.3265C17.5331 18.3252 16.4074 18.337 15.2823 18.3193C14.0924 18.3003 12.9222 18.1166 11.7946 17.6982C9.54502 16.8633 7.86693 15.3319 6.84057 13.0324C6.3888 12.0197 6.13514 10.9494 6.04071 9.82915C5.9 8.16261 6.13144 6.56164 6.78564 5.04529C7.93605 2.37723 9.88755 0.771679 12.5945 0.198454C13.2937 0.050229 14.0022 0.00103919 14.7138 0.00103919C18.7606 -0.000928402 22.8081 0.000383325 26.8549 0.00103919C26.9931 0.00103919 27.1314 0.00169505 27.269 0.0128447C27.2968 0.0148123 27.3245 0.0613786 27.3449 0.0928601C27.3517 0.10401 27.34 0.133524 27.3301 0.150576C27.3097 0.185993 27.2881 0.220753 27.2622 0.250923C27.2227 0.29749 27.1789 0.340777 27.1369 0.384719C25.1083 2.53071 23.0796 4.67669 21.051 6.82268C21.0368 6.83776 21.0232 6.85219 21.009 6.86727C20.6615 7.23849 20.6924 7.21947 20.2375 7.22603C19.8228 7.23194 19.4087 7.22997 18.9939 7.228C17.6121 7.2221 16.2302 7.21423 14.8484 7.20898C14.7305 7.20898 14.6114 7.21554 14.4941 7.22734C14.0313 7.27325 13.6721 7.50871 13.4203 7.91994C12.9753 8.64598 12.9784 9.57927 13.4122 10.3007C13.6856 10.7559 14.0911 10.9894 14.5947 11.0281C14.7521 11.0399 14.9107 11.0327 15.0681 11.0333C16.213 11.0346 17.3584 11.0307 18.5033 11.0392C19.5364 11.0471 20.548 11.2216 21.5305 11.5554C23.3938 12.1896 24.9188 13.3269 26.034 15.0505C26.7722 16.191 27.2332 17.4496 27.4301 18.8204C27.693 20.6529 27.4862 22.4198 26.7567 24.1021C25.7625 26.393 24.1078 27.9264 21.8823 28.7692C21.1189 29.0584 20.3283 29.2329 19.5185 29.3162C18.9273 29.3765 18.3373 29.3968 17.7448 29.3962C15.0008 29.3942 12.2569 29.3955 9.51231 29.3955L9.51293 29.3942Z" fill="#2c3e50"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="holding-about-cta">
+                                <a href="/contact-us" class="holding-gradient-button" style="font-size:18px;font-weight:500;padding:16px 40px;">Be A partner</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <record id="holding_about_page" model="website.page">
+            <field name="name">About Us</field>
+            <field name="url">/about-us</field>
+            <field name="is_published">True</field>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="view_id" ref="holding_about_template"/>
+        </record>
+
+        <record id="holding_about_template" model="ir.ui.view">
+            <field name="website_id" ref="holding_website_record"/>
+        </record>
+
+        <template id="holding_companies_template" name="Holding Companies Page">
+            <t t-call="website.layout">
+                <style>
+                    .holding-companies-page .holding-companies-hero {
+                        position: relative;
+                        overflow: hidden;
+                        margin: 24px 24px 0;
+                        border-radius: 32px;
+                        background: linear-gradient(135deg, #37116b 0%, #6b21d1 100%);
+                        box-shadow: 0 24px 60px rgba(55, 17, 107, 0.18);
+                    }
+
+                    .holding-companies-page .holding-companies-hero::after {
+                        content: "";
+                        position: absolute;
+                        top: -120px;
+                        right: -80px;
+                        width: 360px;
+                        height: 360px;
+                        border-radius: 50%;
+                        background: radial-gradient(circle, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.03) 48%, transparent 72%);
+                        filter: blur(12px);
+                    }
+
+                    .holding-companies-page .holding-companies-hero-inner {
+                        width: min(100%, 1280px);
+                        margin: 0 auto;
+                        padding: 40px 32px;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    .holding-companies-page .holding-companies-hero-title {
+                        margin: 0;
+                        color: #ffffff;
+                        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+                        font-size: clamp(34px, 5vw, 68px);
+                        font-weight: 500;
+                        line-height: 1;
+                        letter-spacing: -1px;
+                    }
+
+                    .holding-companies-page .holding-companies-grid {
+                        margin-top: 8px;
+                    }
+
+                    .holding-companies-page .holding-company-card {
+                        border-radius: 28px;
+                    }
+
+                    .holding-companies-page .holding-company-card-body {
+                        padding: 34px 32px 28px;
+                    }
+
+                    .holding-companies-page .holding-company-title {
+                        font-size: clamp(24px, 2.6vw, 38px);
+                    }
+
+                    .holding-companies-page .holding-company-desc {
+                        font-size: 15px;
+                        line-height: 1.7;
+                    }
+
+                    .holding-companies-page .holding-company-image {
+                        width: 170px;
+                        height: 58px;
+                    }
+
+                    .holding-companies-page .holding-company-link {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 16px 26px;
+                        border-radius: 9999px;
+                        background: linear-gradient(273deg, #37116b 0.36%, #6b21d1 94.39%);
+                        color: #ffffff;
+                        font-size: 16px;
+                        font-weight: 500;
+                        text-decoration: none;
+                    }
+
+                    @media (max-width: 767px) {
+                        .holding-companies-page .holding-companies-hero {
+                            margin-left: 16px;
+                            margin-right: 16px;
+                            border-radius: 24px;
+                        }
+
+                        .holding-companies-page .holding-companies-hero-inner {
+                            padding: 28px 18px;
+                        }
+
+                        .holding-companies-page .holding-company-card-body {
+                            padding: 24px;
+                        }
+                    }
+                </style>
+
+                <div id="wrap" class="oe_structure oe_empty holding-page holding-companies-page" t-attf-dir="#{request.env.lang and request.env.lang.startswith('ar') and 'rtl' or 'ltr'}">
+                    <section class="holding-companies-hero">
+                        <div class="holding-companies-hero-inner">
+                            <h1 class="holding-companies-hero-title">Our Companies</h1>
+                        </div>
+                    </section>
+
+                    <section class="holding-content-section">
+                        <div class="holding-section-shell">
+                            <div class="row d-flex align-items-stretch holding-company-row holding-companies-grid">
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100 is-highlight">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/Abdullatif.png" alt="Abdullatif H. Abuljadayel &amp; Sons Co." class="holding-company-image"/>
+                                            </div>
+                                            <h2 class="holding-company-title card-title">Abdullatif H. Abuljadayel &amp; Sons Co.</h2>
+                                            <p class="holding-company-desc card-text">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands, HACH-For Water Quality.</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/image3.png" alt="Sky Details" class="holding-company-image"/>
+                                            </div>
+                                            <h2 class="holding-company-title card-title">About Sky Details</h2>
+                                            <p class="holding-company-desc card-text">SKY Details is a real estate company specializing in property management and providing comprehensive solutions for investors and clients.</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100 is-highlight">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png" alt="Cloud Systems Tech" class="holding-company-image"/>
+                                            </div>
+                                            <h2 class="holding-company-title card-title">Cloud Systems Tech</h2>
+                                            <p class="holding-company-desc card-text">Cloud Systems for IT is a Saudi company under Abuljadyel Sky Holding, featuring a team of professional engineers, consultants, and experts in IT, digital transformation.</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100 is-highlight">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/d32546a2c1f63b13c15d94e35cc97f0321afd97c.png" alt="Secure Growth" class="holding-company-image"/>
+                                            </div>
+                                            <h2 class="holding-company-title card-title">Secure Growth</h2>
+                                            <p class="holding-company-desc card-text">Cloud Systems for IT is a Saudi company under Abuljadyel Sky Holding, featuring a team of professional engineers, consultants, and experts in IT, digital transformation, ERP systems, and software development.</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/b502299d4187931475eea934395209906bfd8008.png" alt="ALAJCHEM Factory" class="holding-company-image"/>
+                                            </div>
+                                            <h2 class="holding-company-title card-title">ALAJCHEM Factory</h2>
+                                            <p class="holding-company-desc card-text">Cloud Systems for IT is a Saudi company under Abuljadyel Sky Holding, featuring a team of professional engineers, consultants, and experts in IT, digital transformation, ERP systems, and software development.</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <record id="holding_companies_page" model="website.page">
+            <field name="name">Our Companies</field>
+            <field name="url">/our-companies</field>
+            <field name="is_published">True</field>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="view_id" ref="holding_companies_template"/>
+        </record>
+
+        <record id="holding_companies_template" model="ir.ui.view">
+            <field name="website_id" ref="holding_website_record"/>
+        </record>
+
+        <template id="holding_media_center_template" name="Holding Media Center Page">
+            <t t-call="website.layout">
+                <style>
+                    .holding-media-page .holding-media-hero {
+                        position: relative;
+                        overflow: hidden;
+                        padding: 48px 0 24px;
+                    }
+
+                    .holding-media-page .holding-media-hero::before {
+                        content: "";
+                        position: absolute;
+                        inset: -180px -120px auto;
+                        height: 420px;
+                        background:
+                            radial-gradient(circle at 18% 22%, rgba(55, 17, 107, 0.95) 0%, rgba(55, 17, 107, 0.55) 28%, transparent 58%),
+                            radial-gradient(circle at 72% 10%, rgba(120, 38, 234, 0.95) 0%, rgba(120, 38, 234, 0.45) 22%, transparent 52%),
+                            radial-gradient(circle at 48% 40%, rgba(55, 17, 107, 0.85) 0%, transparent 58%);
+                        filter: blur(54px);
+                        pointer-events: none;
+                    }
+
+                    .holding-media-page .holding-media-hero-inner {
+                        width: min(100%, 1400px);
+                        margin: 0 auto;
+                        padding: 0 24px;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    .holding-media-page .holding-media-hero-title {
+                        margin: 0 0 32px;
+                        color: #0a090f;
+                        font-family: 'Inter', 'Helvetica Neue', sans-serif;
+                        font-size: clamp(36px, 6vw, 64px);
+                        font-weight: 500;
+                        line-height: 1;
+                        letter-spacing: -1px;
+                    }
+
+                    .holding-media-page .holding-media-toolbar {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 16px;
+                        flex-wrap: wrap;
+                    }
+
+                    .holding-media-page .holding-media-search-group,
+                    .holding-media-page .holding-media-filter-group {
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        flex-wrap: wrap;
+                    }
+
+                    .holding-media-page .holding-media-search {
+                        min-width: min(100%, 520px);
+                        flex: 1 1 520px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 14px 16px;
+                        border-radius: 16px;
+                        border: 1px solid #e2e6ee;
+                        background: #ffffff;
+                    }
+
+                    .holding-media-page .holding-media-search svg,
+                    .holding-media-page .holding-media-filter-button svg {
+                        width: 18px;
+                        height: 18px;
+                        flex-shrink: 0;
+                    }
+
+                    .holding-media-page .holding-media-search input {
+                        width: 100%;
+                        border: 0;
+                        outline: 0;
+                        background: transparent;
+                        color: #0a090f;
+                        font-size: 16px;
+                    }
+
+                    .holding-media-page .holding-media-search input::placeholder {
+                        color: #96a0b6;
+                    }
+
+                    .holding-media-page .holding-media-filter-button {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        padding: 14px 16px;
+                        border-radius: 16px;
+                        border: 1px solid #e2e6ee;
+                        background: #ffffff;
+                        color: #40444c;
+                        font-size: 14px;
+                        text-decoration: none;
+                    }
+
+                    .holding-media-page .holding-media-grid {
+                        width: min(100%, 1400px);
+                        margin: 0 auto;
+                        padding: 24px 24px 64px;
+                    }
+
+                    .holding-media-page .holding-media-grid .holding-news-grid {
+                        gap: 24px;
+                    }
+
+                    .holding-media-page .holding-news-card {
+                        height: 100%;
+                    }
+
+                    @media (max-width: 767px) {
+                        .holding-media-page .holding-media-hero-inner,
+                        .holding-media-page .holding-media-grid {
+                            padding-left: 16px;
+                            padding-right: 16px;
+                        }
+
+                        .holding-media-page .holding-media-search {
+                            min-width: 100%;
+                        }
+                    }
+                </style>
+
+                <div id="wrap" class="oe_structure oe_empty holding-page holding-media-page" t-attf-dir="#{request.env.lang and request.env.lang.startswith('ar') and 'rtl' or 'ltr'}">
+                    <section class="holding-media-hero">
+                        <div class="holding-media-hero-inner">
+                            <h1 class="holding-media-hero-title">Media Center</h1>
+                            <div class="holding-media-toolbar">
+                                <div class="holding-media-search-group">
+                                    <div class="holding-media-search">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#96a0b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="7"></circle>
+                                            <path d="M20 20l-3.5-3.5"></path>
+                                        </svg>
+                                        <input type="text" placeholder="Search..."/>
+                                    </div>
+                                    <a href="#" class="holding-gradient-button">Search</a>
+                                </div>
+
+                                <div class="holding-media-filter-group">
+                                    <a href="#" class="holding-media-filter-button">
+                                        <span>Sort by: Latest added</span>
+                                    </a>
+                                    <a href="#" class="holding-media-filter-button">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="#40444c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M3 5h18"></path>
+                                            <path d="M6 12h12"></path>
+                                            <path d="M10 19h4"></path>
+                                        </svg>
+                                        <span>Filter</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="holding-media-grid">
+                        <div class="holding-news-grid">
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/188572ad050b9c99a60813308f8109bad202c5fb.png" alt="News 1" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Title Text Goes here Title Text Goes here</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/e63f3ba0b275cf99aef499d15fe0e95c59538b4e.png" alt="News 2" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Event Title #02</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/be47af712e534dec5ef1bc8e42ee46f74fe131a8.png" alt="News 3" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Title Text Goes here Title Text Goes here</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/188572ad050b9c99a60813308f8109bad202c5fb.png" alt="News 4" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Title Text Goes here Title Text Goes here</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/e63f3ba0b275cf99aef499d15fe0e95c59538b4e.png" alt="News 5" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Event Title #02</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/be47af712e534dec5ef1bc8e42ee46f74fe131a8.png" alt="News 6" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Title Text Goes here Title Text Goes here</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/188572ad050b9c99a60813308f8109bad202c5fb.png" alt="News 7" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Title Text Goes here Title Text Goes here</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/e63f3ba0b275cf99aef499d15fe0e95c59538b4e.png" alt="News 8" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Event Title #02</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                            <article class="holding-news-card">
+                                <div class="holding-news-media"><img src="/holding_website/static/src/img/be47af712e534dec5ef1bc8e42ee46f74fe131a8.png" alt="News 9" class="holding-news-media-image"/></div>
+                                <div class="holding-news-body">
+                                    <div><p class="holding-news-date">12 March 2025</p><p class="holding-news-text">Title Text Goes here Title Text Goes here</p></div>
+                                    <a href="#" class="holding-outline-button" aria-label="Read more"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <record id="holding_media_center_page" model="website.page">
+            <field name="name">Media Center</field>
+            <field name="url">/media-center</field>
+            <field name="is_published">True</field>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="view_id" ref="holding_media_center_template"/>
+        </record>
+
+        <record id="holding_media_center_template" model="ir.ui.view">
+            <field name="website_id" ref="holding_website_record"/>
+        </record>
+
+        <template id="holding_contact_template" name="Holding Contact Us">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty holding-page holding-contact-page" t-attf-dir="#{request.env.lang and request.env.lang.startswith('ar') and 'rtl' or 'ltr'}">
+                    <section>
+                        <div class="holding-section-shell">
+                            <h1 class="holding-contact-title">Contact Us</h1>
+                            <div class="row g-4 holding-contact-grid">
+                                <div class="col-12 col-md-6">
+                                    <article class="holding-contact-card d-flex flex-column gap-4">
+                                        <div class="d-flex flex-column gap-1">
+                                            <h2 class="holding-contact-card-title">Jedda</h2>
+                                            <p class="holding-contact-card-copy">8113 Qais Ibn Zuhair Al Manar District</p>
+                                            <p class="holding-contact-card-copy">Jeddah Makkah 23462</p>
+                                            <p class="holding-contact-card-copy">8113 4382 - Kingdom of Saudi Arabia</p>
+                                        </div>
+                                        <div class="holding-contact-meta">
+                                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3a2 2 0 0 1-.57 1.73L7.91 9.91a16 16 0 0 0 6.18 6.18l1.46-1.08a2 2 0 0 1 1.73-.57l3 .45A2 2 0 0 1 22 16.92z"/></svg>
+                                            <span>920026696</span>
+                                        </div>
+                                        <div class="holding-contact-meta">
+                                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+                                            <span>info@alajlabchem.sa</span>
+                                        </div>
+                                        <div class="holding-contact-actions">
+                                            <a href="mailto:info@alajlabchem.sa" class="holding-contact-cta is-dark">
+                                                <svg viewBox="0 0 24 24" width="15" height="15"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                                                <span>Send a Message</span>
+                                            </a>
+                                            <a href="https://maps.google.com/?q=8113+Qais+Ibn+Zuhair+Al+Manar+District+Jeddah" class="holding-contact-cta" target="_blank" rel="noreferrer">
+                                                <svg viewBox="0 0 24 24" width="15" height="15"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                                <span>View Location</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <article class="holding-contact-card d-flex flex-column gap-4">
+                                        <div class="d-flex flex-column gap-1">
+                                            <h2 class="holding-contact-card-title">Riyadh</h2>
+                                            <p class="holding-contact-card-copy">8113 Qais Ibn Zuhair Al Manar District</p>
+                                            <p class="holding-contact-card-copy">Jeddah Makkah 23462</p>
+                                            <p class="holding-contact-card-copy">8113 4382 - Kingdom of Saudi Arabia</p>
+                                        </div>
+                                        <div class="holding-contact-meta">
+                                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3a2 2 0 0 1-.57 1.73L7.91 9.91a16 16 0 0 0 6.18 6.18l1.46-1.08a2 2 0 0 1 1.73-.57l3 .45A2 2 0 0 1 22 16.92z"/></svg>
+                                            <span>+965-2206-8000</span>
+                                        </div>
+                                        <div class="holding-contact-meta">
+                                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+                                            <span>info@alajlabchem.sa</span>
+                                        </div>
+                                        <div class="holding-contact-actions">
+                                            <a href="mailto:info@alajlabchem.sa" class="holding-contact-cta is-dark">
+                                                <svg viewBox="0 0 24 24" width="15" height="15"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                                                <span>Send a Message</span>
+                                            </a>
+                                            <a href="https://maps.google.com/?q=Riyadh+Saudi+Arabia" class="holding-contact-cta" target="_blank" rel="noreferrer">
+                                                <svg viewBox="0 0 24 24" width="15" height="15"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                                <span>View Location</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <article class="holding-contact-card d-flex flex-column gap-4">
+                                        <div class="d-flex flex-column gap-1">
+                                            <h2 class="holding-contact-card-title">Khobar</h2>
+                                            <p class="holding-contact-card-copy">8113 Qais Ibn Zuhair Al Manar District</p>
+                                            <p class="holding-contact-card-copy">Jeddah Makkah 23462</p>
+                                            <p class="holding-contact-card-copy">8113 4382 - Kingdom of Saudi Arabia</p>
+                                        </div>
+                                        <div class="holding-contact-meta">
+                                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3a2 2 0 0 1-.57 1.73L7.91 9.91a16 16 0 0 0 6.18 6.18l1.46-1.08a2 2 0 0 1 1.73-.57l3 .45A2 2 0 0 1 22 16.92z"/></svg>
+                                            <span>+965-2206-8000</span>
+                                        </div>
+                                        <div class="holding-contact-meta">
+                                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+                                            <span>info@alajlabchem.sa</span>
+                                        </div>
+                                        <div class="holding-contact-actions">
+                                            <a href="mailto:info@alajlabchem.sa" class="holding-contact-cta is-dark">
+                                                <svg viewBox="0 0 24 24" width="15" height="15"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                                                <span>Send a Message</span>
+                                            </a>
+                                            <a href="https://maps.google.com/?q=Khobar+Saudi+Arabia" class="holding-contact-cta" target="_blank" rel="noreferrer">
+                                                <svg viewBox="0 0 24 24" width="15" height="15"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                                <span>View Location</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <article class="holding-contact-card d-flex flex-column gap-4">
+                                        <div class="d-flex flex-column gap-1">
+                                            <h2 class="holding-contact-card-title">Yanbu</h2>
+                                            <p class="holding-contact-card-copy">8113 Qais Ibn Zuhair Al Manar District</p>
+                                            <p class="holding-contact-card-copy">Jeddah Makkah 23462</p>
+                                            <p class="holding-contact-card-copy">8113 4382 - Kingdom of Saudi Arabia</p>
+                                        </div>
+                                        <div class="holding-contact-meta">
+                                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3a2 2 0 0 1-.57 1.73L7.91 9.91a16 16 0 0 0 6.18 6.18l1.46-1.08a2 2 0 0 1 1.73-.57l3 .45A2 2 0 0 1 22 16.92z"/></svg>
+                                            <span>+985-2206-8080</span>
+                                        </div>
+                                        <div class="holding-contact-meta">
+                                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+                                            <span>info@alajlabchem.sa</span>
+                                        </div>
+                                        <div class="holding-contact-actions">
+                                            <a href="mailto:info@alajlabchem.sa" class="holding-contact-cta is-dark">
+                                                <svg viewBox="0 0 24 24" width="15" height="15"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                                                <span>Send a Message</span>
+                                            </a>
+                                            <a href="https://maps.google.com/?q=Yanbu+Saudi+Arabia" class="holding-contact-cta" target="_blank" rel="noreferrer">
+                                                <svg viewBox="0 0 24 24" width="15" height="15"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                                <span>View Location</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="holding-contact-form-shell">
+                        <div class="holding-section-shell">
+                            <div class="holding-contact-form-card">
+                                <div class="row g-4 align-items-start holding-contact-form-inner">
+                                    <div class="col-12 col-lg-4">
+                                        <div class="d-flex flex-column gap-3">
+                                            <h2 class="holding-contact-form-title">Request for Services</h2>
+                                            <p class="holding-contact-form-copy">Get in touch with us for all your IT needs - we&apos;re here to help!</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-8">
+                                        <form class="row g-4">
+                                            <div class="col-12 col-md-6">
+                                                <div class="holding-contact-field">
+                                                    <p class="holding-contact-field-label">Name</p>
+                                                    <input type="text" placeholder="write your name" class="holding-contact-field-input"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="holding-contact-field">
+                                                    <p class="holding-contact-field-label">Phone</p>
+                                                    <input type="text" placeholder="write your phone" class="holding-contact-field-input"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="holding-contact-field">
+                                                    <p class="holding-contact-field-label">Email</p>
+                                                    <input type="email" placeholder="write your email" class="holding-contact-field-input"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="holding-contact-field">
+                                                    <p class="holding-contact-field-label">Company Name</p>
+                                                    <input type="text" placeholder="write here" class="holding-contact-field-input"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="holding-contact-field">
+                                                    <p class="holding-contact-field-label">Message Details</p>
+                                                    <textarea class="holding-contact-field-textarea" placeholder="write your message..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="button" class="holding-contact-submit">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="holding-store-shell">
+                        <div class="holding-section-shell">
+                            <h2 class="holding-store-title">Our Storehouse</h2>
+                            <div class="row g-4">
+                                <div class="col-12 col-md-6 col-xl-3">
+                                    <article class="holding-store-card">
+                                        <span class="holding-store-icon">
+                                            <svg viewBox="0 0 24 24" width="42" height="42"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                        </span>
+                                        <div class="d-flex flex-column gap-3">
+                                            <h3 class="holding-store-card-title">Jedda Center</h3>
+                                            <p class="holding-store-card-copy">info@alajlabchem.sa</p>
+                                            <p class="holding-store-card-copy"><strong>Tel</strong> 920026696<br/><strong>Ext.</strong>161</p>
+                                            <a href="https://maps.google.com/?q=Jeddah+Saudi+Arabia" class="holding-contact-cta" target="_blank" rel="noreferrer">
+                                                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                                <span>View Location</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-12 col-md-6 col-xl-3">
+                                    <article class="holding-store-card">
+                                        <span class="holding-store-icon">
+                                            <svg viewBox="0 0 24 24" width="42" height="42"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                        </span>
+                                        <div class="d-flex flex-column gap-3">
+                                            <h3 class="holding-store-card-title">Riyadh Center</h3>
+                                            <p class="holding-store-card-copy">info@alajlabchem.sa</p>
+                                            <p class="holding-store-card-copy"><strong>Tel:</strong> 920026696<br/><strong>Ext.</strong>561</p>
+                                            <a href="https://maps.google.com/?q=Riyadh+Saudi+Arabia" class="holding-contact-cta" target="_blank" rel="noreferrer">
+                                                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                                <span>View Location</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-12 col-md-6 col-xl-3">
+                                    <article class="holding-store-card">
+                                        <span class="holding-store-icon">
+                                            <svg viewBox="0 0 24 24" width="42" height="42"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                        </span>
+                                        <div class="d-flex flex-column gap-3">
+                                            <h3 class="holding-store-card-title">Khobar Center</h3>
+                                            <p class="holding-store-card-copy">info@alajlabchem.sa</p>
+                                            <p class="holding-store-card-copy"><strong>Tel</strong> 920026696<br/><strong>Ext.</strong>161</p>
+                                            <a href="https://maps.google.com/?q=Khobar+Saudi+Arabia" class="holding-contact-cta" target="_blank" rel="noreferrer">
+                                                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                                <span>View Location</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col-12 col-md-6 col-xl-3">
+                                    <article class="holding-store-card">
+                                        <span class="holding-store-icon">
+                                            <svg viewBox="0 0 24 24" width="42" height="42"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                        </span>
+                                        <div class="d-flex flex-column gap-3">
+                                            <h3 class="holding-store-card-title">Yanbu Center</h3>
+                                            <p class="holding-store-card-copy">info@alajlabchem.sa</p>
+                                            <p class="holding-store-card-copy"><strong>Tel</strong> 920026696<br/><strong>Ext.</strong>161</p>
+                                            <a href="https://maps.google.com/?q=Yanbu+Saudi+Arabia" class="holding-contact-cta" target="_blank" rel="noreferrer">
+                                                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                                                <span>View Location</span>
+                                            </a>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <record id="holding_contact_page" model="website.page">
+            <field name="name">Contact Us</field>
+            <field name="url">/contact-us</field>
+            <field name="is_published">True</field>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="view_id" ref="holding_contact_template"/>
+        </record>
+
+        <record id="holding_contact_template" model="ir.ui.view">
+            <field name="website_id" ref="holding_website_record"/>
+        </record>
+    </data>
+</odoo>

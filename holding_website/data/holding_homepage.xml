@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="holding_homepage_template" name="Holding Homepage">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty holding-page" t-attf-dir="#{request.env.lang and request.env.lang.startswith('ar') and 'rtl' or 'ltr'}">
+                    <section class="holding-hero oe_img_bg" style="background-image: url('/holding_website/static/src/img/78d832971b0107023ee69c634af2b0275e427398.png');">
+                        <div class="holding-hero-visual"></div>
+                        <div class="holding-hero-blob"></div>
+                        <div class="holding-section-shell holding-hero-content">
+                            <h1 class="holding-hero-title">ABULJADYEL SKY <span>Holding</span></h1>
+                            <a href="/#history-section" class="holding-hero-card">
+                                <span class="holding-card-thumb oe_img_bg" style="background-image: url('/holding_website/static/src/img/78d832971b0107023ee69c634af2b0275e427398.png');">
+                                    <span class="holding-play-badge">
+                                        <span>
+                                            <svg viewBox="0 0 16 16">
+                                                <path d="M5.5 3.5l7 4.5-7 4.5V3.5z"/>
+                                            </svg>
+                                        </span>
+                                    </span>
+                                </span>
+                                <span class="holding-card-copy">
+                                    <strong>Our history</strong>
+                                    <span>Watch video</span>
+                                </span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section class="holding-content-section" id="about-section">
+                        <div class="holding-section-shell">
+                            <h2 class="holding-section-title">About Us</h2>
+                            <p class="holding-copy">ABULJADYEL SKY Holding is the parent holding company of Abdullatif H. Abuljadayel &amp; Sons, serving as a strategic platform for managing and developing a diverse portfolio of companies across investment, real estate, industry, and technology. Its subsidiaries include Secure Growth, SKY Details, Abdullatif H. Abuljadayel &amp; Sons Co., ALAJCHEM Factory, and Cloud System. The holding company focuses on sustainable growth, value creation, and providing strategic support to ensure each subsidiary remains a leader and innovator in its sector.</p>
+                        </div>
+                    </section>
+
+                    <section class="holding-content-section holding-companies" id="companies-section" data-name="Our Companies">
+                        <div class="holding-companies-blob"></div>
+                        <div class="holding-section-shell">
+                            <h2 class="holding-section-title">Our Companies</h2>
+                            <div class="row d-flex align-items-stretch holding-company-row">
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100 is-highlight">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/Abdullatif.png" alt="Abdullatif H. Abuljadayel &amp; Sons Co." class="holding-company-image"/>
+                                            </div>
+                                            <h3 class="holding-company-title card-title">Abdullatif H. Abuljadayel &amp; Sons Co.</h3>
+                                            <p class="holding-company-desc card-text">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands, HACH-For Water Quality</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/image3.png" alt="Sky Details" class="holding-company-image"/>
+                                            </div>
+                                            <h3 class="holding-company-title card-title">About Sky Details</h3>
+                                            <p class="holding-company-desc card-text">SKY Details is a real estate company specializing in property management and providing comprehensive solutions for investors and clients.</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100 is-highlight">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png" alt="Cloud Systems Tech" class="holding-company-image"/>
+                                            </div>
+                                            <h3 class="holding-company-title card-title">Cloud Systems Tech</h3>
+                                            <p class="holding-company-desc card-text">Cloud Systems for IT is a Saudi company under Abuljadayel Sky Holding, featuring a team of professional engineers, consultants, and experts in IT, digital transformation,</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex align-items-stretch holding-company-row holding-company-row-secondary">
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100 is-highlight">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/d32546a2c1f63b13c15d94e35cc97f0321afd97c.png" alt="Secure Growth" class="holding-company-image"/>
+                                            </div>
+                                            <h3 class="holding-company-title card-title">Secure Growth</h3>
+                                            <p class="holding-company-desc card-text">Cloud Systems for IT is a Saudi company under Abuljadayel Sky Holding, featuring a team of professional engineers, consultants, and experts in IT, digital transformation, ERP systems, and software development.</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="holding-company-card card text-bg-white h-100">
+                                        <div class="card-body holding-company-card-body">
+                                            <div class="holding-company-logo">
+                                                <img src="/holding_website/static/src/img/b502299d4187931475eea934395209906bfd8008.png" alt="ALAJCHEM Factory" class="holding-company-image"/>
+                                            </div>
+                                            <h3 class="holding-company-title card-title">ALAJCHEM Factory</h3>
+                                            <p class="holding-company-desc card-text">Cloud Systems for IT is a Saudi company under Abuljadayel Sky Holding, featuring a team of professional engineers, consultants, and experts in IT, digital transformation, ERP systems, and software development.</p>
+                                            <div class="holding-company-action-wrap">
+                                                <a href="#" class="holding-company-link btn">Visit website</a>
+                                            </div>
+                                            <div class="holding-company-accent">&#160;</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="holding-partner-shell">
+                        <div class="holding-section-shell">
+                            <div class="holding-partner-card">
+                                <div class="holding-partner-blob"></div>
+                                <div class="holding-section-shell holding-partner-inner">
+                                    <div style="position:relative;">
+                                        <p class="holding-watermark holding-partner-watermark">Be Our Partner</p>
+                                        <h2 class="holding-partner-title">Be our partner</h2>
+                                        <p class="holding-partner-copy">ABULJADYEL SKY Holding is the parent holding company of Abdullatif H. Abuljadayel &amp; Sons, serving as a strategic platform for managing and developing a diverse portfolio of companies across investment, real estate,</p>
+                                        <ul class="holding-feature-list">
+                                            <li>
+                                                <svg viewBox="0 0 24 24">
+                                                    <path d="M20 6L9 17l-5-5"/>
+                                                </svg>
+                                                <span>Meet Our SEO</span>
+                                            </li>
+                                            <li>
+                                                <svg viewBox="0 0 24 24">
+                                                    <path d="M20 6L9 17l-5-5"/>
+                                                </svg>
+                                                <span>Our strategy</span>
+                                            </li>
+                                            <li>
+                                                <svg viewBox="0 0 24 24">
+                                                    <path d="M20 6L9 17l-5-5"/>
+                                                </svg>
+                                                <span>Our Values</span>
+                                            </li>
+                                        </ul>
+                                        <a href="/contact-us" class="holding-solid-button">Get Connected</a>
+                                    </div>
+
+                                    <div>
+                                        <p class="holding-partner-side-title">Our Partners</p>
+                                        <div class="holding-partner-grid">
+                                            <img src="/holding_website/static/src/img/544c0f9ca2215b6cc1bf228d6b6e60fff072ad8a.png" alt="Partner 1" class="holding-partner-logo"/>
+                                            <img src="/holding_website/static/src/img/acad2c41f22cfc2e663a7dd479822d6e32a76b4c.png" alt="Partner 2" class="holding-partner-logo"/>
+                                            <img src="/holding_website/static/src/img/ed3d43a4cd4e9a4a9071f19697ced0d5ffaec25f.png" alt="Partner 3" class="holding-partner-logo"/>
+                                            <img src="/holding_website/static/src/img/d7be44fb13329e3e8139e11ab4af2309b151bd97.png" alt="Partner 4" class="holding-partner-logo"/>
+                                            <img src="/holding_website/static/src/img/5fd04aa806701207c978f542857d7e89e0bf748f.png" alt="Partner 5" class="holding-partner-logo"/>
+                                            <img src="/holding_website/static/src/img/c8b5d98c99e10f59e2f7db821fe04890ded7bd91.png" alt="Partner 6" class="holding-partner-logo"/>
+                                            <img src="/holding_website/static/src/img/fd816c6502199c2760f1f0f5bd2c5cdc0f13b4bd.png" alt="Partner 7" class="holding-partner-logo"/>
+                                            <img src="/holding_website/static/src/img/324c65de1d668aed41817144c918063339da788a.png" alt="Partner 8" class="holding-partner-logo"/>
+                                            <img src="/holding_website/static/src/img/c7ab286b55015964df1ce6cecdc34d88d142a207.png" alt="Partner 9" class="holding-partner-logo"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="holding-content-section" id="media-section">
+                        <div class="holding-section-shell">
+                            <div class="holding-media-header">
+                                <div>
+                                    <h2 class="holding-media-title">Media / News</h2>
+                                    <p class="holding-media-subtitle">check Our latest updates</p>
+                                </div>
+                                <a href="/media-center" class="holding-gradient-button">View All</a>
+                            </div>
+
+                            <div class="holding-news-grid">
+                                <article class="holding-news-card">
+                                    <div class="holding-news-media"><img src="/holding_website/static/src/img/188572ad050b9c99a60813308f8109bad202c5fb.png" alt="News 1" class="holding-news-media-image"/></div>
+                                    <div class="holding-news-body">
+                                        <div>
+                                            <p class="holding-news-date">12 March 2025</p>
+                                            <p class="holding-news-text">Title Text Goes here Title Text Goes here</p>
+                                        </div>
+                                        <a href="/media-center" class="holding-outline-button" aria-label="Read more">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <article class="holding-news-card">
+                                    <div class="holding-news-media"><img src="/holding_website/static/src/img/e63f3ba0b275cf99aef499d15fe0e95c59538b4e.png" alt="News 2" class="holding-news-media-image"/></div>
+                                    <div class="holding-news-body">
+                                        <div>
+                                            <p class="holding-news-date">12 March 2025</p>
+                                            <p class="holding-news-text">Event Title #02</p>
+                                        </div>
+                                        <a href="/media-center" class="holding-outline-button" aria-label="Read more">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </article>
+
+                                <article class="holding-news-card">
+                                    <div class="holding-news-media"><img src="/holding_website/static/src/img/be47af712e534dec5ef1bc8e42ee46f74fe131a8.png" alt="News 3" class="holding-news-media-image"/></div>
+                                    <div class="holding-news-body">
+                                        <div>
+                                            <p class="holding-news-date">12 March 2025</p>
+                                            <p class="holding-news-text">Title Text Goes here Title Text Goes here</p>
+                                        </div>
+                                        <a href="/media-center" class="holding-outline-button" aria-label="Read more">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="holding-content-section" id="history-section">
+                        <div class="holding-section-shell">
+                            <div class="holding-history-layout">
+                                <div>
+                                    <h2 class="holding-history-title">History of Success</h2>
+                                    <p class="holding-copy-light">ABULJADYEL SKY Holding is the parent holding company of Abdullatif H. Abuljadayel &amp; Sons, serving as a strategic platform for managing and developing a diverse portfolio of companies across investment, real estate, industry, and technology.</p>
+
+                                    <div class="holding-timeline">
+                                        <div class="holding-timeline-line"></div>
+                                        <div class="holding-timeline-list">
+                                            <div class="holding-timeline-item">
+                                                <span class="holding-timeline-year">1984</span>
+                                                <div class="holding-timeline-logos">
+                                                    <p class="holding-timeline-label">Founded</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="holding-timeline-item">
+                                                <span class="holding-timeline-year">2023</span>
+                                                <div class="holding-timeline-logos">
+                                                    <p class="holding-timeline-label">Founded</p>
+                                                    <img src="/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png" alt="Cloud Systems Tech" class="holding-timeline-logo"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="holding-timeline-item">
+                                                <span class="holding-timeline-year">2023</span>
+                                                <div class="holding-timeline-logos">
+                                                    <p class="holding-timeline-label">Founded</p>
+                                                    <img src="/holding_website/static/src/img/b502299d4187931475eea934395209906bfd8008.png" alt="ALAJCHEM Factory" class="holding-timeline-logo"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="holding-timeline-item">
+                                                <span class="holding-timeline-year">2025</span>
+                                                <div class="holding-timeline-logos">
+                                                    <p class="holding-timeline-label">Founded</p>
+                                                    <img src="/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png" alt="Abuljadyel Sky Holding" class="holding-timeline-logo"/>
+                                                    <img src="/holding_website/static/src/img/d32546a2c1f63b13c15d94e35cc97f0321afd97c.png" alt="Secure Growth" class="holding-timeline-logo"/>
+                                                    <img src="/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png" alt="Cloud Systems Tech" class="holding-timeline-logo"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="#history-section" class="holding-gradient-button" style="margin-top:32px;">Our History</a>
+                                </div>
+
+                                <div class="holding-history-images">
+                                    <div class="holding-history-card is-back"><img src="/holding_website/static/src/img/ecf5657ac9798454ccaffddd5e90d76651ff2d65.png" alt="History" class="holding-history-card-image"/></div>
+                                    <div class="holding-history-card is-front"><img src="/holding_website/static/src/img/22bad24c89ab08d6a2cf95b2a15df76a742e2b09.png" alt="History" class="holding-history-card-image"/></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="holding-services-shell" id="services-section">
+                        <div class="holding-section-shell">
+                            <div class="holding-services-card">
+                                <div class="holding-services-blob"></div>
+                                <p class="holding-watermark holding-services-watermark">Our Services</p>
+                                <div class="holding-section-shell" style="position:relative;z-index:1;">
+                                    <h2 class="holding-services-title">Our Services</h2>
+                                    <p class="holding-services-copy">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands, HACH-For Water Quality and CHEMSEARCH -Industrial Maintenance Chemicals, and ever since then as per growing market demands for Water Sector in the Kingdom, more product line has been acquired as a comprehensive organization offering more products for Lab requirements</p>
+
+                                    <div class="holding-services-grid">
+                                        <div class="holding-service-item">
+                                            <h3 class="holding-service-title">Cloud Systems</h3>
+                                            <p class="holding-service-copy">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands,</p>
+                                        </div>
+                                        <div class="holding-service-item">
+                                            <h3 class="holding-service-title">Real-estate</h3>
+                                            <p class="holding-service-copy">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands,</p>
+                                        </div>
+                                        <div class="holding-service-item">
+                                            <h3 class="holding-service-title">Laboratory Instruments</h3>
+                                            <p class="holding-service-copy">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands,</p>
+                                        </div>
+                                        <div class="holding-service-item">
+                                            <h3 class="holding-service-title">Networks &amp; Information Security</h3>
+                                            <p class="holding-service-copy">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands,</p>
+                                        </div>
+                                        <div class="holding-service-item">
+                                            <h3 class="holding-service-title">chemical manufacturing</h3>
+                                            <p class="holding-service-copy">Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was started by acquiring worldwide known brands,</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <delete model="website.page" search="[('url', '=', '/'), ('website_id', '=', ref('holding_website_record')), ('view_id.key', '!=', 'holding_website.holding_homepage_template')]"/>
+
+        <record id="holding_homepage_page" model="website.page">
+            <field name="name">Home</field>
+            <field name="url">/</field>
+            <field name="is_published">True</field>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="view_id" ref="holding_homepage_template"/>
+        </record>
+
+        <record id="holding_menu_home" model="website.menu">
+            <field name="name">Home</field>
+            <field name="url">/</field>
+            <field name="parent_id" ref="holding_top_menu"/>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="holding_menu_about" model="website.menu">
+            <field name="name">About Us</field>
+            <field name="url">/about-us</field>
+            <field name="parent_id" ref="holding_top_menu"/>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="holding_menu_companies" model="website.menu">
+            <field name="name">Our Companies</field>
+            <field name="url">/our-companies</field>
+            <field name="parent_id" ref="holding_top_menu"/>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="holding_menu_media" model="website.menu">
+            <field name="name">Media</field>
+            <field name="url">/media-center</field>
+            <field name="parent_id" ref="holding_top_menu"/>
+            <field name="website_id" ref="holding_website_record"/>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="holding_homepage_template" model="ir.ui.view">
+            <field name="website_id" ref="holding_website_record"/>
+        </record>
+    </data>
+</odoo>

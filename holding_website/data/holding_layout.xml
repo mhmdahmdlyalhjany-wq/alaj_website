@@ -1,0 +1,2898 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="holding_header" name="Holding Header">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&amp;family=Mulish:wght@300;400;500;600;700;800&amp;display=swap');
+
+            :root {
+                --holding-font-heading: 'Playfair Display', serif;
+                --holding-font-body: 'Mulish', sans-serif;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: var(--holding-font-body);
+                font-size: 14px;
+                line-height: 1.6;
+                color: #0a090f;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            #wrap {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .holding-page,
+            .holding-page * ,
+            .holding-header-shell,
+            .holding-header-shell *,
+            .holding-footer,
+            .holding-footer * {
+                box-sizing: border-box;
+            }
+
+            .holding-page {
+                width: 100%;
+                background: #ffffff;
+                color: #0a090f;
+                font-family: var(--holding-font-body);
+            }
+
+            .holding-header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .holding-header-shell {
+                position: relative;
+                top: auto;
+                z-index: auto;
+                width: 100%;
+                background: #ffffff;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+                font-family: var(--holding-font-body);
+            }
+
+            .holding-header-inner,
+            .holding-page .holding-section-shell,
+            .holding-footer-inner {
+                width: min(100%, 1280px);
+                margin: 0 auto;
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .holding-header-inner {
+                min-height: 82px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+            }
+
+            .holding-topbar,
+            .holding-mobile-topbar {
+                border-bottom: 1px solid #ece7f6;
+            }
+
+            .holding-topbar {
+                background: #faf7ff;
+            }
+
+            .holding-mobile-topbar {
+                display: none;
+                background: #0a090f;
+            }
+
+            .holding-topbar-inner,
+            .holding-mobile-topbar-inner {
+                width: min(100%, 1280px);
+                margin: 0 auto;
+                padding-left: 24px;
+                padding-right: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+            }
+
+            .holding-topbar-inner {
+                min-height: 40px;
+            }
+
+            .holding-mobile-topbar-inner {
+                min-height: 32px;
+            }
+
+            .holding-topbar-left,
+            .holding-topbar-right {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                min-width: 0;
+            }
+
+            .holding-topbar a,
+            .holding-mobile-topbar a {
+                color: #262138;
+                text-decoration: none;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .holding-mobile-topbar a {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 9px;
+                white-space: nowrap;
+            }
+
+            .holding-topbar a:hover {
+                color: #7826ea;
+            }
+
+            .holding-mobile-topbar a:hover {
+                color: #ffffff;
+            }
+
+            .holding-topbar-divider {
+                width: 1px;
+                height: 16px;
+                background: #ddd6ee;
+                flex-shrink: 0;
+            }
+
+            .holding-topbar-socials {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .holding-topbar-socials a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .holding-topbar-socials svg {
+                width: 16px;
+                height: 16px;
+                fill: currentColor;
+            }
+
+            .holding-topbar-note {
+                color: #6b6478;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .holding-topbar-cta {
+                color: #7826ea !important;
+                font-size: 12px !important;
+                font-weight: 800 !important;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            .holding-mobile-topbar .holding-topbar-cta {
+                color: #caa5ff !important;
+            }
+
+            .holding-brand,
+            .holding-footer-brand {
+                display: inline-flex;
+                align-items: center;
+                text-decoration: none;
+                flex-shrink: 0;
+            }
+
+            .holding-brand-image,
+            .holding-footer-brand-image {
+                display: block;
+                width: 224px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                background-color: transparent;
+                object-fit: contain;
+            }
+
+            .holding-brand-image {
+                height: 56px;
+            }
+
+            .holding-footer-brand-image {
+                width: auto;
+                max-width: 224px;
+                height: 56px;
+            }
+
+            .holding-visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+
+            .holding-nav {
+                flex: 1 1 auto;
+                margin: 0 auto;
+            }
+
+            .holding-nav-list,
+            .holding-mobile-nav-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .holding-nav-list {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+                margin: 0 auto;
+            }
+
+            .holding-nav-list > li,
+            .holding-mobile-nav-list > li {
+                list-style: none;
+            }
+
+            .holding-nav-list > li {
+                display: flex;
+                align-items: center;
+            }
+
+            .holding-nav-list > li > a,
+            .holding-mobile-nav a,
+            .holding-footer-link {
+                text-decoration: none;
+                transition: color 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+            }
+
+            .holding-nav-list > li > a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: #0a090f;
+                padding: 8px 20px;
+                font-size: 14px;
+                font-weight: 800;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            .holding-nav-list > li + li {
+                margin-left: 10px;
+                padding-left: 10px;
+                border-left: 1px solid #e5def2;
+            }
+
+            .holding-nav-list > li > a:hover,
+            .holding-nav-list > li > a.active,
+            .holding-footer-link:hover,
+            .holding-footer-social:hover {
+                color: #7826ea;
+            }
+
+            .holding-nav-dropdown {
+                margin-top: 12px;
+                padding: 8px;
+                border: 1px solid #ece7f6;
+                border-radius: 18px;
+                background: #ffffff;
+                box-shadow: 0 18px 48px rgba(10, 9, 15, 0.12);
+            }
+
+            .holding-nav-dropdown .dropdown-item {
+                padding: 10px 14px;
+                border-radius: 12px;
+                color: #0a090f;
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            .holding-nav-dropdown .dropdown-item:hover,
+            .holding-nav-dropdown .dropdown-item.active {
+                color: #7826ea;
+                background: #faf7ff;
+            }
+
+            .holding-header-actions {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                flex-shrink: 0;
+            }
+
+            .holding-lang-switcher {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 48px;
+                padding: 10px 16px;
+                border-radius: 9999px;
+                border: 1px solid rgba(10, 9, 15, 0.16);
+                color: #0a090f;
+                background: #ffffff;
+                font-family: var(--holding-font-body);
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.04em;
+                text-decoration: none;
+                line-height: 1;
+            }
+
+            .holding-lang-switcher:hover {
+                background: rgba(120, 38, 234, 0.06);
+                color: #7826ea;
+            }
+
+            .holding-mobile-tools {
+                display: none;
+                align-items: center;
+                gap: 12px;
+                margin-left: auto;
+            }
+
+            .holding-account-link,
+            .holding-user-dropdown summary,
+            .holding-header-icon-link,
+            .holding-mobile-icon-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: #2c3240;
+                text-decoration: none;
+                background: transparent;
+                border: none;
+                transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+            }
+
+            .holding-account-link,
+            .holding-user-dropdown summary {
+                min-height: 24px;
+                padding: 0;
+                border-radius: 0;
+                font-family: var(--holding-font-body);
+                font-size: 14px;
+                font-weight: 800;
+                white-space: nowrap;
+                cursor: pointer;
+                list-style: none;
+            }
+
+            .holding-user-dropdown summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .holding-header-icon-link,
+            .holding-mobile-icon-link {
+                width: 24px;
+                height: 24px;
+                border-radius: 0;
+                padding: 0 !important;
+                flex-shrink: 0;
+            }
+
+            .holding-account-link:hover,
+            .holding-user-dropdown summary:hover,
+            .holding-header-icon-link:hover,
+            .holding-mobile-icon-link:hover {
+                color: #7826ea;
+                transform: translateY(-1px);
+            }
+
+            .holding-header-icon,
+            .holding-icon-badge-wrap {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 22px;
+                height: 22px;
+                color: currentColor;
+            }
+
+            .holding-header-icon svg,
+            .holding-icon-badge-wrap svg,
+            .holding-mobile-icon-link svg,
+            .holding-account-link svg,
+            .holding-user-dropdown summary svg {
+                width: 22px;
+                height: 22px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 1.9;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .holding-badge,
+            .holding-icon-badge-wrap .my_wish_quantity {
+                position: absolute;
+                top: -6px;
+                right: -8px;
+                min-width: 16px;
+                height: 16px;
+                padding: 0 4px;
+                border-radius: 9999px;
+                background: #7826ea;
+                color: #ffffff;
+                font-size: 10px;
+                font-weight: 700;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .holding-user-dropdown {
+                position: relative;
+            }
+
+            .holding-user-menu {
+                display: none;
+                position: absolute;
+                top: calc(100% + 12px);
+                right: 0;
+                min-width: 188px;
+                padding: 8px;
+                border: 1px solid rgba(10, 9, 15, 0.1);
+                border-radius: 20px;
+                background: #ffffff;
+                box-shadow: 0 18px 48px rgba(10, 9, 15, 0.12);
+                z-index: 20;
+            }
+
+            .holding-user-dropdown[open] .holding-user-menu {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .holding-user-menu a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 12px 14px;
+                border-radius: 14px;
+                color: #0a090f;
+                font-family: var(--holding-font-body);
+                font-size: 13px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                line-height: 1.2;
+                text-decoration: none;
+            }
+
+            .holding-user-menu a:hover {
+                color: #7826ea;
+                background: rgba(120, 38, 234, 0.06);
+            }
+
+            .holding-gradient-button,
+            .holding-solid-button,
+            .holding-outline-button,
+            .holding-arrow-button {
+                text-decoration: none;
+                border: none;
+                cursor: pointer;
+                transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+            }
+
+            .holding-gradient-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 24px;
+                min-height: 44px;
+                border-radius: 10px;
+                background: linear-gradient(270deg, #37116b 0%, #6b21d1 100%);
+                color: #ffffff;
+                font-family: var(--holding-font-body);
+                font-size: 13px;
+                font-weight: 800;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                line-height: 1;
+                box-shadow: 0 10px 30px rgba(55, 17, 107, 0.16);
+            }
+
+            .holding-gradient-button:hover,
+            .holding-solid-button:hover,
+            .holding-outline-button:hover {
+                transform: translateY(-1px);
+            }
+
+            .holding-solid-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 16px 32px;
+                border-radius: 9999px;
+                background: #ffffff;
+                color: #0a090f;
+                font-family: var(--holding-font-body);
+                font-size: 16px;
+                font-weight: 800;
+                line-height: 1;
+            }
+
+            .holding-outline-button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 9999px;
+                border: 1px solid #262138;
+                color: #262138;
+                background: #ffffff;
+            }
+
+            .holding-outline-button:hover {
+                background: #262138;
+                color: #ffffff;
+            }
+
+            .holding-menu-toggle,
+            .holding-newsletter-toggle-input {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .holding-menu-button,
+            .holding-menu-close {
+                display: none;
+                align-items: center;
+                justify-content: center;
+                width: 44px;
+                height: 44px;
+                color: #0a090f;
+                cursor: pointer;
+                flex-shrink: 0;
+                border: none;
+                background: transparent;
+            }
+
+            .holding-menu-button svg,
+            .holding-menu-close svg,
+            .holding-outline-button svg {
+                width: 24px;
+                height: 24px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .holding-mobile-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(10, 9, 15, 0.34);
+                z-index: 1100;
+            }
+
+            .holding-mobile-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: min(100%, 340px);
+                background: #ffffff;
+                z-index: 1101;
+                overflow: hidden;
+                box-shadow: 12px 0 40px rgba(10, 9, 15, 0.16);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            #holding-menu-toggle:checked ~ .holding-mobile-backdrop {
+                display: block;
+            }
+
+            #holding-menu-toggle:checked ~ .holding-mobile-menu {
+                transform: translateX(0);
+            }
+
+            .holding-mobile-menu-inner {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                overflow: hidden;
+            }
+
+            .holding-mobile-menu-top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 10px 14px;
+                border-bottom: 1px solid #ece7f6;
+            }
+
+            .holding-mobile-menu .holding-brand-image {
+                width: auto;
+                max-width: 138px;
+                height: 30px;
+            }
+
+            .holding-mobile-menu-body {
+                flex: 1 1 auto;
+                min-height: 0;
+                overflow: hidden;
+                padding-top: 4px;
+            }
+
+            .holding-mobile-nav {
+                display: block;
+            }
+
+            .holding-mobile-nav-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .holding-mobile-nav a {
+                display: block;
+                padding: 10px 18px;
+                color: #0a090f;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 0.02em;
+                line-height: 1.15;
+                text-transform: uppercase;
+                border-bottom: 1px solid #f1edf8;
+            }
+
+            .holding-mobile-nav a:hover {
+                color: #7826ea;
+                background: #faf7ff;
+            }
+
+            .holding-mobile-nav a.active {
+                color: #7826ea;
+                background: #faf7ff;
+            }
+
+            .holding-mobile-dropdown {
+                padding: 0 0 0 14px;
+                background: transparent;
+            }
+
+            .holding-mobile-dropdown .dropdown-item {
+                padding: 9px 18px 9px 10px;
+                color: #5b5467;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                border-bottom: 1px solid #f1edf8;
+            }
+
+            .holding-mobile-actions {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                padding: 12px 18px 12px;
+                border-top: 1px solid #ece7f6;
+                background: #ffffff;
+                box-shadow: 0 -8px 20px rgba(10, 9, 15, 0.04);
+                flex-shrink: 0;
+            }
+
+            .holding-mobile-utility {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .holding-mobile-action-link {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 9px 0;
+                color: #0a090f;
+                font-size: 11px;
+                font-weight: 800;
+                letter-spacing: 0.02em;
+                line-height: 1.15;
+                text-transform: uppercase;
+                text-decoration: none;
+                border-bottom: 1px solid #f1edf8;
+            }
+
+            .holding-mobile-action-link:hover {
+                color: #7826ea;
+            }
+
+            .holding-mobile-contact-list {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                padding-top: 0;
+            }
+
+            .holding-mobile-contact-item {
+                color: #6b6478;
+                font-size: 10px;
+                font-weight: 600;
+                line-height: 1.2;
+                text-decoration: none;
+            }
+
+            .holding-mobile-actions .holding-lang-switcher {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .holding-mobile-actions .holding-gradient-button {
+                width: 100%;
+            }
+
+            .holding-newsletter-tab {
+                position: fixed;
+                left: 0;
+                top: 52%;
+                transform: translateY(-50%);
+                z-index: 1040;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 10px 12px 12px;
+                background: #ffffff;
+                border: 1px solid rgba(120, 38, 234, 0.28);
+                border-left: 0;
+                border-radius: 0 12px 12px 0;
+                box-shadow: 0 6px 18px rgba(10, 9, 15, 0.12);
+                cursor: pointer;
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+            }
+
+            .holding-newsletter-tab svg {
+                width: 16px;
+                height: 16px;
+                color: #7826ea;
+                transform: rotate(90deg);
+            }
+
+            .holding-newsletter-tab span {
+                color: #7826ea;
+                font-size: 11px;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            .holding-newsletter-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(10, 9, 15, 0.32);
+                z-index: 1102;
+            }
+
+            .holding-newsletter-panel {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: min(100%, 380px);
+                background: #ffffff;
+                z-index: 1103;
+                display: flex;
+                flex-direction: column;
+                box-shadow: 12px 0 40px rgba(10, 9, 15, 0.18);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            #holding-newsletter-toggle:checked ~ .holding-newsletter-overlay {
+                display: block;
+            }
+
+            #holding-newsletter-toggle:checked ~ .holding-newsletter-panel {
+                transform: translateX(0);
+            }
+
+            .holding-newsletter-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 20px 24px;
+                border-bottom: 1px solid #ece7f6;
+            }
+
+            .holding-newsletter-head h3 {
+                margin: 0;
+                color: #0a090f;
+                font-family: var(--holding-font-heading);
+                font-size: 28px;
+                font-weight: 700;
+            }
+
+            .holding-newsletter-close {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                color: #6b6478;
+                cursor: pointer;
+            }
+
+            .holding-newsletter-close svg {
+                width: 20px;
+                height: 20px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .holding-newsletter-body {
+                flex: 1;
+                overflow-y: auto;
+                padding: 24px;
+            }
+
+            .holding-newsletter-body p {
+                margin: 0 0 20px;
+                color: #4c465c;
+                font-size: 14px;
+                line-height: 1.75;
+            }
+
+            .holding-newsletter-form {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .holding-newsletter-field label {
+                display: block;
+                margin-bottom: 6px;
+                color: #0a090f;
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            .holding-newsletter-field input[type="email"] {
+                width: 100%;
+                min-height: 48px;
+                padding: 0 16px;
+                border: 1px solid rgba(10, 9, 15, 0.14);
+                border-radius: 12px;
+                color: #0a090f;
+                font-size: 14px;
+                font-family: var(--holding-font-body);
+            }
+
+            .holding-newsletter-field input[type="email"]:focus {
+                outline: none;
+                border-color: rgba(120, 38, 234, 0.4);
+            }
+
+            .holding-page .holding-section-shell {
+                position: relative;
+            }
+
+            .holding-page .holding-hero {
+                position: relative;
+                overflow: hidden;
+                border-bottom-left-radius: 50px;
+                border-bottom-right-radius: 50px;
+                background: #0a090f;
+                background-repeat: no-repeat;
+                background-position: right center;
+                background-size: cover;
+                min-height: 560px;
+            }
+
+            .holding-page .holding-hero-content {
+                position: relative;
+                z-index: 2;
+                padding-top: 96px;
+                padding-bottom: 112px;
+            }
+
+            .holding-page .holding-hero-title {
+                margin: 0 0 32px;
+                color: #ffffff;
+                font-family: var(--holding-font-heading);
+                font-size: clamp(44px, 8vw, 120px);
+                font-weight: 500;
+                line-height: 1;
+                letter-spacing: -2px;
+                max-width: 760px;
+            }
+
+            .holding-page .holding-hero-title span {
+                display: block;
+            }
+
+            .holding-page .holding-hero-visual {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                overflow: hidden;
+                opacity: 1;
+                pointer-events: none;
+            }
+
+            .holding-page .holding-hero-visual-image,
+            .holding-page .holding-card-thumb-image,
+            .holding-page .holding-news-media-image,
+            .holding-page .holding-history-card-image {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .holding-page .holding-hero-visual::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to right, #0a090f 0%, rgba(10, 9, 15, 0.4) 50%, transparent 100%);
+                pointer-events: none;
+            }
+
+            .holding-page .holding-hero-blob,
+            .holding-page .holding-companies-blob,
+            .holding-page .holding-partner-blob,
+            .holding-page .holding-services-blob {
+                position: absolute;
+                border-radius: 50%;
+                pointer-events: none;
+            }
+
+            .holding-page .holding-hero-blob {
+                top: -120px;
+                right: -120px;
+                width: 400px;
+                height: 400px;
+                opacity: 0.2;
+                background: radial-gradient(circle, #7826ea 0%, #37116b 60%, transparent 100%);
+                filter: blur(80px);
+            }
+
+            .holding-page .holding-hero-card {
+                display: inline-flex;
+                align-items: center;
+                gap: 16px;
+                max-width: 320px;
+                padding: 12px;
+                border-radius: 20px;
+                background: #ffffff;
+                text-decoration: none;
+                color: #0a090f;
+                box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+            }
+
+            .holding-page .holding-hero-visual,
+            .holding-page .holding-card-thumb,
+            .holding-page .holding-news-media,
+            .holding-page .holding-history-card,
+            .holding-page .holding-company-image,
+            .holding-page .holding-partner-logo,
+            .holding-page .holding-timeline-logo {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+
+            .holding-page .holding-card-thumb {
+                position: relative;
+                width: 80px;
+                height: 80px;
+                flex-shrink: 0;
+                border-radius: 16px;
+                overflow: hidden;
+                background-color: #d6d6e0;
+            }
+
+            .holding-page .holding-card-thumb::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.35);
+                pointer-events: none;
+            }
+
+            .holding-page .holding-play-badge {
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+            }
+
+            .holding-page .holding-play-badge span {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 9999px;
+                background: #b42318;
+            }
+
+            .holding-page .holding-play-badge svg {
+                width: 14px;
+                height: 14px;
+                fill: #ffffff;
+                margin-left: 2px;
+            }
+
+            .holding-page .holding-card-copy strong,
+            .holding-page .holding-card-copy span {
+                display: block;
+            }
+
+            .holding-page .holding-card-copy strong {
+                font-size: 15px;
+                font-weight: 500;
+                color: #0a090f;
+            }
+
+            .holding-page .holding-card-copy span {
+                margin-top: 4px;
+                font-size: 13px;
+                color: #ee0004;
+                text-decoration: underline;
+            }
+
+            .holding-page section {
+                width: 100%;
+            }
+
+            .holding-page .holding-content-section {
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+
+            .holding-page .holding-section-title {
+                margin: 0 0 16px;
+                font-family: var(--holding-font-heading);
+                font-size: clamp(24px, 4vw, 36px);
+                font-weight: 600;
+                color: #0a090f;
+            }
+
+            .holding-page .holding-copy,
+            .holding-page .holding-copy-light {
+                margin: 0;
+                line-height: 1.72;
+            }
+
+            .holding-page .holding-copy {
+                max-width: 980px;
+                font-size: clamp(14px, 1.5vw, 18px);
+                font-weight: 400;
+                color: #000000;
+            }
+
+            .holding-page .holding-copy-light {
+                font-size: clamp(13px, 1.2vw, 17px);
+                font-weight: 300;
+                color: rgba(10, 9, 15, 0.72);
+            }
+
+            .holding-page .holding-companies {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .holding-page .holding-companies-blob {
+                left: -128px;
+                top: -128px;
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(circle, rgba(55, 17, 107, 0.15) 0%, transparent 70%);
+                filter: blur(60px);
+            }
+
+            .holding-page .holding-card-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+            .holding-page .holding-card-grid-secondary {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+                width: min(100%, 66.6667%);
+                margin-top: 20px;
+            }
+
+            .holding-page .holding-company-card {
+                height: 100%;
+                overflow: hidden;
+                border-radius: 20px;
+                border: 0;
+                background: #ffffff;
+                box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.08);
+            }
+
+            .holding-page .holding-company-card.is-highlight {
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+            .holding-page .holding-company-row {
+                --bs-gutter-x: 20px;
+                --bs-gutter-y: 20px;
+            }
+
+            .holding-page .holding-company-card-body {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                height: 100%;
+                padding: 32px;
+            }
+
+            .holding-page .holding-company-logo {
+                min-height: 56px;
+                display: flex;
+                align-items: center;
+            }
+
+            .holding-page .holding-company-image {
+                width: 160px;
+                max-width: 100%;
+                height: 56px;
+                background-size: contain;
+                background-color: transparent;
+                display: block;
+                object-fit: contain;
+            }
+
+            .holding-page .holding-company-logo-text {
+                display: flex;
+                flex-direction: column;
+                line-height: 1.2;
+            }
+
+            .holding-page .holding-company-logo-text span:first-child {
+                color: #003764;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+
+            .holding-page .holding-company-logo-text span:last-child {
+                color: #79242f;
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .holding-page .holding-company-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                color: #2c3e50;
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .holding-page .holding-company-badge-mark {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: #2c3e50;
+                color: #ffffff;
+                font-size: 12px;
+                font-weight: 700;
+            }
+
+            .holding-page .holding-company-title {
+                margin: 0;
+                color: #0a090f;
+                font-size: clamp(20px, 2.5vw, 32px);
+                font-weight: 500;
+                line-height: 1.2;
+            }
+
+            .holding-page .holding-company-desc {
+                margin: 0;
+                color: #000000;
+                font-size: clamp(13px, 1.2vw, 16px);
+                line-height: 1.72;
+                flex: 1 1 auto;
+            }
+
+            .holding-page .holding-company-link {
+                display: inline-flex;
+                align-self: flex-start;
+                padding: 14px 24px;
+                border-radius: 9999px;
+                background: linear-gradient(-87.8deg, #37116b 0.36%, #6b21d1 94.4%);
+                color: #ffffff;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 1;
+                text-decoration: none;
+            }
+
+            .holding-page .holding-company-action-wrap {
+                margin: 0;
+            }
+
+            .holding-page .holding-company-accent {
+                display: block;
+                align-self: flex-end;
+                margin-top: auto;
+                width: 64px;
+                height: 4px;
+                border-radius: 9999px;
+                background: linear-gradient(to right, #d95db0, #3344dc);
+                color: transparent;
+                font-size: 0;
+                line-height: 0;
+            }
+
+            .holding-page .holding-partner-shell {
+                padding-top: 24px;
+                padding-bottom: 24px;
+            }
+
+            .holding-page .holding-partner-card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 50px;
+                background: linear-gradient(219.35deg, #37116b 4.25%, #6b21d1 70.27%);
+                padding-top: 72px;
+                padding-bottom: 72px;
+            }
+
+            .holding-page .holding-partner-blob {
+                right: -40px;
+                top: -40px;
+                width: 500px;
+                height: 500px;
+                opacity: 0.2;
+                background: radial-gradient(circle, rgba(120, 38, 234, 0.8) 0%, transparent 70%);
+                filter: blur(80px);
+            }
+
+            .holding-page .holding-partner-inner {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+                gap: 64px;
+                align-items: start;
+                position: relative;
+                z-index: 1;
+            }
+
+            .holding-page .holding-watermark {
+                position: absolute;
+                user-select: text;
+                pointer-events: auto;
+                white-space: nowrap;
+                font-family: var(--holding-font-heading);
+                font-weight: 700;
+                line-height: 1;
+            }
+
+            .holding-page .holding-partner-watermark {
+                top: -24px;
+                left: -8px;
+                font-size: clamp(48px, 10vw, 140px);
+                color: rgba(255, 255, 255, 0.04);
+            }
+
+            .holding-page .holding-partner-title,
+            .holding-page .holding-media-title,
+            .holding-page .holding-history-title,
+            .holding-page .holding-services-title {
+                margin: 0 0 16px;
+                font-family: var(--holding-font-heading);
+                font-weight: 500;
+                line-height: 1.1;
+            }
+
+            .holding-page .holding-partner-title {
+                color: #ffffff;
+                font-size: clamp(28px, 5vw, 44px);
+            }
+
+            .holding-page .holding-partner-copy {
+                max-width: 560px;
+                margin: 0 0 32px;
+                color: rgba(255, 255, 255, 0.9);
+                font-size: clamp(14px, 1.5vw, 17px);
+                font-weight: 300;
+                line-height: 1.72;
+            }
+
+            .holding-page .holding-feature-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px 24px;
+                margin: 0 0 32px;
+                padding: 0;
+                list-style: none;
+            }
+
+            .holding-page .holding-feature-list li {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                color: #ffffff;
+                font-size: clamp(14px, 1.2vw, 18px);
+                font-weight: 400;
+            }
+
+            .holding-page .holding-feature-list svg {
+                width: 18px;
+                height: 18px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 2;
+            }
+
+            .holding-page .holding-partner-side-title {
+                margin: 0 0 24px;
+                color: rgba(255, 255, 255, 0.25);
+                font-family: var(--holding-font-heading);
+                font-size: clamp(20px, 3vw, 36px);
+                font-weight: 600;
+            }
+
+            .holding-page .holding-partner-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .holding-page .holding-partner-logo {
+                height: 72px;
+                border-radius: 10px;
+                background-color: rgba(255, 255, 255, 0.9);
+                background-size: contain;
+                display: block;
+                object-fit: contain;
+                width: 100%;
+            }
+
+            .holding-page .holding-media-header {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 24px;
+                margin-bottom: 40px;
+            }
+
+            .holding-page .holding-media-title {
+                color: #000000;
+                font-size: clamp(28px, 4vw, 43px);
+            }
+
+            .holding-page .holding-media-subtitle {
+                margin: 0;
+                color: rgba(10, 9, 15, 0.7);
+                font-size: clamp(13px, 1.2vw, 17px);
+                font-weight: 500;
+            }
+
+            .holding-page .holding-news-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+            .holding-page .holding-news-card {
+                overflow: hidden;
+                border-radius: 20px;
+                background: #ffffff;
+                box-shadow: 0 4px 50px rgba(0, 0, 0, 0.05);
+            }
+
+            .holding-page .holding-news-media {
+                position: relative;
+                height: 256px;
+                background-color: #d7d7de;
+            }
+
+            .holding-page .holding-news-media::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+                pointer-events: none;
+            }
+
+            .holding-page .holding-news-body {
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .holding-page .holding-news-date {
+                margin: 0 0 8px;
+                color: #e1261c;
+                font-family: var(--holding-font-body);
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            .holding-page .holding-news-text {
+                margin: 0;
+                color: #262138;
+                font-family: var(--holding-font-body);
+                font-size: clamp(16px, 1.5vw, 22px);
+                font-weight: 500;
+                line-height: 1.45;
+            }
+
+            .holding-page .holding-history-layout {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+                gap: 64px;
+                align-items: start;
+            }
+
+            .holding-page .holding-history-title {
+                color: #000000;
+                font-size: clamp(28px, 5vw, 55px);
+            }
+
+            .holding-page .holding-timeline {
+                position: relative;
+                margin-top: 48px;
+            }
+
+            .holding-page .holding-timeline-line {
+                position: absolute;
+                top: 48px;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: rgba(76, 29, 149, 0.2);
+            }
+
+            .holding-page .holding-timeline-list {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                gap: 24px;
+                overflow-x: auto;
+                padding-bottom: 16px;
+                scrollbar-width: thin;
+            }
+
+            .holding-page .holding-timeline-item {
+                flex: 0 0 auto;
+                width: 110px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .holding-page .holding-timeline-year {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 96px;
+                height: 96px;
+                border-radius: 50%;
+                background: #7826eb;
+                color: #ffffff;
+                font-family: var(--holding-font-body);
+                font-size: 15px;
+                font-weight: 700;
+                box-shadow: 0 18px 36px rgba(120, 38, 235, 0.24);
+            }
+
+            .holding-page .holding-timeline-label {
+                margin: 0;
+                font-family: var(--holding-font-body);
+                font-size: 12px;
+                font-weight: 400;
+                color: #37116b;
+            }
+
+            .holding-page .holding-timeline-item:first-child .holding-timeline-label {
+                color: #4c1d95;
+            }
+
+            .holding-page .holding-timeline-logos {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .holding-page .holding-timeline-logo {
+                width: 110px;
+                height: 34px;
+                background-size: contain;
+                background-color: transparent;
+                display: block;
+                object-fit: contain;
+            }
+
+            .holding-page .holding-history-images {
+                position: relative;
+                min-height: 420px;
+            }
+
+            .holding-page .holding-history-card {
+                position: absolute;
+                overflow: hidden;
+                border-radius: 30px;
+                background-color: #d7d7de;
+            }
+
+            .holding-page .holding-history-card.is-back {
+                right: 64px;
+                bottom: 0;
+                width: 300px;
+                height: 250px;
+                transform: scaleY(-1);
+            }
+
+            .holding-page .holding-history-card.is-front {
+                right: 0;
+                top: 0;
+                width: 320px;
+                height: 300px;
+            }
+
+            .holding-page .holding-services-shell {
+                padding-bottom: 48px;
+            }
+
+            .holding-page .holding-services-card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 30px;
+                background: #0a090f;
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+            .holding-page .holding-services-blob {
+                right: -100px;
+                top: 50%;
+                width: 600px;
+                height: 600px;
+                opacity: 0.3;
+                transform: translateY(-50%);
+                background: radial-gradient(circle, rgba(55, 17, 107, 0.8) 0%, transparent 70%);
+                filter: blur(80px);
+            }
+
+            .holding-page .holding-services-watermark {
+                top: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: clamp(60px, 15vw, 220px);
+                color: rgba(255, 255, 255, 0.04);
+            }
+
+            .holding-page .holding-services-title {
+                color: #ffffff;
+                font-size: clamp(28px, 5vw, 56px);
+            }
+
+            .holding-page .holding-services-copy {
+                max-width: 760px;
+                margin: 0 0 40px;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: clamp(13px, 1.2vw, 17px);
+                font-weight: 300;
+                line-height: 1.72;
+            }
+
+            .holding-page .holding-services-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .holding-page .holding-service-item {
+                padding: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: transparent;
+            }
+
+            .holding-page .holding-service-title {
+                margin: 0 0 16px;
+                color: #ffffff;
+                font-size: clamp(18px, 2vw, 28px);
+                font-weight: 500;
+                line-height: 1.2;
+            }
+
+            .holding-page .holding-service-copy {
+                margin: 0;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: clamp(13px, 1.2vw, 16px);
+                font-weight: 300;
+                line-height: 1.72;
+            }
+
+            .holding-footer {
+                background: #ffffff;
+                border-top: 1px solid #f0f0f3;
+                padding-top: 40px;
+                padding-bottom: 24px;
+            }
+
+            .holding-footer-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                align-items: start;
+                gap: 40px;
+                padding-bottom: 40px;
+            }
+
+            .holding-footer-heading {
+                margin: 0 0 12px;
+                color: #0a090f;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .holding-footer-list {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .holding-footer-link {
+                color: rgba(10, 9, 15, 0.7);
+                font-size: 13px;
+                font-weight: 300;
+                line-height: 1.45;
+            }
+
+            .holding-footer-contact {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .holding-footer-contact-label {
+                margin: 0 0 4px;
+                color: rgba(34, 34, 34, 0.6);
+                font-family: var(--holding-font-body);
+                font-size: 12px;
+                font-weight: 300;
+            }
+
+            .holding-footer-contact-value {
+                margin: 0;
+                color: #222222;
+                font-family: var(--holding-font-body);
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .holding-footer-socials {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .holding-footer-social {
+                color: #222222;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .holding-footer-social svg {
+                width: 20px;
+                height: 20px;
+                fill: currentColor;
+            }
+
+            .holding-footer-social:nth-child(2) svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .holding-footer-divider {
+                border-top: 1px solid #f0f0f3;
+                padding-top: 16px;
+            }
+
+            .holding-footer-copyright {
+                margin: 0;
+                color: #0a090f;
+                font-size: 12px;
+                font-weight: 700;
+            }
+
+            .oe_website_login_container,
+            .o_portal_wrap,
+            .oe_website_sale,
+            .o_website_sale_checkout,
+            .o_website_sale_confirmation {
+                color: #0a090f;
+                font-family: var(--holding-font-body);
+            }
+
+            .oe_website_login_container,
+            .o_portal_wrap {
+                padding-top: 32px;
+                padding-bottom: 56px;
+                background: linear-gradient(180deg, #ffffff 0%, #faf7ff 100%);
+            }
+
+            .oe_website_login_container .oe_login_form,
+            .oe_website_login_container .oe_signup_form,
+            .oe_website_login_container .oe_reset_password_form,
+            .o_portal_sidebar_content,
+            .o_portal_my_home .o_portal_index_card > a,
+            .o_website_sale_checkout .card,
+            .o_website_sale_confirmation .card,
+            #products_grid .oe_product_cart,
+            .o_wishlist_table .oe_product_cart,
+            .oe_website_sale table.table {
+                border: none !important;
+                border-radius: 32px !important;
+                background: #ffffff !important;
+                box-shadow: 0 24px 60px rgba(55, 17, 107, 0.08);
+                overflow: hidden;
+            }
+
+            .oe_website_login_container .oe_login_form,
+            .oe_website_login_container .oe_signup_form,
+            .oe_website_login_container .oe_reset_password_form {
+                max-width: 460px;
+                margin: 48px auto;
+                padding: 34px 32px;
+            }
+
+            .o_portal_wrap .container {
+                max-width: 1280px;
+                padding-top: 24px !important;
+                padding-bottom: 24px !important;
+            }
+
+            .o_portal_wrap h3,
+            .o_portal_wrap h5,
+            .oe_website_login_container h2,
+            .oe_website_sale h1,
+            .oe_website_sale h3,
+            .oe_website_sale h5 {
+                color: #0a090f;
+                font-family: var(--holding-font-heading);
+            }
+
+            .oe_website_login_container a:not(.btn),
+            .o_portal_wrap a:not(.btn),
+            .oe_website_sale a:not(.btn) {
+                color: #7826ea;
+            }
+
+            .oe_website_login_container a:not(.btn):hover,
+            .o_portal_wrap a:not(.btn):hover,
+            .oe_website_sale a:not(.btn):hover {
+                color: #37116b;
+            }
+
+            .oe_website_login_container .btn,
+            .oe_website_login_container .oe_login_buttons .btn,
+            .o_portal_wrap .btn-primary,
+            .o_portal_wrap .btn-outline-primary,
+            .oe_website_sale .btn-primary,
+            .oe_website_sale .btn-secondary,
+            .oe_website_sale .btn-outline-primary,
+            .o_wishlist_table .btn,
+            .o_wsale_products_page .btn {
+                min-height: 48px;
+                border-radius: 9999px !important;
+                font-weight: 700;
+                box-shadow: none !important;
+            }
+
+            .oe_website_login_container .btn-primary,
+            .oe_website_login_container .oe_login_buttons .btn-primary,
+            .o_portal_wrap .btn-primary,
+            .oe_website_sale .btn-primary,
+            .oe_website_sale .btn-secondary,
+            .o_wishlist_table .btn-primary,
+            .o_wsale_products_page .btn-primary {
+                border: none !important;
+                color: #ffffff !important;
+                background: linear-gradient(270deg, #37116b 0%, #6b21d1 100%) !important;
+            }
+
+            .o_portal_wrap .btn-outline-primary,
+            .oe_website_sale .btn-outline-primary,
+            .o_wishlist_table .btn-outline-primary {
+                background: #ffffff !important;
+                border: 1px solid rgba(55, 17, 107, 0.18) !important;
+                color: #37116b !important;
+            }
+
+            .oe_website_login_container .form-control,
+            .oe_website_login_container .form-select,
+            .o_portal_wrap .form-control,
+            .o_portal_wrap .form-select,
+            .oe_website_sale .form-control,
+            .oe_website_sale .form-select {
+                min-height: 48px;
+                border: 1px solid rgba(10, 9, 15, 0.12);
+                border-radius: 18px;
+                box-shadow: none !important;
+            }
+
+            .oe_website_login_container .form-control:focus,
+            .oe_website_login_container .form-select:focus,
+            .o_portal_wrap .form-control:focus,
+            .o_portal_wrap .form-select:focus,
+            .oe_website_sale .form-control:focus,
+            .oe_website_sale .form-select:focus {
+                border-color: rgba(120, 38, 234, 0.45);
+            }
+
+            .o_portal_submenu.breadcrumb,
+            .oe_website_sale .breadcrumb {
+                gap: 10px;
+                padding-bottom: 16px;
+                border-bottom: 1px solid #ede8f7;
+                background: transparent;
+            }
+
+            .o_portal_my_home .o_portal_index_card > a {
+                padding: 24px 22px !important;
+                color: #0a090f !important;
+                transition: box-shadow 0.2s ease, transform 0.2s ease;
+            }
+
+            .o_portal_my_home .o_portal_index_card > a:hover {
+                box-shadow: 0 28px 70px rgba(55, 17, 107, 0.12);
+                transform: translateY(-1px);
+            }
+
+            .o_portal_sidebar_content {
+                padding: 28px 26px;
+            }
+
+            #products_grid .oe_product_cart,
+            .o_wishlist_table .oe_product_cart {
+                padding-bottom: 24px;
+            }
+
+            #products_grid .oe_product_image,
+            .o_wishlist_table .oe_product_image {
+                border-radius: 32px 32px 0 0;
+                overflow: hidden;
+                background: #f7f4fd;
+            }
+
+            #products_grid .o_wsale_products_item_title a,
+            .o_wishlist_table .o_wsale_products_item_title a,
+            .oe_website_sale .product_name {
+                color: #0a090f !important;
+                font-weight: 700;
+            }
+
+            #products_grid .oe_price,
+            .o_wishlist_table .oe_price,
+            .oe_website_sale .oe_price {
+                color: #37116b !important;
+                font-weight: 700;
+            }
+
+            .oe_website_sale table.table thead th,
+            .o_wishlist_table thead th {
+                color: #6d6880;
+                font-size: 13px;
+                font-weight: 600;
+                border-bottom: 1px solid #ede8f7;
+            }
+
+            .oe_website_sale table.table tbody td,
+            .o_wishlist_table tbody td {
+                border-top: 1px solid #f3edf9;
+                vertical-align: middle;
+            }
+
+            .holding-header-shell[dir="rtl"] .holding-header-inner,
+            .holding-header-shell[dir="rtl"] .holding-header-actions,
+            .holding-header-shell[dir="rtl"] .holding-nav,
+            .holding-header-shell[dir="rtl"] .holding-nav-list,
+            .holding-page[dir="rtl"] .holding-media-header,
+            .holding-footer[dir="rtl"] .holding-footer-grid {
+                direction: rtl;
+            }
+
+            .holding-page[dir="rtl"] .holding-hero-title,
+            .holding-page[dir="rtl"] .holding-section-title,
+            .holding-page[dir="rtl"] .holding-copy,
+            .holding-page[dir="rtl"] .holding-copy-light,
+            .holding-page[dir="rtl"] .holding-partner-title,
+            .holding-page[dir="rtl"] .holding-partner-copy,
+            .holding-page[dir="rtl"] .holding-media-title,
+            .holding-page[dir="rtl"] .holding-media-subtitle,
+            .holding-page[dir="rtl"] .holding-news-date,
+            .holding-page[dir="rtl"] .holding-news-text,
+            .holding-page[dir="rtl"] .holding-history-title,
+            .holding-page[dir="rtl"] .holding-services-title,
+            .holding-page[dir="rtl"] .holding-services-copy,
+            .holding-footer[dir="rtl"] .holding-footer-heading,
+            .holding-footer[dir="rtl"] .holding-footer-link,
+            .holding-footer[dir="rtl"] .holding-footer-contact-label,
+            .holding-footer[dir="rtl"] .holding-footer-contact-value {
+                text-align: right;
+            }
+
+            .holding-page[dir="rtl"] .holding-feature-list {
+                justify-content: flex-start;
+            }
+
+            .holding-page[dir="rtl"] .holding-history-card.is-back {
+                right: auto;
+                left: 64px;
+            }
+
+            .holding-page[dir="rtl"] .holding-history-card.is-front {
+                right: auto;
+                left: 0;
+            }
+
+            .holding-header-shell[dir="rtl"] .holding-mobile-tools {
+                margin-left: 0;
+                margin-right: auto;
+            }
+
+            .holding-header-shell[dir="rtl"] .holding-nav-list > li + li {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: 0;
+                margin-right: 10px;
+                padding-right: 10px;
+                border-right: 1px solid #e5def2;
+            }
+
+            .holding-header-shell[dir="rtl"] .holding-user-menu {
+                right: auto;
+                left: 0;
+            }
+
+            @media (max-width: 1100px) {
+                .holding-page .holding-card-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .holding-page .holding-card-grid-secondary,
+                .holding-page .holding-history-layout {
+                    width: 100%;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .holding-page .holding-news-grid,
+                .holding-page .holding-services-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .holding-page .holding-partner-inner {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+
+            }
+
+            @media (max-width: 1024px) {
+                .holding-footer-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            @media (max-width: 900px) {
+                .holding-topbar {
+                    display: none;
+                }
+
+                .holding-mobile-topbar {
+                    display: block;
+                }
+
+                .holding-nav,
+                .holding-header-actions {
+                    display: none;
+                }
+
+                .holding-mobile-tools {
+                    display: flex;
+                }
+
+                .holding-menu-button,
+                .holding-menu-close {
+                    display: inline-flex;
+                }
+
+                .holding-header-inner {
+                    min-height: 72px;
+                }
+
+                .holding-page .holding-hero {
+                    min-height: 460px;
+                }
+
+                .holding-page .holding-hero-content {
+                    padding-top: 72px;
+                    padding-bottom: 88px;
+                }
+
+                .holding-page .holding-hero-visual {
+                    width: 54%;
+                    opacity: 0.4;
+                }
+
+                .holding-page .holding-services-card,
+                .holding-page .holding-partner-card {
+                    border-radius: 32px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .holding-topbar-inner,
+                .holding-mobile-topbar-inner,
+                .holding-header-inner,
+                .holding-page .holding-section-shell,
+                .holding-footer-inner {
+                    padding-left: 16px;
+                    padding-right: 16px;
+                }
+
+                .holding-header-inner {
+                    min-height: 72px;
+                }
+
+                .holding-brand-image,
+                .holding-footer-brand-image {
+                    width: auto;
+                    max-width: 150px;
+                }
+
+                .holding-mobile-topbar-inner {
+                    gap: 6px;
+                }
+
+                .holding-mobile-topbar-inner a {
+                    overflow: visible;
+                    text-overflow: clip;
+                }
+
+                .holding-mobile-menu {
+                    width: calc(100vw - 36px);
+                }
+
+                .holding-newsletter-tab {
+                    top: 56%;
+                    padding: 10px 8px 10px 10px;
+                }
+
+                .holding-newsletter-panel {
+                    width: 100vw;
+                }
+
+                .holding-newsletter-head {
+                    padding: 18px 20px;
+                }
+
+                .holding-newsletter-head h3 {
+                    font-size: 24px;
+                }
+
+                .holding-newsletter-body {
+                    padding: 20px;
+                }
+
+                .holding-footer-brand-image {
+                    width: auto;
+                    max-width: 180px;
+                }
+
+                .holding-page .holding-hero {
+                    min-height: 380px;
+                    border-bottom-left-radius: 30px;
+                    border-bottom-right-radius: 30px;
+                }
+
+                .holding-page .holding-hero-content {
+                    padding-top: 48px;
+                    padding-bottom: 56px;
+                }
+
+                .holding-page .holding-hero-visual {
+                    display: none;
+                }
+
+                .holding-page .holding-card-grid,
+                .holding-page .holding-card-grid-secondary,
+                .holding-page .holding-news-grid,
+                .holding-page .holding-services-grid,
+                .holding-page .holding-history-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .holding-page .holding-card-grid-secondary {
+                    margin-top: 20px;
+                }
+
+                .holding-page .holding-media-header {
+                    align-items: flex-start;
+                    flex-direction: column;
+                }
+
+                .holding-page .holding-partner-grid {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+
+                .holding-page .holding-history-images {
+                    display: none;
+                }
+
+                .holding-page .holding-timeline {
+                    margin-top: 32px;
+                }
+
+                .holding-page .holding-timeline-line {
+                    display: none;
+                }
+
+                .holding-page .holding-timeline-list {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                    overflow: visible;
+                    padding-bottom: 0;
+                }
+
+                .holding-page .holding-timeline-item {
+                    width: 100%;
+                    padding: 24px;
+                    border: 1px solid rgba(76, 29, 149, 0.12);
+                    border-radius: 32px;
+                    background: #ffffff;
+                    box-shadow: 0 18px 40px rgba(120, 38, 235, 0.08);
+                }
+
+                .holding-page .holding-timeline-logos {
+                    gap: 10px;
+                    min-height: 0;
+                }
+
+                .holding-page .holding-timeline-logo {
+                    width: auto;
+                    height: auto;
+                    max-width: 110px;
+                    max-height: 44px;
+                }
+
+                .holding-page .holding-services-card {
+                    border-radius: 20px;
+                }
+
+                .holding-page .holding-service-item {
+                    min-height: auto;
+                }
+
+            }
+
+            @media (max-width: 640px) {
+                .holding-footer-grid {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .holding-page .holding-content-section {
+                    padding-top: 48px;
+                    padding-bottom: 48px;
+                }
+
+                .holding-page .holding-partner-card {
+                    padding-top: 48px;
+                    padding-bottom: 48px;
+                    border-radius: 24px;
+                }
+
+                .holding-page .holding-services-card {
+                    padding-top: 56px;
+                    padding-bottom: 56px;
+                }
+
+                .holding-page .holding-partner-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+
+            .holding-contact-page {
+                background: #f8f7fe;
+                padding: 56px 0 0;
+            }
+
+            .holding-contact-title {
+                color: #0a090f;
+                font-family: var(--holding-font-heading);
+                font-size: clamp(42px, 6vw, 72px);
+                font-weight: 500;
+                letter-spacing: -0.04em;
+                line-height: 1;
+                margin: 0;
+            }
+
+            .holding-contact-grid {
+                margin-top: 36px;
+            }
+
+            .holding-contact-card,
+            .holding-store-card {
+                background: #fff;
+                border: 1px solid rgba(10, 9, 15, 0.16);
+                border-radius: 30px;
+                height: 100%;
+            }
+
+            .holding-contact-card {
+                padding: 34px 32px;
+            }
+
+            .holding-contact-card-title,
+            .holding-contact-form-title,
+            .holding-store-title,
+            .holding-store-card-title {
+                color: #0a090f;
+                font-family: var(--holding-font-heading);
+                font-weight: 600;
+                margin: 0;
+            }
+
+            .holding-contact-card-title {
+                font-size: 32px;
+                line-height: 1.2;
+            }
+
+            .holding-contact-card-copy,
+            .holding-contact-form-copy,
+            .holding-store-card-copy {
+                color: #0a090f;
+                font-family: var(--holding-font-body);
+                font-size: 15px;
+                line-height: 1.7;
+                margin: 0;
+            }
+
+            .holding-contact-meta {
+                align-items: center;
+                color: #0a090f;
+                display: flex;
+                font-family: var(--holding-font-body);
+                font-size: 15px;
+                gap: 12px;
+                line-height: 1.5;
+            }
+
+            .holding-contact-meta svg,
+            .holding-store-icon svg {
+                fill: none;
+                flex: 0 0 auto;
+                stroke: #5a5f6a;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 1.7;
+            }
+
+            .holding-contact-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 4px;
+            }
+
+            .holding-contact-cta {
+                align-items: center;
+                border: 2px solid #7826ea;
+                border-radius: 999px;
+                color: #0a090f;
+                display: inline-flex;
+                font-family: var(--holding-font-body);
+                font-size: 14px;
+                font-weight: 500;
+                gap: 8px;
+                justify-content: center;
+                min-height: 42px;
+                padding: 10px 20px;
+                text-decoration: none;
+                transition: 0.2s ease;
+            }
+
+            .holding-contact-cta.is-dark {
+                border-color: #611d26;
+            }
+
+            .holding-contact-cta:hover {
+                background: rgba(120, 38, 234, 0.08);
+                color: #0a090f;
+                text-decoration: none;
+                transform: translateY(-1px);
+            }
+
+            .holding-contact-cta svg {
+                fill: none;
+                stroke: currentColor;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 1.9;
+            }
+
+            .holding-contact-form-shell,
+            .holding-store-shell {
+                padding: 56px 0 0;
+            }
+
+            .holding-contact-form-card {
+                background: linear-gradient(209deg, #37116b 4%, #6b21d1 70%);
+                border-radius: 50px;
+                overflow: hidden;
+                padding: 48px;
+                position: relative;
+            }
+
+            .holding-contact-form-card::after {
+                background: radial-gradient(circle at 80% 50%, rgba(120, 38, 234, 0.34), transparent 58%);
+                content: "";
+                inset: 0;
+                pointer-events: none;
+                position: absolute;
+            }
+
+            .holding-contact-form-inner {
+                position: relative;
+                z-index: 1;
+            }
+
+            .holding-contact-form-title {
+                color: #fff;
+                font-size: 34px;
+                line-height: 1.2;
+            }
+
+            .holding-contact-form-copy {
+                color: rgba(255, 255, 255, 0.92);
+                font-size: 18px;
+            }
+
+            .holding-contact-field {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .holding-contact-field-label {
+                color: #fff;
+                font-family: var(--holding-font-body);
+                font-size: 14px;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            .holding-contact-field-input,
+            .holding-contact-field-textarea {
+                background: #fff;
+                border: 1px solid rgba(10, 9, 15, 0.12);
+                border-radius: 18px;
+                color: #0a090f;
+                font-family: var(--holding-font-body);
+                font-size: 14px;
+                outline: none;
+                padding: 16px 20px;
+                width: 100%;
+            }
+
+            .holding-contact-field-textarea {
+                min-height: 132px;
+                resize: none;
+            }
+
+            .holding-contact-submit {
+                background: #fff;
+                border: 0;
+                border-radius: 999px;
+                color: #0a090f;
+                display: inline-flex;
+                font-family: var(--holding-font-body);
+                font-size: 16px;
+                font-weight: 700;
+                min-height: 52px;
+                padding: 0 40px;
+            }
+
+            .holding-store-title {
+                font-size: 34px;
+                line-height: 1.2;
+                margin-bottom: 30px;
+            }
+
+            .holding-store-card {
+                align-items: flex-start;
+                display: flex;
+                gap: 18px;
+                padding: 30px 24px;
+            }
+
+            .holding-store-icon {
+                align-items: center;
+                display: inline-flex;
+                flex: 0 0 auto;
+                justify-content: center;
+                width: 48px;
+            }
+
+            .holding-store-card-title {
+                font-size: 28px;
+                line-height: 1.2;
+            }
+
+            .holding-store-card-copy strong {
+                color: #0a090f;
+                font-weight: 500;
+            }
+
+            @media (max-width: 991px) {
+                .holding-contact-form-card {
+                    border-radius: 38px;
+                    padding: 36px 28px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .holding-contact-page {
+                    padding-top: 36px;
+                }
+
+                .holding-contact-card,
+                .holding-store-card {
+                    border-radius: 24px;
+                }
+
+                .holding-contact-card {
+                    padding: 24px 22px;
+                }
+
+                .holding-contact-form-card {
+                    border-radius: 28px;
+                    padding: 28px 22px;
+                }
+
+                .holding-store-card-title {
+                    font-size: 24px;
+                }
+            }
+        </style>
+
+        <div class="holding-header-shell" t-attf-dir="#{request.env.lang and request.env.lang.startswith('ar') and 'rtl' or 'ltr'}">
+            <input type="checkbox" id="holding-menu-toggle" class="holding-menu-toggle"/>
+            <input type="checkbox" id="holding-newsletter-toggle" class="holding-newsletter-toggle-input"/>
+            <t t-set="current_lang" t-value="request.env.lang or 'en_US'"/>
+            <t t-set="is_arabic" t-value="current_lang.startswith('ar')"/>
+            <t t-set="available_langs" t-value="request.website.language_ids"/>
+            <t t-set="target_lang" t-value="available_langs.filtered(lambda l: l.code.startswith('en' if is_arabic else 'ar'))"/>
+            <t t-set="current_url" t-value="request.httprequest.full_path or request.httprequest.path"/>
+            <t t-set="user_id" t-value="request.env.user"/>
+            <t t-set="is_connected" t-value="not user_id._is_public()"/>
+            <t t-set="cart_qty" t-value="request.session.get('website_sale_cart_quantity', 0) or 0"/>
+            <div class="holding-topbar">
+                <div class="holding-topbar-inner">
+                    <div class="holding-topbar-left">
+                        <a href="tel:+96654337878">+96654337878</a>
+                        <span class="holding-topbar-divider"/>
+                        <a href="mailto:Sales@alajlabchem.com">Sales@alajlabchem.com</a>
+                        <span class="holding-topbar-divider"/>
+                        <div class="holding-topbar-socials">
+                            <a href="#" aria-label="X">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="holding-topbar-right">
+                        <span class="holding-topbar-note">Kingdom of Saudi Arabia</span>
+                        <a href="/contact-us" class="holding-topbar-cta">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="holding-mobile-topbar">
+                <div class="holding-mobile-topbar-inner">
+                    <a href="tel:+96654337878">+96654337878</a>
+                    <a href="mailto:Sales@alajlabchem.com">Sales@alajlabchem.com</a>
+                    <a href="/contact-us" class="holding-topbar-cta">Contact</a>
+                </div>
+            </div>
+            <div class="holding-header-inner">
+                <a href="/" class="holding-brand" aria-label="Abuljadyel Sky Holding">
+                    <picture>
+                        <source media="(max-width: 900px)" srcset="/holding_website/static/src/img/logoa.png"/>
+                        <img src="/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png" alt="Abuljadyel Sky Holding" class="holding-brand-image"/>
+                    </picture>
+                    <span class="holding-visually-hidden">Abuljadyel Sky Holding</span>
+                </a>
+
+                <t t-set="holding_menu_items" t-value="website.env.ref('holding_website.holding_top_menu').child_id.sorted('sequence')"/>
+
+                <nav class="holding-nav">
+                    <t t-call="website.navbar_nav">
+                        <t t-set="_nav_class" t-valuef="holding-nav-list"/>
+                        <t t-foreach="holding_menu_items" t-as="submenu">
+                            <t t-call="website.submenu">
+                                <t t-set="item_class" t-valuef="holding-nav-item nav-item"/>
+                                <t t-set="link_class" t-valuef="holding-nav-link nav-link"/>
+                                <t t-set="dropdown_toggler_classes" t-valuef="d-flex justify-content-center align-items-center gap-2"/>
+                                <t t-set="dropdown_menu_classes" t-valuef="holding-nav-dropdown"/>
+                            </t>
+                        </t>
+                    </t>
+                </nav>
+
+                <div class="holding-header-actions">
+                    <t t-if="is_connected">
+                        <details class="holding-user-dropdown">
+                            <summary class="holding-account-link" aria-label="Account">
+                                <span class="holding-header-icon">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                </span>
+                            </summary>
+                            <div class="holding-user-menu">
+                                <a href="/my/home">My Account</a>
+                                <a t-att-href="'/web/session/logout?redirect=/'">Logout</a>
+                            </div>
+                        </details>
+                    </t>
+                    <t t-else="">
+                        <a href="/web/login" class="holding-account-link" aria-label="Login">
+                            <span class="holding-header-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </t>
+                    <a href="/shop/wishlist" class="holding-header-icon-link o_wsale_my_wish nav-link" aria-label="Wishlist">
+                        <span class="holding-icon-badge-wrap">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <sup class="my_wish_quantity d-none">0</sup>
+                        </span>
+                    </a>
+                    <a href="/shop/cart" class="holding-header-icon-link" aria-label="Cart">
+                        <span class="holding-icon-badge-wrap">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="9" cy="21" r="1"/>
+                                <circle cx="20" cy="21" r="1"/>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                            </svg>
+                            <t t-if="cart_qty"><span class="holding-badge"><t t-esc="cart_qty"/></span></t>
+                        </span>
+                    </a>
+                    <t t-if="len(available_langs) > 1">
+                        <t t-if="target_lang">
+                            <a t-att-href="'/website/lang/' + target_lang[0].url_code + '?r=' + current_url" class="holding-lang-switcher">
+                                <t t-if="is_arabic">EN</t>
+                                <t t-else="">AR</t>
+                            </a>
+                        </t>
+                    </t>
+                </div>
+
+                <div class="holding-mobile-tools">
+                    <a href="/shop" class="holding-mobile-icon-link" aria-label="Search">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </a>
+                    <a href="/shop/wishlist" class="holding-mobile-icon-link o_wsale_my_wish nav-link" aria-label="Wishlist">
+                        <span class="holding-icon-badge-wrap">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <sup class="my_wish_quantity d-none">0</sup>
+                        </span>
+                    </a>
+                    <a href="/shop/cart" class="holding-mobile-icon-link" aria-label="Cart">
+                        <span class="holding-icon-badge-wrap">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="9" cy="21" r="1"/>
+                                <circle cx="20" cy="21" r="1"/>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                            </svg>
+                            <t t-if="cart_qty"><span class="holding-badge"><t t-esc="cart_qty"/></span></t>
+                        </span>
+                    </a>
+                    <t t-if="is_connected">
+                        <a href="/my/home" class="holding-mobile-icon-link" aria-label="Account">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </a>
+                    </t>
+                    <t t-else="">
+                        <a href="/web/login" class="holding-mobile-icon-link" aria-label="Login">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </a>
+                    </t>
+                    <label for="holding-menu-toggle" class="holding-menu-button" aria-label="Toggle menu">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </label>
+                </div>
+            </div>
+
+        <label for="holding-menu-toggle" class="holding-mobile-backdrop" aria-hidden="true"></label>
+        <div class="holding-mobile-menu">
+            <div class="holding-mobile-menu-inner">
+                <div class="holding-mobile-menu-top">
+                    <a href="/" class="holding-brand" aria-label="Abuljadyel Sky Holding">
+                        <img src="/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png" alt="Abuljadyel Sky Holding" class="holding-brand-image"/>
+                        <span class="holding-visually-hidden">Abuljadyel Sky Holding</span>
+                    </a>
+                    <label for="holding-menu-toggle" class="holding-menu-close" aria-label="Close menu">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </label>
+                </div>
+
+                <div class="holding-mobile-menu-body">
+                    <nav class="holding-mobile-nav">
+                        <t t-call="website.navbar_nav">
+                            <t t-set="_nav_class" t-valuef="holding-mobile-nav-list"/>
+                            <t t-set="is_mobile" t-value="True"/>
+                            <t t-set="_no_autohide_menu_mobile" t-valuef="True"/>
+                            <t t-foreach="holding_menu_items" t-as="submenu">
+                                <t t-call="website.submenu">
+                                    <t t-set="item_class" t-valuef="holding-mobile-nav-item nav-item"/>
+                                    <t t-set="link_class" t-valuef="holding-mobile-nav-link nav-link"/>
+                                    <t t-set="dropdown_toggler_classes" t-valuef="d-flex justify-content-between align-items-center gap-2"/>
+                                    <t t-set="dropdown_menu_classes" t-valuef="position-relative rounded-0 border-0 shadow-none holding-mobile-dropdown"/>
+                                </t>
+                            </t>
+                        </t>
+                        <t t-set="is_mobile" t-value="False"/>
+                    </nav>
+                </div>
+
+                <div class="holding-mobile-actions">
+                    <div class="holding-mobile-contact-list">
+                        <a href="tel:+96654337878" class="holding-mobile-contact-item">+96654337878</a>
+                        <a href="mailto:Sales@alajlabchem.com" class="holding-mobile-contact-item">Sales@alajlabchem.com</a>
+                        <span class="holding-mobile-contact-item">Kingdom of Saudi Arabia</span>
+                    </div>
+                    <t t-if="len(available_langs) > 1">
+                        <t t-if="target_lang">
+                            <a t-att-href="'/website/lang/' + target_lang[0].url_code + '?r=' + current_url" class="holding-lang-switcher">
+                                <t t-if="is_arabic">EN</t>
+                                <t t-else="">AR</t>
+                            </a>
+                        </t>
+                    </t>
+                    <a href="/contact-us" class="holding-gradient-button" onclick="document.getElementById('holding-menu-toggle').checked=false;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <label for="holding-newsletter-toggle" class="holding-newsletter-overlay" aria-hidden="true"></label>
+        <div class="holding-newsletter-panel">
+            <div class="holding-newsletter-head">
+                <h3>Newsletter</h3>
+                <label for="holding-newsletter-toggle" class="holding-newsletter-close" aria-label="Close newsletter">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </label>
+            </div>
+            <div class="holding-newsletter-body">
+                <p>Sign up for our newsletter to stay up to date with Abuljadyel Sky Holding.</p>
+                <form action="mailto:Sales@alajlabchem.com?subject=Newsletter Subscription" method="post" enctype="text/plain" class="holding-newsletter-form">
+                    <div class="holding-newsletter-field">
+                        <label>Email</label>
+                        <input type="email" name="Email" placeholder="your@email.com" required="required"/>
+                    </div>
+                    <button type="submit" class="holding-gradient-button">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <label for="holding-newsletter-toggle" class="holding-newsletter-tab" aria-label="Newsletter">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M22 6l-10 7L2 6" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>Newsletter</span>
+        </label>
+        </div>
+    </template>
+
+    <template id="holding_footer_main" name="Holding Footer">
+        <footer class="holding-footer" t-attf-dir="#{request.env.lang and request.env.lang.startswith('ar') and 'rtl' or 'ltr'}">
+            <div class="holding-footer-inner">
+                <div class="holding-footer-grid">
+                    <div>
+                        <a href="/" class="holding-footer-brand" aria-label="Abuljadyel Sky Holding">
+                            <img src="/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png" alt="Abuljadyel Sky Holding" class="holding-footer-brand-image"/>
+                            <span class="holding-visually-hidden">Abuljadyel Sky Holding</span>
+                        </a>
+                    </div>
+
+                    <div>
+                        <p class="holding-footer-heading">Companies</p>
+                        <ul class="holding-footer-list">
+                            <li><a href="/our-companies" class="holding-footer-link">Abdullatif H. Abuljadayel &amp; Sons Co.</a></li>
+                            <li><a href="/our-companies" class="holding-footer-link">About Sky Details</a></li>
+                            <li><a href="/our-companies" class="holding-footer-link">Cloud Systems</a></li>
+                            <li><a href="/our-companies" class="holding-footer-link">Secure Growth</a></li>
+                            <li><a href="/our-companies" class="holding-footer-link">ALAJCHEM Factory</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="holding-footer-heading">Services</p>
+                        <ul class="holding-footer-list">
+                            <li><a href="/#services-section" class="holding-footer-link">Abdullatif H. Abuljadayel &amp; Sons Co.</a></li>
+                            <li><a href="/#services-section" class="holding-footer-link">About Sky Details</a></li>
+                            <li><a href="/#services-section" class="holding-footer-link">Cloud Systems</a></li>
+                            <li><a href="/#services-section" class="holding-footer-link">Secure Growth</a></li>
+                            <li><a href="/#services-section" class="holding-footer-link">ALAJCHEM Factory</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="holding-footer-contact" id="footer-contact">
+                        <div>
+                            <p class="holding-footer-heading" style="font-weight:300;color:#222222;">Connect with Us</p>
+                            <div class="holding-footer-socials">
+                                <a href="#" class="holding-footer-social" aria-label="Twitter">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="holding-footer-social" aria-label="YouTube">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="holding-footer-social" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="holding-footer-social" aria-label="Instagram">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="holding-footer-contact-label">Phone</p>
+                            <p class="holding-footer-contact-value">+96654337878</p>
+                        </div>
+
+                        <div>
+                            <p class="holding-footer-contact-label">Fax</p>
+                            <p class="holding-footer-contact-value">+966 57533041</p>
+                        </div>
+
+                        <div>
+                            <p class="holding-footer-contact-label">Email</p>
+                            <p class="holding-footer-contact-value">Sales@alajlabchem.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="holding-footer-divider">
+                    <p class="holding-footer-copyright">&#169;2025 Abuljadyel Sky Holding. All rights reserved</p>
+                </div>
+            </div>
+        </footer>
+    </template>
+
+    <template id="holding_replace_header" inherit_id="website.layout" name="Holding Replace Header" priority="9999">
+        <xpath expr="//header" position="replace">
+            <header id="top" class="holding-header" t-if="not no_header">
+                <t t-call="holding_website.holding_header"/>
+            </header>
+        </xpath>
+    </template>
+
+    <template id="holding_replace_footer" inherit_id="website.layout" name="Holding Replace Footer" priority="9999">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" t-if="not no_footer">
+                <t t-call="holding_website.holding_footer_main"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="holding_hide_copyright" inherit_id="website.layout" name="Holding Hide Copyright">
+        <xpath expr="//div[hasclass('o_footer_copyright')]" position="attributes">
+            <attribute name="class" add="d-none" separator=" "/>
+        </xpath>
+    </template>
+
+    <record id="holding_header" model="ir.ui.view">
+        <field name="website_id" ref="holding_website_record"/>
+    </record>
+
+    <record id="holding_footer_main" model="ir.ui.view">
+        <field name="website_id" ref="holding_website_record"/>
+    </record>
+
+    <record id="holding_replace_header" model="ir.ui.view">
+        <field name="website_id" ref="holding_website_record"/>
+    </record>
+
+    <record id="holding_replace_footer" model="ir.ui.view">
+        <field name="website_id" ref="holding_website_record"/>
+    </record>
+
+    <record id="holding_hide_copyright" model="ir.ui.view">
+        <field name="website_id" ref="holding_website_record"/>
+    </record>
+</odoo>

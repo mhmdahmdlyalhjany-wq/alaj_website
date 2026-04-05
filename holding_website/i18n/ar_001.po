@@ -1,0 +1,968 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* holding_website
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e-20250423\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-04 16:11+0000\n"
+"PO-Revision-Date: 2026-04-04 16:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "+966 57533041"
+msgstr "+966 57533041"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "+96654337878"
+msgstr "+96654337878"
+
+#. module: holding_website
+#: model:website,contact_us_button_url:holding_website.holding_website_record
+msgid "/contactus"
+msgstr "/contactus"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "12 March 2025"
+msgstr "12 مارس 2025"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "8113 4382 - Kingdom of Saudi Arabia"
+msgstr "8113 4382 - المملكة العربية السعودية"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "8113 Qais Ibn Zuhair Al Manar District"
+msgstr "8113 قيس بن زهير، حي المنار"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid ""
+"<span class=\"holding-about-year-badge\" style=\"width:70px;height:70px;\"><span style=\"font-size:13px;\">1984</span></span>\n"
+"                                        <span class=\"holding-about-mobile-line\"/>"
+msgstr ""
+"<span class=\"holding-about-year-badge\" style=\"width:70px;height:70px;\"><span style=\"font-size:13px;\">1984</span></span>\n"
+"                                        <span class=\"holding-about-mobile-line\"/>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid ""
+"<span class=\"holding-about-year-badge\" style=\"width:70px;height:70px;\"><span style=\"font-size:13px;\">2023</span></span>\n"
+"                                        <span class=\"holding-about-mobile-line\"/>"
+msgstr ""
+"<span class=\"holding-about-year-badge\" style=\"width:70px;height:70px;\"><span style=\"font-size:13px;\">2023</span></span>\n"
+"                                        <span class=\"holding-about-mobile-line\"/>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid ""
+"<span class=\"holding-about-year-badge\" "
+"style=\"width:70px;height:70px;\"><span style=\"font-"
+"size:13px;\">2025</span></span>"
+msgstr ""
+"<span class=\"holding-about-year-badge\" "
+"style=\"width:70px;height:70px;\"><span style=\"font-"
+"size:13px;\">2025</span></span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "<span class=\"holding-about-year-badge\"><span>1984</span></span>"
+msgstr "<span class=\"holding-about-year-badge\"><span>1984</span></span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "<span class=\"holding-about-year-badge\"><span>2023</span></span>"
+msgstr "<span class=\"holding-about-year-badge\"><span>2023</span></span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "<span class=\"holding-about-year-badge\"><span>2025</span></span>"
+msgstr "<span class=\"holding-about-year-badge\"><span>2025</span></span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid ""
+"<span class=\"holding-brand-image\" style=\"background-image: url('/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png');\"/>\n"
+"                            <span class=\"holding-visually-hidden\">Abuljadyel Sky Holding</span>"
+msgstr ""
+"<span class=\"holding-brand-image\" style=\"background-image: url('/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png');\"/>\n"
+"                            <span class=\"holding-visually-hidden\">أبوالجاديل سكاي القابضة</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid ""
+"<span class=\"holding-brand-image\" style=\"background-image: url('/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png');\"/>\n"
+"                    <span class=\"holding-visually-hidden\">Abuljadyel Sky Holding</span>"
+msgstr ""
+"<span class=\"holding-brand-image\" style=\"background-image: url('/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png');\"/>\n"
+"                    <span class=\"holding-visually-hidden\">أبولجاديل سكاي القابضة</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"<span class=\"holding-card-copy\">\n"
+"                                    <strong>Our history</strong>\n"
+"                                    <span>Watch video</span>\n"
+"                                </span>"
+msgstr ""
+"<span class=\"holding-card-copy\">\n"
+"                                    <strong>تاريخنا</strong>\n"
+"                                    <span>شاهد الفيديو</span>\n"
+"                                </span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"<span class=\"holding-company-badge\">\n"
+"                                            <span class=\"holding-company-badge-mark\">SD</span>\n"
+"                                            <span>SKY DETAILS</span>\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"holding-company-badge\">\n"
+"                                            <span class=\"holding-company-badge-mark\">SD</span>\n"
+"                                            <span>سكاي ديتيلز</span>\n"
+"                                        </span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid ""
+"<span class=\"holding-footer-brand-image\" style=\"background-image: url('/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png');\"/>\n"
+"                            <span class=\"holding-visually-hidden\">Abuljadyel Sky Holding</span>"
+msgstr ""
+"<span class=\"holding-footer-brand-image\" style=\"background-image: url('/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png');\"/>\n"
+"                            <span class=\"holding-visually-hidden\">أبولجاديل سكاي القابضة</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"<span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"ALAJCHEM "
+"Factory\" style=\"background-image: "
+"url('/holding_website/static/src/img/b502299d4187931475eea934395209906bfd8008.png');\"/>"
+msgstr ""
+"<span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"مصنع العاج "
+"كيم\" style=\"background-image: "
+"url('/holding_website/static/src/img/b502299d4187931475eea934395209906bfd8008.png');\"/>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"<span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"Abuljadyel Sky Holding\" style=\"background-image: url('/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png');\"/>\n"
+"                                                    <span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"Secure Growth\" style=\"background-image: url('/holding_website/static/src/img/d32546a2c1f63b13c15d94e35cc97f0321afd97c.png');\"/>\n"
+"                                                    <span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"Cloud Systems Tech\" style=\"background-image: url('/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png');\"/>"
+msgstr ""
+"<span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"أبولجاديل سكاي القابضة\" style=\"background-image: url('/holding_website/static/src/img/4b41496abc3bcd1a0cad60100024aa00da8f07b3.png');\"/>\n"
+"                                                    <span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"سيكيور جروث\" style=\"background-image: url('/holding_website/static/src/img/d32546a2c1f63b13c15d94e35cc97f0321afd97c.png');\"/>\n"
+"                                                    <span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"كلود سيستمز تك\" style=\"background-image: url('/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png');\"/>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"<span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"Cloud "
+"Systems Tech\" style=\"background-image: "
+"url('/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png');\"/>"
+msgstr ""
+"<span class=\"holding-timeline-logo\" role=\"img\" aria-label=\"كلود "
+"سيستمز تك\" style=\"background-image: "
+"url('/holding_website/static/src/img/d0d2b2b629a995e0f6539b48701978eae93a7ee4.png');\"/>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "<span class=\"holding-timeline-year\">1984</span>"
+msgstr "<span class=\"holding-timeline-year\">1984</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "<span class=\"holding-timeline-year\">2023</span>"
+msgstr "<span class=\"holding-timeline-year\">2023</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "<span class=\"holding-timeline-year\">2025</span>"
+msgstr "<span class=\"holding-timeline-year\">2025</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "<span>+965-2206-8000</span>"
+msgstr "<span>+965-2206-8000</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "<span>+985-2206-8080</span>"
+msgstr "<span>+985-2206-8080</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "<span>920026696</span>"
+msgstr "<span>920026696</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"<span>Abdullatif H. Abuljadayel</span>\n"
+"                                            <span>&amp; SONS CO.</span>"
+msgstr ""
+"<span>عبد اللطيف هـ. أبولجاديل</span>\n"
+"                                            <span>&amp; أولاده</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "<span>Filter</span>"
+msgstr "<span>تصفية</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "<span>Meet Our SEO</span>"
+msgstr "<span>تعرّف على مديرنا التنفيذي</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "<span>Our Values</span>"
+msgstr "<span>قيمنا</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "<span>Our strategy</span>"
+msgstr "<span>استراتيجيتنا</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "<span>Send a Message</span>"
+msgstr "<span>أرسل رسالة</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "<span>Sort by: Latest added</span>"
+msgstr "<span>ترتيب حسب: الأحدث إضافة</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "<span>View Location</span>"
+msgstr "<span>عرض الموقع</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "<span>info@alajlabchem.sa</span>"
+msgstr "<span>info@alajlabchem.sa</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "<strong>Tel:</strong> 920026696<br/><strong>Ext.</strong>561"
+msgstr "<strong>الهاتف:</strong> 920026696<br/><strong>تحويلة:</strong>561"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "<strong>Tel</strong> 920026696<br/><strong>Ext.</strong>161"
+msgstr "<strong>الهاتف</strong> 920026696<br/><strong>تحويلة:</strong>161"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "ABULJADYEL SKY"
+msgstr "أبولجاديل سكاي"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "ABULJADYEL SKY <span>Holding</span>"
+msgstr "أبولجاديل سكاي <span>القابضة</span>"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"ABULJADYEL SKY Holding is the parent holding company of Abdullatif H. "
+"Abuljadayel &amp; Sons, serving as a strategic platform for managing and "
+"developing a diverse portfolio of companies across investment, real estate,"
+msgstr ""
+"أبولجاديل سكاي القابضة هي الشركة الأم لعبد اللطيف هـ. أبولجاديل وأولاده، "
+"وتعمل كمنصة استراتيجية لإدارة وتطوير محفظة متنوعة من الشركات في مجالات "
+"الاستثمار والعقارات،"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"ABULJADYEL SKY Holding is the parent holding company of Abdullatif H. "
+"Abuljadayel &amp; Sons, serving as a strategic platform for managing and "
+"developing a diverse portfolio of companies across investment, real estate, "
+"industry, and technology."
+msgstr ""
+"أبولجاديل سكاي القابضة هي الشركة الأم لعبد اللطيف هـ. أبولجاديل وأولاده، "
+"وتعمل كمنصة استراتيجية لإدارة وتطوير محفظة متنوعة من الشركات في مجالات "
+"الاستثمار والعقارات والصناعة والتقنية."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"ABULJADYEL SKY Holding is the parent holding company of Abdullatif H. "
+"Abuljadayel &amp; Sons, serving as a strategic platform for managing and "
+"developing a diverse portfolio of companies across investment, real estate, "
+"industry, and technology. Its subsidiaries include Secure Growth, SKY "
+"Details, Abdullatif H. Abuljadayel &amp; Sons Co., ALAJCHEM Factory, and "
+"Cloud System. The holding company focuses on sustainable growth, value "
+"creation, and providing strategic support to ensure each subsidiary remains "
+"a leader and innovator in its sector."
+msgstr ""
+"أبولجاديل سكاي القابضة هي الشركة الأم لعبد اللطيف هـ. أبولجاديل وأولاده، "
+"وتعمل كمنصة استراتيجية لإدارة وتطوير محفظة متنوعة من الشركات في مجالات "
+"الاستثمار والعقارات والصناعة والتقنية. وتشمل شركاتها التابعة سيكيور جروث، "
+"وسكاي ديتيلز، وشركة عبد اللطيف هـ. أبولجاديل وأولاده، ومصنع العاج كيم، "
+"وكلود سيستم. وتركز الشركة القابضة على النمو المستدام، وصناعة القيمة، "
+"وتقديم الدعم الاستراتيجي لضمان بقاء كل شركة تابعة رائدة ومبتكرة في قطاعها."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "ALAJCHEM"
+msgstr "العاج كيم"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "ALAJCHEM Factory"
+msgstr "مصنع العاج كيم"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "AR"
+msgstr "AR"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Abdullatif H. Abuljadayel &amp; Sons Co."
+msgstr "شركة عبد اللطيف هـ. أبولجاديل وأولاده"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "About Sky Details"
+msgstr "عن سكاي ديتيلز"
+
+#. module: holding_website
+#: model:website.menu,name:holding_website.holding_menu_about
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "About Us"
+msgstr "من نحن"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Abuljadyel Sky Holding"
+msgstr "أبولجاديل سكاي القابضة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "Be A partner"
+msgstr "كن شريكًا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Be Our Partner"
+msgstr "كن شريكنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Be our partner"
+msgstr "كن شريكنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Close menu"
+msgstr "إغلاق القائمة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Cloud Systems"
+msgstr "كلود سيستمز"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Cloud Systems Tech"
+msgstr "كلود سيستمز تك"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"Cloud Systems for IT is a Saudi company under Abuljadayel Sky Holding, "
+"featuring a team of professional engineers, consultants, and experts in IT, "
+"digital transformation,"
+msgstr ""
+"كلود سيستمز لتقنية المعلومات هي شركة سعودية تابعة لأبولجاديل سكاي القابضة، "
+"وتضم فريقًا من المهندسين والاستشاريين والخبراء المتخصصين في تقنية "
+"المعلومات والتحول الرقمي،"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"Cloud Systems for IT is a Saudi company under Abuljadayel Sky Holding, "
+"featuring a team of professional engineers, consultants, and experts in IT, "
+"digital transformation, ERP systems, and software development."
+msgstr ""
+"كلود سيستمز لتقنية المعلومات هي شركة سعودية تابعة لأبولجاديل سكاي القابضة، "
+"وتضم فريقًا من المهندسين والاستشاريين والخبراء المتخصصين في تقنية "
+"المعلومات والتحول الرقمي وأنظمة ERP وتطوير البرمجيات."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+msgid ""
+"Cloud Systems for IT is a Saudi company under Abuljadyel Sky Holding, "
+"featuring a team of professional engineers, consultants, and experts in IT, "
+"digital transformation, ERP systems, and software development."
+msgstr ""
+"كلود سيستمز لتقنية المعلومات هي شركة سعودية تابعة لأبولجاديل سكاي القابضة، "
+"وتضم فريقًا من المهندسين والاستشاريين والخبراء المتخصصين في تقنية "
+"المعلومات والتحول الرقمي وأنظمة ERP وتطوير البرمجيات."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+msgid ""
+"Cloud Systems for IT is a Saudi company under Abuljadyel Sky Holding, "
+"featuring a team of professional engineers, consultants, and experts in IT, "
+"digital transformation."
+msgstr ""
+"كلود سيستمز لتقنية المعلومات هي شركة سعودية تابعة لأبولجاديل سكاي القابضة، "
+"وتضم فريقًا من المهندسين والاستشاريين والخبراء المتخصصين في تقنية "
+"المعلومات والتحول الرقمي."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Connect with Us"
+msgstr "تواصل معنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Contact Us"
+msgstr "تواصل معنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "EN"
+msgstr "EN"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was "
+"started by acquiring worldwide known brands,"
+msgstr ""
+"تأسست في عام 1984 على يد الشيخ عبداللطيف هـ. أبوالجدائل، وبدأت باقتناء "
+"علامات عالمية معروفة،"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was "
+"started by acquiring worldwide known brands, HACH-For Water Quality"
+msgstr ""
+"تأسست في عام 1984 على يد الشيخ عبداللطيف هـ. أبوالجدائل، وبدأت باقتناء "
+"علامات عالمية معروفة مثل HACH لحلول جودة المياه."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was "
+"started by acquiring worldwide known brands, HACH-For Water Quality and "
+"CHEMSEARCH -Industrial Maintenance Chemicals, and ever since then as per "
+"growing market demands for Water Sector in the Kingdom, more product line "
+"has been acquired as a comprehensive organization offering more products for"
+" Lab requirements"
+msgstr ""
+"تأسست في عام 1984 على يد الشيخ عبداللطيف هـ. أبوالجدائل، وبدأت باقتناء "
+"علامات عالمية معروفة مثل HACH لحلول جودة المياه وCHEMSEARCH للكيماويات "
+"الصناعية، ثم توسعت لاحقاً مع نمو الطلب في قطاع المياه داخل المملكة لتقدم "
+"مجموعة أوسع من المنتجات والمتطلبات المخبرية."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+msgid ""
+"Established in 1984 single-handed by Sheik Abdullatif H. Abuljadayel It was "
+"started by acquiring worldwide known brands, HACH-For Water Quality."
+msgstr ""
+"تأسست عام 1984 على يد الشيخ عبد اللطيف هـ. أبولجاديل، وبدأت من خلال "
+"الاستحواذ على علامات عالمية معروفة مثل HACH لحلول جودة المياه."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "Event Title #02"
+msgstr "عنوان الفعالية #02"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Fax"
+msgstr "الفاكس"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Founded"
+msgstr "التأسيس"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Get Connected"
+msgstr "تواصل معنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Get in touch with us for all your IT needs - we're here to help!"
+msgstr "تواصل معنا لجميع احتياجاتك التقنية، نحن هنا لمساعدتك."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "History of Success"
+msgstr "تاريخ النجاح"
+
+#. module: holding_website
+#: model:website.menu,name:holding_website.holding_top_menu
+msgid "Holding Menu"
+msgstr "قائمة القابضة"
+
+#. module: holding_website
+#: model:website.menu,name:holding_website.holding_menu_home
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Home"
+msgstr "الرئيسية"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Instagram"
+msgstr "إنستغرام"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Jedda"
+msgstr "جدة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Jedda Center"
+msgstr "مركز جدة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Jeddah Makkah 23462"
+msgstr "جدة، مكة 23462"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Khobar"
+msgstr "الخبر"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Khobar Center"
+msgstr "مركز الخبر"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Laboratory Instruments"
+msgstr "الأجهزة المخبرية"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "LinkedIn"
+msgstr "لينكدإن"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "Logo"
+msgstr "الشعار"
+
+#. module: holding_website
+#: model:website.menu,name:holding_website.holding_menu_media
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Media"
+msgstr "الإعلام"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Media / News"
+msgstr "الإعلام / الأخبار"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "Media Center"
+msgstr "المركز الإعلامي"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "Message"
+msgstr "الرسالة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Message Details"
+msgstr "تفاصيل الرسالة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Name"
+msgstr "الاسم"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Networks &amp; Information Security"
+msgstr "الشبكات وأمن المعلومات"
+
+#. module: holding_website
+#: model:website,prevent_zero_price_sale_text:holding_website.holding_website_record
+msgid "Not Available For Sale"
+msgstr "غير متاح للبيع"
+
+#. module: holding_website
+#: model:website.menu,name:holding_website.holding_menu_companies
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Our Companies"
+msgstr "شركاتنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Our History"
+msgstr "تاريخنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Our Partners"
+msgstr "شركاؤنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Our Services"
+msgstr "خدماتنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Our Storehouse"
+msgstr "مستودعاتنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 1"
+msgstr "الشريك 1"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 2"
+msgstr "الشريك 2"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 3"
+msgstr "الشريك 3"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 4"
+msgstr "الشريك 4"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 5"
+msgstr "الشريك 5"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 6"
+msgstr "الشريك 6"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 7"
+msgstr "الشريك 7"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 8"
+msgstr "الشريك 8"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Partner 9"
+msgstr "الشريك 9"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Phone"
+msgstr "الهاتف"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "Read more"
+msgstr "اقرأ المزيد"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Real-estate"
+msgstr "العقارات"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Request for Services"
+msgstr "طلب الخدمات"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Riyadh"
+msgstr "الرياض"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Riyadh Center"
+msgstr "مركز الرياض"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "SKY Details"
+msgstr "سكاي ديتيلز"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid ""
+"SKY Details is a real estate company specializing in property management and"
+" providing comprehensive solutions for investors and clients."
+msgstr ""
+"سكاي ديتيلز شركة عقارية متخصصة في إدارة الأصول وتقديم حلول متكاملة "
+"للمستثمرين والعملاء."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Sales@alajlabchem.com"
+msgstr "Sales@alajlabchem.com"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "Search"
+msgstr "بحث"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "Search..."
+msgstr "ابحث..."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Secure Growth"
+msgstr "سيكيور غروث"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Services"
+msgstr "الخدمات"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Submit"
+msgstr "إرسال"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_media_center_template
+msgid "Title Text Goes here Title Text Goes here"
+msgstr "يوضع نص العنوان هنا يوضع نص العنوان هنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Toggle menu"
+msgstr "فتح القائمة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "Twitter"
+msgstr "إكس"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "Values"
+msgstr "القيم"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "View All"
+msgstr "عرض الكل"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "Vision"
+msgstr "الرؤية"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_companies_template
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "Visit website"
+msgstr "زيارة الموقع"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_about_template
+msgid "Who we are"
+msgstr "من نحن"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Yanbu"
+msgstr "ينبع"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "Yanbu Center"
+msgstr "مركز ينبع"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "YouTube"
+msgstr "يوتيوب"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "check Our latest updates"
+msgstr "اطلع على آخر التحديثات"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_homepage_template
+msgid "chemical manufacturing"
+msgstr "التصنيع الكيميائي"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "info@alajlabchem.sa"
+msgstr "info@alajlabchem.sa"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "write here"
+msgstr "اكتب هنا"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "write your email"
+msgstr "اكتب بريدك الإلكتروني"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "write your message..."
+msgstr "اكتب رسالتك..."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "write your name"
+msgstr "اكتب اسمك"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_contact_template
+msgid "write your phone"
+msgstr "اكتب رقم هاتفك"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_footer_main
+msgid "©2025 Abuljadyel Sky Holding. All rights reserved"
+msgstr "©2025 أبو الجادييل سكاي هولدينغ. جميع الحقوق محفوظة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Account"
+msgstr "الحساب"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Cart"
+msgstr "السلة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Login / Register"
+msgstr "تسجيل الدخول / إنشاء حساب"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "My Account"
+msgstr "حسابي"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Wishlist"
+msgstr "المفضلة"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Close newsletter"
+msgstr "إغلاق النشرة البريدية"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Contact"
+msgstr "تواصل"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Kingdom of Saudi Arabia"
+msgstr "المملكة العربية السعودية"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Newsletter"
+msgstr "النشرة البريدية"
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Sign up for our newsletter to stay up to date with Abuljadyel Sky Holding."
+msgstr "اشترك في النشرة البريدية للبقاء على اطلاع بآخر مستجدات Abuljadyel Sky Holding."
+
+#. module: holding_website
+#: model_terms:ir.ui.view,arch_db:holding_website.holding_header
+msgid "Subscribe"
+msgstr "اشتراك"
