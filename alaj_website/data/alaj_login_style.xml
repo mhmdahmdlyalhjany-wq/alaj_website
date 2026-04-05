@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="alaj_login_style" inherit_id="web.login" name="ALAJ Login Style">
+        <xpath expr="//form[hasclass('oe_login_form')]" position="before">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap');
+
+                .oe_login_form,
+                .oe_login_form * {
+                    font-family: 'Poppins', 'Helvetica Neue', sans-serif !important;
+                }
+
+                body.o_login {
+                    background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 40%, #0d1b2e 100%) !important;
+                    min-height: 100vh;
+                }
+
+                .o_login .card {
+                    background: rgba(255,255,255,0.05) !important;
+                    backdrop-filter: blur(20px);
+                    -webkit-backdrop-filter: blur(20px);
+                    border: 1px solid rgba(255,255,255,0.1) !important;
+                    border-radius: 20px !important;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
+                    max-width: 440px;
+                    margin: 0 auto;
+                }
+
+                .o_login .card-body {
+                    padding: 40px 36px !important;
+                }
+
+                .o_login .card-header {
+                    background: transparent !important;
+                    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+                    padding: 24px 36px !important;
+                    text-align: center;
+                }
+
+                .o_login .card-header h3,
+                .o_login .card-header h5 {
+                    color: #fff !important;
+                    font-weight: 600 !important;
+                    margin: 0 !important;
+                }
+
+                .o_login label,
+                .o_login .form-label {
+                    color: rgba(255,255,255,0.8) !important;
+                    font-size: 13px !important;
+                    font-weight: 500 !important;
+                    letter-spacing: 0.02em;
+                    margin-bottom: 6px !important;
+                }
+
+                .o_login .form-control {
+                    background: rgba(255,255,255,0.08) !important;
+                    border: 1px solid rgba(255,255,255,0.15) !important;
+                    border-radius: 12px !important;
+                    color: #fff !important;
+                    padding: 12px 16px !important;
+                    font-size: 14px !important;
+                    transition: all 0.3s ease !important;
+                }
+
+                .o_login .form-control:focus {
+                    background: rgba(255,255,255,0.12) !important;
+                    border-color: #E1261C !important;
+                    box-shadow: 0 0 0 3px rgba(225,38,28,0.2) !important;
+                    outline: none !important;
+                }
+
+                .o_login .form-control::placeholder {
+                    color: rgba(255,255,255,0.35) !important;
+                }
+
+                .o_login .btn-primary {
+                    background: #E1261C !important;
+                    border: none !important;
+                    border-radius: 12px !important;
+                    padding: 12px 24px !important;
+                    font-weight: 600 !important;
+                    font-size: 15px !important;
+                    letter-spacing: 0.02em;
+                    transition: all 0.3s ease !important;
+                    width: 100%;
+                }
+
+                .o_login .btn-primary:hover {
+                    background: #c21f16 !important;
+                    transform: translateY(-1px);
+                    box-shadow: 0 6px 20px rgba(225,38,28,0.4) !important;
+                }
+
+                .o_login .btn-link {
+                    color: rgba(255,255,255,0.7) !important;
+                    text-decoration: none !important;
+                    font-size: 13px !important;
+                    font-weight: 500 !important;
+                }
+
+                .o_login .btn-link:hover {
+                    color: #E1261C !important;
+                }
+
+                .o_login .form-check-label {
+                    color: rgba(255,255,255,0.7) !important;
+                    font-size: 13px !important;
+                }
+
+                .o_login .form-check-input {
+                    background-color: rgba(255,255,255,0.1) !important;
+                    border-color: rgba(255,255,255,0.3) !important;
+                }
+
+                .o_login .form-check-input:checked {
+                    background-color: #E1261C !important;
+                    border-color: #E1261C !important;
+                }
+
+                .o_login a {
+                    color: rgba(255,255,255,0.7) !important;
+                    transition: color 0.2s !important;
+                }
+                .o_login a:hover {
+                    color: #E1261C !important;
+                }
+
+                .o_login .alert {
+                    background: rgba(225,38,28,0.15) !important;
+                    border: 1px solid rgba(225,38,28,0.3) !important;
+                    border-radius: 12px !important;
+                    color: #fff !important;
+                }
+
+                .o_login .text-muted {
+                    color: rgba(255,255,255,0.5) !important;
+                }
+
+                .o_login .o_login_auth {
+                    border-top: 1px solid rgba(255,255,255,0.1) !important;
+                    padding-top: 16px !important;
+                    margin-top: 16px !important;
+                }
+
+                .o_login .oe_login_buttons {
+                    margin-top: 8px !important;
+                }
+
+                .o_login nav,
+                .o_login .navbar {
+                    display: none !important;
+                }
+
+                @media (max-width: 768px) {
+                    .o_login .card {
+                        margin: 16px !important;
+                        border-radius: 16px !important;
+                    }
+                    .o_login .card-body {
+                        padding: 28px 24px !important;
+                    }
+                }
+            </style>
+        </xpath>
+    </template>
+
+    <record id="alaj_login_style" model="ir.ui.view">
+        <field name="website_id" ref="alaj_website_record"/>
+    </record>
+</odoo>

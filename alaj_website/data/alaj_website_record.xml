@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="alaj_website_record" model="website">
+            <field name="name">ALAJ Lab Chem</field>
+        </record>
+    </data>
+
+    <record id="alaj_top_menu" model="website.menu">
+        <field name="name">Top Menu for ALAJ</field>
+        <field name="website_id" ref="alaj_website_record"/>
+    </record>
+
+    <record id="alaj_website_record" model="website">
+        <field name="menu_id" ref="alaj_top_menu"/>
+    </record>
+</odoo>

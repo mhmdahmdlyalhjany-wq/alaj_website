@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="event_detail_template" name="Event Detail Page">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+
+                    <style>
+                        #wrap * { box-sizing: border-box; }
+                        #wrap {
+                            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+                            color: #262138; line-height: 1.6;
+                        }
+                        .page-banner {
+                            position: relative; width: 100%; height: 400px; overflow: hidden;
+                            background-size: cover; background-position: center; background-repeat: no-repeat;
+                        }
+                        .page-banner .banner-overlay {
+                            position: absolute; inset: 0;
+                            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+                            display: flex; flex-direction: column; justify-content: center;
+                            padding: 0 56px;
+                            pointer-events: none;
+                        }
+                        .page-banner .banner-overlay * { pointer-events: auto; }
+                        .page-banner .banner-title {
+                            color: #fff; font-family: 'Poppins', sans-serif;
+                            font-size: 56px; font-weight: 700; margin: 0 0 16px;
+                        }
+                        .page-banner .breadcrumb {
+                            display: flex; align-items: center; gap: 8px;
+                            color: rgba(255,255,255,0.7); font-family: 'Poppins', sans-serif; font-size: 14px;
+                        }
+                        .page-banner .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+                        .page-banner .breadcrumb a:hover { color: #fff; }
+                        .page-banner .breadcrumb .sep { margin: 0 4px; }
+                        .page-banner .breadcrumb .current { color: #E1261C; }
+
+                        .event-detail-content { width: 100%; padding: 64px 56px; background: #EFF9FF; }
+                        .event-detail-inner {
+                            max-width: 1792px; margin: 0 auto;
+                            display: grid; grid-template-columns: 2fr 1fr; gap: 48px;
+                        }
+
+                        .event-main {}
+                        .event-main-img {
+                            width: 100%; height: 450px; border-radius: 20px;
+                            overflow: hidden; margin-bottom: 32px;
+                        }
+                        .event-main-img img { width: 100%; height: 100%; object-fit: cover; }
+                        .event-meta {
+                            display: flex; align-items: center; gap: 24px;
+                            margin-bottom: 24px; flex-wrap: wrap;
+                        }
+                        .event-meta-item {
+                            display: flex; align-items: center; gap: 8px;
+                            color: #4A4363; font-family: 'Poppins', sans-serif;
+                            font-size: 14px; font-weight: 400;
+                        }
+                        .event-meta-item svg { width: 18px; height: 18px; }
+                        .event-badge {
+                            display: inline-block; padding: 4px 16px;
+                            background: rgba(225,38,28,0.1); color: #E1261C;
+                            border-radius: 9999px; font-family: 'Poppins', sans-serif;
+                            font-size: 13px; font-weight: 500;
+                        }
+                        .event-main-title {
+                            color: #262138; font-family: 'Poppins', sans-serif;
+                            font-size: 36px; font-weight: 600; margin: 0 0 24px;
+                            line-height: 1.3;
+                        }
+                        .event-main-text {
+                            color: #4A4363; font-family: 'Poppins', sans-serif;
+                            font-size: 16px; font-weight: 400; line-height: 1.8;
+                            margin: 0 0 24px;
+                        }
+                        .event-contact-btn {
+                            display: inline-flex; align-items: center; gap: 12px;
+                            padding: 12px 32px; background: #E1261C; color: #fff;
+                            border-radius: 9999px; font-family: 'Poppins', sans-serif;
+                            font-size: 16px; font-weight: 600; text-decoration: none;
+                            border: none; cursor: pointer; transition: background 0.2s;
+                        }
+                        .event-contact-btn:hover { background: rgba(225,38,28,0.9); }
+
+                        .event-sidebar {}
+                        .sidebar-card {
+                            background: #fff; border-radius: 20px; padding: 32px;
+                            box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 32px;
+                        }
+                        .sidebar-card-title {
+                            color: #262138; font-family: 'Poppins', sans-serif;
+                            font-size: 20px; font-weight: 600; margin: 0 0 24px;
+                        }
+                        .sidebar-info-item {
+                            display: flex; align-items: flex-start; gap: 12px;
+                            margin-bottom: 20px;
+                        }
+                        .sidebar-info-icon {
+                            width: 40px; height: 40px; border-radius: 50%;
+                            background: #EFF9FF; display: flex;
+                            align-items: center; justify-content: center;
+                            flex-shrink: 0;
+                        }
+                        .sidebar-info-icon svg { width: 20px; height: 20px; color: #E1261C; }
+                        .sidebar-info-label {
+                            color: #4A4363; font-family: 'Poppins', sans-serif;
+                            font-size: 13px; font-weight: 400; margin: 0 0 4px;
+                        }
+                        .sidebar-info-value {
+                            color: #262138; font-family: 'Poppins', sans-serif;
+                            font-size: 15px; font-weight: 500; margin: 0;
+                        }
+
+                        .related-title {
+                            color: #262138; font-family: 'Poppins', sans-serif;
+                            font-size: 20px; font-weight: 600; margin: 0 0 24px;
+                        }
+                        .related-card {
+                            background: #fff; border-radius: 16px; overflow: hidden;
+                            box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 16px;
+                            transition: box-shadow 0.2s;
+                        }
+                        .related-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+                        .related-card-img { width: 100%; height: 160px; overflow: hidden; }
+                        .related-card-img img { width: 100%; height: 100%; object-fit: cover; }
+                        .related-card-body { padding: 16px; }
+                        .related-card-date {
+                            color: #E1261C; font-family: 'Poppins', sans-serif;
+                            font-size: 12px; font-weight: 500; margin: 0 0 6px;
+                        }
+                        .related-card-title {
+                            color: #262138; font-family: 'Poppins', sans-serif;
+                            font-size: 15px; font-weight: 500; margin: 0;
+                        }
+                        .related-card-title a {
+                            color: #262138; text-decoration: none;
+                        }
+                        .related-card-title a:hover { color: #E1261C; }
+
+                        .arrow-icon { stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+
+                        @media (max-width: 1024px) {
+                            .event-detail-inner { grid-template-columns: 1fr; }
+                        }
+                        @media (max-width: 768px) {
+                            .page-banner .banner-title { font-size: 36px; }
+                        }
+                    </style>
+
+                    <section class="page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/news/featured-article.jpg');">
+                        <div class="banner-overlay">
+                            <h1 class="banner-title">Event Details</h1>
+                            <div class="breadcrumb">
+                                <a href="/">Home</a>
+                                <span class="sep">&gt;</span>
+                                <a href="/events">Media Center</a>
+                                <span class="sep">&gt;</span>
+                                <span class="current">Event Detail</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="event-detail-content">
+                        <div class="event-detail-inner">
+                            <div class="event-main">
+                                <div class="event-main-img">
+                                    <img src="/alaj_website/static/src/binary/news/featured-article.jpg" alt="Saudi International Lab Expo 2025"/>
+                                </div>
+
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        12 March 2025
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        Riyadh, KSA
+                                    </div>
+                                    <span class="event-badge">Exhibition</span>
+                                </div>
+
+                                <h1 class="event-main-title">Saudi International Lab Expo 2025</h1>
+
+                                <p class="event-main-text">
+                                    Join us at the Saudi International Lab Expo 2025, the largest laboratory equipment
+                                    and chemical analysis exhibition in the Kingdom of Saudi Arabia. This premier event
+                                    brings together industry leaders, researchers, and professionals from across the region.
+                                </p>
+
+                                <p class="event-main-text">
+                                    Discover the latest innovations in chemical analysis and research instruments.
+                                    Our team will be showcasing cutting-edge products and solutions designed to meet
+                                    the evolving needs of laboratories across the Kingdom.
+                                </p>
+
+                                <a href="/contact" class="event-contact-btn">Contact Us</a>
+                            </div>
+
+                            <div class="event-sidebar">
+                                <div class="sidebar-card">
+                                    <h3 class="sidebar-card-title">Event Details</h3>
+
+                                    <div class="sidebar-info-item">
+                                        <div class="sidebar-info-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="sidebar-info-label">Date</p>
+                                            <p class="sidebar-info-value">12 March 2025</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sidebar-info-item">
+                                        <div class="sidebar-info-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="sidebar-info-label">Location</p>
+                                            <p class="sidebar-info-value">Riyadh, KSA</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sidebar-info-item">
+                                        <div class="sidebar-info-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="sidebar-info-label">Time</p>
+                                            <p class="sidebar-info-value">9:00 AM - 6:00 PM</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="sidebar-info-item">
+                                        <div class="sidebar-info-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="sidebar-info-label">Category</p>
+                                            <p class="sidebar-info-value">Exhibition</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="related-title">Related Events</h3>
+                                <div class="related-card">
+                                    <div class="related-card-img"><img src="/alaj_website/static/src/binary/news/event-1.jpg" alt="Event"/></div>
+                                    <div class="related-card-body">
+                                        <p class="related-card-date">25 Feb 2025</p>
+                                        <p class="related-card-title"><a href="/event-detail">Advanced Spectral Colorimeters Launch</a></p>
+                                    </div>
+                                </div>
+                                <div class="related-card">
+                                    <div class="related-card-img"><img src="/alaj_website/static/src/binary/news/event-2.jpg" alt="Event"/></div>
+                                    <div class="related-card-body">
+                                        <p class="related-card-date">10 Jan 2025</p>
+                                        <p class="related-card-title"><a href="/event-detail">Annual Quality Workshop for Lab Professionals</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </t>
+        </template>
+
+        <record id="event_detail_page" model="website.page">
+            <field name="name">Event Detail</field>
+            <field name="url">/event-detail</field>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="event_detail_template"/>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record id="event_detail_template" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+    </data>
+</odoo>

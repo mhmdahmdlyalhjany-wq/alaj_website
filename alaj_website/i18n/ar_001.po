@@ -1,0 +1,2019 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* alaj_website
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e-20250423\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-10 22:32+0000\n"
+"PO-Revision-Date: 2026-02-10 22:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "&gt;"
+msgstr "&gt;"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "&lt;"
+msgstr "&lt;"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "*discontinued* BALANCE COMPACT SCALE 2000G X 1GM"
+msgstr "*متوقف* ميزان مدمج 2000 جرام × 1 جرام"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "+966 57533041"
+msgstr "+966 57533041"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "+96654337878"
+msgstr "+96654337878"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "-3 to 3 Abs"
+msgstr "-3 إلى 3 Abs"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "02 Oct 2024"
+msgstr "02 أكتوبر 2024"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "05 Dec 2024"
+msgstr "05 ديسمبر 2024"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "10 Jan 2025"
+msgstr "10 يناير 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "100%"
+msgstr "100%"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "100+"
+msgstr "+100"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "12 Mar 2025"
+msgstr "12 مارس 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "12 March 2025"
+msgstr "12 مارس 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "18 Nov 2024"
+msgstr "18 نوفمبر 2024"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "190 - 1100 nm"
+msgstr "190 - 1100 نانومتر"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "2 nm"
+msgstr "2 نانومتر"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "25 Feb 2025"
+msgstr "25 فبراير 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "29,288"
+msgstr "29,288"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "30+"
+msgstr "+30"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "50+"
+msgstr "+50"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "500+"
+msgstr "+500"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "52,798"
+msgstr "52,798"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "5th"
+msgstr "الخامس"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "812,527"
+msgstr "812,527"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "96%"
+msgstr "96%"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "9:00 AM - 6:00 PM"
+msgstr "9:00 صباحاً - 6:00 مساءً"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "<span class=\"event-badge\">Exhibition</span>"
+msgstr "<span class=\"event-badge\">معرض</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "<span class=\"event-card-badge\">Announcement</span>"
+msgstr "<span class=\"event-card-badge\">إعلان</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "<span class=\"event-card-badge\">Event</span>"
+msgstr "<span class=\"event-card-badge\">فعالية</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "<span class=\"event-card-badge\">Exhibition</span>"
+msgstr "<span class=\"event-card-badge\">معرض</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "<span class=\"event-card-badge\">News</span>"
+msgstr "<span class=\"event-card-badge\">أخبار</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+msgid "<span class=\"header-lang-text\">EN</span>"
+msgstr "<span class=\"header-lang-text\">ع</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "<span class=\"proj-card-badge\">Petrochemical</span>"
+msgstr "<span class=\"proj-card-badge\">بتروكيماويات</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "<span class=\"proj-card-badge\">Pharmaceutical</span>"
+msgstr "<span class=\"proj-card-badge\">أدوية</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "<span class=\"proj-card-badge\">Research</span>"
+msgstr "<span class=\"proj-card-badge\">أبحاث</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "<span class=\"proj-card-badge\">Water Treatment</span>"
+msgstr "<span class=\"proj-card-badge\">معالجة المياه</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "<span class=\"sep\">&gt;</span>"
+msgstr "<span class=\"sep\">&gt;</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">About Us</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">من نحن</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">Contact Us</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">اتصل بنا</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">Event Detail</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">تفاصيل الفعالية</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">Frequently Asked Questions</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">الأسئلة الشائعة</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">Media Center</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">المركز الإعلامي</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">Product Detail</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">تفاصيل المنتج</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">Products</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">المنتجات</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">Projects</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">المشاريع</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">Solutions &amp; Services</span>"
+msgstr ""
+"<span class=\"sep\">&gt;</span>\n"
+"                                <span class=\"current\">الحلول والخدمات</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+msgid "<span>Contact US</span>"
+msgstr "<span>تواصل معنا</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "<span>Do you deliver across all regions of Saudi Arabia?</span>"
+msgstr "<span>هل تقومون بالتوصيل إلى جميع مناطق المملكة العربية السعودية؟</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "<span>Do you offer after-sales support and maintenance?</span>"
+msgstr "<span>هل تقدمون دعم ما بعد البيع والصيانة؟</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "<span>Do you provide installation and training services?</span>"
+msgstr "<span>هل تقدمون خدمات التركيب والتدريب؟</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+msgid "<span>FAQ</span>"
+msgstr "<span>الأسئلة الشائعة</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "<span>How can I request a quote or place an order?</span>"
+msgstr "<span>كيف يمكنني طلب عرض سعر أو تقديم طلب؟</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "<span>Learn More</span>"
+msgstr "<span>اعرف المزيد</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+msgid "<span>Our Store</span>"
+msgstr "<span>متجرنا</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "<span>Read About</span>"
+msgstr "<span>اقرأ المزيد</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "<span>Read More</span>"
+msgstr "<span>اقرأ المزيد</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "<span>See All Partners</span>"
+msgstr "<span>عرض جميع الشركاء</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "<span>What brands do you represent?</span>"
+msgstr "<span>ما هي العلامات التجارية التي تمثلونها؟</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "<span>What industries do you serve?</span>"
+msgstr "<span>ما هي الصناعات التي تخدمونها؟</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "<span>What types of laboratory equipment do you supply?</span>"
+msgstr "<span>ما أنواع معدات المختبرات التي توردونها؟</span>"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "ABB"
+msgstr "ABB"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "ARAMCO Lab Expansion"
+msgstr "توسعة مختبر أرامكو"
+
+#. module: alaj_website
+#: model:website.menu,name:alaj_website.menu_about
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+msgid "About"
+msgstr "عن الشركة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "About Alajlabchem"
+msgstr "عن شركة العج للمختبرات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "About Us"
+msgstr "من نحن"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "About us"
+msgstr "من نحن"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"Absolutely. We provide comprehensive after-sales support including "
+"preventive maintenance programs, calibration services, spare parts supply, "
+"and dedicated technical support to keep your laboratory equipment running at"
+" peak performance."
+msgstr ""
+"بالتأكيد. نقدم دعماً شاملاً لما بعد البيع يشمل برامج الصيانة الوقائية وخدمات المعايرة "
+"وتوريد قطع الغيار ودعم فني متخصص للحفاظ على أداء معدات مختبرك بأعلى مستوى."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Accessibility Statement"
+msgstr "بيان إمكانية الوصول"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Add to Cart"
+msgstr "أضف إلى السلة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Advanced Spectral Colorimeters Launch"
+msgstr "إطلاق أجهزة قياس الألوان الطيفية المتقدمة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "After Sales Support"
+msgstr "دعم ما بعد البيع"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Ahmed K."
+msgstr "أحمد ك."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"Alajlabchem has continuously accompanied its customers across multiple "
+"market segments in a wide range of industries service providers growing to "
+"customers who are engaged in industries like Petrochemicals, Oil and Gas "
+"industry, Pharmaceuticals, Food and Beverage industry, Drinking Water, "
+"Wastewater, Utilities, Research institutes, Academic and university, "
+"Government agencies."
+msgstr ""
+"رافقت شركة العج للمختبرات عملاءها باستمرار عبر قطاعات سوقية متعددة "
+"في مجموعة واسعة من الصناعات مثل البتروكيماويات والنفط والغاز والأدوية والأغذية "
+"والمشروبات ومياه الشرب والصرف الصحي والمرافق ومراكز الأبحاث "
+"والجامعات والجهات الحكومية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid ""
+"Alajlabchem has continuously accompanied its customers across multiple "
+"market segments in a wide range of industries service providers growing to "
+"to customers who are engaged in industries like Petrochemicals, Oil and Gas "
+"industry, Pharmaceuticals, Food and Beverage industry, Drinking Water, "
+"Wastewater, Utilities, Research institutes, Academic and university, "
+"Government agencies."
+msgstr ""
+"رافقت شركة العج للمختبرات عملاءها باستمرار عبر قطاعات سوقية متعددة "
+"في مجموعة واسعة من الصناعات مثل البتروكيماويات والنفط والغاز والأدوية والأغذية "
+"والمشروبات ومياه الشرب والصرف الصحي والمرافق ومراكز الأبحاث "
+"والجامعات والجهات الحكومية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "All"
+msgstr "الكل"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "All Products"
+msgstr "جميع المنتجات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "All Projects"
+msgstr "جميع المشاريع"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "All Reviews"
+msgstr "جميع التقييمات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Announcements"
+msgstr "إعلانات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Annual Quality Workshop for Lab Professionals"
+msgstr "ورشة الجودة السنوية لمتخصصي المختبرات"
+
+#. module: alaj_website
+#: model:product.template,name:alaj_website.product_balance_scale
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "BALANCE COMPACT SCALE 2000G X 1GM"
+msgstr "ميزان مدمج 2000 جرام × 1 جرام"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Balance Compact Scale"
+msgstr "ميزان مدمج"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Balance Scale"
+msgstr "ميزان"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Bandwidth"
+msgstr "عرض النطاق"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Based on 18 reviews"
+msgstr "بناءً على 18 تقييم"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid ""
+"Best in class for water analysis. The UV-VIS capability makes it versatile "
+"for multiple applications."
+msgstr ""
+"الأفضل في فئته لتحليل المياه. تقنية UV-VIS تجعله متعدد "
+"الاستخدامات."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Box Office"
+msgstr "صندوق بريد"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Calibration"
+msgstr "المعايرة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Celebrating three decades of serving the chemical industry."
+msgstr "نحتفل بثلاثة عقود من خدمة الصناعة الكيميائية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Chemical &amp; Research"
+msgstr "الكيمياء والأبحاث"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Chemical Industry Forum 2024"
+msgstr "منتدى الصناعات الكيميائية 2024"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Chemical and Reagents"
+msgstr "المواد الكيميائية والكواشف"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Clients Satisfaction"
+msgstr "رضا العملاء"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Company Celebrates 30 Years of Excellence"
+msgstr "الشركة تحتفل بـ 30 عاماً من التميز"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid ""
+"Complete laboratory equipment installation and setup for SABIC's new "
+"research facility including water analysis instruments and chemical "
+"reagents."
+msgstr ""
+"تركيب وإعداد معدات مختبرية كاملة لمنشأة سابك البحثية الجديدة بما في ذلك "
+"أجهزة تحليل المياه والكواشف الكيميائية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Comprehensive training programs for laboratory staff on equipment operation,"
+" safety protocols, and best practices."
+msgstr ""
+"برامج تدريبية شاملة لموظفي المختبرات على تشغيل المعدات "
+"وبروتوكولات السلامة وأفضل الممارسات."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Connect with Us"
+msgstr "تواصل معنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Consultation"
+msgstr "الاستشارات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Contact Information"
+msgstr "معلومات الاتصال"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Contact US"
+msgstr "تواصل معنا"
+
+#. module: alaj_website
+#: model:website.menu,name:alaj_website.menu_contact
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Contact Us Today"
+msgstr "تواصل معنا اليوم"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Contact us for registration details and booth information."
+msgstr "تواصل معنا للحصول على تفاصيل التسجيل ومعلومات الأجنحة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Copyright statement"
+msgstr "بيان حقوق النشر"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Copyright © 2025 Abdullatif H.Abduljadayel &amp; Sons Co."
+msgstr "حقوق النشر © 2025 شركة عبداللطيف أحمد عبداللطيف وأولاده المحدودة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Customers also viewed"
+msgstr "شاهد العملاء أيضاً"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "DR 6000"
+msgstr "DR 6000"
+
+#. module: alaj_website
+#: model:product.template,name:alaj_website.product_dr6000
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "DR 6000 Without RFID Hach Lange"
+msgstr "DR 6000 بدون RFID من هاك لانج"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Dammam, KSA"
+msgstr "الدمام، المملكة العربية السعودية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Dedicated technical support team providing training, calibration, and "
+"ongoing assistance for all equipment and instruments."
+msgstr ""
+"فريق دعم فني متخصص يقدم التدريب والمعايرة والمساعدة المستمرة "
+"لجميع المعدات والأجهزة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"Deliver exceptional laboratory products and services that empower "
+"researchers and industries to achieve breakthrough results with reliability "
+"and excellence."
+msgstr ""
+"تقديم منتجات وخدمات مختبرية استثنائية تمكّن الباحثين والصناعات "
+"من تحقيق نتائج متميزة بموثوقية وتميز."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Desalination Plant Lab"
+msgstr "مختبر محطة التحلية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Dhahran, KSA"
+msgstr "الظهران، المملكة العربية السعودية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Digital Touch Screen"
+msgstr "شاشة لمس رقمية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Disclaimer"
+msgstr "إخلاء المسؤولية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid ""
+"Discover the latest innovations in chemical analysis and research instruments.\n"
+"                                    Our team will be showcasing cutting-edge products and solutions designed to meet\n"
+"                                    the evolving needs of laboratories across the Kingdom."
+msgstr ""
+"اكتشف أحدث الابتكارات في أجهزة التحليل الكيميائي والبحث العلمي.\n"
+"                                    سيعرض فريقنا أحدث المنتجات والحلول المصممة لتلبية\n"
+"                                    الاحتياجات المتطورة للمختبرات في أنحاء المملكة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Display"
+msgstr "الشاشة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Duran Group"
+msgstr "Duran Group"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Enter subject"
+msgstr "أدخل الموضوع"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Enter your email"
+msgstr "أدخل بريدك الإلكتروني"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Enter your full name"
+msgstr "أدخل اسمك الكامل"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Enter your phone number"
+msgstr "أدخل رقم هاتفك"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Equipment and Instruments"
+msgstr "المعدات والأجهزة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Equipment and instruments"
+msgstr "المعدات والأجهزة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Event"
+msgstr "فعالية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "Event Details"
+msgstr "تفاصيل الفعالية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Event Title #02"
+msgstr "عنوان الفعالية #02"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Events"
+msgstr "فعاليات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid ""
+"Excellent spectrophotometer. Very accurate readings and easy to use "
+"interface. Highly recommended for laboratory work."
+msgstr ""
+"جهاز قياس طيفي ممتاز. قراءات دقيقة جداً وواجهة سهلة الاستخدام. "
+"أنصح به بشدة للعمل المختبري."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Executive Director"
+msgstr "المدير التنفيذي"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "Exhibition"
+msgstr "معرض"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Exhibitions"
+msgstr "معارض"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Expanding our capabilities with world-class partnerships."
+msgstr "نوسع قدراتنا مع شراكات عالمية المستوى."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Expert consultation to help you select the right equipment and solutions for"
+" your specific laboratory requirements."
+msgstr ""
+"استشارات متخصصة لمساعدتك في اختيار المعدات والحلول المناسبة "
+"لاحتياجات مختبرك الخاصة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid ""
+"Explore our portfolio of completed and ongoing projects across the Kingdom. "
+"We take pride in delivering excellence in every project we undertake."
+msgstr ""
+"استكشف محفظة مشاريعنا المكتملة والجارية في أنحاء المملكة. "
+"نفتخر بتقديم التميز في كل مشروع ننفذه."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "FAQ"
+msgstr "الأسئلة الشائعة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Fax"
+msgstr "فاكس"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Featured Article"
+msgstr "مقال مميز"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Filter Paper"
+msgstr "ورق ترشيح"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Filter Paper Premium Grade"
+msgstr "ورق ترشيح درجة ممتازة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Filter Papper"
+msgstr "ورق ترشيح"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"Find answers to the most commonly asked questions about our products and "
+"services."
+msgstr ""
+"اعثر على إجابات للأسئلة الأكثر شيوعاً حول منتجاتنا "
+"وخدماتنا."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"Founded in 1990, Abdullatif H. Abdullatif &amp; Sons Co. started as a small "
+"distribution company in Jeddah. Over three decades, we have grown into one "
+"of the most trusted names in laboratory equipment and chemical solutions in "
+"the Kingdom of Saudi Arabia."
+msgstr ""
+"تأسست شركة عبداللطيف أحمد عبداللطيف وأولاده عام 1990 كشركة توزيع صغيرة في جدة. "
+"على مدى ثلاثة عقود، نمونا لنصبح من أكثر الأسماء موثوقية "
+"في معدات المختبرات والحلول الكيميائية في المملكة العربية السعودية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "Frequently Asked Questions"
+msgstr "الأسئلة الشائعة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid ""
+"Full laboratory setup for a major desalination plant including online "
+"analyzer instruments and chemical testing equipment."
+msgstr ""
+"إعداد مختبري كامل لمحطة تحلية رئيسية يشمل أجهزة تحليل "
+"مباشرة ومعدات اختبار كيميائي."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid ""
+"Full upgrade of pharmaceutical quality control laboratory with latest "
+"spectrophotometers and analytical instruments."
+msgstr ""
+"تحديث كامل لمختبر مراقبة الجودة الدوائي بأحدث أجهزة "
+"القياس الطيفي والأجهزة التحليلية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Get in Touch"
+msgstr "تواصل معنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Glassware"
+msgstr "أدوات زجاجية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Global Partners"
+msgstr "شركاء عالميون"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid ""
+"Great product overall. The touch screen is responsive and the pre-programmed"
+" methods save a lot of time."
+msgstr ""
+"منتج رائع بشكل عام. الشاشة اللمسية سريعة الاستجابة والطرق "
+"المبرمجة مسبقاً توفر الكثير من الوقت."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "HACH"
+msgstr "HACH"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "HACH Portable"
+msgstr "HACH محمول"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "HACH Portable ph/ORP Meter"
+msgstr "جهاز قياس pH/ORP المحمول من HACH"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "HPLC"
+msgstr "HPLC"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "HPLC Analytical Instrument"
+msgstr "أجهزة التحليل HPLC"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "HQ1110"
+msgstr "HQ1110"
+
+#. module: alaj_website
+#: model:product.template,name:alaj_website.product_hq1110
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "HQ1110 Portable pH/ORP Meter"
+msgstr "جهاز قياس pH/ORP المحمول HQ1110"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Head Office"
+msgstr "المقر الرئيسي"
+
+#. module: alaj_website
+#: model:product.template,description_sale:alaj_website.product_balance_scale
+msgid ""
+"High-precision compact balance scale with 2000g capacity and 1g readability."
+" Ideal for laboratory weighing applications. Features a durable construction"
+" and easy-to-read digital display."
+msgstr ""
+"ميزان مدمج عالي الدقة بسعة 2000 جرام ودقة قراءة 1 جرام. "
+"مثالي لتطبيقات الوزن المختبرية. يتميز ببنية متينة "
+"وشاشة رقمية سهلة القراءة."
+
+#. module: alaj_website
+#: model:website.menu,name:alaj_website.menu_homepage
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Home"
+msgstr "الرئيسية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "In-Stock and ready to ship"
+msgstr "متوفر وجاهز للشحن"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Instagram"
+msgstr "انستغرام"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Installation"
+msgstr "التركيب"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"Integrity, quality, customer focus, and innovation drive everything we do. "
+"We are committed to building long-lasting partnerships based on trust."
+msgstr ""
+"النزاهة والجودة والتركيز على العميل والابتكار هي محركات كل ما نقوم به. "
+"نحن ملتزمون ببناء شراكات طويلة الأمد قائمة على الثقة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Interface"
+msgstr "الواجهة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Introducing our newest range of professional spectral colorimeters."
+msgstr "نقدم لكم أحدث مجموعة من أجهزة قياس الألوان الطيفية الاحترافية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "JAAN Group"
+msgstr "JAAN Group"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Jeddah, KSA"
+msgstr "جدة، المملكة العربية السعودية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Jeddah, Saudi Arabia - Map Location"
+msgstr "جدة، المملكة العربية السعودية - موقع الخريطة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid ""
+"Join us at the Saudi International Lab Expo 2025, the largest laboratory equipment\n"
+"                                    and chemical analysis exhibition in the Kingdom of Saudi Arabia. This premier event\n"
+"                                    brings together industry leaders, researchers, and professionals from across the region."
+msgstr ""
+"انضم إلينا في معرض المختبرات الدولي السعودي 2025، أكبر معرض لمعدات المختبرات\n"
+"                                    والتحليل الكيميائي في المملكة العربية السعودية. هذا الحدث الرئيسي\n"
+"                                    يجمع قادة الصناعة والباحثين والمتخصصين من أنحاء المنطقة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Join us at the largest laboratory equipment exhibition in the Kingdom."
+msgstr "انضم إلينا في أكبر معرض لمعدات المختبرات في المملكة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Jul 08, 2025"
+msgstr "08 يوليو 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Jul 13, 2025"
+msgstr "13 يوليو 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Jul 21, 2025"
+msgstr "21 يوليو 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "KAUST Research Center"
+msgstr "مركز أبحاث كاوست"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Kartell"
+msgstr "Kartell"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Key Features"
+msgstr "الميزات الرئيسية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "LICO 690"
+msgstr "LICO 690"
+
+#. module: alaj_website
+#: model:product.template,name:alaj_website.product_lico690
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "LICO 690 Professional Spectral Colorimeter"
+msgstr "جهاز قياس الألوان الطيفي الاحترافي LICO 690"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Laboratory Glassware Set"
+msgstr "طقم أدوات زجاجية مختبرية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Latest News&amp; Events"
+msgstr "آخر الأخبار والفعاليات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Leadership"
+msgstr "القيادة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Leading Chemical Industry Without Limits"
+msgstr "قيادة الصناعة الكيميائية بلا حدود"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "LinkedIn"
+msgstr "لينكد إن"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "Location"
+msgstr "الموقع"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Logistics &amp; Delivery"
+msgstr "الخدمات اللوجستية والتوصيل"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+msgid "Logo Icon"
+msgstr "رمز الشعار"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+msgid "Logo Text"
+msgstr "نص الشعار"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Machanical Instrument"
+msgstr "أجهزة ميكانيكية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Maintenance and Spare Parts"
+msgstr "الصيانة وقطع الغيار"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Maintenance and Spare parts"
+msgstr "الصيانة وقطع الغيار"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid ""
+"Major laboratory expansion project including procurement and installation of"
+" new generation analytical instruments."
+msgstr ""
+"مشروع توسعة مختبري كبير يشمل توريد وتركيب أجهزة "
+"تحليلية من الجيل الجديد."
+
+#. module: alaj_website
+#: model:website.menu,name:alaj_website.menu_events
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Media Center"
+msgstr "المركز الإعلامي"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Media Gallery"
+msgstr "معرض الوسائط"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Message"
+msgstr "الرسالة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Micro Biology"
+msgstr "الأحياء الدقيقة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Mohammed R."
+msgstr "محمد ر."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "National Water Company Lab"
+msgstr "مختبر شركة المياه الوطنية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Need a custom solution for your laboratory? Our team is ready to help."
+msgstr "هل تحتاج حلاً مخصصاً لمختبرك؟ فريقنا جاهز للمساعدة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "New Partnership with Global Lab Equipment Provider"
+msgstr "شراكة جديدة مع مورد عالمي لمعدات المختبرات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "News"
+msgstr "أخبار"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Online Analyzer"
+msgstr "محلل مباشر"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Open Data"
+msgstr "بيانات مفتوحة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Operations"
+msgstr "العمليات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Operations Manager"
+msgstr "مدير العمليات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Organizational Structure"
+msgstr "الهيكل التنظيمي"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Our Achievements"
+msgstr "إنجازاتنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Our Core Services"
+msgstr "خدماتنا الأساسية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Our Heritage"
+msgstr "تراثنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Our Mission"
+msgstr "رسالتنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Our Partners"
+msgstr "شركاؤنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Our People"
+msgstr "فريقنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Our Products"
+msgstr "منتجاتنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Our Projects"
+msgstr "مشاريعنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Our Solutions"
+msgstr "حلولنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Our Statistics 2025"
+msgstr "إحصائياتنا 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Our Store"
+msgstr "متجرنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Our Story"
+msgstr "قصتنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Our Values"
+msgstr "قيمنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Our Vision"
+msgstr "رؤيتنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"Our journey has been marked by continuous growth, strategic partnerships "
+"with world-class manufacturers, and an unwavering commitment to quality. "
+"Today, we serve customers across multiple sectors including petrochemicals, "
+"pharmaceuticals, food and beverage, water treatment, and academic research."
+msgstr ""
+"تميزت مسيرتنا بالنمو المستمر والشراكات الاستراتيجية "
+"مع مصنعين عالميين، والتزام راسخ بالجودة. "
+"اليوم، نخدم عملاء في قطاعات متعددة تشمل البتروكيماويات "
+"والأدوية والأغذية والمشروبات ومعالجة المياه والبحث الأكاديمي."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"Our team is happy to help. Get in touch with us for any additional "
+"inquiries."
+msgstr ""
+"فريقنا سعيد بمساعدتك. تواصل معنا لأي استفسارات "
+"إضافية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"Over more than 30 years as distributor or Agent for Equipment of "
+"laboratories"
+msgstr ""
+"أكثر من 30 عاماً كموزع أو وكيل لمعدات "
+"المختبرات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid ""
+"Over more than 30 years as distributor or Agent for Equipment of "
+"laboratories, and the Analysis of the water in Kingdom."
+msgstr ""
+"أكثر من 30 عاماً كموزع أو وكيل لمعدات المختبرات "
+"وتحليل المياه في المملكة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "P.O. Box 10325, Jedda, Saudi Arabia"
+msgstr "ص.ب. 10325، جدة، المملكة العربية السعودية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "P.O. Box 10325, Jeddah, Saudi Arabia"
+msgstr "ص.ب. 10325، جدة، المملكة العربية السعودية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Partner 3"
+msgstr "شريك 3"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Partner 5"
+msgstr "شريك 5"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Partner 8"
+msgstr "شريك 8"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Percent of households passed by crucial statistics in the field"
+msgstr "نسبة الإنجازات الحاسمة في المجال"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Petrochemical"
+msgstr "بتروكيماويات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Pharmaceutical"
+msgstr "أدوية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Phone"
+msgstr "الهاتف"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Photometric Range"
+msgstr "النطاق الضوئي"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Plasticware"
+msgstr "أدوات بلاستيكية"
+
+#. module: alaj_website
+#: model:product.template,description_sale:alaj_website.product_hq1110
+msgid ""
+"Portable pH/ORP meter ideal for field and laboratory use. Features "
+"IntelliCAL probe compatibility, built-in data logging, and USB connectivity."
+" Waterproof and rugged design for demanding environments."
+msgstr ""
+"جهاز قياس pH/ORP محمول مثالي للاستخدام الميداني والمختبري. يتميز "
+"بتوافق مسبار IntelliCAL وتسجيل بيانات مدمج واتصال USB. "
+"تصميم مقاوم للماء ومتين للبيئات الصعبة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Precision calibration services to ensure your instruments deliver accurate "
+"and reliable measurements."
+msgstr ""
+"خدمات معايرة دقيقة لضمان تقديم أجهزتك لقياسات "
+"دقيقة وموثوقة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Premium quality chemicals and reagents sourced from world-leading "
+"manufacturers for accurate laboratory results."
+msgstr ""
+"مواد كيميائية وكواشف عالية الجودة من مصنعين عالميين رائدين "
+"لنتائج مختبرية دقيقة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Preventive Maintenance"
+msgstr "الصيانة الوقائية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Privacy policy"
+msgstr "سياسة الخصوصية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Product Details"
+msgstr "تفاصيل المنتج"
+
+#. module: alaj_website
+#: model:website.menu,name:alaj_website.menu_products
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Products Available"
+msgstr "المنتجات المتوفرة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Professional installation services for all laboratory equipment ensuring "
+"optimal setup and configuration."
+msgstr ""
+"خدمات تركيب احترافية لجميع معدات المختبرات لضمان "
+"الإعداد والتهيئة المثالية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Professional maintenance services and genuine spare parts to keep your "
+"laboratory equipment running at peak performance."
+msgstr ""
+"خدمات صيانة احترافية وقطع غيار أصلية للحفاظ على أداء "
+"معدات مختبرك بأعلى مستوى."
+
+#. module: alaj_website
+#: model:product.template,description_sale:alaj_website.product_lico690
+msgid ""
+"Professional spectral colorimeter for precise color measurement in liquids "
+"and solids. Advanced optical system with wide wavelength range for "
+"comprehensive color analysis. Ideal for quality control in water, "
+"pharmaceutical, and chemical industries."
+msgstr ""
+"جهاز قياس ألوان طيفي احترافي لقياس الألوان بدقة في السوائل "
+"والمواد الصلبة. نظام بصري متقدم بنطاق طول موجي واسع "
+"لتحليل شامل للألوان. مثالي لمراقبة الجودة في صناعات المياه "
+"والأدوية والكيمياء."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Project"
+msgstr "مشروع"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Project #01"
+msgstr "مشروع #01"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Project #02"
+msgstr "مشروع #02"
+
+#. module: alaj_website
+#: model:website.menu,name:alaj_website.menu_projects
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Projects &amp; Highlights"
+msgstr "المشاريع والأبرز"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid ""
+"Providing ongoing laboratory supplies and equipment maintenance for one of "
+"the Kingdom's premier research institutions."
+msgstr ""
+"توفير مستلزمات مختبرية مستمرة وصيانة معدات لإحدى "
+"أبرز المؤسسات البحثية في المملكة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Qassim, KSA"
+msgstr "القصيم، المملكة العربية السعودية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Reach out to us through any of the following channels."
+msgstr "تواصل معنا عبر أي من القنوات التالية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Region position in the field"
+msgstr "المركز الإقليمي في المجال"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "Related Events"
+msgstr "فعاليات ذات صلة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Reliable logistics and delivery services ensuring your equipment arrives "
+"safely and on time anywhere in the Kingdom."
+msgstr ""
+"خدمات لوجستية وتوصيل موثوقة تضمن وصول معداتك "
+"بأمان وفي الوقت المحدد في أي مكان في المملكة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Research"
+msgstr "أبحاث"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Riyadh, KSA"
+msgstr "الرياض، المملكة العربية السعودية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "SABIC Petrochemical Lab Setup"
+msgstr "إعداد مختبر سابك للبتروكيماويات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "SPIMACO Quality Lab Upgrade"
+msgstr "تحديث مختبر الجودة في سبيماكو"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Sales Department"
+msgstr "قسم المبيعات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Sales Manager"
+msgstr "مدير المبيعات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Sales@alajlabchem.com"
+msgstr "Sales@alajlabchem.com"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Sarah M."
+msgstr "سارة م."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Satisfied Clients"
+msgstr "عملاء راضون"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "Saudi International Lab Expo 2025"
+msgstr "معرض المختبرات الدولي السعودي 2025"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"Scheduled maintenance programs to prevent equipment downtime and extend the "
+"lifespan of your investments."
+msgstr ""
+"برامج صيانة مجدولة لمنع توقف المعدات وإطالة "
+"عمر استثماراتك."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.products_page_template
+msgid "Search products..."
+msgstr "ابحث عن منتجات..."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Send Message"
+msgstr "إرسال الرسالة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Sigma"
+msgstr "Sigma"
+
+#. module: alaj_website
+#: model:website.menu,name:alaj_website.menu_solutions
+msgid "Solutions"
+msgstr "الحلول"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_header
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Solutions &amp; Services"
+msgstr "الحلول والخدمات"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"State-of-the-art laboratory instruments and equipment from global "
+"manufacturers including HACH, ABB, Sigma and more."
+msgstr ""
+"أحدث أجهزة ومعدات مختبرية من مصنعين عالميين "
+"بما في ذلك HACH وABB وSigma وغيرها."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "Stay Tuned"
+msgstr "تابعونا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid "Still have questions?"
+msgstr "لا زلت لديك أسئلة؟"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Strategic Objectives"
+msgstr "الأهداف الاستراتيجية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Subject"
+msgstr "الموضوع"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid ""
+"Supplied and installed advanced water analysis equipment for the National "
+"Water Company's quality control laboratory."
+msgstr ""
+"توريد وتركيب معدات تحليل مياه متقدمة لمختبر مراقبة "
+"الجودة في شركة المياه الوطنية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Team Member"
+msgstr "عضو الفريق"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Technical Director"
+msgstr "المدير الفني"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Technical Support"
+msgstr "الدعم الفني"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Terms and Condition"
+msgstr "الشروط والأحكام"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid ""
+"The DR 6000 is a high-performance UV-VIS spectrophotometer designed for laboratory water analysis.\n"
+"                                    It features advanced spectrophotometry capabilities with a digital touch screen interface,\n"
+"                                    USB connectivity, and pre-programmed methods for fast and accurate results."
+msgstr ""
+"DR 6000 هو جهاز قياس طيفي UV-VIS عالي الأداء مصمم لتحليل المياه المختبري.\n"
+"                                    يتميز بإمكانيات القياس الطيفي المتقدمة مع واجهة شاشة لمس رقمية\n"
+"                                    واتصال USB وطرق مبرمجة مسبقاً لنتائج سريعة ودقيقة."
+
+#. module: alaj_website
+#: model:product.template,description_sale:alaj_website.product_dr6000
+msgid ""
+"The DR 6000 is a high-performance UV-VIS spectrophotometer designed for "
+"laboratory water analysis. Features advanced spectrophotometry capabilities "
+"with a digital touch screen interface, USB connectivity, and pre-programmed "
+"methods for fast and accurate results. Wavelength Range: 190-1100nm."
+msgstr ""
+"DR 6000 هو جهاز قياس طيفي UV-VIS عالي الأداء مصمم لتحليل المياه "
+"المختبري. يتميز بإمكانيات القياس الطيفي المتقدمة مع واجهة شاشة لمس "
+"رقمية واتصال USB وطرق مبرمجة مسبقاً لنتائج سريعة ودقيقة. "
+"نطاق الطول الموجي: 190-1100 نانومتر."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.events_page_template
+msgid "The premier event for chemical industry professionals in the region."
+msgstr "الحدث الرئيسي لمتخصصي الصناعة الكيميائية في المنطقة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Thuwal, KSA"
+msgstr "ثول، المملكة العربية السعودية"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.event_detail_template
+msgid "Time"
+msgstr "الوقت"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid ""
+"Title Text Goes here Title Text Goes here Title Text Goes here Title Text "
+"Goes here Title Text Goes here Title Text Goes here"
+msgstr ""
+"نص العنوان يوضع هنا نص العنوان يوضع هنا نص العنوان يوضع هنا "
+"نص العنوان يوضع هنا نص العنوان يوضع هنا نص العنوان يوضع هنا"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"To be the leading provider of laboratory equipment and chemical solutions in"
+" the Kingdom and the region, setting the standard for quality and "
+"innovation."
+msgstr ""
+"أن نكون المزود الرائد لمعدات المختبرات والحلول الكيميائية "
+"في المملكة والمنطقة، ووضع معيار الجودة "
+"والابتكار."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "Training"
+msgstr "التدريب"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Twitter"
+msgstr "تويتر"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "USB, Ethernet"
+msgstr "USB، Ethernet"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "View More"
+msgstr "عرض المزيد"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "Vision and Mission"
+msgstr "الرؤية والرسالة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Vision, Mission &amp; Values"
+msgstr "الرؤية والرسالة والقيم"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.projects_page_template
+msgid "Water Treatment"
+msgstr "معالجة المياه"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.product_detail_template
+msgid "Wavelength Range"
+msgstr "نطاق الطول الموجي"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"We are authorized distributors and agents for many world-leading brands "
+"including HACH, ABB, Sigma-Aldrich, DURAN Group, Kartell, JAAN Group, and "
+"several other premium laboratory equipment manufacturers."
+msgstr ""
+"نحن موزعون ووكلاء معتمدون لالعديد من العلامات التجارية العالمية الرائدة "
+"بما في ذلك HACH وABB وSigma-Aldrich وDURAN Group وKartell وJAAN Group "
+"والعديد من مصنعي معدات المختبرات الممتازة الأخرين."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid ""
+"We are proud to be one of the leading distributors and agents for laboratory"
+" equipment and water analysis solutions in the Kingdom of Saudi Arabia."
+msgstr ""
+"نفتخر بأننا من أبرز الموزعين والوكلاء لمعدات المختبرات "
+"وحلول تحليل المياه في المملكة العربية السعودية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid ""
+"We provide comprehensive solutions covering chemical and reagent supply, "
+"advanced laboratory equipment, maintenance services, and dedicated after-"
+"sales support for all your laboratory needs."
+msgstr ""
+"نقدم حلولاً شاملة تغطي توريد المواد الكيميائية والكواشف "
+"ومعدات المختبرات المتقدمة وخدمات الصيانة ودعم ما بعد البيع "
+"المخصص لجميع احتياجات مختبرك."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"We serve a wide range of industries including Petrochemicals, Oil and Gas, "
+"Pharmaceuticals, Food and Beverage, Drinking Water, Wastewater Treatment, "
+"Utilities, Research Institutes, Academic Universities, and Government "
+"Agencies across the Kingdom of Saudi Arabia."
+msgstr ""
+"نخدم مجموعة واسعة من الصناعات بما في ذلك البتروكيماويات والنفط والغاز "
+"والأدوية والأغذية والمشروبات ومياه الشرب ومعالجة الصرف الصحي "
+"والمرافق ومراكز الأبحاث والجامعات الأكاديمية والجهات "
+"الحكومية في أنحاء المملكة العربية السعودية."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"We supply a comprehensive range of laboratory equipment including "
+"spectrophotometers, pH meters, balances, colorimeters, water analysis "
+"instruments, glassware, plasticware, filter papers, and chemical reagents "
+"from world-leading manufacturers such as HACH, ABB, Sigma, DURAN Group, and "
+"Kartell."
+msgstr ""
+"نورد مجموعة شاملة من معدات المختبرات بما في ذلك أجهزة القياس الطيفي "
+"وأجهزة قياس الحموضة والموازين وأجهزة قياس الألوان وأجهزة تحليل المياه "
+"والأدوات الزجاجية والبلاستيكية وأوراق الترشيح والكواشف الكيميائية "
+"من مصنعين عالميين رائدين مثل HACH وABB وSigma وDURAN Group وKartell."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid ""
+"We would love to hear from you. Send us a message and we'll respond as soon "
+"as possible."
+msgstr ""
+"يسعدنا التواصل معك. أرسل لنا رسالة وسنرد في أقرب "
+"وقت ممكن."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.solutions_page_template
+msgid "What We Offer"
+msgstr "ما نقدمه"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Who We Are"
+msgstr "من نحن"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "Write your message here..."
+msgstr "اكتب رسالتك هنا..."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.about_page_template
+msgid "Years of Experience"
+msgstr "سنوات الخبرة"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"Yes, we deliver to all regions of Saudi Arabia. Our logistics team ensures "
+"safe and timely delivery of all equipment and supplies to your location "
+"anywhere in the Kingdom."
+msgstr ""
+"نعم، نقوم بالتوصيل إلى جميع مناطق المملكة العربية السعودية. "
+"يضمن فريقنا اللوجستي التوصيل الآمن وفي الوقت المحدد لجميع المعدات "
+"والمستلزمات إلى موقعك في أي مكان في المملكة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"Yes, we provide full installation, setup, and training services for all "
+"equipment we supply. Our experienced technical team ensures your staff is "
+"fully trained on operation, maintenance, and safety protocols."
+msgstr ""
+"نعم، نقدم خدمات التركيب والإعداد والتدريب الكاملة لجميع "
+"المعدات التي نوردها. يضمن فريقنا الفني المتمرس تدريب موظفيك "
+"بالكامل على التشغيل والصيانة وبروتوكولات السلامة."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.faq_page_template
+msgid ""
+"You can request a quote by contacting our sales team via email at "
+"Sales@alajlabchem.com, calling +96654337878, or by filling out the contact "
+"form on our website. You can also browse our online store and add products "
+"directly to your cart."
+msgstr ""
+"يمكنك طلب عرض سعر بالتواصل مع فريق المبيعات عبر البريد الإلكتروني "
+"Sales@alajlabchem.com أو الاتصال على 96654337878+ أو ملء نموذج الاتصال "
+"على موقعنا. يمكنك أيضاً تصفح متجرنا الإلكتروني وإضافة المنتجات "
+"مباشرة إلى سلة التسوق."
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+#: model_terms:ir.ui.view,arch_db:alaj_website.contact_us_template
+msgid "YouTube"
+msgstr "يوتيوب"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.alaj_footer_main
+msgid "more"
+msgstr "المزيد"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "onlin analyzer instrument"
+msgstr "جهاز التحليل المباشر"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "search"
+msgstr "بحث"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "statistics #01"
+msgstr "إحصائية #01"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "statistics #02"
+msgstr "إحصائية #02"
+
+#. module: alaj_website
+#: model_terms:ir.ui.view,arch_db:alaj_website.homepage_template
+msgid "statistics #03"
+msgstr "إحصائية #03"
