@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <delete model="website.menu" search="[('website_id', '=', ref('alaj_website_record'))]"/>
+
+        <record model="website.menu" id="std_menu_4">
+            <field name="name">Top Menu for Website 1</field>
+            <field name="url">/default-main-menu</field>
+            <field name="sequence">0</field>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record model="website.menu" id="std_menu_5">
+            <field name="name">Home</field>
+            <field name="url">/</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="std_menu_4"/>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record model="website.menu" id="std_menu_6">
+            <field name="name">About</field>
+            <field name="url">/about</field>
+            <field name="sequence">15</field>
+            <field name="parent_id" ref="std_menu_4"/>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record model="website.menu" id="std_menu_9">
+            <field name="name">Store</field>
+            <field name="url">/shop</field>
+            <field name="sequence">20</field>
+            <field name="parent_id" ref="std_menu_4"/>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record model="website.menu" id="std_menu_11">
+            <field name="name">Solutions</field>
+            <field name="url">/solutions</field>
+            <field name="sequence">30</field>
+            <field name="parent_id" ref="std_menu_4"/>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record model="website.menu" id="std_menu_13">
+            <field name="name">Media Center</field>
+            <field name="url">/events</field>
+            <field name="sequence">40</field>
+            <field name="parent_id" ref="std_menu_4"/>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record model="website.menu" id="std_menu_15">
+            <field name="name">Contact</field>
+            <field name="url">/contact</field>
+            <field name="sequence">50</field>
+            <field name="parent_id" ref="std_menu_4"/>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <function model="website" name="write">
+            <value eval="[ref('alaj_website_record')]"/>
+            <value eval="{'menu_id': ref('std_menu_4')}"/>
+        </function>
+    </data>
+</odoo>

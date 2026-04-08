@@ -1,1541 +1,2286 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="alaj_header" name="ALAJ Header">
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap');
-
-            .alaj-header *,
-            .alaj-footer * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            .alaj-header {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-                padding: 20px 56px;
-                font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-                background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 100%) !important;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-            }
-
-            .alaj-header-inner {
-                display: flex;
-                align-items: center;
-                gap: 64px;
-            }
-
-            .alaj-header .header-logo {
-                display: flex;
-                align-items: center;
-                gap: 14px;
-                flex-shrink: 0;
-                text-decoration: none;
-            }
-            .alaj-header .header-logo-icon {
-                width: 58px;
-                height: auto;
-            }
-            .alaj-header .header-logo-text {
-                width: 179px;
-                height: auto;
-            }
-
-            .alaj-header .header-nav {
-                display: flex;
-                align-items: center;
-                gap: 24px;
-                flex: 1;
-            }
-            .alaj-header .header-nav a {
-                padding: 10px;
-                color: #fff;
-                font-family: 'Poppins', sans-serif;
-                font-weight: 600;
-                font-size: 18px;
-                text-decoration: none;
-                transition: opacity 0.2s;
-                white-space: nowrap;
-            }
-            .alaj-header .header-nav a:hover {
-                opacity: 0.8;
-            }
-
-            .alaj-header .header-actions {
-                display: flex;
-                align-items: center;
-                gap: 16px;
-                flex-shrink: 0;
-            }
-            .alaj-header .header-btn-outline {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                padding: 10px 16px;
-                border: 1px solid #fff;
-                border-radius: 9999px;
-                background: transparent;
-                color: #fff;
-                font-family: 'Poppins', sans-serif;
-                font-weight: 500;
-                font-size: 13px;
-                cursor: pointer;
-                text-decoration: none;
-                transition: background 0.2s;
-                white-space: nowrap;
-            }
-            .alaj-header .header-btn-outline:hover {
-                background: rgba(255,255,255,0.1);
-            }
-            .alaj-header .header-btn-outline svg {
-                width: 24px;
-                height: 24px;
-            }
-            .alaj-header .header-lang-text {
-                font-weight: 500;
-                font-size: 12px;
-                letter-spacing: 0.05em;
-            }
-            .alaj-header .header-btn-contact {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                padding: 10px 16px;
-                background: #611D26;
-                border-radius: 9999px;
-                color: #fff;
-                font-family: 'Poppins', sans-serif;
-                font-weight: 600;
-                font-size: 13px;
-                text-decoration: none;
-                border: none;
-                cursor: pointer;
-                transition: background 0.2s;
-                white-space: nowrap;
-            }
-            .alaj-header .header-btn-contact:hover {
-                background: rgba(97,29,38,0.9);
-            }
-            .alaj-header .header-btn-contact svg {
-                width: 24px;
-                height: 24px;
-            }
-
-            .alaj-header .header-icon-link {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #fff;
-                text-decoration: none;
-                transition: opacity 0.2s;
-                padding: 4px;
-                position: relative;
-            }
-            .alaj-header .header-icon-link:hover {
-                opacity: 0.7;
-            }
-            .alaj-header .header-icon-link svg {
-                width: 22px;
-                height: 22px;
-            }
-
-            .alaj-header .header-hamburger {
-                display: none;
-                background: none;
-                border: 1px solid rgba(255,255,255,0.5);
-                border-radius: 8px;
-                padding: 8px;
-                cursor: pointer;
-                color: #fff;
-                margin-left: auto;
-            }
-            .alaj-header .header-hamburger svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            .alaj-mobile-menu {
-                display: none;
-                position: fixed;
-                top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(0,0,0,0.95);
-                z-index: 9999;
-                flex-direction: column;
-                padding: 32px 24px;
-                overflow-y: auto;
-                font-family: 'Poppins', sans-serif;
-            }
-            .alaj-mobile-menu.open {
-                display: flex;
-            }
-            .alaj-mobile-menu .mobile-close {
-                align-self: flex-end;
-                background: none;
-                border: none;
-                cursor: pointer;
-                color: #fff;
-                padding: 8px;
-                margin-bottom: 32px;
-            }
-            .alaj-mobile-menu .mobile-close svg {
-                width: 32px;
-                height: 32px;
-            }
-            .alaj-mobile-menu .mobile-nav {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                margin-bottom: 32px;
-            }
-            .alaj-mobile-menu .mobile-nav a {
-                color: #fff;
-                font-family: 'Poppins', sans-serif;
-                font-weight: 600;
-                font-size: 20px;
-                text-decoration: none;
-                padding: 12px 16px;
-                border-radius: 12px;
-                transition: background 0.2s;
-            }
-            .alaj-mobile-menu .mobile-nav a:hover {
-                background: rgba(255,255,255,0.1);
-            }
-            .alaj-mobile-menu .mobile-actions {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                margin-top: auto;
-                padding-top: 24px;
-                border-top: 1px solid rgba(255,255,255,0.2);
-            }
-            .alaj-mobile-menu .mobile-actions a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
-                padding: 14px 24px;
-                border-radius: 9999px;
-                font-family: 'Poppins', sans-serif;
-                font-weight: 600;
-                font-size: 16px;
-                text-decoration: none;
-                transition: all 0.2s;
-            }
-            .alaj-mobile-menu .mobile-actions a svg {
-                width: 20px;
-                height: 20px;
-            }
-            .alaj-mobile-menu .mobile-actions .mob-faq {
-                border: 1px solid #fff;
-                color: #fff;
-            }
-            .alaj-mobile-menu .mobile-actions .mob-contact {
-                background: #611D26;
-                color: #fff;
-            }
-            .alaj-mobile-menu .mobile-actions .mob-shop {
-                background: #E1261C;
-                color: #fff;
-            }
-
-            .alaj-footer {
-                background: #fff;
-                padding: 64px 56px;
-                font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-            }
-            .alaj-footer-grid {
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                gap: 48px;
-                margin-bottom: 48px;
-            }
-            .alaj-footer-col h3 {
-                color: #222;
-                font-family: 'Poppins', sans-serif;
-                font-size: 20px;
-                font-weight: 700;
-                text-transform: capitalize;
-                margin-bottom: 16px;
-            }
-            .alaj-footer-col ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            .alaj-footer-col ul li {
-                line-height: 29px;
-            }
-            .alaj-footer-col ul li a {
-                color: #222;
-                font-family: 'Poppins', sans-serif;
-                font-size: 14px;
-                font-weight: 300;
-                text-transform: capitalize;
-                text-decoration: none;
-                transition: color 0.2s;
-            }
-            .alaj-footer-col ul li a:hover {
-                color: #E1261C;
-            }
-
-            .alaj-footer .footer-social-label {
-                color: #222;
-                font-family: 'Helvetica Neue', sans-serif;
-                font-size: 14px;
-                font-weight: 300;
-                text-transform: capitalize;
-                margin-bottom: 12px;
-            }
-            .alaj-footer .footer-social-icons {
-                display: flex;
-                align-items: center;
-                gap: 24px;
-                margin-bottom: 24px;
-            }
-            .alaj-footer .footer-social-icons a {
-                color: #222;
-                transition: color 0.2s;
-            }
-            .alaj-footer .footer-social-icons a:hover {
-                color: #E1261C;
-            }
-            .alaj-footer .footer-contact-item {
-                display: flex;
-                align-items: flex-start;
-                gap: 12px;
-                margin-bottom: 24px;
-            }
-            .alaj-footer .footer-contact-item svg {
-                width: 20px;
-                height: 20px;
-                color: #222;
-                flex-shrink: 0;
-                margin-top: 4px;
-            }
-            .alaj-footer .footer-contact-label {
-                color: #222;
-                font-family: 'Helvetica Neue', sans-serif;
-                font-size: 14px;
-                font-weight: 300;
-                text-transform: capitalize;
-                margin-bottom: 4px;
-            }
-            .alaj-footer .footer-contact-value {
-                color: #222;
-                font-family: 'Helvetica Neue', sans-serif;
-                font-size: 14px;
-                font-weight: 500;
-            }
-
-            .alaj-footer-logo {
-                display: flex;
-                justify-content: center;
-                margin-bottom: 32px;
-            }
-            .alaj-footer-logo a {
-                display: flex;
-                align-items: center;
-                gap: 14px;
-                text-decoration: none;
-            }
-            .alaj-footer-logo img.footer-logo-icon {
-                width: 58px;
-                height: auto;
-            }
-            .alaj-footer-logo img.footer-logo-text {
-                width: 179px;
-                height: auto;
-            }
-            .alaj-footer-copyright {
-                text-align: center;
-                color: #222;
-                font-family: 'Helvetica Neue', sans-serif;
-                font-size: 18px;
-                font-weight: 300;
-                text-transform: capitalize;
-            }
-
-            .alaj-header .custom-lang-switcher {
-                font-family: 'Poppins', sans-serif;
-                font-size: 13px;
-                font-weight: 600;
-                color: #fff;
-                text-decoration: none;
-                cursor: pointer;
-                transition: opacity 0.2s;
-                padding: 6px 12px;
-                border: 1px solid rgba(255,255,255,0.4);
-                border-radius: 9999px;
-            }
-            .alaj-header .custom-lang-switcher:hover {
-                opacity: 0.7;
-                background: rgba(255,255,255,0.1);
-            }
-
-            html[dir="rtl"] .alaj-header-inner,
-            html[dir="rtl"] .header-nav,
-            html[dir="rtl"] .header-actions {
-                direction: rtl;
-            }
-            html[dir="rtl"] .alaj-header .header-hamburger {
-                margin-left: 0;
-                margin-right: auto;
-            }
-            html[dir="rtl"] .alaj-footer {
-                direction: rtl;
-            }
-            html[dir="rtl"] .alaj-footer-col ul {
-                padding-right: 0;
-            }
-
-            /* ── Login page styling (dual selectors: :has() + JS fallback class) ── */
-            #wrapwrap:has(.oe_login_form) #wrap,
-            #wrapwrap.alaj-login-active #wrap {
-                padding-top: 60px;
-                padding-bottom: 60px;
-                min-height: calc(100vh - 80px);
-                background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 40%, #0d1b2e 100%) !important;
-            }
-            .oe_login_form,
-            .oe_login_form * {
-                font-family: 'Poppins', 'Helvetica Neue', sans-serif !important;
-            }
-            #wrapwrap:has(.oe_login_form) .card,
-            #wrapwrap.alaj-login-active .card {
-                background: rgba(255,255,255,0.06) !important;
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                border: 1px solid rgba(255,255,255,0.12) !important;
-                border-radius: 20px !important;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
-                max-width: 440px;
-                margin: 0 auto;
-            }
-            #wrapwrap:has(.oe_login_form) .card-body,
-            #wrapwrap.alaj-login-active .card-body {
-                padding: 40px 36px !important;
-            }
-            #wrapwrap:has(.oe_login_form) .card-header,
-            #wrapwrap.alaj-login-active .card-header {
-                background: transparent !important;
-                border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-                padding: 24px 36px !important;
-                text-align: center;
-            }
-            #wrapwrap:has(.oe_login_form) .card-header h3,
-            #wrapwrap:has(.oe_login_form) .card-header h5,
-            #wrapwrap.alaj-login-active .card-header h3,
-            #wrapwrap.alaj-login-active .card-header h5 {
-                color: #fff !important;
-                font-weight: 600 !important;
-            }
-            #wrapwrap:has(.oe_login_form) #wrap label,
-            #wrapwrap:has(.oe_login_form) #wrap .form-label,
-            #wrapwrap.alaj-login-active #wrap label,
-            #wrapwrap.alaj-login-active #wrap .form-label {
-                color: rgba(255,255,255,0.8) !important;
-                font-size: 13px !important;
-                font-weight: 500 !important;
-            }
-            #wrapwrap:has(.oe_login_form) .form-control,
-            #wrapwrap.alaj-login-active .form-control {
-                background: rgba(255,255,255,0.08) !important;
-                border: 1px solid rgba(255,255,255,0.15) !important;
-                border-radius: 12px !important;
-                color: #fff !important;
-                padding: 12px 16px !important;
-            }
-            #wrapwrap:has(.oe_login_form) .form-control:focus,
-            #wrapwrap.alaj-login-active .form-control:focus {
-                background: rgba(255,255,255,0.12) !important;
-                border-color: #E1261C !important;
-                box-shadow: 0 0 0 3px rgba(225,38,28,0.2) !important;
-            }
-            #wrapwrap:has(.oe_login_form) .btn-primary,
-            #wrapwrap.alaj-login-active .btn-primary {
-                background: #E1261C !important;
-                border: none !important;
-                border-radius: 12px !important;
-                padding: 12px 24px !important;
-                font-weight: 600 !important;
-                color: #fff !important;
-                width: 100%;
-            }
-            #wrapwrap:has(.oe_login_form) .btn-primary:hover,
-            #wrapwrap.alaj-login-active .btn-primary:hover {
-                background: #c21f16 !important;
-                box-shadow: 0 6px 20px rgba(225,38,28,0.4) !important;
-            }
-            #wrapwrap:has(.oe_login_form) #wrap .btn-link,
-            #wrapwrap:has(.oe_login_form) #wrap a,
-            #wrapwrap.alaj-login-active #wrap .btn-link,
-            #wrapwrap.alaj-login-active #wrap a {
-                color: rgba(255,255,255,0.7) !important;
-                text-decoration: none !important;
-            }
-            #wrapwrap:has(.oe_login_form) #wrap a:hover,
-            #wrapwrap.alaj-login-active #wrap a:hover {
-                color: #E1261C !important;
-            }
-            #wrapwrap:has(.oe_login_form) .form-check-label,
-            #wrapwrap.alaj-login-active .form-check-label {
-                color: rgba(255,255,255,0.7) !important;
-            }
-            #wrapwrap:has(.oe_login_form) .form-check-input,
-            #wrapwrap.alaj-login-active .form-check-input {
-                background-color: rgba(255,255,255,0.1) !important;
-                border-color: rgba(255,255,255,0.3) !important;
-            }
-            #wrapwrap:has(.oe_login_form) .form-check-input:checked,
-            #wrapwrap.alaj-login-active .form-check-input:checked {
-                background-color: #E1261C !important;
-                border-color: #E1261C !important;
-            }
-            #wrapwrap:has(.oe_login_form) #wrap .alert,
-            #wrapwrap.alaj-login-active #wrap .alert {
-                background: rgba(225,38,28,0.15) !important;
-                border: 1px solid rgba(225,38,28,0.3) !important;
-                border-radius: 12px !important;
-                color: #fff !important;
-            }
-            #wrapwrap:has(.oe_login_form) #wrap .text-muted,
-            #wrapwrap.alaj-login-active #wrap .text-muted {
-                color: rgba(255,255,255,0.5) !important;
-            }
-            #wrapwrap:has(.oe_login_form) .o_login_auth,
-            #wrapwrap.alaj-login-active .o_login_auth {
-                border-top: 1px solid rgba(255,255,255,0.1) !important;
-                padding-top: 16px !important;
-            }
-            #wrapwrap:has(.oe_login_form) .form-select,
-            #wrapwrap.alaj-login-active .form-select {
-                background-color: rgba(255,255,255,0.08) !important;
-                border: 1px solid rgba(255,255,255,0.15) !important;
-                border-radius: 12px !important;
-                color: #fff !important;
-                padding: 12px 16px !important;
-            }
-
-            @media (max-width: 1400px) {
-                .alaj-header { padding: 24px 32px; }
-                .alaj-header-inner { gap: 32px; }
-                .alaj-header .header-nav { gap: 8px; }
-                .alaj-header .header-nav a { font-size: 14px; padding: 8px; }
-            }
-            @media (max-width: 1024px) {
-                .alaj-header { padding: 20px 24px; }
-                .alaj-header .header-nav { display: none; }
-                .alaj-header .header-actions { display: none; }
-                .alaj-header .header-hamburger { display: flex; }
-                .alaj-footer { padding: 40px 24px; }
-                .alaj-footer-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
-            }
-            @media (max-width: 768px) {
-                .alaj-header { padding: 16px 16px; }
-                .alaj-header .header-logo-text { width: 120px; }
-                .alaj-header .header-logo-icon { width: 40px; }
-                .alaj-footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-                .alaj-footer { padding: 32px 16px; }
-                .alaj-footer-copyright { font-size: 14px; }
-                #wrapwrap:has(.oe_login_form) #wrap,
-                #wrapwrap.alaj-login-active #wrap { padding-top: 30px; }
-                #wrapwrap:has(.oe_login_form) .card,
-                #wrapwrap.alaj-login-active .card { margin: 0 16px; border-radius: 16px !important; }
-                #wrapwrap:has(.oe_login_form) .card-body,
-                #wrapwrap.alaj-login-active .card-body { padding: 28px 20px !important; }
-            }
-            @media (max-width: 480px) {
-                .alaj-footer-grid { grid-template-columns: 1fr; gap: 24px; }
-                .alaj-footer-logo img.footer-logo-text { width: 140px; }
-            }
-
-            .alaj-header {
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-                padding: 0;
-                background: transparent !important;
-                box-shadow: none;
-            }
-
-            .alaj-menu-toggle {
-                position: absolute;
-                opacity: 0;
-                pointer-events: none;
-            }
-
-            .alaj-topbar,
-            .alaj-mobile-topbar {
-                background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 100%);
-            }
-
-            .alaj-mobile-topbar {
-                display: none;
-            }
-
-            .alaj-topbar-inner,
-            .alaj-mobile-topbar-inner,
-            .alaj-header-inner {
-                width: min(100%, 1380px);
-                margin: 0 auto;
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-
-            .alaj-topbar-inner,
-            .alaj-mobile-topbar-inner {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 16px;
-            }
-
-            .alaj-topbar-inner {
-                min-height: 40px;
-            }
-
-            .alaj-mobile-topbar-inner {
-                min-height: 32px;
-            }
-
-            .alaj-topbar-left,
-            .alaj-topbar-right {
-                display: flex;
-                align-items: center;
-                gap: 14px;
-                min-width: 0;
-            }
-
-            .alaj-topbar a,
-            .alaj-mobile-topbar a {
-                color: #ffffff;
-                text-decoration: none;
-                font-family: 'Poppins', sans-serif;
-                font-size: 13px;
-                font-weight: 600;
-            }
-
-            .alaj-mobile-topbar a {
-                font-size: 9px;
-                white-space: nowrap;
-            }
-
-            .alaj-topbar-divider {
-                width: 1px;
-                height: 14px;
-                background: rgba(255,255,255,0.18);
-                flex-shrink: 0;
-            }
-
-            .alaj-topbar-note {
-                color: rgba(255,255,255,0.72);
-                font-size: 12px;
-                font-weight: 600;
-            }
-
-            .alaj-topbar-cta {
-                color: #ffb0aa !important;
-                font-size: 12px !important;
-                font-weight: 800 !important;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-            }
-
-            .alaj-header-shell {
-                background: rgba(10,22,40,0.34);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border-bottom: 1px solid rgba(255,255,255,0.08);
-                box-shadow: none;
-            }
-
-            .alaj-header-inner {
-                min-height: 82px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 24px;
-            }
-
-            .alaj-header .header-logo {
-                display: flex;
-                align-items: center;
-                flex-shrink: 0;
-                text-decoration: none;
-            }
-
-            .alaj-header .header-logo-picture {
-                display: inline-flex;
-                align-items: center;
-            }
-
-            .alaj-header .header-logo-full {
-                display: block;
-                width: 253px;
-                height: auto;
-            }
-
-            .alaj-header .header-nav {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0;
-                flex: 1 1 auto;
-                margin: 0 auto;
-            }
-
-            .alaj-header .header-nav a {
-                padding: 8px 18px;
-                color: #ffffff;
-                font-family: 'Poppins', sans-serif;
-                font-weight: 700;
-                font-size: 14px;
-                text-decoration: none;
-                letter-spacing: 0.02em;
-                white-space: nowrap;
-                transition: color 0.2s ease, opacity 0.2s ease;
-            }
-
-            .alaj-header .header-nav a + a {
-                border-left: 1px solid rgba(255,255,255,0.2);
-            }
-
-            .alaj-header .header-nav a:hover {
-                color: #ffb0aa;
-                opacity: 1;
-            }
-
-            .alaj-header .header-actions {
-                display: flex;
-                align-items: center;
-                gap: 18px;
-                flex-shrink: 0;
-            }
-
-            .alaj-header .custom-lang-switcher {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                min-width: 48px;
-                padding: 10px 16px;
-                border-radius: 9999px;
-                border: 1px solid rgba(255,255,255,0.32);
-                background: transparent;
-                color: #ffffff;
-                font-family: 'Poppins', sans-serif;
-                font-size: 12px;
-                font-weight: 800;
-                text-decoration: none;
-                line-height: 1;
-                transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-            }
-
-            .alaj-header .custom-lang-switcher:hover {
-                color: #ffffff;
-                background: rgba(255,255,255,0.08);
-                border-color: rgba(255,255,255,0.48);
-                opacity: 1;
-            }
-
-            .alaj-header .header-account-link,
-            .alaj-header .header-user-dropdown summary,
-            .alaj-header .header-icon-link,
-            .alaj-header .mobile-icon-link,
-            .alaj-header .menu-button,
-            .alaj-header .menu-close {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 24px;
-                height: 24px;
-                padding: 0;
-                border: none;
-                background: transparent;
-                color: #ffffff;
-                text-decoration: none;
-                cursor: pointer;
-                transition: color 0.2s ease, transform 0.2s ease;
-            }
-
-            .alaj-header .header-account-link:hover,
-            .alaj-header .header-user-dropdown summary:hover,
-            .alaj-header .header-icon-link:hover,
-            .alaj-header .mobile-icon-link:hover,
-            .alaj-header .menu-button:hover,
-            .alaj-header .menu-close:hover {
-                color: #ffb0aa;
-                transform: translateY(-1px);
-                opacity: 1;
-            }
-
-            .alaj-header .header-user-dropdown summary {
-                list-style: none;
-            }
-
-            .alaj-header .header-user-dropdown summary::-webkit-details-marker {
-                display: none;
-            }
-
-            .alaj-header .header-icon,
-            .alaj-header .header-icon-badge-wrap {
-                position: relative;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 22px;
-                height: 22px;
-                color: currentColor;
-            }
-
-            .alaj-header .header-icon svg,
-            .alaj-header .header-icon-badge-wrap svg,
-            .alaj-header .mobile-icon-link svg,
-            .alaj-header .header-account-link svg,
-            .alaj-header .header-user-dropdown summary svg,
-            .alaj-header .menu-button svg,
-            .alaj-header .menu-close svg {
-                width: 22px;
-                height: 22px;
-                stroke: currentColor;
-                fill: none;
-                stroke-width: 1.9;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-            }
-
-            .alaj-header .header-badge,
-            .alaj-header .header-icon-badge-wrap .my_wish_quantity {
-                position: absolute;
-                top: -6px;
-                right: -8px;
-                min-width: 16px;
-                height: 16px;
-                padding: 0 4px;
-                border-radius: 9999px;
-                background: #E1261C;
-                color: #ffffff;
-                font-size: 10px;
-                font-weight: 700;
-                line-height: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .alaj-header .header-user-dropdown {
-                position: relative;
-            }
-
-            .alaj-header .header-user-menu {
-                display: none;
-                position: absolute;
-                top: calc(100% + 12px);
-                right: 0;
-                min-width: 188px;
-                padding: 8px;
-                border: 1px solid rgba(10,22,40,0.1);
-                border-radius: 18px;
-                background: #ffffff;
-                box-shadow: 0 18px 48px rgba(10,22,40,0.12);
-                z-index: 20;
-            }
-
-            .alaj-header .header-user-dropdown[open] .header-user-menu {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-            }
-
-            .alaj-header .header-user-menu a {
-                display: flex;
-                align-items: center;
-                padding: 12px 14px;
-                border-radius: 12px;
-                color: #0a1628;
-                font-size: 13px;
-                font-weight: 700;
-                text-decoration: none;
-            }
-
-            .alaj-header .header-user-menu a:hover {
-                background: rgba(225,38,28,0.05);
-                color: #E1261C;
-            }
-
-            .alaj-header .mobile-tools {
-                display: none;
-                align-items: center;
-                gap: 12px;
-                margin-left: auto;
-            }
-
-            .alaj-mobile-backdrop {
-                display: none;
-                position: fixed;
-                inset: 0;
-                background: rgba(10,22,40,0.34);
-                z-index: 1100;
-            }
-
-            .alaj-mobile-menu {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                width: min(100%, 340px);
-                background: rgba(10,22,40,0.96);
-                z-index: 1101;
-                overflow: hidden;
-                box-shadow: 12px 0 40px rgba(10,22,40,0.18);
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-
-            #alaj-menu-toggle:checked ~ .alaj-mobile-backdrop {
-                display: block;
-            }
-
-            #alaj-menu-toggle:checked ~ .alaj-mobile-menu {
-                transform: translateX(0);
-            }
-
-            .alaj-mobile-menu-inner {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
-            }
-
-            .alaj-mobile-menu-top {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 16px;
-                padding: 14px 16px;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
-            .alaj-mobile-menu .header-logo-full {
-                width: 196px;
-            }
-
-            .alaj-mobile-menu-body {
-                flex: 1 1 auto;
-                min-height: 0;
-                overflow: hidden;
-                padding-top: 4px;
-            }
-
-            .alaj-mobile-nav {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .alaj-mobile-nav a {
-                display: block;
-                padding: 14px 20px;
-                color: #ffffff;
-                font-size: 13px;
-                font-weight: 800;
-                letter-spacing: 0.04em;
-                text-transform: uppercase;
-                text-decoration: none;
-                border-bottom: 1px solid rgba(255,255,255,0.08);
-                transition: color 0.2s ease, background 0.2s ease;
-            }
-
-            .alaj-mobile-nav a:hover {
-                color: #ffb0aa;
-                background: rgba(255,255,255,0.05);
-            }
-
-            .alaj-mobile-actions {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                padding: 16px 20px 14px;
-                border-top: 1px solid rgba(255,255,255,0.1);
-                background: rgba(10,22,40,0.98);
-                box-shadow: 0 -8px 20px rgba(10,22,40,0.04);
-                flex-shrink: 0;
-            }
-
-            .alaj-mobile-utility {
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .alaj-mobile-action-link {
-                display: flex;
-                align-items: center;
-                padding: 12px 0;
-                color: #ffffff;
-                font-size: 12px;
-                font-weight: 800;
-                letter-spacing: 0.04em;
-                text-transform: uppercase;
-                text-decoration: none;
-                border-bottom: 1px solid rgba(255,255,255,0.08);
-            }
-
-            .alaj-mobile-action-link:hover {
-                color: #ffb0aa;
-            }
-
-            .alaj-mobile-contact-list {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-                padding-top: 2px;
-            }
-
-            .alaj-mobile-contact-item {
-                color: rgba(255,255,255,0.72);
-                font-size: 11px;
-                font-weight: 600;
-                text-decoration: none;
-            }
-
-            .alaj-mobile-actions .custom-lang-switcher {
-                width: 100%;
-                justify-content: center;
-                background: transparent;
-                color: #ffffff;
-                border-color: rgba(255,255,255,0.28);
-            }
-
-            .alaj-mobile-contact-button {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                padding: 16px 24px;
-                border-radius: 9999px;
-                background: #E1261C;
-                color: #ffffff;
-                font-size: 13px;
-                font-weight: 800;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                text-decoration: none;
-            }
-
-            .alaj-mobile-contact-button:hover {
-                background: #c21f16;
-            }
-
-            html[dir="rtl"] .alaj-topbar-inner,
-            html[dir="rtl"] .alaj-mobile-topbar-inner,
-            html[dir="rtl"] .alaj-header-inner,
-            html[dir="rtl"] .alaj-mobile-menu-top,
-            html[dir="rtl"] .alaj-mobile-actions {
-                direction: rtl;
-            }
-
-            html[dir="rtl"] .alaj-header .header-nav a + a {
-                border-left: 0;
-                border-right: 1px solid #e8e5ea;
-            }
-
-            html[dir="rtl"] .alaj-header .mobile-tools {
-                margin-left: 0;
-                margin-right: auto;
-            }
-
-            html[dir="rtl"] .alaj-header .header-user-menu {
-                right: auto;
-                left: 0;
-            }
-
-            html[dir="rtl"] .alaj-mobile-menu {
-                left: auto;
-                right: 0;
-                transform: translateX(100%);
-                box-shadow: -12px 0 40px rgba(10,22,40,0.18);
-            }
-
-            html[dir="rtl"] #alaj-menu-toggle:checked ~ .alaj-mobile-menu {
-                transform: translateX(0);
-            }
-
-            html[dir="rtl"] .alaj-mobile-nav a,
-            html[dir="rtl"] .alaj-mobile-action-link,
-            html[dir="rtl"] .alaj-mobile-contact-item {
-                text-align: right;
-            }
-
-            @media (max-width: 1400px) {
-                .alaj-header .header-nav a {
-                    padding: 8px 14px;
-                    font-size: 13px;
+    <data>
+
+        <template id="alaj_global_styles" inherit_id="website.layout" name="ALAJ Global Styles">
+            <xpath expr="//html" position="attributes">
+                <attribute name="class" add="alaj-site-theme" separator=" "/>
+            </xpath>
+            <xpath expr="//body" position="attributes">
+                <attribute name="class" add="alaj-site-theme" separator=" "/>
+            </xpath>
+            <xpath expr="//head" position="inside">
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;family=Mulish:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+                <style>
+:root {
+    --alaj-navy: #090E3B;
+    --alaj-navy-mid: #162050;
+    --alaj-navy-soft: #0d1444;
+    --alaj-red: #E1261C;
+    --alaj-red-deep: #c21f16;
+    --alaj-dark-red: #611D26;
+    --alaj-turquoise: #2DAFF1;
+    --alaj-charcoal: #262138;
+    --alaj-stone: #4A4363;
+    --alaj-text-dark: #222222;
+    --alaj-bg: #EFF9FF;
+    --alaj-bg-light: #EFF9FF;
+    --alaj-bg-secondary: #F6F2FB;
+    --alaj-border: #d4e3ed;
+    --alaj-border-light: #e0eaf2;
+    --alaj-font-heading: 'Playfair Display', serif;
+    --alaj-font-body: 'Mulish', sans-serif;
+    --alaj-shell: 1280px;
+    --alaj-radius: 8px;
+    --alaj-shadow-soft: 0 4px 20px rgba(9, 14, 59, 0.05);
+    --alaj-shadow-card: 0 8px 30px rgba(9, 14, 59, 0.07);
+    --alaj-shadow-hover: 0 14px 40px rgba(9, 14, 59, 0.11);
+}
+
+body {
+    font-family: var(--alaj-font-body);
+    color: var(--alaj-charcoal);
+    background: #EFF9FF;
+    background: var(--alaj-bg, #EFF9FF);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    background: #EFF9FF;
+    background: var(--alaj-bg, #EFF9FF);
+}
+
+html.alaj-nav-transitioning .alaj-nav-leave-overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.alaj-nav-leave-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2147482000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EFF9FF;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.12s ease, visibility 0.12s ease;
+}
+.alaj-nav-leave-overlay::before {
+    content: "";
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 3px solid rgba(9, 14, 59, 0.14);
+    border-top-color: var(--alaj-red);
+    animation: alaj-nav-leave-spin 0.8s linear infinite;
+}
+@keyframes alaj-nav-leave-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .alaj-nav-leave-overlay::before {
+        animation: none;
+        border-top-color: rgba(9, 14, 59, 0.35);
+    }
+}
+
+#wrapwrap {
+    background: #EFF9FF;
+    background: var(--alaj-bg, #EFF9FF);
+}
+
+.alaj-nav-link:focus,
+.alaj-nav-link:active,
+.alaj-icon-btn:focus,
+.alaj-icon-btn:active,
+.alaj-lang-btn:focus,
+.alaj-lang-btn:active {
+    outline: none;
+}
+
+.alaj-nav-link:focus,
+.alaj-nav-link:focus-visible,
+.alaj-nav-link:active {
+    transition: none !important;
+    color: var(--alaj-red) !important;
+}
+
+.alaj-shell {
+    max-width: var(--alaj-shell);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+@media (min-width: 768px) {
+    .alaj-shell { padding: 0 32px; }
+}
+
+.alaj-kicker {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--alaj-red);
+    margin-bottom: 8px;
+}
+.alaj-heading {
+    font-family: var(--alaj-font-heading);
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--alaj-charcoal);
+    margin: 0 0 12px;
+}
+.alaj-copy {
+    font-size: 14px;
+    color: var(--alaj-stone);
+    line-height: 1.75;
+    max-width: 600px;
+}
+
+.btn-red {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 24px;
+    min-height: 44px;
+    border-radius: 6px;
+    background: var(--alaj-red);
+    color: #fff;
+    font-family: var(--alaj-font-body);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+.btn-red:hover {
+    background: var(--alaj-red-deep);
+    color: #fff;
+    text-decoration: none;
+}
+.btn-navy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 24px;
+    min-height: 44px;
+    border-radius: 6px;
+    background: var(--alaj-navy);
+    color: #fff;
+    font-family: var(--alaj-font-body);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-navy:hover {
+    background: var(--alaj-navy-mid);
+    color: #fff;
+    text-decoration: none;
+}
+.btn-white-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 24px;
+    min-height: 44px;
+    border-radius: 6px;
+    background: transparent;
+    color: #fff;
+    font-family: var(--alaj-font-body);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-white-outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.6);
+    color: #fff;
+    text-decoration: none;
+}
+
+.s_alaj_solutions_cards .alaj-solutions-heading {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.s_alaj_solutions_cards .alaj-solutions-grid {
+    align-items: stretch;
+}
+.alaj-sol-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(9,14,59,0.08);
+    background: var(--alaj-charcoal);
+    text-decoration: none;
+}
+.alaj-sol-card .alaj-sol-card-media {
+    position: relative;
+    padding-top: 133%;
+}
+.alaj-sol-card .alaj-sol-card-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.alaj-sol-card:hover .alaj-sol-card-media img { transform: scale(1.05); }
+.alaj-sol-card .alaj-sol-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(9,14,59,0.8), rgba(9,14,59,0.25), transparent);
+    z-index: 1;
+    pointer-events: none;
+}
+.alaj-sol-card .alaj-sol-info {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    padding: 16px;
+    color: #fff;
+}
+@media (min-width: 768px) { .alaj-sol-card .alaj-sol-info { padding: 20px; } }
+.alaj-sol-card .alaj-sol-info h3 {
+    font-family: var(--alaj-font-heading);
+    color: #fff;
+    font-size: 16px;
+    margin: 0 0 4px;
+    line-height: 1.2;
+}
+.alaj-sol-card .alaj-sol-info h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+.alaj-sol-card .alaj-sol-info h3 a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+@media (min-width: 768px) { .alaj-sol-card .alaj-sol-info h3 { font-size: 20px; } }
+.alaj-sol-card .alaj-sol-info p {
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0;
+}
+@media (min-width: 768px) { .alaj-sol-card .alaj-sol-info p { font-size: 13px; } }
+
+.alaj-card {
+    background: #fff;
+    border: 1px solid var(--alaj-border);
+    border-radius: var(--alaj-radius);
+    padding: 20px;
+    transition: border-color 0.2s;
+}
+.alaj-card:hover { border-color: rgba(225,38,28,0.3); }
+
+.alaj-breadcrumb-bar {
+    background: var(--alaj-bg);
+    border-bottom: 1px solid var(--alaj-border);
+    padding: 12px 0;
+    font-size: 12px;
+    color: var(--alaj-stone);
+}
+.alaj-breadcrumb-bar a {
+    color: var(--alaj-stone);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.alaj-breadcrumb-bar a:hover { color: var(--alaj-red); }
+.alaj-breadcrumb-bar .active { color: var(--alaj-charcoal); font-weight: 600; }
+
+.alaj-page-banner {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@media (min-width: 768px) { .alaj-page-banner { min-height: 400px; } }
+.alaj-page-banner .alaj-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(9,14,59,0.82) 0%, rgba(9,14,59,0.45) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 56px;
+}
+@media (max-width: 767px) { .alaj-page-banner .alaj-banner-overlay { padding: 0 20px; } }
+.alaj-page-banner .alaj-banner-overlay h1 {
+    font-family: var(--alaj-font-heading);
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+.alaj-page-banner .alaj-banner-overlay .alaj-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+.alaj-page-banner .alaj-banner-overlay .alaj-breadcrumb a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.alaj-page-banner .alaj-banner-overlay .alaj-breadcrumb a:hover { color: #fff; }
+.alaj-page-banner .alaj-banner-overlay .alaj-breadcrumb .active { color: var(--alaj-red); font-weight: 600; }
+
+.alaj-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--alaj-navy);
+}
+.alaj-page-hero {
+    height: calc(100vh - 120px);
+    min-height: 400px;
+    max-height: 800px;
+}
+.alaj-hero img.alaj-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+.alaj-hero .alaj-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(9,14,59,0.78), rgba(9,14,59,0.25), transparent);
+}
+.alaj-hero .alaj-hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.alaj-hero .alaj-hero-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background: rgba(225,38,28,0.2);
+    color: #ff9e99;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    width: fit-content;
+}
+.alaj-hero h1 {
+    font-family: var(--alaj-font-heading);
+    color: #fff;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    line-height: 1.1;
+    margin: 0 0 12px;
+    max-width: 640px;
+}
+.alaj-hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    max-width: 500px;
+    margin: 0;
+}
+
+.o_frontend_to_backend_nav {
+    z-index: 1080;
+}
+
+.alaj-topbar {
+    background: var(--alaj-bg);
+    border-bottom: 1px solid var(--alaj-border-light);
+    font-size: 13px;
+}
+.alaj-topbar a {
+    color: var(--alaj-charcoal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.alaj-topbar a:hover { color: var(--alaj-red); }
+.alaj-topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 40px;
+}
+.alaj-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.alaj-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+}
+.alaj-topbar-divider {
+    width: 1px;
+    height: 16px;
+    background: var(--alaj-border-light);
+}
+.alaj-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.alaj-social-icons a {
+    color: var(--alaj-charcoal);
+    transition: color 0.2s;
+}
+.alaj-social-icons a:hover { color: var(--alaj-red); }
+.alaj-social-icons svg { width: 16px; height: 16px; }
+
+.alaj-mobile-topbar {
+    background: var(--alaj-navy);
+    color: rgba(255,255,255,0.8);
+    font-size: 11px;
+}
+.alaj-mobile-topbar a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-weight: 500;
+}
+.alaj-mobile-topbar a:hover { color: #fff; }
+.alaj-mobile-topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 36px;
+}
+.alaj-mobile-topbar .alaj-quote-link {
+    color: var(--alaj-red);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 10px;
+}
+
+.alaj-header {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: #fff;
+    border-bottom: 1px solid var(--alaj-border-light);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.alaj-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 70px;
+}
+@media (min-width: 992px) { .alaj-header-inner { min-height: 80px; } }
+.alaj-logo,
+.alaj-drawer-brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+.alaj-logo picture,
+.alaj-drawer-brand picture {
+    display: block;
+}
+.alaj-brand-image,
+.alaj-drawer-brand-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+.alaj-brand-image {
+    height: 48px;
+}
+@media (max-width: 991.98px) {
+    .alaj-logo {
+        min-width: 0;
+    }
+    .alaj-brand-image {
+        width: 52px;
+        height: auto;
+    }
+}
+
+.alaj-nav {
+    display: none;
+    align-items: center;
+    gap: 0;
+    margin: 0 auto;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+    position: relative;
+}
+@media (min-width: 992px) { .alaj-nav { display: flex; } }
+.alaj-nav-list {
+    display: flex;
+    align-items: center;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: auto;
+    flex: 0 0 auto;
+}
+.alaj-nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    list-style: none;
+}
+.alaj-nav-list > .alaj-nav-item + .alaj-nav-item {
+    margin-inline-start: 18px;
+    padding-inline-start: 18px;
+    border-left: 1px solid var(--alaj-border-light);
+}
+.alaj-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    color: var(--alaj-charcoal);
+    text-decoration: none;
+    transition: none;
+}
+.alaj-ampersand,
+.alaj-heading-ampersand {
+    display: inline-block;
+    padding: 0 0.08em;
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-style: normal !important;
+    font-weight: inherit;
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+    text-shadow: none !important;
+    background: none !important;
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+.alaj-nav-item > .alaj-nav-link:hover,
+.alaj-nav-item > .alaj-nav-link.active,
+.alaj-nav-item.show > .alaj-nav-link {
+    color: var(--alaj-red);
+}
+.alaj-nav-item.dropdown > .alaj-nav-link::after {
+    margin-inline-start: 6px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.alaj-nav-item.show > .alaj-nav-link::after {
+    transform: rotate(180deg);
+}
+.alaj-nav-dropdown {
+    margin-top: 14px;
+    padding: 10px;
+    min-width: 220px;
+    border: 1px solid var(--alaj-border);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 18px 34px rgba(17,17,17,0.12);
+}
+.alaj-nav-dropdown .dropdown-item {
+    border-radius: 8px;
+    color: var(--alaj-charcoal);
+    font-family: var(--alaj-font-body);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 12px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.alaj-nav-dropdown .dropdown-item:hover,
+.alaj-nav-dropdown .dropdown-item:focus,
+.alaj-nav-dropdown .dropdown-item.active {
+    background: rgba(225,38,28,0.06);
+    color: var(--alaj-red);
+}
+.alaj-nav-dropdown .dropdown {
+    position: relative;
+}
+.alaj-nav-dropdown .dropdown-menu {
+    top: -10px;
+    left: calc(100% + 8px);
+    margin: 0;
+    padding: 10px;
+    min-width: 220px;
+    border: 1px solid var(--alaj-border);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 18px 34px rgba(17,17,17,0.12);
+}
+
+.alaj-header-actions {
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+@media (min-width: 992px) { .alaj-header-actions { display: flex; } }
+.alaj-icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--alaj-charcoal);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.alaj-icon-btn:hover {
+    background: rgba(225,38,28,0.08);
+    color: var(--alaj-red);
+}
+.alaj-icon-btn svg { width: 20px; height: 20px; }
+.alaj-icon-btn .fa {
+    font-size: 20px;
+    line-height: 1;
+}
+.alaj-icon-badge-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alaj-icon-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background: var(--alaj-red);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+.alaj-user-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.alaj-user-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 188px;
+    padding: 10px;
+    border: 1px solid var(--alaj-border-light);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 18px 34px rgba(17, 17, 17, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+    z-index: 1200;
+}
+.alaj-user-dropdown:hover .alaj-user-dropdown-menu,
+.alaj-user-dropdown:focus-within .alaj-user-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.alaj-user-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--alaj-charcoal);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.alaj-user-dropdown-menu a:hover {
+    background: rgba(225,38,28,0.06);
+    color: var(--alaj-red);
+}
+.alaj-user-dropdown-menu svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.alaj-lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--alaj-border-light);
+    background: transparent;
+    color: var(--alaj-charcoal);
+    font-family: var(--alaj-font-body);
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    line-height: 1;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.alaj-lang-btn:hover {
+    color: var(--alaj-red);
+    background: rgba(225,38,28,0.04);
+    border-color: rgba(225,38,28,0.2);
+}
+
+.alaj-mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+@media (min-width: 992px) { .alaj-mobile-actions { display: none; } }
+.alaj-mobile-actions .alaj-icon-btn { width: 36px; height: 36px; }
+.alaj-mobile-actions .alaj-icon-btn svg { width: 18px; height: 18px; }
+.alaj-mobile-actions .alaj-icon-badge {
+    top: -5px;
+    right: -5px;
+}
+
+.alaj-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    color: var(--alaj-charcoal);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.alaj-hamburger:hover { background: rgba(225,38,28,0.08); }
+.alaj-hamburger svg { width: 24px; height: 24px; }
+@media (min-width: 992px) { .alaj-hamburger { display: none; } }
+
+.alaj-drawer-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 9998;
+}
+.alaj-drawer-backdrop.show { display: block; }
+.alaj-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 320px;
+    background: #fff;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.alaj-drawer.show { transform: translateX(0); }
+.alaj-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--alaj-border);
+}
+.alaj-drawer-brand-image {
+    width: 86px;
+}
+.alaj-drawer-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--alaj-charcoal);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.alaj-drawer-close:hover { background: var(--alaj-bg); }
+.alaj-drawer-close svg { width: 20px; height: 20px; }
+.alaj-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+}
+.alaj-drawer-node.is-active > .alaj-drawer-link {
+    color: var(--alaj-red);
+}
+.alaj-drawer-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--alaj-charcoal);
+    text-decoration: none;
+    border-bottom: 1px solid #f0eeeb;
+    transition: color 0.2s;
+}
+.alaj-drawer-link:visited { color: var(--alaj-charcoal); }
+.alaj-drawer-link:hover,
+.alaj-drawer-link.is-active {
+    color: var(--alaj-red);
+}
+.alaj-drawer-sub .alaj-drawer-link {
+    padding-inline-start: 34px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.alaj-drawer-sub .alaj-drawer-sub .alaj-drawer-link {
+    padding-inline-start: 48px;
+}
+.alaj-drawer-foot {
+    border-top: 1px solid var(--alaj-border);
+    background: var(--alaj-bg);
+    padding: 16px 20px;
+}
+.alaj-drawer-foot a,
+.alaj-drawer-foot a:visited {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--alaj-charcoal);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+.alaj-drawer-foot a:hover { color: var(--alaj-red); }
+.alaj-drawer-foot svg { width: 16px; height: 16px; color: var(--alaj-red); }
+.alaj-drawer-foot .btn-red,
+.alaj-drawer-foot .btn-red:visited {
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    margin: 16px 0 0;
+    color: #fff;
+}
+.alaj-drawer-foot .btn-red:hover { color: #fff; }
+.alaj-drawer-foot .alaj-drawer-foot-loc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--alaj-stone);
+}
+
+.alaj-footer {
+    background: var(--alaj-navy);
+    color: rgba(255,255,255,0.7);
+    padding-top: 56px;
+}
+@media (min-width: 768px) { .alaj-footer { padding-top: 80px; } }
+.alaj-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+@media (min-width: 768px) { .alaj-footer-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 992px) { .alaj-footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 24px; } }
+.alaj-footer-brand { grid-column: 1 / -1; }
+@media (min-width: 992px) { .alaj-footer-brand { grid-column: auto; } }
+.alaj-footer-brand img { height: 40px; width: auto; margin-bottom: 16px; filter: brightness(2); }
+.alaj-footer-brand p { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.7; margin: 0; max-width: 280px; }
+.alaj-footer h4 {
+    color: #fff;
+    font-family: var(--alaj-font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+.alaj-footer ul { list-style: none; padding: 0; margin: 0; }
+.alaj-footer ul li { margin-bottom: 10px; }
+.alaj-footer ul a,
+.alaj-footer ul a:visited {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.alaj-footer ul a:hover { color: #fff; }
+.alaj-footer ul span {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+}
+.alaj-footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.alaj-footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    transition: all 0.2s;
+}
+.alaj-footer-social a:hover {
+    background: rgba(225,38,28,0.2);
+    color: var(--alaj-red);
+    border-color: rgba(225,38,28,0.3);
+}
+.alaj-footer-social svg { width: 16px; height: 16px; }
+.alaj-footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 0;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+}
+@media (min-width: 768px) { .alaj-footer-bottom { flex-direction: row; } }
+
+#wrapwrap:has(.oe_login_form) #wrap,
+#wrapwrap.alaj-login-active #wrap {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #090E3B 0%, #162050 40%, #0d1444 100%) !important;
+}
+.oe_login_form,
+.oe_login_form * {
+    font-family: var(--alaj-font-body) !important;
+}
+#wrapwrap:has(.oe_login_form) .card,
+#wrapwrap.alaj-login-active .card {
+    background: rgba(255,255,255,0.06) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4) !important;
+    max-width: 440px;
+    margin: 0 auto;
+}
+#wrapwrap:has(.oe_login_form) .card-body,
+#wrapwrap.alaj-login-active .card-body {
+    padding: 40px 36px !important;
+}
+#wrapwrap:has(.oe_login_form) .card-header,
+#wrapwrap.alaj-login-active .card-header {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    padding: 24px 36px !important;
+    text-align: center;
+}
+#wrapwrap:has(.oe_login_form) .card-header h3,
+#wrapwrap:has(.oe_login_form) .card-header h5,
+#wrapwrap.alaj-login-active .card-header h3,
+#wrapwrap.alaj-login-active .card-header h5 {
+    color: #fff !important;
+    font-weight: 600 !important;
+}
+#wrapwrap:has(.oe_login_form) #wrap label,
+#wrapwrap:has(.oe_login_form) #wrap .form-label,
+#wrapwrap.alaj-login-active #wrap label,
+#wrapwrap.alaj-login-active #wrap .form-label {
+    color: rgba(255,255,255,0.8) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+#wrapwrap:has(.oe_login_form) .form-control,
+#wrapwrap.alaj-login-active .form-control {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 12px 16px !important;
+}
+#wrapwrap:has(.oe_login_form) .form-control:focus,
+#wrapwrap.alaj-login-active .form-control:focus {
+    background: rgba(255,255,255,0.12) !important;
+    border-color: var(--alaj-red) !important;
+    box-shadow: 0 0 0 3px rgba(225,38,28,0.2) !important;
+}
+#wrapwrap:has(.oe_login_form) .btn-primary,
+#wrapwrap.alaj-login-active .btn-primary {
+    background: var(--alaj-red) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    width: 100%;
+}
+#wrapwrap:has(.oe_login_form) .btn-primary:hover,
+#wrapwrap.alaj-login-active .btn-primary:hover {
+    background: var(--alaj-red-deep) !important;
+    box-shadow: 0 6px 20px rgba(225,38,28,0.4) !important;
+}
+#wrapwrap:has(.oe_login_form) #wrap .btn-link,
+#wrapwrap:has(.oe_login_form) #wrap a,
+#wrapwrap.alaj-login-active #wrap .btn-link,
+#wrapwrap.alaj-login-active #wrap a {
+    color: rgba(255,255,255,0.7) !important;
+    text-decoration: none !important;
+}
+#wrapwrap:has(.oe_login_form) #wrap a:hover,
+#wrapwrap.alaj-login-active #wrap a:hover {
+    color: var(--alaj-red) !important;
+}
+#wrapwrap:has(.oe_login_form) .form-check-label,
+#wrapwrap.alaj-login-active .form-check-label {
+    color: rgba(255,255,255,0.7) !important;
+}
+#wrapwrap:has(.oe_login_form) .form-check-input,
+#wrapwrap.alaj-login-active .form-check-input {
+    background-color: rgba(255,255,255,0.1) !important;
+    border-color: rgba(255,255,255,0.3) !important;
+}
+#wrapwrap:has(.oe_login_form) .form-check-input:checked,
+#wrapwrap.alaj-login-active .form-check-input:checked {
+    background-color: var(--alaj-red) !important;
+    border-color: var(--alaj-red) !important;
+}
+#wrapwrap:has(.oe_login_form) #wrap .alert,
+#wrapwrap.alaj-login-active #wrap .alert {
+    background: rgba(225,38,28,0.15) !important;
+    border: 1px solid rgba(225,38,28,0.3) !important;
+    border-radius: 8px !important;
+    color: #fff !important;
+}
+#wrapwrap:has(.oe_login_form) #wrap .text-muted,
+#wrapwrap.alaj-login-active #wrap .text-muted {
+    color: rgba(255,255,255,0.5) !important;
+}
+#wrapwrap:has(.oe_login_form) .o_login_auth,
+#wrapwrap.alaj-login-active .o_login_auth {
+    border-top: 1px solid rgba(255,255,255,0.1) !important;
+    padding-top: 16px !important;
+}
+#wrapwrap:has(.oe_login_form) .form-select,
+#wrapwrap.alaj-login-active .form-select {
+    background-color: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 12px 16px !important;
+}
+
+html[dir="rtl"] .alaj-topbar-inner,
+html[dir="rtl"] .alaj-mobile-topbar-inner,
+html[dir="rtl"] .alaj-header-inner,
+html[dir="rtl"] .alaj-drawer {
+    direction: rtl;
+}
+html[dir="rtl"] .alaj-drawer {
+    left: auto;
+    right: 0;
+    transform: translateX(100%);
+}
+html[dir="rtl"] .alaj-drawer.show { transform: translateX(0); }
+html[dir="rtl"] .alaj-nav-list > .alaj-nav-item + .alaj-nav-item {
+    border-left: 0;
+    border-right: 1px solid var(--alaj-border-light);
+}
+html[dir="rtl"] .alaj-nav-dropdown .dropdown-menu {
+    left: auto;
+    right: calc(100% + 8px);
+}
+html[dir="rtl"] .alaj-footer { direction: rtl; }
+html[dir="rtl"] .alaj-footer ul { padding-right: 0; }
+
+@media (max-width: 767px) {
+    .alaj-hide-mobile { display: none !important; }
+    #wrapwrap:has(.oe_login_form) #wrap,
+    #wrapwrap.alaj-login-active #wrap { padding-top: 30px; }
+    #wrapwrap:has(.oe_login_form) .card,
+    #wrapwrap.alaj-login-active .card { margin: 0 16px; }
+    #wrapwrap:has(.oe_login_form) .card-body,
+    #wrapwrap.alaj-login-active .card-body { padding: 28px 20px !important; }
+}
+@media (min-width: 768px) {
+    .alaj-hide-desktop { display: none !important; }
+}
+                </style>
+                <script type="text/javascript">
+// <![CDATA[
+(function () {
+    var html = document.documentElement;
+    var search = window.location.search || '';
+    var lang = html.getAttribute('lang') || '';
+    var flashDebug = false;
+    var preloadReleased = false;
+    html.classList.add('alaj-site-theme');
+    try {
+        flashDebug = new window.URLSearchParams(search).has('flash_debug');
+    } catch (error) {
+        flashDebug = search.indexOf('flash_debug') !== -1;
+    }
+    if (lang.indexOf('ar') === 0) {
+        html.setAttribute('dir', 'rtl');
+    } else {
+        html.setAttribute('dir', 'ltr');
+    }
+
+    function checkLoginPage() {
+        var loginForm = document.querySelector('.oe_login_form');
+        if (loginForm) {
+            var ww = document.getElementById('wrapwrap');
+            if (ww) ww.classList.add('alaj-login-active');
+        }
+    }
+
+    function isEditorPreview() {
+        try {
+            if (window.top !== window) {
+                return true;
+            }
+        } catch (error) {
+            return true;
+        }
+        return !!(document.body && document.body.classList.contains('editor_enable'));
+    }
+
+    function releasePreload() {
+        if (preloadReleased) {
+            return;
+        }
+        function done() {
+            preloadReleased = true;
+            html.classList.remove('alaj-preload');
+        }
+        if (flashDebug) {
+            done();
+            return;
+        }
+        if (isEditorPreview() && document.readyState !== 'complete') {
+            window.addEventListener('load', releasePreload, { once: true });
+            return;
+        }
+        var afterPaint = function () {
+            if (isEditorPreview()) {
+                window.setTimeout(done, 180);
+            } else {
+                done();
+            }
+        };
+        if (window.requestAnimationFrame) {
+            window.requestAnimationFrame(function () {
+                window.requestAnimationFrame(afterPaint);
+            });
+        } else {
+            window.setTimeout(afterPaint, 0);
+        }
+    }
+
+    function describeElement(el) {
+        if (!el || !el.getBoundingClientRect) return null;
+        var rect = el.getBoundingClientRect();
+        var style = window.getComputedStyle(el);
+        return {
+            element: el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className ? '.' + String(el.className).trim().replace(/\s+/g, '.') : ''),
+            rect: {
+                x: Math.round(rect.x),
+                y: Math.round(rect.y),
+                w: Math.round(rect.width),
+                h: Math.round(rect.height),
+            },
+            position: style.position,
+            display: style.display,
+            visibility: style.visibility,
+            opacity: style.opacity,
+            zIndex: style.zIndex,
+            background: style.backgroundImage !== 'none' ? style.backgroundImage : style.backgroundColor,
+        };
+    }
+
+    function initFlashProbe() {
+        if (!flashDebug || !window.console) return;
+        var samplePoints = function () {
+            return [
+                [Math.max(12, Math.round(window.innerWidth * 0.15)), 24],
+                [Math.round(window.innerWidth * 0.5), 80],
+                [Math.round(window.innerWidth * 0.5), Math.round(window.innerHeight * 0.35)],
+            ];
+        };
+        function logStage(label) {
+            if (!document.body || !document.elementsFromPoint) return;
+            var seen = [];
+            var rows = [];
+            Array.prototype.forEach.call(samplePoints(), function (point) {
+                Array.prototype.forEach.call(document.elementsFromPoint(point[0], point[1]).slice(0, 6), function (el) {
+                    if (!el || seen.indexOf(el) !== -1) return;
+                    seen.push(el);
+                    var desc = describeElement(el);
+                    if (desc) rows.push(desc);
+                });
+            });
+            console.groupCollapsed('[ALAJ FLASH PROBE]', label, window.location.pathname);
+            console.table(rows);
+            console.log('toolbarExpanded', !!document.querySelector('.o_main_navbar'));
+            console.log('resourceTimings', performance.getEntriesByType('resource').filter(function (entry) {
+                return /\.css($|\?)/.test(entry.name) || /fonts\.googleapis|fonts\.gstatic/.test(entry.name);
+            }).map(function (entry) {
+                return { name: entry.name, duration: Math.round(entry.duration) };
+            }));
+            console.groupEnd();
+        }
+        document.addEventListener('click', function (event) {
+            var trigger = null;
+            if (event.target) {
+                if (event.target.closest) {
+                    trigger = event.target.closest('a[href], button');
                 }
             }
+            if (!trigger) return;
+            console.log('[ALAJ FLASH PROBE] click', {
+                path: window.location.pathname,
+                target: trigger.outerHTML ? trigger.outerHTML.slice(0, 180) : trigger.tagName,
+            });
+            logStage('before-nav');
+            window.setTimeout(function () { logStage('after-120ms'); }, 120);
+            window.setTimeout(function () { logStage('after-260ms'); }, 260);
+        }, true);
+        if (window.MutationObserver) {
+            var mutationTimer = null;
+            var mutationObserver = new MutationObserver(function () {
+                window.clearTimeout(mutationTimer);
+                mutationTimer = window.setTimeout(function () {
+                    logStage('mutation');
+                }, 50);
+            });
+            var observeBody = function () {
+                if (!document.body) return;
+                mutationObserver.observe(document.body, {
+                    subtree: true,
+                    childList: true,
+                    attributes: true,
+                    attributeFilter: ['class', 'style'],
+                });
+            };
+            if (document.body) observeBody();
+            else document.addEventListener('DOMContentLoaded', observeBody, { once: true });
+        }
+        window.addEventListener('pageshow', function () { logStage('pageshow'); });
+        window.addEventListener('load', function () { logStage('load'); });
+    }
 
-            @media (max-width: 1200px) {
-                .alaj-header .header-nav a {
-                    padding: 8px 12px;
-                    font-size: 12px;
-                }
+    function initMobileDrawer() {
+        try {
+            var drawer = document.querySelector('.alaj-drawer');
+            var backdrop = document.querySelector('.alaj-drawer-backdrop');
+            if (!drawer || !backdrop || drawer.dataset.alajDrawerReady === '1') return;
+            drawer.dataset.alajDrawerReady = '1';
+
+            function setDrawerState(isOpen) {
+                drawer.classList.toggle('show', isOpen);
+                backdrop.classList.toggle('show', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
             }
 
-            @media (max-width: 1024px) {
-                .alaj-topbar {
-                    display: none;
-                }
+            Array.prototype.forEach.call(document.querySelectorAll('[data-alaj-drawer-open]'), function (btn) {
+                btn.addEventListener('click', function () { setDrawerState(true); });
+            });
+            Array.prototype.forEach.call(document.querySelectorAll('[data-alaj-drawer-close]'), function (btn) {
+                btn.addEventListener('click', function () { setDrawerState(false); });
+            });
 
-                .alaj-mobile-topbar {
-                    display: block;
-                }
+            var drawerLinks = drawer.querySelectorAll ? drawer.querySelectorAll('a[href]') : [];
+            Array.prototype.forEach.call(drawerLinks, function (link) {
+                link.addEventListener('click', function () { setDrawerState(false); });
+            });
 
-                .alaj-header .header-nav,
-                .alaj-header .header-actions {
-                    display: none;
-                }
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') setDrawerState(false);
+            });
+        } catch (error) {
+            console.warn('ALAJ drawer init skipped:', error);
+        }
+    }
 
-                .alaj-header .mobile-tools,
-                .alaj-header .menu-button,
-                .alaj-header .menu-close {
-                    display: inline-flex;
-                }
+    function initNavigationCloak() {
+        if (html.dataset.alajNavCloakReady === '1') {
+            return;
+        }
+        html.dataset.alajNavCloakReady = '1';
 
-                .alaj-header-inner {
-                    min-height: 72px;
-                }
+        var clearTimer = null;
+        function getNavigationLink(target) {
+            var link = target && target.closest ? target.closest('a[href]') : null;
+            if (!link) return null;
+            if (link.hasAttribute('download')) return null;
+
+            var targetAttr = link.getAttribute('target');
+            if (targetAttr && targetAttr !== '_self') return null;
+            if (link.dataset.bsToggle || link.getAttribute('data-bs-toggle') || link.getAttribute('data-toggle')) return null;
+
+            var href = (link.getAttribute('href') || '').trim();
+            if (!href || href.charAt(0) === '#') return null;
+            if (/^(mailto:|tel:|javascript:)/i.test(href)) return null;
+
+            try {
+                var url = new window.URL(link.href, window.location.href);
+                if (url.origin !== window.location.origin) return null;
+
+                var nextLocation = url.pathname + url.search;
+                var currentLocation = window.location.pathname + window.location.search;
+                if (nextLocation === currentLocation && url.hash) return null;
+            } catch (error) {
+                return null;
+            }
+            return link;
+        }
+
+        function clearCloak() {
+            window.clearTimeout(clearTimer);
+            html.classList.remove('alaj-nav-transitioning');
+        }
+
+        function armCloak() {
+            html.classList.add('alaj-nav-transitioning');
+            window.clearTimeout(clearTimer);
+            clearTimer = window.setTimeout(clearCloak, 3000);
+        }
+
+        document.addEventListener('click', function (event) {
+            if (event.defaultPrevented || event.button !== 0) return;
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            if (!getNavigationLink(event.target)) return;
+            armCloak();
+        }, true);
+
+        document.addEventListener('submit', function (event) {
+            if (event.defaultPrevented) return;
+            var form = event.target;
+            if (!form || form.tagName !== 'FORM') return;
+
+            var action = (form.getAttribute('action') || window.location.href).trim();
+            if (!action) return;
+
+            try {
+                var actionUrl = new window.URL(action, window.location.href);
+                if (actionUrl.origin !== window.location.origin) return;
+            } catch (error) {
+                return;
             }
 
-            @media (max-width: 768px) {
-                .alaj-topbar-inner,
-                .alaj-mobile-topbar-inner,
-                .alaj-header-inner {
-                    padding-left: 16px;
-                    padding-right: 16px;
-                }
+            armCloak();
+        }, true);
 
-                .alaj-mobile-topbar-inner {
-                    gap: 6px;
-                }
+        window.addEventListener('pageshow', clearCloak);
+        window.addEventListener('load', function () {
+            window.setTimeout(clearCloak, 0);
+        }, { once: true });
+    }
 
-                .alaj-mobile-topbar-inner a {
-                    overflow: visible;
-                    text-overflow: clip;
-                }
+    function boot() {
+        try {
+            checkLoginPage();
+            initNavigationCloak();
+            initMobileDrawer();
+        } finally {
+            releasePreload();
+        }
+    }
 
-                .alaj-header .header-logo-full {
-                    width: 48px;
-                }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+    } else {
+        boot();
+    }
+    window.addEventListener('load', boot);
+    window.addEventListener('pageshow', releasePreload);
+    initFlashProbe();
+})();
+// ]]>
+                </script>
+            </xpath>
+            <xpath expr="//body" position="inside">
+                <div class="alaj-nav-leave-overlay" aria-hidden="true"/>
+            </xpath>
+        </template>
 
-                .alaj-header .mobile-tools {
-                    gap: 10px;
-                }
+        <template id="alaj_header" name="ALAJ Header">
+            <style id="alaj-critical-header-style">
+#wrapwrap { background: #EFF9FF; }
+header#top.alaj-site-header { display: block; background: #fff; }
+.alaj-topbar,
+.alaj-mobile-topbar,
+.alaj-header {
+    display: block;
+    width: 100%;
+}
+.alaj-topbar {
+    background: #EFF9FF;
+    border-bottom: 1px solid #e0eaf2;
+}
+.alaj-mobile-topbar {
+    background: #090E3B;
+}
+.alaj-header {
+    background: #fff;
+    border-bottom: 1px solid #e0eaf2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.alaj-shell {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.alaj-topbar-inner,
+.alaj-mobile-topbar-inner,
+.alaj-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.alaj-topbar-inner { min-height: 40px; }
+.alaj-mobile-topbar-inner { min-height: 36px; }
+.alaj-header-inner {
+    gap: 16px;
+    min-height: 70px;
+}
+.alaj-topbar-left,
+.alaj-topbar-right,
+.alaj-social-icons,
+.alaj-header-actions,
+.alaj-mobile-actions {
+    display: flex;
+    align-items: center;
+}
+.alaj-topbar-left { gap: 16px; }
+.alaj-topbar-right { gap: 12px; }
+.alaj-social-icons { gap: 10px; }
+.alaj-topbar-divider {
+    width: 1px;
+    height: 16px;
+    background: #e0eaf2;
+}
+.alaj-logo,
+.alaj-drawer-brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+.alaj-logo picture,
+.alaj-drawer-brand picture {
+    display: block;
+}
+.alaj-brand-image,
+.alaj-drawer-brand-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+.alaj-brand-image { height: 48px; }
+.alaj-nav {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.alaj-nav-list {
+    display: flex;
+    align-items: center;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: auto;
+}
+.alaj-nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    list-style: none;
+}
+.alaj-nav-list > .alaj-nav-item + .alaj-nav-item {
+    margin-inline-start: 18px;
+    padding-inline-start: 18px;
+    border-left: 1px solid #e0eaf2;
+}
+.alaj-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 0;
+    white-space: nowrap;
+    color: #262138;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.alaj-nav-item > .alaj-nav-link:hover,
+.alaj-nav-item > .alaj-nav-link.active,
+.alaj-nav-item.show > .alaj-nav-link {
+    color: var(--alaj-red);
+}
+.alaj-nav-item.dropdown > .alaj-nav-link::after {
+    margin-inline-start: 6px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.alaj-nav-item.show > .alaj-nav-link::after {
+    transform: rotate(180deg);
+}
+.alaj-nav-dropdown {
+    margin-top: 14px;
+    padding: 10px;
+    min-width: 220px;
+    border: 1px solid var(--alaj-border);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 18px 34px rgba(17,17,17,0.12);
+}
+.alaj-nav-dropdown .dropdown-item {
+    border-radius: 8px;
+    color: var(--alaj-charcoal);
+    font-family: var(--alaj-font-body);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 12px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.alaj-nav-dropdown .dropdown-item:hover,
+.alaj-nav-dropdown .dropdown-item:focus,
+.alaj-nav-dropdown .dropdown-item.active {
+    background: rgba(225,38,28,0.06);
+    color: var(--alaj-red);
+}
+.alaj-nav-dropdown .dropdown {
+    position: relative;
+}
+.alaj-nav-dropdown .dropdown-menu {
+    top: -10px;
+    left: calc(100% + 8px);
+    margin: 0;
+    padding: 10px;
+    min-width: 220px;
+    border: 1px solid var(--alaj-border);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 18px 34px rgba(17,17,17,0.12);
+}
+.alaj-header-actions {
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+.alaj-mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.alaj-icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--alaj-charcoal);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.alaj-icon-btn:hover {
+    background: rgba(225,38,28,0.08);
+    color: var(--alaj-red);
+}
+.alaj-icon-btn svg {
+    width: 20px;
+    height: 20px;
+}
+.alaj-icon-btn .fa {
+    font-size: 20px;
+    line-height: 1;
+}
+.alaj-icon-badge-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alaj-icon-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background: var(--alaj-red);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+.alaj-user-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.alaj-user-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 188px;
+    padding: 10px;
+    border: 1px solid var(--alaj-border-light);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 18px 34px rgba(17, 17, 17, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+    z-index: 1200;
+}
+.alaj-user-dropdown:hover .alaj-user-dropdown-menu,
+.alaj-user-dropdown:focus-within .alaj-user-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.alaj-user-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--alaj-charcoal);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.alaj-user-dropdown-menu a:hover {
+    background: rgba(225,38,28,0.06);
+    color: var(--alaj-red);
+}
+.alaj-user-dropdown-menu svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+.alaj-lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--alaj-border-light);
+    background: transparent;
+    color: var(--alaj-charcoal);
+    font-family: var(--alaj-font-body);
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    line-height: 1;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.alaj-lang-btn:hover {
+    color: var(--alaj-red);
+    background: rgba(225,38,28,0.04);
+    border-color: rgba(225,38,28,0.2);
+}
+.alaj-mobile-actions .alaj-icon-btn {
+    width: 36px;
+    height: 36px;
+}
+.alaj-mobile-actions .alaj-icon-btn svg {
+    width: 18px;
+    height: 18px;
+}
+.alaj-mobile-actions .alaj-icon-badge {
+    top: -5px;
+    right: -5px;
+}
+.alaj-hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    color: var(--alaj-charcoal);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.alaj-hamburger:hover {
+    background: rgba(225,38,28,0.08);
+}
+.alaj-hamburger svg {
+    width: 24px;
+    height: 24px;
+}
+.alaj-drawer-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9998;
+}
+.alaj-drawer-backdrop.show {
+    display: block;
+}
+.alaj-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 320px;
+    background: #fff;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.alaj-drawer.show {
+    transform: translateX(0);
+}
+.alaj-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--alaj-border);
+}
+.alaj-drawer-brand-image {
+    width: 86px;
+}
+.alaj-drawer-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--alaj-charcoal);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.alaj-drawer-close:hover {
+    background: var(--alaj-bg);
+}
+.alaj-drawer-close svg {
+    width: 20px;
+    height: 20px;
+}
+.alaj-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+}
+.alaj-drawer-node.is-active > .alaj-drawer-link {
+    color: var(--alaj-red);
+}
+.alaj-drawer-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--alaj-charcoal);
+    text-decoration: none;
+    border-bottom: 1px solid #f0eeeb;
+    transition: color 0.2s;
+}
+.alaj-drawer-link:visited {
+    color: var(--alaj-charcoal);
+}
+.alaj-drawer-link:hover,
+.alaj-drawer-link.is-active {
+    color: var(--alaj-red);
+}
+.alaj-drawer-sub .alaj-drawer-link {
+    padding-inline-start: 34px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.alaj-drawer-sub .alaj-drawer-sub .alaj-drawer-link {
+    padding-inline-start: 48px;
+}
+.alaj-drawer-foot {
+    border-top: 1px solid var(--alaj-border);
+    background: var(--alaj-bg);
+    padding: 16px 20px;
+}
+.alaj-drawer-foot a,
+.alaj-drawer-foot a:visited {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--alaj-charcoal);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+.alaj-drawer-foot a:hover {
+    color: var(--alaj-red);
+}
+.alaj-drawer-foot svg {
+    width: 16px;
+    height: 16px;
+    color: var(--alaj-red);
+}
+.alaj-drawer-foot .btn-red,
+.alaj-drawer-foot .btn-red:visited {
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+    margin: 16px 0 0;
+    color: #fff;
+}
+.alaj-drawer-foot .btn-red:hover {
+    color: #fff;
+}
+.alaj-drawer-foot .alaj-drawer-foot-loc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 4px 0 6px;
+    color: var(--alaj-stone);
+    font-size: 13px;
+    font-weight: 600;
+}
+@media (min-width: 768px) {
+    .alaj-shell { padding: 0 32px; }
+}
+@media (min-width: 992px) {
+    .alaj-mobile-topbar,
+    .alaj-mobile-actions,
+    .alaj-hamburger {
+        display: none !important;
+    }
+    .alaj-nav {
+        display: flex !important;
+    }
+    .alaj-header-actions {
+        display: flex !important;
+    }
+    .alaj-header-inner {
+        min-height: 80px;
+    }
+}
+@media (max-width: 991.98px) {
+    .alaj-logo { min-width: 0; }
+    .alaj-brand-image {
+        width: 52px;
+        height: auto;
+    }
+    .alaj-topbar,
+    .alaj-nav,
+    .alaj-header-actions {
+        display: none !important;
+    }
+}
+            </style>
+            <t t-set="current_lang" t-value="request.env.lang or 'en_US'"/>
+            <t t-set="is_arabic" t-value="current_lang.startswith('ar')"/>
+            <t t-set="available_langs" t-value="request.website.language_ids"/>
+            <t t-set="target_lang" t-value="available_langs.filtered(lambda l: l.code.startswith('en' if is_arabic else 'ar'))"/>
+            <t t-set="current_url" t-value="request.httprequest.full_path or request.httprequest.path"/>
+            <t t-set="user_id" t-value="request.env.user"/>
+            <t t-set="is_connected" t-value="not user_id._is_public()"/>
+            <t t-set="cart_qty" t-value="request.session.get('website_sale_cart_quantity', 0) or 0"/>
+            <t t-set="top_level_menus" t-value="website.menu_id.child_id.filtered(lambda m: m.is_visible)"/>
 
-                .alaj-mobile-menu {
-                    width: calc(100vw - 32px);
-                }
-            }
-
-            @media (max-width: 480px) {
-                .alaj-header .header-logo-full {
-                    width: 42px;
-                }
-
-                .alaj-header .mobile-tools {
-                    gap: 8px;
-                }
-            }
-        </style>
-
-        <t t-set="current_lang" t-value="request.env.lang or 'en_US'"/>
-        <t t-set="is_arabic" t-value="current_lang.startswith('ar')"/>
-        <t t-set="available_langs" t-value="request.website.language_ids"/>
-        <t t-set="target_lang" t-value="available_langs.filtered(lambda l: l.code.startswith('en' if is_arabic else 'ar'))"/>
-        <t t-set="current_url" t-value="request.httprequest.full_path or request.httprequest.path"/>
-        <t t-set="user_id" t-value="request.env.user"/>
-        <t t-set="is_connected" t-value="not user_id._is_public()"/>
-        <t t-set="cart_qty" t-value="request.session.get('website_sale_cart_quantity', 0) or 0"/>
-
-        <input type="checkbox" id="alaj-menu-toggle" class="alaj-menu-toggle"/>
-
-        <div class="alaj-topbar">
-            <div class="alaj-topbar-inner">
-                <div class="alaj-topbar-left">
-                    <a href="tel:+96654337878">+96654337878</a>
-                    <span class="alaj-topbar-divider"/>
-                    <a href="mailto:Sales@alajlabchem.com">Sales@alajlabchem.com</a>
-                </div>
-                <div class="alaj-topbar-right">
-                    <span class="alaj-topbar-note">Jeddah, Saudi Arabia</span>
-                    <a href="/contact" class="alaj-topbar-cta">Contact Us</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="alaj-mobile-topbar">
-            <div class="alaj-mobile-topbar-inner">
-                <a href="tel:+96654337878">+96654337878</a>
-                <a href="mailto:Sales@alajlabchem.com">Sales@alajlabchem.com</a>
-                <a href="/contact" class="alaj-topbar-cta">Contact</a>
-            </div>
-        </div>
-
-        <div class="alaj-header-shell">
-            <div class="alaj-header-inner">
-                <a href="/" class="header-logo">
-                    <picture class="header-logo-picture">
-                        <source media="(max-width: 1024px)" srcset="/alaj_website/static/src/binary/logos/Frame.svg"/>
-                        <img src="/alaj_website/static/src/binary/logos/logobg.svg"
-                             alt="ALAJ Logo" class="header-logo-full"/>
-                    </picture>
-                </a>
-
-                <nav class="header-nav">
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/products">Products</a>
-                    <a href="/solutions">Solutions &amp; Services</a>
-                    <a href="/events">Media Center</a>
-                    <a href="/projects">Projects</a>
-                </nav>
-
-                <div class="header-actions">
-                    <t t-if="is_connected">
-                        <details class="header-user-dropdown">
-                            <summary class="header-account-link" aria-label="Account">
-                                <span class="header-icon">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="12" cy="7" r="4"/>
-                                    </svg>
-                                </span>
-                            </summary>
-                            <div class="header-user-menu">
-                                <a href="/my/home">My Account</a>
-                                <a t-att-href="'/web/session/logout?redirect=/'">Logout</a>
+            <div class="alaj-topbar alaj-hide-mobile">
+                <div class="alaj-shell">
+                    <div class="alaj-topbar-inner">
+                        <div class="alaj-topbar-left">
+                            <a href="tel:+96654337878">+96654337878</a>
+                            <span class="alaj-topbar-divider"/>
+                            <a href="mailto:Sales@alajlabchem.com">Sales@alajlabchem.com</a>
+                            <span class="alaj-topbar-divider"/>
+                            <div class="alaj-social-icons">
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                                </a>
                             </div>
-                        </details>
-                    </t>
-                    <t t-else="">
-                        <a href="/web/login" class="header-account-link" aria-label="Login">
-                            <span class="header-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="12" cy="7" r="4"/>
-                                </svg>
-                            </span>
-                        </a>
-                    </t>
-                    <a href="/shop/wishlist" class="header-icon-link o_wsale_my_wish nav-link" aria-label="Wishlist">
-                        <span class="header-icon-badge-wrap">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                            </svg>
-                            <sup class="my_wish_quantity d-none">0</sup>
-                        </span>
-                    </a>
-                    <a href="/shop/cart" class="header-icon-link" aria-label="Cart">
-                        <span class="header-icon-badge-wrap">
-                            <svg viewBox="0 0 24 24">
-                                <circle cx="9" cy="21" r="1"/>
-                                <circle cx="20" cy="21" r="1"/>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                            </svg>
-                            <t t-if="cart_qty"><span class="header-badge"><t t-esc="cart_qty"/></span></t>
-                        </span>
-                    </a>
-                    <t t-if="len(available_langs) > 1 and target_lang">
-                        <a t-att-href="'/website/lang/' + target_lang[0].url_code + '?r=' + current_url" class="custom-lang-switcher">
-                            <t t-if="is_arabic">EN</t>
-                            <t t-else="">AR</t>
-                        </a>
-                    </t>
-                </div>
-
-                <div class="mobile-tools">
-                    <a href="/shop" class="mobile-icon-link" aria-label="Search">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="M21 21l-4.35-4.35"/>
-                        </svg>
-                    </a>
-                    <a href="/shop/wishlist" class="mobile-icon-link o_wsale_my_wish nav-link" aria-label="Wishlist">
-                        <span class="header-icon-badge-wrap">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                            </svg>
-                            <sup class="my_wish_quantity d-none">0</sup>
-                        </span>
-                    </a>
-                    <a href="/shop/cart" class="mobile-icon-link" aria-label="Cart">
-                        <span class="header-icon-badge-wrap">
-                            <svg viewBox="0 0 24 24">
-                                <circle cx="9" cy="21" r="1"/>
-                                <circle cx="20" cy="21" r="1"/>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                            </svg>
-                            <t t-if="cart_qty"><span class="header-badge"><t t-esc="cart_qty"/></span></t>
-                        </span>
-                    </a>
-                    <t t-if="is_connected">
-                        <a href="/my/home" class="mobile-icon-link" aria-label="Account">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                <circle cx="12" cy="7" r="4"/>
-                            </svg>
-                        </a>
-                    </t>
-                    <t t-else="">
-                        <a href="/web/login" class="mobile-icon-link" aria-label="Login">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                <circle cx="12" cy="7" r="4"/>
-                            </svg>
-                        </a>
-                    </t>
-                    <label for="alaj-menu-toggle" class="menu-button" aria-label="Toggle menu">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </label>
+                        </div>
+                        <div class="alaj-topbar-right">
+                            <span style="color:rgba(38,33,56,0.6);">Jeddah, Saudi Arabia</span>
+                            <a href="/contact" style="color:var(--alaj-red);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;font-size:12px;">Contact Us</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <script>
-            (function() {
-                var html = document.documentElement;
-                var lang = html.getAttribute('lang') || '';
-                if (lang.indexOf('ar') === 0) {
-                    html.setAttribute('dir', 'rtl');
-                } else {
-                    html.setAttribute('dir', 'ltr');
-                }
-                function checkLoginPage() {
-                    var loginForm = document.querySelector('.oe_login_form');
-                    if (loginForm) {
-                        var ww = document.getElementById('wrapwrap');
-                        if (ww) ww.classList.add('alaj-login-active');
-                    }
-                }
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', checkLoginPage);
-                } else {
-                    checkLoginPage();
-                }
-            })();
-        </script>
-
-        <label for="alaj-menu-toggle" class="alaj-mobile-backdrop" aria-hidden="true"></label>
-        <div class="alaj-mobile-menu">
-            <div class="alaj-mobile-menu-inner">
-                <div class="alaj-mobile-menu-top">
-                    <a href="/" class="header-logo">
-                        <img src="/alaj_website/static/src/binary/logos/logobg.svg"
-                             alt="ALAJ Logo" class="header-logo-full"/>
-                    </a>
-                    <label for="alaj-menu-toggle" class="menu-close" aria-label="Close menu">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
-                    </label>
-                </div>
-
-                <div class="alaj-mobile-menu-body">
-                    <nav class="alaj-mobile-nav">
-                        <a href="/" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Home</a>
-                        <a href="/about" onclick="document.getElementById('alaj-menu-toggle').checked=false;">About</a>
-                        <a href="/products" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Products</a>
-                        <a href="/solutions" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Solutions &amp; Services</a>
-                        <a href="/events" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Media Center</a>
-                        <a href="/projects" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Projects</a>
-                        <a href="/contact" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Contact</a>
-                    </nav>
-                </div>
-
-                <div class="alaj-mobile-actions">
-                    <div class="alaj-mobile-utility">
-                        <t t-if="is_connected">
-                            <a href="/my/home" class="alaj-mobile-action-link" onclick="document.getElementById('alaj-menu-toggle').checked=false;">My Account</a>
-                            <a t-att-href="'/web/session/logout?redirect=/'" class="alaj-mobile-action-link" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Logout</a>
-                        </t>
-                        <t t-else="">
-                            <a href="/web/login" class="alaj-mobile-action-link" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Login</a>
-                        </t>
-                        <a href="/shop/wishlist" class="alaj-mobile-action-link" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Wishlist</a>
-                        <a href="/shop/cart" class="alaj-mobile-action-link" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Cart</a>
+            <div class="alaj-mobile-topbar alaj-hide-desktop">
+                <div class="alaj-shell">
+                    <div class="alaj-mobile-topbar-inner">
+                        <a href="tel:+96654337878">+96654337878</a>
+                        <a href="mailto:Sales@alajlabchem.com">Sales@alajlabchem.com</a>
+                        <a href="/contact" class="alaj-quote-link">Contact</a>
                     </div>
-                    <div class="alaj-mobile-contact-list">
-                        <a href="tel:+96654337878" class="alaj-mobile-contact-item">+96654337878</a>
-                        <a href="mailto:Sales@alajlabchem.com" class="alaj-mobile-contact-item">Sales@alajlabchem.com</a>
-                        <span class="alaj-mobile-contact-item">Jeddah, Saudi Arabia</span>
+                </div>
+            </div>
+
+            <div class="alaj-header">
+                <div class="alaj-shell">
+                    <div class="alaj-header-inner">
+                        <a href="/" class="alaj-logo" aria-label="ALAJ Home">
+                            <picture>
+                                <source media="(max-width: 991.98px)" srcset="/alaj_website/static/src/binary/logos/abdullaticophone.png"/>
+                                <img src="/alaj_website/static/src/binary/logos/AbdullatiCo.png" alt="ALAJ" class="alaj-brand-image"/>
+                            </picture>
+                        </a>
+
+                        <nav class="alaj-nav" t-att-data-menu_name="editable and 'Main Menu'" t-att-data-content_menu_id="editable and website.menu_id.id" aria-label="Main navigation">
+                            <t t-call="website.navbar_nav">
+                                <t t-set="_nav_class" t-valuef="alaj-nav-list"/>
+                                <t t-set="_no_autohide_menu_mobile" t-valuef="True"/>
+                                <t t-set="is_mobile" t-value="False"/>
+                                <t t-foreach="top_level_menus" t-as="submenu">
+                                    <t t-call="website.submenu">
+                                        <t t-set="item_class" t-valuef="alaj-nav-item nav-item"/>
+                                        <t t-set="link_class" t-valuef="alaj-nav-link nav-link"/>
+                                        <t t-set="dropdown_toggler_classes" t-valuef="d-inline-flex align-items-center"/>
+                                        <t t-set="dropdown_menu_classes" t-valuef="alaj-nav-dropdown"/>
+                                    </t>
+                                </t>
+                            </t>
+                        </nav>
+
+                        <div class="alaj-header-actions">
+                            <a href="/shop" class="alaj-icon-btn" aria-label="Search">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                            </a>
+                            <a href="/shop/wishlist" class="alaj-icon-btn o_wsale_my_wish nav-link" aria-label="Wishlist">
+                                <span class="alaj-icon-badge-wrap">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                    <sup class="my_wish_quantity alaj-icon-badge d-none">0</sup>
+                                </span>
+                            </a>
+                            <a href="/shop/cart" class="alaj-icon-btn" aria-label="Cart">
+                                <span class="alaj-icon-badge-wrap">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                                    <t t-if="cart_qty"><sup class="alaj-icon-badge"><t t-esc="cart_qty"/></sup></t>
+                                </span>
+                            </a>
+                            <t t-if="is_connected">
+                                <div class="alaj-user-dropdown" tabindex="0">
+                                    <button type="button" class="alaj-icon-btn" aria-label="Account">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    </button>
+                                    <div class="alaj-user-dropdown-menu">
+                                        <a href="/my/home">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                            <span>My Account</span>
+                                        </a>
+                                        <a t-att-href="'/web/session/logout?redirect=/'">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                            <span>Logout</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                            <a t-else="" href="/web/login" class="alaj-icon-btn" aria-label="Login">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </a>
+                            <t t-if="len(available_langs) > 1 and target_lang">
+                                <a t-att-href="'/website/lang/' + target_lang[0].url_code + '?r=' + current_url" class="alaj-lang-btn">
+                                    <t t-if="is_arabic">EN</t>
+                                    <t t-else="">AR</t>
+                                </a>
+                            </t>
+                        </div>
+
+                        <div class="alaj-mobile-actions">
+                            <a href="/shop" class="alaj-icon-btn" aria-label="Search">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                            </a>
+                            <a href="/shop/wishlist" class="alaj-icon-btn o_wsale_my_wish nav-link" aria-label="Wishlist">
+                                <span class="alaj-icon-badge-wrap">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                    <sup class="my_wish_quantity alaj-icon-badge d-none">0</sup>
+                                </span>
+                            </a>
+                            <a href="/shop/cart" class="alaj-icon-btn" aria-label="Cart">
+                                <span class="alaj-icon-badge-wrap">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                                    <t t-if="cart_qty"><sup class="alaj-icon-badge"><t t-esc="cart_qty"/></sup></t>
+                                </span>
+                            </a>
+                            <a t-if="is_connected" href="/my/home" class="alaj-icon-btn" aria-label="Account">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </a>
+                            <a t-else="" href="/web/login" class="alaj-icon-btn" aria-label="Login">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </a>
+                        </div>
+
+                        <button type="button" class="alaj-hamburger" aria-label="Open menu" data-alaj-drawer-open="1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alaj-drawer-backdrop" data-alaj-drawer-close="1"/>
+            <div class="alaj-drawer">
+                <div class="alaj-drawer-head">
+                    <a href="/" class="alaj-drawer-brand" aria-label="ALAJ Home">
+                        <picture>
+                            <img src="/alaj_website/static/src/binary/logos/abdullaticophone.png" alt="Right Solutions" class="alaj-drawer-brand-image"/>
+                        </picture>
+                    </a>
+                    <button type="button" class="alaj-drawer-close" aria-label="Close menu" data-alaj-drawer-close="1">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                    </button>
+                </div>
+
+                <div class="alaj-drawer-body" t-att-data-menu_name="editable and 'Main Menu'" t-att-data-content_menu_id="editable and website.menu_id.id">
+                    <t t-foreach="top_level_menus" t-as="submenu">
+                        <t t-call="alaj_website.alaj_drawer_menu_item"/>
+                    </t>
+                </div>
+
+                <div class="alaj-drawer-foot">
+                    <a href="tel:+96654337878">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.34 2.74a2 2 0 0 1-.57 1.73l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 1.73-.57l2.74.34A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>+96654337878</span>
+                    </a>
+                    <a href="mailto:Sales@alajlabchem.com">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M4 6h16v12H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+                        <span>Sales@alajlabchem.com</span>
+                    </a>
+                    <div class="alaj-drawer-foot-loc">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Jeddah, Saudi Arabia</span>
                     </div>
                     <t t-if="len(available_langs) > 1 and target_lang">
-                        <a t-att-href="'/website/lang/' + target_lang[0].url_code + '?r=' + current_url" class="custom-lang-switcher">
-                            <t t-if="is_arabic">EN</t>
-                            <t t-else="">AR</t>
+                        <a t-att-href="'/website/lang/' + target_lang[0].url_code + '?r=' + current_url" class="btn-red" style="margin-top:8px;">
+                            <t t-if="is_arabic">English</t>
+                            <t t-else="">العربية</t>
                         </a>
                     </t>
-                    <a href="/contact" class="alaj-mobile-contact-button" onclick="document.getElementById('alaj-menu-toggle').checked=false;">Contact Us</a>
+                    <a href="/contact" class="btn-red">Contact Us</a>
                 </div>
             </div>
-        </div>
-    </template>
+        </template>
 
-    <template id="alaj_footer_main" name="ALAJ Footer">
-        <footer class="alaj-footer">
-            <div class="alaj-footer-grid">
-                <div class="alaj-footer-col">
-                    <h3>About</h3>
-                    <ul>
-                        <li><a href="/about">Vision and Mission</a></li>
-                        <li><a href="/about">Strategic Objectives</a></li>
-                        <li><a href="/about">Organizational Structure</a></li>
-                        <li><a href="/about">Our Heritage</a></li>
-                        <li><a href="/projects">Projects</a></li>
-                        <li><a href="/contact">Contact US</a></li>
-                    </ul>
+        <template id="alaj_drawer_menu_item" name="ALAJ Drawer Menu Item">
+            <t t-if="submenu.is_visible">
+                <div t-attf-class="alaj-drawer-node #{submenu._is_active() and 'is-active' or ''} #{submenu.child_id.filtered(lambda menu: menu.is_visible) and 'has-children' or ''}">
+                    <a t-att-href="submenu._clean_url()"
+                       t-attf-class="alaj-drawer-link #{submenu._is_active() and 'is-active' or ''}"
+                       t-att-target="'_blank' if submenu.new_window else None">
+                        <span t-field="submenu.name"/>
+                    </a>
+                    <t t-if="submenu.child_id.filtered(lambda menu: menu.is_visible)">
+                        <div class="alaj-drawer-sub">
+                            <t t-foreach="submenu.child_id" t-as="submenu">
+                                <t t-call="alaj_website.alaj_drawer_menu_item"/>
+                            </t>
+                        </div>
+                    </t>
                 </div>
+            </t>
+        </template>
 
-                <div class="alaj-footer-col">
-                    <h3>Our Solutions</h3>
-                    <ul>
-                        <li><a href="/solutions">Chemical and Reagents</a></li>
-                        <li><a href="/solutions">Equipment and Instruments</a></li>
-                        <li><a href="/solutions">Maintenance and Spare parts</a></li>
-                        <li><a href="/solutions">After Sales Support</a></li>
-                    </ul>
-                </div>
+        <template id="alaj_footer_main" name="ALAJ Footer">
+            <footer class="alaj-footer">
+                <div class="alaj-shell">
+                    <div class="alaj-footer-grid">
+                        <div class="alaj-footer-brand">
+                            <img src="/alaj_website/static/src/binary/logos/AbdullatiCo.png" alt="ALAJ"/>
+                            <p>Abdullatif H. Abdullatif <span class="alaj-ampersand">&amp;</span> Sons Co. Leading provider of laboratory chemicals, equipment, and scientific instruments in Saudi Arabia.</p>
+                        </div>
 
-                <div class="alaj-footer-col">
-                    <h3>Media Center</h3>
-                    <ul>
-                        <li><a href="/events">News</a></li>
-                        <li><a href="/events">Events</a></li>
-                        <li><a href="/events">Media Gallery</a></li>
-                        <li><a href="/events">Open Data</a></li>
-                    </ul>
-                </div>
-
-                <div class="alaj-footer-col">
-                    <h3>more</h3>
-                    <ul>
-                        <li><a href="/about">Privacy policy</a></li>
-                        <li><a href="/about">Accessibility Statement</a></li>
-                        <li><a href="/about">Terms and Condition</a></li>
-                        <li><a href="/about">Disclaimer</a></li>
-                        <li><a href="/about">Copyright statement</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                        <li><a href="/contact">Contact US</a></li>
-                    </ul>
-                </div>
-
-                <div class="alaj-footer-col">
-                    <p class="footer-social-label">Connect with Us</p>
-                    <div class="footer-social-icons">
-                        <a href="#" aria-label="Twitter">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-                        </a>
-                        <a href="#" aria-label="YouTube">
-                            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
-                    </div>
-
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         <div>
-                            <p class="footer-contact-label">Phone</p>
-                            <p class="footer-contact-value">+96654337878</p>
+                            <h4>About</h4>
+                            <ul>
+                                <li><a href="/about">Vision and Mission</a></li>
+                                <li><a href="/about">Our Story</a></li>
+                                <li><a href="/about">Our Heritage</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>Solutions</h4>
+                            <ul>
+                                <li><a href="/solutions">Chemical and Reagents</a></li>
+                                <li><a href="/solutions">Equipment</a></li>
+                                <li><a href="/solutions">Maintenance</a></li>
+                                <li><a href="/solutions">After Sales Support</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>More</h4>
+                            <ul>
+                                <li><a href="/events">Media Center</a></li>
+                                <li><a href="/about">Privacy Policy</a></li>
+                                <li><a href="/about">Terms</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4>Contact</h4>
+                            <ul>
+                                <li><a href="mailto:Sales@alajlabchem.com">Sales@alajlabchem.com</a></li>
+                                <li><a href="tel:+96654337878">+96654337878</a></li>
+                                <li><a href="tel:+96657533041">Fax: +966 57533041</a></li>
+                                <li><span>P.O. Box 10325, Jeddah</span></li>
+                            </ul>
+                            <div class="alaj-footer-social">
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        <div>
-                            <p class="footer-contact-label">Fax</p>
-                            <p class="footer-contact-value">+966 57533041</p>
-                        </div>
-                    </div>
-
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        <div>
-                            <p class="footer-contact-label">Email</p>
-                            <p class="footer-contact-value">Sales@alajlabchem.com</p>
-                        </div>
-                    </div>
-
-                    <div class="footer-contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        <div>
-                            <p class="footer-contact-label">Box Office</p>
-                            <p class="footer-contact-value">P.O. Box 10325, Jedda, Saudi Arabia</p>
-                        </div>
+                    <div class="alaj-footer-bottom">
+                        <span>&#169; 2025 Abdullatif H. Abdullatif <span class="alaj-ampersand">&amp;</span> Sons Co. All rights reserved.</span>
                     </div>
                 </div>
-            </div>
+            </footer>
+        </template>
 
-            <div class="alaj-footer-logo">
-                <a href="/">
-                    <img src="/alaj_website/static/src/binary/logos/logo-icon.png"
-                         alt="Logo Icon" class="footer-logo-icon"/>
-                    <img src="/alaj_website/static/src/binary/logos/logo-text.png"
-                         alt="Logo Text" class="footer-logo-text"/>
-                </a>
-            </div>
+        <template id="alaj_replace_header" inherit_id="website.layout" name="ALAJ Replace Header" priority="9999">
+            <xpath expr="//header" position="replace">
+                <header id="top" class="alaj-site-header o_no_autohide_menu" t-if="not no_header">
+                    <t t-call="alaj_website.alaj_header"/>
+                </header>
+            </xpath>
+        </template>
 
-            <p class="alaj-footer-copyright">
-                Copyright آ© 2025 Abdullatif H.Abduljadayel &amp; Sons Co.
-            </p>
-        </footer>
-    </template>
+        <template id="alaj_replace_footer" inherit_id="website.layout" name="ALAJ Replace Footer" priority="9999">
+            <xpath expr="//div[@id='footer']" position="replace">
+                <div id="footer" t-if="not no_footer">
+                    <t t-call="alaj_website.alaj_footer_main"/>
+                </div>
+            </xpath>
+        </template>
 
-    <template id="alaj_replace_header" inherit_id="website.layout" name="ALAJ Replace Header" priority="9999">
-        <xpath expr="//header" position="replace">
-            <header id="top"
-                    class="alaj-header"
-                    t-if="not no_header">
-                <t t-call="alaj_website.alaj_header"/>
-            </header>
-        </xpath>
-    </template>
+        <template id="alaj_hide_copyright" inherit_id="website.layout" name="ALAJ Hide Copyright">
+            <xpath expr="//div[hasclass('o_footer_copyright')]" position="attributes">
+                <attribute name="class" add="d-none" separator=" "/>
+            </xpath>
+        </template>
 
-    <template id="alaj_replace_footer" inherit_id="website.layout" name="ALAJ Replace Footer" priority="9999">
-        <xpath expr="//div[@id='footer']" position="replace">
-            <div id="footer" t-if="not no_footer">
-                <t t-call="alaj_website.alaj_footer_main"/>
-            </div>
-        </xpath>
-    </template>
+        <record id="alaj_global_styles" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record id="alaj_header" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record id="alaj_drawer_menu_item" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record id="alaj_footer_main" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record id="alaj_replace_header" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record id="alaj_replace_footer" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+        <record id="alaj_hide_copyright" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
 
-    <template id="alaj_hide_copyright" inherit_id="website.layout" name="ALAJ Hide Copyright">
-        <xpath expr="//div[hasclass('o_footer_copyright')]" position="attributes">
-            <attribute name="class" add="d-none" separator=" "/>
-        </xpath>
-    </template>
-
-    <record id="alaj_header" model="ir.ui.view">
-        <field name="website_id" ref="alaj_website_record"/>
-    </record>
-    <record id="alaj_footer_main" model="ir.ui.view">
-        <field name="website_id" ref="alaj_website_record"/>
-    </record>
-    <record id="alaj_replace_header" model="ir.ui.view">
-        <field name="website_id" ref="alaj_website_record"/>
-    </record>
-    <record id="alaj_replace_footer" model="ir.ui.view">
-        <field name="website_id" ref="alaj_website_record"/>
-    </record>
-    <record id="alaj_hide_copyright" model="ir.ui.view">
-        <field name="website_id" ref="alaj_website_record"/>
-    </record>
+    </data>
 </odoo>

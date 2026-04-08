@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="cc_shop_filter_form" name="ALAJ Shop Filter Form">
+            <div t-attf-class="cc-shop-filter-form {{is_mobile and 'is-mobile' or ''}}">
+                <div class="cc-filter-block cc-filter-price">
+                    <form t-att-action="keep(min_price=0, max_price=0)" method="get" class="cc-shop-price-form">
+                        <div class="cc-filter-title-row">
+                            <h3>Price</h3>
+                            <span class="cc-filter-chevron">&#8963;</span>
+                        </div>
+                        <div class="cc-price-grid">
+                            <div class="cc-price-field">
+                                <label>FROM</label>
+                                <div class="cc-price-input-wrap">
+                                    <span class="cc-price-currency" t-out="website.currency_id.symbol or ''"/>
+                                    <input type="number" name="min_price" t-att-value="int(min_price or available_min_price or 0)"/>
+                                </div>
+                            </div>
+                            <div class="cc-price-field">
+                                <label>TO</label>
+                                <div class="cc-price-input-wrap">
+                                    <span class="cc-price-currency" t-out="website.currency_id.symbol or ''"/>
+                                    <input type="number" name="max_price" t-att-value="int(max_price or available_max_price or 0)"/>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="cc-price-apply">Apply</button>
+                    </form>
+                </div>
+
+                <form t-att-action="keep(attribute_values=0, tags=0)" method="get" t-attf-class="js_attributes cc-shop-attribute-form {{is_mobile and 'is-mobile' or ''}}">
+                    <t t-foreach="attributes" t-as="a">
+                        <div t-if="a.value_ids and len(a.value_ids) &gt; 1" class="cc-filter-block">
+                            <div class="cc-filter-title-row">
+                                <h3 t-out="a.name"/>
+                                <span class="cc-filter-chevron">&#8963;</span>
+                            </div>
+                            <div class="cc-filter-options">
+                                <t t-foreach="a.value_ids" t-as="v">
+                                    <label class="cc-filter-option">
+                                        <input
+                                            type="checkbox"
+                                            name="attribute_value"
+                                            class="cc-filter-checkbox"
+                                            t-att-value="'%s-%s' % (a.id, v.id)"
+                                            t-att-checked="v.id in attrib_set and 'checked' or None"
+                                        />
+                                        <span t-out="v.name"/>
+                                    </label>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </form>
+            </div>
+        </template>
+
+        <template id="cc_products_item_code" inherit_id="website_sale.products_item" name="ALAJ Product Tile Code">
+            <xpath expr="//*[hasclass('o_wsale_products_item_title')]" position="before">
+                <span class="cc-shop-card-code">Code: <t t-out="product.default_code or ''"/></span>
+            </xpath>
+        </template>
+
+        <record id="cc_products_item_code" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <template id="cc_shop_card_wishlist" inherit_id="website_sale.products_item" name="ALAJ Product Tile Wishlist">
+            <xpath expr="//a[hasclass('oe_product_image_link')]" position="before">
+                <t t-set="cc_card_variant_id" t-value="product._get_first_possible_variant_id()"/>
+                <t t-set="cc_card_in_wishlist" t-value="product._is_in_wishlist()"/>
+                <button
+                    t-if="cc_card_variant_id"
+                    type="button"
+                    t-attf-class="cc-shop-card-wishlist o_add_wishlist #{cc_card_in_wishlist and 'o_in_wishlist' or ''}"
+                    t-att-disabled="cc_card_in_wishlist"
+                    t-att-data-product-template-id="product.id"
+                    t-att-data-product-product-id="cc_card_variant_id"
+                    data-action="o_wishlist"
+                    t-att-title="cc_card_in_wishlist and 'In your wishlist' or 'Add to wishlist'"
+                    t-att-aria-label="cc_card_in_wishlist and 'In your wishlist' or 'Add to wishlist'"
+                >
+                    <span t-attf-class="fa o_not-animable #{cc_card_in_wishlist and 'fa-heart' or 'fa-heart-o'}" role="presentation"/>
+                    <span class="o_label">Add to wishlist</span>
+                </button>
+            </xpath>
+        </template>
+
+        <record id="cc_shop_card_wishlist" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <template id="cc_shop_product_buttons" inherit_id="website_sale.products_item" name="ALAJ Product Tile Actions">
+            <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
+                <div class="o_wsale_product_action_row cc-shop-product-action-row">
+                    <div class="cc-shop-actions-grid">
+                        <a t-att-href="product_href" class="cc-shop-quick-view">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                            Quick View
+                        </a>
+                        <t t-if="product._website_show_quick_add()">
+                            <input name="product_id" t-att-value="product._get_first_possible_variant_id()" type="hidden"/>
+                            <input name="product_template_id" t-att-value="product.id" type="hidden"/>
+                            <input name="product_type" t-att-value="product.type" type="hidden"/>
+                            <button
+                                type="button"
+                                class="cc-shop-add-cart o_wsale_product_btn_primary a-submit"
+                                aria-label="Add to cart"
+                                title="Add to cart"
+                                t-att-data-show-quantity="is_view_active('website_sale.product_quantity')"
+                            >
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="20" r="1"/>
+                                    <circle cx="18" cy="20" r="1"/>
+                                    <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L21 7H7.4"/>
+                                </svg>
+                                Add to Cart
+                            </button>
+                        </t>
+                        <a t-else="" t-att-href="product_href" class="cc-shop-add-cart cc-shop-add-cart-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5l7 7-7 7"/>
+                            </svg>
+                            View Product
+                        </a>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+        <record id="cc_shop_product_buttons" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <template id="cc_shop_page" inherit_id="website_sale.products" name="ALAJ Standard Shop Banner">
+            <xpath expr="//div[@id='wrap']" position="attributes">
+                <attribute name="class" add="cc-shop-page" separator=" "/>
+            </xpath>
+
+            <xpath expr="//div[@id='oe_structure_website_sale_products_1']" position="after">
+                <section class="alaj-page-banner oe_img_bg"
+                         style="background-image: url('/alaj_website/static/src/binary/heroes/hero-home-default.jpg');"
+                         data-name="Store Hero">
+                    <div class="alaj-banner-overlay">
+                        <div class="container">
+                            <h1 t-if="category" t-out="category.name"/>
+                            <h1 t-else="">Our Store</h1>
+                            <div class="alaj-breadcrumb">
+                                <a href="/">Home</a>
+                                <span>/</span>
+                                <a href="/shop">Store</a>
+                                <t t-if="category">
+                                    <span>/</span>
+                                    <span class="active" t-out="category.name"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </xpath>
+
+            <xpath expr="//div[hasclass('container') and hasclass('oe_website_sale')]" position="attributes">
+                <attribute name="class" add="cc-shell cc-shop-main" separator=" "/>
+            </xpath>
+
+            <xpath expr="//aside[@id='products_grid_before']" position="attributes">
+                <attribute name="class" add="cc-shop-sidebar" separator=" "/>
+            </xpath>
+
+            <xpath expr="//aside[@id='products_grid_before']/div[hasclass('o_wsale_products_grid_before_rail')]/*[1]" position="before">
+                <div class="cc-shop-sidebar-intro">
+                    <span class="alaj-kicker">Browse</span>
+                    <h2>Shop Filters</h2>
+                    <p>Filter the standard store by category, attributes, and tags from Odoo product data.</p>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[hasclass('products_header')]" position="before">
+                <div class="cc-shop-intro">
+                    <div>
+                        <span class="alaj-kicker">Browse</span>
+                        <h2 class="alaj-heading">
+                            <t t-if="category" t-out="category.name"/>
+                            <t t-else="">
+                                <span>Products</span>
+                                <span class="alaj-heading-ampersand">&amp;</span>
+                                <span>Equipment</span>
+                            </t>
+                        </h2>
+                    </div>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[hasclass('products_header')]" position="attributes">
+                <attribute name="class" add="cc-shop-results-head" separator=" "/>
+            </xpath>
+
+            <xpath expr="//div[hasclass('products_pager')]" position="attributes">
+                <attribute name="class" add="cc-shop-pager" separator=" "/>
+            </xpath>
+        </template>
+
+        <record id="cc_shop_page" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+    </data>
+</odoo>

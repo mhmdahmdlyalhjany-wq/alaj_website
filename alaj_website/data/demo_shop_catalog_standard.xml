@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="product_category_analyzers" model="product.category">
+            <field name="name">Analyzers</field>
+            <field name="parent_id" ref="product_category_lab_equipment"/>
+        </record>
+
+        <record id="product_category_micro_biology" model="product.category">
+            <field name="name">Micro Biology</field>
+            <field name="parent_id" ref="product_category_lab_equipment"/>
+        </record>
+
+        <record id="product_category_consumables" model="product.category">
+            <field name="name">Laboratory Consumables</field>
+            <field name="parent_id" ref="product_category_lab_equipment"/>
+        </record>
+
+        <record id="public_category_instruments" model="product.public.category">
+            <field name="name">Instruments</field>
+            <field name="sequence">10</field>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="website_description" type="html">
+                <p>Advanced laboratory instruments for analytical, quality control, and routine testing workflows.</p>
+            </field>
+        </record>
+
+        <record id="public_category_analyzers" model="product.public.category">
+            <field name="name">Analyzers</field>
+            <field name="sequence">20</field>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="website_description" type="html">
+                <p>Dedicated analyzer systems for water analysis, color measurement, and precision laboratory reporting.</p>
+            </field>
+        </record>
+
+        <record id="public_category_micro_biology" model="product.public.category">
+            <field name="name">Micro Biology</field>
+            <field name="sequence">30</field>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="website_description" type="html">
+                <p>Selected micro biology supplies and starter kits for educational, research, and laboratory preparation use.</p>
+            </field>
+        </record>
+
+        <record id="public_category_filter_paper" model="product.public.category">
+            <field name="name">Filter Paper</field>
+            <field name="sequence">40</field>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="website_description" type="html">
+                <p>Filter paper grades designed for sample preparation, gravimetric procedures, and routine separation work.</p>
+            </field>
+        </record>
+
+        <record id="public_category_plasticware" model="product.public.category">
+            <field name="name">Plasticware</field>
+            <field name="sequence">50</field>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="website_description" type="html">
+                <p>Plasticware solutions for sample handling, transfer, storage, and field-ready preparation tasks.</p>
+            </field>
+        </record>
+
+        <record id="public_category_glassware" model="product.public.category">
+            <field name="name">Glassware</field>
+            <field name="sequence">60</field>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="website_description" type="html">
+                <p>General laboratory glassware for chemistry benches, routine preparation, and research support workflows.</p>
+            </field>
+        </record>
+
+        <record id="product_tag_hach" model="product.tag">
+            <field name="name">HACH</field>
+            <field name="visible_on_ecommerce">True</field>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record id="product_tag_portable" model="product.tag">
+            <field name="name">Portable</field>
+            <field name="visible_on_ecommerce">True</field>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record id="product_tag_benchtop" model="product.tag">
+            <field name="name">Benchtop</field>
+            <field name="visible_on_ecommerce">True</field>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record id="product_tag_research" model="product.tag">
+            <field name="name">Research</field>
+            <field name="visible_on_ecommerce">True</field>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record id="product_tag_water_analysis" model="product.tag">
+            <field name="name">Water Analysis</field>
+            <field name="visible_on_ecommerce">True</field>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record id="product_tag_premium" model="product.tag">
+            <field name="name">Premium</field>
+            <field name="visible_on_ecommerce">True</field>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record id="product_attribute_brand" model="product.attribute">
+            <field name="name">Brand</field>
+            <field name="create_variant">no_variant</field>
+            <field name="display_type">multi</field>
+        </record>
+
+        <record id="product_attribute_application" model="product.attribute">
+            <field name="name">Application</field>
+            <field name="create_variant">no_variant</field>
+            <field name="display_type">multi</field>
+        </record>
+
+        <record id="product_attribute_value_brand_hach" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="name">HACH</field>
+        </record>
+
+        <record id="product_attribute_value_brand_sigma" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="name">Sigma</field>
+        </record>
+
+        <record id="product_attribute_value_brand_duran" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="name">Duran</field>
+        </record>
+
+        <record id="product_attribute_value_brand_kartell" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="name">Kartell</field>
+        </record>
+
+        <record id="product_attribute_value_application_water" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="name">Water Analysis</field>
+        </record>
+
+        <record id="product_attribute_value_application_research" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="name">Research</field>
+        </record>
+
+        <record id="product_attribute_value_application_qc" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="name">Quality Control</field>
+        </record>
+
+        <record id="product_attribute_value_application_field" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="name">Field Use</field>
+        </record>
+
+        <record id="product_attribute_value_application_micro" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="name">Micro Biology</field>
+        </record>
+
+        <record id="product_attribute_value_application_sampleprep" model="product.attribute.value">
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="name">Sample Preparation</field>
+        </record>
+
+        <record id="product_balance_scale" model="product.template">
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="default_code">BAL-2000-1G</field>
+            <field name="website_sequence">10</field>
+            <field name="list_price">850.00</field>
+            <field name="description_sale">Compact laboratory balance with 2000 g capacity and 1 g readability for routine sample preparation and quality control.</field>
+            <field name="website_description" type="html">
+                <p>Compact laboratory balance designed for daily weighing tasks with dependable repeatability.</p>
+                <ul>
+                    <li>Capacity: 2000 g</li>
+                    <li>Readability: 1 g</li>
+                    <li>Ideal for routine sample preparation and QC workflows</li>
+                </ul>
+            </field>
+            <field name="image_1920" type="base64" file="alaj_website/static/src/binary/products/balance-scale.png"/>
+            <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_instruments')])]"/>
+            <field name="product_tag_ids" eval="[(6, 0, [ref('product_tag_benchtop'), ref('product_tag_research'), ref('product_tag_premium')])]"/>
+        </record>
+
+        <record id="product_dr6000" model="product.template">
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="categ_id" ref="product_category_analyzers"/>
+            <field name="default_code">HACH-DR6000</field>
+            <field name="website_sequence">20</field>
+            <field name="list_price">12500.00</field>
+            <field name="description_sale">High-performance UV-VIS spectrophotometer for laboratory water analysis with pre-programmed methods and USB connectivity.</field>
+            <field name="website_description" type="html">
+                <p>Advanced UV-VIS spectrophotometer engineered for accurate laboratory water analysis.</p>
+                <ul>
+                    <li>Wavelength range: 190-1100 nm</li>
+                    <li>Digital touch interface with pre-programmed methods</li>
+                    <li>Built for demanding analytical laboratories</li>
+                </ul>
+            </field>
+            <field name="image_1920" type="base64" file="alaj_website/static/src/binary/products/dr-6000.png"/>
+            <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_analyzers')])]"/>
+            <field name="product_tag_ids" eval="[(6, 0, [ref('product_tag_hach'), ref('product_tag_benchtop'), ref('product_tag_water_analysis')])]"/>
+        </record>
+
+        <record id="product_hq1110" model="product.template">
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="default_code">HQ1110-PH</field>
+            <field name="website_sequence">30</field>
+            <field name="list_price">2200.00</field>
+            <field name="description_sale">Portable pH/ORP meter for field and laboratory use with IntelliCAL probe compatibility and onboard data logging.</field>
+            <field name="website_description" type="html">
+                <p>Portable pH/ORP meter ready for field testing, site inspection, and fast laboratory verification.</p>
+                <ul>
+                    <li>Compatible with IntelliCAL probes</li>
+                    <li>Built-in data logging and USB connectivity</li>
+                    <li>Water-resistant design for demanding environments</li>
+                </ul>
+            </field>
+            <field name="image_1920" type="base64" file="alaj_website/static/src/binary/products/hq1110-meter.png"/>
+            <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_instruments')])]"/>
+            <field name="product_tag_ids" eval="[(6, 0, [ref('product_tag_hach'), ref('product_tag_portable'), ref('product_tag_water_analysis')])]"/>
+        </record>
+
+        <record id="product_lico690" model="product.template">
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="categ_id" ref="product_category_analyzers"/>
+            <field name="default_code">LICO-690</field>
+            <field name="website_sequence">40</field>
+            <field name="list_price">8900.00</field>
+            <field name="description_sale">Professional spectral colorimeter for precise liquid and solid color analysis in quality control laboratories.</field>
+            <field name="website_description" type="html">
+                <p>Professional spectral colorimeter developed for reliable color measurement in laboratory and production environments.</p>
+                <ul>
+                    <li>Advanced optical system for repeatable measurements</li>
+                    <li>Suitable for water, chemical, and pharmaceutical QC</li>
+                    <li>Designed for high-accuracy color workflows</li>
+                </ul>
+            </field>
+            <field name="image_1920" type="base64" file="alaj_website/static/src/binary/products/lico-690.png"/>
+            <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_analyzers')])]"/>
+            <field name="product_tag_ids" eval="[(6, 0, [ref('product_tag_hach'), ref('product_tag_benchtop'), ref('product_tag_premium')])]"/>
+        </record>
+
+        <record id="product_filter_paper" model="product.template">
+            <field name="name">Filter Paper Premium Grade</field>
+            <field name="categ_id" ref="product_category_consumables"/>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="default_code">FP-PREMIUM-90</field>
+            <field name="list_price">120.00</field>
+            <field name="type">consu</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">True</field>
+            <field name="website_published">True</field>
+            <field name="website_sequence">50</field>
+            <field name="description_sale">Premium laboratory filter paper for analytical preparation, gravimetric testing, and daily sample separation.</field>
+            <field name="website_description" type="html">
+                <p>Premium filter paper developed for clean, repeatable filtration in laboratory workflows.</p>
+                <ul>
+                    <li>Consistent porosity for dependable sample preparation</li>
+                    <li>Suitable for analytical and gravimetric procedures</li>
+                    <li>Clean handling for daily laboratory operations</li>
+                </ul>
+            </field>
+            <field name="image_1920" type="base64" file="alaj_website/static/src/binary/products/dr-6000.png"/>
+            <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_filter_paper')])]"/>
+            <field name="product_tag_ids" eval="[(6, 0, [ref('product_tag_research'), ref('product_tag_premium')])]"/>
+        </record>
+
+        <record id="product_glassware_set" model="product.template">
+            <field name="name">Laboratory Glassware Set</field>
+            <field name="categ_id" ref="product_category_glassware"/>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="default_code">DURAN-GLASS-SET</field>
+            <field name="list_price">560.00</field>
+            <field name="type">consu</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">True</field>
+            <field name="website_published">True</field>
+            <field name="website_sequence">60</field>
+            <field name="description_sale">Durable laboratory glassware set for general chemistry, sample preparation, and educational laboratory use.</field>
+            <field name="website_description" type="html">
+                <p>General-purpose glassware set for chemistry benches, teaching labs, and daily preparation tasks.</p>
+                <ul>
+                    <li>Selected pieces for routine lab operations</li>
+                    <li>Reliable thermal and chemical resistance</li>
+                    <li>Suitable for preparation, mixing, and transfer</li>
+                </ul>
+            </field>
+            <field name="image_1920" type="base64" file="alaj_website/static/src/binary/products/lico-690.png"/>
+            <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_glassware')])]"/>
+            <field name="product_tag_ids" eval="[(6, 0, [ref('product_tag_research'), ref('product_tag_premium')])]"/>
+        </record>
+
+        <record id="product_plasticware_kit" model="product.template">
+            <field name="name">Plasticware Sampling Kit</field>
+            <field name="categ_id" ref="product_category_glassware"/>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="default_code">KRT-PLAST-SAMPLE</field>
+            <field name="list_price">340.00</field>
+            <field name="type">consu</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">True</field>
+            <field name="website_published">True</field>
+            <field name="website_sequence">70</field>
+            <field name="description_sale">Plastic sampling kit for safe liquid transfer, sample handling, and routine field preparation tasks.</field>
+            <field name="website_description" type="html">
+                <p>Practical plasticware kit for sample collection, transfer, and routine preparation work.</p>
+                <ul>
+                    <li>Lightweight pieces for handling and storage</li>
+                    <li>Suitable for field and bench-top preparation</li>
+                    <li>Easy to deploy in fast-paced laboratory routines</li>
+                </ul>
+            </field>
+            <field name="image_1920" type="base64" file="alaj_website/static/src/binary/products/hq1110-meter.png"/>
+            <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_plasticware')])]"/>
+            <field name="product_tag_ids" eval="[(6, 0, [ref('product_tag_research'), ref('product_tag_premium')])]"/>
+        </record>
+
+        <record id="product_microbiology_kit" model="product.template">
+            <field name="name">Micro Biology Starter Kit</field>
+            <field name="categ_id" ref="product_category_micro_biology"/>
+            <field name="website_id" ref="alaj_website_record"/>
+            <field name="default_code">MB-START-01</field>
+            <field name="list_price">1480.00</field>
+            <field name="type">consu</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">True</field>
+            <field name="website_published">True</field>
+            <field name="website_sequence">80</field>
+            <field name="description_sale">Starter kit for micro biology workflows including routine preparation tools for educational and research laboratories.</field>
+            <field name="website_description" type="html">
+                <p>Micro biology starter kit assembled for educational labs, research benches, and entry-level workflow setup.</p>
+                <ul>
+                    <li>Supports preparation and handling tasks</li>
+                    <li>Useful for training, demonstration, and routine analysis</li>
+                    <li>Organized kit format for quick deployment</li>
+                </ul>
+            </field>
+            <field name="image_1920" type="base64" file="alaj_website/static/src/binary/products/balance-scale.png"/>
+            <field name="public_categ_ids" eval="[(6, 0, [ref('public_category_micro_biology')])]"/>
+            <field name="product_tag_ids" eval="[(6, 0, [ref('product_tag_research'), ref('product_tag_premium')])]"/>
+        </record>
+
+        <record id="product_balance_scale_attribute_brand" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_balance_scale"/>
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_brand_sigma')])]"/>
+        </record>
+
+        <record id="product_balance_scale_attribute_application" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_balance_scale"/>
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_application_qc'), ref('product_attribute_value_application_research')])]"/>
+        </record>
+
+        <record id="product_dr6000_attribute_brand" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_dr6000"/>
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_brand_hach')])]"/>
+        </record>
+
+        <record id="product_dr6000_attribute_application" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_dr6000"/>
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_application_water'), ref('product_attribute_value_application_research')])]"/>
+        </record>
+
+        <record id="product_hq1110_attribute_brand" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_hq1110"/>
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_brand_hach')])]"/>
+        </record>
+
+        <record id="product_hq1110_attribute_application" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_hq1110"/>
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_application_field'), ref('product_attribute_value_application_water')])]"/>
+        </record>
+
+        <record id="product_lico690_attribute_brand" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_lico690"/>
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_brand_hach')])]"/>
+        </record>
+
+        <record id="product_lico690_attribute_application" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_lico690"/>
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_application_qc'), ref('product_attribute_value_application_research')])]"/>
+        </record>
+
+        <record id="product_filter_paper_attribute_brand" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_filter_paper"/>
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_brand_sigma')])]"/>
+        </record>
+
+        <record id="product_filter_paper_attribute_application" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_filter_paper"/>
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_application_sampleprep'), ref('product_attribute_value_application_research')])]"/>
+        </record>
+
+        <record id="product_glassware_set_attribute_brand" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_glassware_set"/>
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_brand_duran')])]"/>
+        </record>
+
+        <record id="product_glassware_set_attribute_application" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_glassware_set"/>
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_application_research'), ref('product_attribute_value_application_sampleprep')])]"/>
+        </record>
+
+        <record id="product_plasticware_kit_attribute_brand" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_plasticware_kit"/>
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_brand_kartell')])]"/>
+        </record>
+
+        <record id="product_plasticware_kit_attribute_application" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_plasticware_kit"/>
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_application_sampleprep'), ref('product_attribute_value_application_field')])]"/>
+        </record>
+
+        <record id="product_microbiology_kit_attribute_brand" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_microbiology_kit"/>
+            <field name="attribute_id" ref="product_attribute_brand"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_brand_sigma')])]"/>
+        </record>
+
+        <record id="product_microbiology_kit_attribute_application" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_microbiology_kit"/>
+            <field name="attribute_id" ref="product_attribute_application"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_application_micro'), ref('product_attribute_value_application_research')])]"/>
+        </record>
+
+    </data>
+</odoo>

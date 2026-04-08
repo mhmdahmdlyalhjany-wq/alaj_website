@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="s_alaj_home_hero" name="ALAJ Home Hero">
+            <section class="s_alaj_home_hero alaj-home-hero oe_img_bg o_colored_level"
+                     style="background-image: url('/alaj_website/static/src/binary/heroes/hero-home-default.jpg');"
+                     data-name="Hero"
+                     data-snippet="s_alaj_home_hero"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="alaj-slide-overlay"></div>
+                <div class="alaj-slide-overlay2"></div>
+                <div class="alaj-slide-content">
+                    <div class="container">
+                        <div class="row align-items-center h-100">
+                            <div class="col-lg-8 s_col_no_bgcolor">
+                                <div class="oe_structure" data-name="Hero Content">
+                                    <section class="s_text_block pt0 pb16" data-snippet="s_text_block" data-name="Hero Badge">
+                                        <div class="container-fluid px-0 s_allow_columns">
+                                            <p class="mb-0"><span class="alaj-hero-badge">CHEMICAL <span class="alaj-heading-ampersand">&amp;</span> RESEARCH</span></p>
+                                        </div>
+                                    </section>
+                                    <section class="s_title pt0 pb16" data-snippet="s_title" data-name="Hero Title" data-vcss="001">
+                                        <div class="container-fluid px-0 s_allow_columns">
+                                            <h1 class="display-3 alaj-hero-title">Leading Chemical Industry Without Limits</h1>
+                                        </div>
+                                    </section>
+                                    <section class="s_text_block pt0 pb24" data-snippet="s_text_block" data-name="Hero Description">
+                                        <div class="container-fluid px-0 s_allow_columns">
+                                            <p class="lead alaj-hero-description">Over 30 years of expertise in laboratory chemicals, equipment, and scientific instruments across Saudi Arabia.</p>
+                                        </div>
+                                    </section>
+                                    <section class="s_text_block pt0 pb24" data-snippet="s_text_block" data-name="Hero Buttons">
+                                        <div class="container-fluid px-0 s_allow_columns">
+                                            <p class="alaj-hero-buttons mb-0">
+                                                <a href="/products" class="btn btn-primary btn-lg btn-red">Explore Products</a>
+                                                <a href="/about" class="btn btn-outline-light btn-lg btn-white-outline">Learn More</a>
+                                            </p>
+                                        </div>
+                                    </section>
+                                    <section class="s_numbers pt0 pb0" data-snippet="s_numbers" data-name="Hero Numbers">
+                                        <div class="container-fluid px-0">
+                                            <div class="row alaj-slide-stats">
+                                                <div class="col-md-4 col-4 alaj-stat-item pt8 pb8">
+                                                    <span class="s_number alaj-stat-num">100%</span>
+                                                    <h6 class="alaj-stat-label">Client Satisfaction</h6>
+                                                </div>
+                                                <div class="col-md-4 col-4 alaj-stat-item pt8 pb8">
+                                                    <span class="s_number alaj-stat-num">96%</span>
+                                                    <h6 class="alaj-stat-label">Market Coverage</h6>
+                                                </div>
+                                                <div class="col-md-4 col-4 alaj-stat-item pt8 pb8">
+                                                    <span class="s_number alaj-stat-num">30+</span>
+                                                    <h6 class="alaj-stat-label">Years Experience</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alaj-hero-divider"></div>
+            </section>
+        </template>
+
+        <template id="s_alaj_quick_links" name="ALAJ Quick Links">
+            <section class="s_alaj_quick_links alaj-ribbon o_colored_level"
+                     data-name="Quick Links"
+                     data-snippet="s_alaj_quick_links"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="container">
+                    <div class="row g-2 g-md-3 alaj-ribbon-grid">
+                        <div class="col-6 col-md-3 s_col_no_bgcolor">
+                            <a href="/our-partners#chemicals" class="alaj-ribbon-item" data-name="Quick Link Card">
+                                <p class="alaj-ribbon-title">Chemical <span class="alaj-ampersand">&amp;</span> Reagents</p>
+                                <span class="alaj-ribbon-sub">Solutions</span>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3 s_col_no_bgcolor">
+                            <a href="/our-partners#equipment" class="alaj-ribbon-item" data-name="Quick Link Card">
+                                <p class="alaj-ribbon-title">Equipment</p>
+                                <span class="alaj-ribbon-sub">Instruments</span>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3 s_col_no_bgcolor">
+                            <a href="/our-partners#maintenance" class="alaj-ribbon-item" data-name="Quick Link Card">
+                                <p class="alaj-ribbon-title">Maintenance</p>
+                                <span class="alaj-ribbon-sub">Spare Parts</span>
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-3 s_col_no_bgcolor">
+                            <a href="/our-partners#trusted-by" class="alaj-ribbon-item" data-name="Quick Link Card">
+                                <p class="alaj-ribbon-title">After Sales</p>
+                                <span class="alaj-ribbon-sub">Support</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_alaj_partners" name="ALAJ Partners">
+            <section class="s_alaj_partners alaj-partners-section o_colored_level"
+                     data-name="Partners"
+                     data-snippet="s_alaj_partners"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="container">
+                    <div style="text-align:center;margin-bottom:32px;">
+                        <span class="alaj-kicker">Trusted By</span>
+                        <h2 class="alaj-heading"><a href="/our-partners#trusted-by" class="text-reset text-decoration-none">Our Partners</a></h2>
+                    </div>
+                    <div class="row g-3 justify-content-center alaj-partners-row">
+                        <div class="col-6 col-md-4 col-lg-auto s_col_no_bgcolor">
+                            <a href="/our-partners#trusted-by" class="text-decoration-none d-block"><div class="alaj-partner-box" data-name="Partner"><img src="/alaj_website/static/src/binary/partners/partner-abb.png" alt="ABB"/></div></a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-auto s_col_no_bgcolor">
+                            <a href="/our-partners#trusted-by" class="text-decoration-none d-block"><div class="alaj-partner-box" data-name="Partner"><img src="/alaj_website/static/src/binary/partners/partner-sigma.png" alt="Sigma"/></div></a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-auto s_col_no_bgcolor">
+                            <a href="/our-partners#trusted-by" class="text-decoration-none d-block"><div class="alaj-partner-box" data-name="Partner"><img src="/alaj_website/static/src/binary/partners/partner-3.png" alt="Partner"/></div></a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-auto s_col_no_bgcolor">
+                            <a href="/our-partners#trusted-by" class="text-decoration-none d-block"><div class="alaj-partner-box" data-name="Partner"><img src="/alaj_website/static/src/binary/partners/partner-jaan.png" alt="JAAN"/></div></a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-auto s_col_no_bgcolor">
+                            <a href="/our-partners#trusted-by" class="text-decoration-none d-block"><div class="alaj-partner-box" data-name="Partner"><img src="/alaj_website/static/src/binary/partners/partner-5.png" alt="Partner"/></div></a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-auto s_col_no_bgcolor">
+                            <a href="/our-partners#trusted-by" class="text-decoration-none d-block"><div class="alaj-partner-box" data-name="Partner"><img src="/alaj_website/static/src/binary/partners/partner-duran.png" alt="Duran"/></div></a>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-auto s_col_no_bgcolor">
+                            <a href="/our-partners#trusted-by" class="text-decoration-none d-block"><div class="alaj-partner-box" data-name="Partner"><img src="/alaj_website/static/src/binary/partners/partner-kartal.png" alt="Kartell"/></div></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_alaj_solutions_cards" name="ALAJ Solutions Cards">
+            <section class="s_alaj_solutions_cards pt-5 pb-5 o_colored_level"
+                     data-name="Solutions &amp; Services"
+                     data-snippet="s_alaj_solutions_cards"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="container">
+                    <div class="alaj-solutions-heading">
+                        <span class="alaj-kicker">What We Do</span>
+                        <h2 class="alaj-heading">Solutions <span class="alaj-heading-ampersand">&amp;</span> Services</h2>
+                    </div>
+                    <div class="row g-4 alaj-solutions-grid">
+                        <div class="col-lg-3 col-md-6 col-6 s_col_no_bgcolor pt8 pb8">
+                            <div class="card h-100 alaj-sol-card o_colored_level" data-name="Solution Card">
+                                <div class="alaj-sol-card-media">
+                                    <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg"
+                                         class="img img-fluid o_we_custom_image"
+                                         alt="Chemical and Reagents"
+                                         data-name="Image"/>
+                                </div>
+                                <div class="alaj-sol-overlay"></div>
+                                <div class="card-img-overlay alaj-sol-info d-flex flex-column justify-content-end">
+                                    <h3><a href="/solutions">Chemical and Reagents</a></h3>
+                                    <p>Premium quality chemicals</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-6 s_col_no_bgcolor pt8 pb8">
+                            <div class="card h-100 alaj-sol-card o_colored_level" data-name="Solution Card">
+                                <div class="alaj-sol-card-media">
+                                    <img src="/alaj_website/static/src/binary/heroes/hero-main.jpg"
+                                         class="img img-fluid o_we_custom_image"
+                                         alt="Equipment &amp; Instruments"
+                                         data-name="Image"/>
+                                </div>
+                                <div class="alaj-sol-overlay"></div>
+                                <div class="card-img-overlay alaj-sol-info d-flex flex-column justify-content-end">
+                                    <h3><a href="/solutions">Equipment <span class="alaj-ampersand">&amp;</span> Instruments</a></h3>
+                                    <p>Advanced lab equipment</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-6 s_col_no_bgcolor pt8 pb8">
+                            <div class="card h-100 alaj-sol-card o_colored_level" data-name="Solution Card">
+                                <div class="alaj-sol-card-media">
+                                    <img src="/alaj_website/static/src/binary/heroes/hero-blur.jpg"
+                                         class="img img-fluid o_we_custom_image"
+                                         alt="Maintenance &amp; Spare Parts"
+                                         data-name="Image"/>
+                                </div>
+                                <div class="alaj-sol-overlay"></div>
+                                <div class="card-img-overlay alaj-sol-info d-flex flex-column justify-content-end">
+                                    <h3><a href="/solutions">Maintenance <span class="alaj-ampersand">&amp;</span> Spare Parts</a></h3>
+                                    <p>Full service support</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-6 s_col_no_bgcolor pt8 pb8">
+                            <div class="card h-100 alaj-sol-card o_colored_level" data-name="Solution Card">
+                                <div class="alaj-sol-card-media">
+                                    <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg"
+                                         class="img img-fluid o_we_custom_image"
+                                         alt="After Sales Support"
+                                         data-name="Image"/>
+                                </div>
+                                <div class="alaj-sol-overlay"></div>
+                                <div class="card-img-overlay alaj-sol-info d-flex flex-column justify-content-end">
+                                    <h3><a href="/solutions">After Sales Support</a></h3>
+                                    <p>Dedicated assistance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_alaj_about" name="ALAJ About">
+            <section class="s_alaj_about alaj-about-section o_colored_level"
+                     data-name="About Us"
+                     data-snippet="s_alaj_about"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="container">
+                    <div class="row g-4 g-lg-5 alaj-about-grid">
+                        <div class="col-lg-6 s_col_no_bgcolor">
+                            <span class="alaj-kicker">Who We Are</span>
+                            <h2 class="alaj-heading">About Us</h2>
+                            <p class="alaj-copy" style="margin-bottom:16px;">Over more than 30 years as distributor or Agent for Equipment of laboratories, and the Analysis of the water in Kingdom.</p>
+                            <p class="alaj-copy" style="margin-bottom:24px;">Alajlabchem has continuously accompanied its customers across multiple market segments in a wide range of industries including Petrochemicals, Oil and Gas, Pharmaceuticals, Food and Beverage, Water Treatment, Research Institutes, and Government Agencies.</p>
+                            <a href="/about" class="btn-red">Read About
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 s_col_no_bgcolor">
+                            <div class="alaj-about-img">
+                                <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg" alt="About Us" class="o_we_custom_image" data-name="Image"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_alaj_founder" name="ALAJ Founder">
+            <section class="s_text_block alaj-founder-banner-block pt0 pb0 o_colored_level"
+                     data-name="Founder Banner"
+                     data-snippet="s_text_block"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="container-fluid px-0 s_allow_columns">
+                    <p class="mb-0">
+                        <img src="/alaj_website/static/src/binary/projects/banner2.jpg"
+                             alt="Founder Banner"
+                             class="img img-fluid w-100 o_we_custom_image alaj-founder-banner-image"
+                             data-name="Image"/>
+                    </p>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_alaj_store" name="ALAJ Store">
+            <section class="s_alaj_store alaj-products-section pt-5 pb-5 o_colored_level"
+                     style="background:var(--alaj-bg);"
+                     data-name="Store"
+                     data-snippet="s_alaj_store"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="container">
+                    <div class="row align-items-end g-3 mb-4">
+                        <div class="col-lg-7 s_col_no_bgcolor">
+                            <div class="oe_structure" data-name="Store Header">
+                                <section class="s_text_block pt0 pb8" data-snippet="s_text_block" data-name="Store Kicker">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <p class="mb-0"><span class="alaj-kicker">Browse</span></p>
+                                    </div>
+                                </section>
+                                <section class="s_title pt0 pb0" data-snippet="s_title" data-name="Store Title" data-vcss="001">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <h2 class="alaj-heading" style="text-align:left;">Our Store</h2>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 s_col_no_bgcolor">
+                            <div class="oe_structure" data-name="Store Actions">
+                                <section class="s_text_block pt0 pb12" data-snippet="s_text_block" data-name="Store Filters">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <p class="alaj-prod-filters mb-0">
+                                            <a href="/shop" class="btn btn-sm btn-outline-secondary alaj-prod-filter active">All</a>
+                                            <a href="/shop" class="btn btn-sm btn-outline-secondary alaj-prod-filter">Instruments</a>
+                                            <a href="/shop" class="btn btn-sm btn-outline-secondary alaj-prod-filter">Analyzers</a>
+                                            <a href="/shop" class="btn btn-sm btn-outline-secondary alaj-prod-filter">Micro Biology</a>
+                                        </p>
+                                    </div>
+                                </section>
+                                <section class="s_text_block pt0 pb0" data-snippet="s_text_block" data-name="Store Button">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <p class="text-lg-end text-start mb-0">
+                                            <a href="/shop" class="btn btn-primary btn-red">Our Store</a>
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6 col-12 s_col_no_bgcolor pt8 pb8">
+                            <div class="s_card card h-100 alaj-prod-card" data-snippet="s_card" data-name="Product Card">
+                                <div class="card-body">
+                                    <div class="alaj-prod-card-img">
+                                        <img src="/alaj_website/static/src/binary/products/balance-scale.png" alt="Balance Scale" class="o_we_custom_image" data-name="Image"/>
+                                    </div>
+                                    <p class="alaj-prod-card-code">Balance Scale</p>
+                                    <h3><a href="/shop">Balance Compact Scale 2000G X 1GM</a></h3>
+                                    <a href="/shop" class="btn btn-link alaj-prod-arrow">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-12 s_col_no_bgcolor pt8 pb8">
+                            <div class="s_card card h-100 alaj-prod-card" data-snippet="s_card" data-name="Product Card">
+                                <div class="card-body">
+                                    <div class="alaj-prod-card-img">
+                                        <img src="/alaj_website/static/src/binary/products/dr-6000.png" alt="DR 6000" class="o_we_custom_image" data-name="Image"/>
+                                    </div>
+                                    <p class="alaj-prod-card-code">DR 6000</p>
+                                    <h3><a href="/shop">DR 6000 Without RFID Hach Lange</a></h3>
+                                    <a href="/shop" class="btn btn-link alaj-prod-arrow">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-12 s_col_no_bgcolor pt8 pb8">
+                            <div class="s_card card h-100 alaj-prod-card" data-snippet="s_card" data-name="Product Card">
+                                <div class="card-body">
+                                    <div class="alaj-prod-card-img">
+                                        <img src="/alaj_website/static/src/binary/products/hq1110-meter.png" alt="HQ1110" class="o_we_custom_image" data-name="Image"/>
+                                    </div>
+                                    <p class="alaj-prod-card-code">HQ1110</p>
+                                    <h3><a href="/shop">HQ1110 Portable pH/ORP Meter</a></h3>
+                                    <a href="/shop" class="btn btn-link alaj-prod-arrow">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-12 s_col_no_bgcolor pt8 pb8">
+                            <div class="s_card card h-100 alaj-prod-card" data-snippet="s_card" data-name="Product Card">
+                                <div class="card-body">
+                                    <div class="alaj-prod-card-img">
+                                        <img src="/alaj_website/static/src/binary/products/lico-690.png" alt="LICO 690" class="o_we_custom_image" data-name="Image"/>
+                                    </div>
+                                    <p class="alaj-prod-card-code">LICO 690</p>
+                                    <h3><a href="/shop">LICO 690 Professional Spectral Colorimeter</a></h3>
+                                    <a href="/shop" class="btn btn-link alaj-prod-arrow">View <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_alaj_news" name="ALAJ News">
+            <section class="s_alaj_news alaj-news-section pt-5 pb-5 o_colored_level"
+                     style="background:#fff;"
+                     data-name="News"
+                     data-snippet="s_alaj_news"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="container">
+                    <div class="row align-items-end g-3 mb-4">
+                        <div class="col-lg-8 s_col_no_bgcolor">
+                            <div class="oe_structure" data-name="News Header">
+                                <section class="s_text_block pt0 pb8" data-snippet="s_text_block" data-name="News Kicker">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <p class="mb-0"><span class="alaj-kicker">LATEST UPDATES</span></p>
+                                    </div>
+                                </section>
+                                <section class="s_title pt0 pb0" data-snippet="s_title" data-name="News Title" data-vcss="001">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <h2 class="alaj-heading" style="text-align:left;">News <span class="alaj-heading-ampersand">&amp;</span> Events</h2>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 s_col_no_bgcolor">
+                            <div class="oe_structure" data-name="News CTA">
+                                <section class="s_text_block pt0 pb0" data-snippet="s_text_block" data-name="News Button">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <p class="text-lg-end text-start mb-0">
+                                            <a href="/events" class="btn btn-primary btn-red">View All</a>
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 s_col_no_bgcolor pb16">
+                            <div class="oe_structure" data-name="News List">
+                                <div class="alaj-news-entry" data-name="News Card">
+                                    <div class="row g-0 alaj-news-card-row">
+                                        <div class="col-md-4 s_col_no_bgcolor">
+                                            <div class="alaj-news-card-img">
+                                                <img src="/alaj_website/static/src/binary/news/event-1.jpg" alt="Event" class="img img-fluid w-100 h-100 o_we_custom_image" data-name="Image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 s_col_no_bgcolor">
+                                            <div class="alaj-news-card-body">
+                                                <section class="s_text_block pt0 pb8" data-snippet="s_text_block" data-name="News Date">
+                                                    <div class="container-fluid px-0 s_allow_columns">
+                                                        <p class="alaj-news-card-date">12 March 2025</p>
+                                                    </div>
+                                                </section>
+                                                <section class="s_title pt0 pb0" data-snippet="s_title" data-name="News Title" data-vcss="001">
+                                                    <div class="container-fluid px-0 s_allow_columns">
+                                                        <h3 class="alaj-news-card-title" style="text-align:left;"><a href="/event-detail">Event Title #01</a></h3>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alaj-news-entry" data-name="News Card">
+                                    <div class="row g-0 alaj-news-card-row">
+                                        <div class="col-md-4 s_col_no_bgcolor">
+                                            <div class="alaj-news-card-img">
+                                                <img src="/alaj_website/static/src/binary/news/event-2.jpg" alt="Event" class="img img-fluid w-100 h-100 o_we_custom_image" data-name="Image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 s_col_no_bgcolor">
+                                            <div class="alaj-news-card-body">
+                                                <section class="s_text_block pt0 pb8" data-snippet="s_text_block" data-name="News Date">
+                                                    <div class="container-fluid px-0 s_allow_columns">
+                                                        <p class="alaj-news-card-date">12 March 2025</p>
+                                                    </div>
+                                                </section>
+                                                <section class="s_title pt0 pb0" data-snippet="s_title" data-name="News Title" data-vcss="001">
+                                                    <div class="container-fluid px-0 s_allow_columns">
+                                                        <h3 class="alaj-news-card-title" style="text-align:left;"><a href="/event-detail">Event Title #02</a></h3>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alaj-news-entry" data-name="News Card">
+                                    <div class="row g-0 alaj-news-card-row">
+                                        <div class="col-md-4 s_col_no_bgcolor">
+                                            <div class="alaj-news-card-img">
+                                                <img src="/alaj_website/static/src/binary/news/event-3.jpg" alt="Event" class="img img-fluid w-100 h-100 o_we_custom_image" data-name="Image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 s_col_no_bgcolor">
+                                            <div class="alaj-news-card-body">
+                                                <section class="s_text_block pt0 pb8" data-snippet="s_text_block" data-name="News Date">
+                                                    <div class="container-fluid px-0 s_allow_columns">
+                                                        <p class="alaj-news-card-date">12 March 2025</p>
+                                                    </div>
+                                                </section>
+                                                <section class="s_title pt0 pb0" data-snippet="s_title" data-name="News Title" data-vcss="001">
+                                                    <div class="container-fluid px-0 s_allow_columns">
+                                                        <h3 class="alaj-news-card-title" style="text-align:left;"><a href="/event-detail">Event Title #03</a></h3>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alaj-news-entry" data-name="News Card">
+                                    <div class="row g-0 alaj-news-card-row">
+                                        <div class="col-md-4 s_col_no_bgcolor">
+                                            <div class="alaj-news-card-img">
+                                                <img src="/alaj_website/static/src/binary/news/event-4.jpg" alt="Event" class="img img-fluid w-100 h-100 o_we_custom_image" data-name="Image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 s_col_no_bgcolor">
+                                            <div class="alaj-news-card-body">
+                                                <section class="s_text_block pt0 pb8" data-snippet="s_text_block" data-name="News Date">
+                                                    <div class="container-fluid px-0 s_allow_columns">
+                                                        <p class="alaj-news-card-date">12 March 2025</p>
+                                                    </div>
+                                                </section>
+                                                <section class="s_title pt0 pb0" data-snippet="s_title" data-name="News Title" data-vcss="001">
+                                                    <div class="container-fluid px-0 s_allow_columns">
+                                                        <h3 class="alaj-news-card-title" style="text-align:left;"><a href="/event-detail">Event Title #04</a></h3>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 s_col_no_bgcolor pb16 alaj-news-featured-col">
+                            <div class="oe_structure" data-name="Featured News">
+                                <div class="alaj-featured-card o_colored_level" data-name="Featured Article">
+                                    <div class="alaj-featured-card-media">
+                                        <img src="/alaj_website/static/src/binary/news/featured-article.jpg" alt="Featured Article" class="img img-fluid w-100 h-100 o_we_custom_image" data-name="Image"/>
+                                    </div>
+                                    <div class="alaj-featured-overlay"></div>
+                                    <div class="alaj-featured-info">
+                                        <section class="s_text_block pt0 pb8" data-snippet="s_text_block" data-name="Featured Date">
+                                            <div class="container-fluid px-0 s_allow_columns">
+                                                <p class="alaj-news-card-date">12 March 2025</p>
+                                            </div>
+                                        </section>
+                                        <section class="s_title pt0 pb0" data-snippet="s_title" data-name="Featured Title" data-vcss="001">
+                                            <div class="container-fluid px-0 s_allow_columns">
+                                                <h3 class="mb-0" style="text-align:left;"><a href="/event-detail">Featured: Innovation in Chemical Analysis Technology and Research</a></h3>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="s_alaj_projects" name="ALAJ Projects">
+            <section class="s_alaj_projects alaj-projects-section pt-5 pb-5 o_colored_level"
+                     data-name="Projects"
+                     data-snippet="s_alaj_projects"
+                     data-vxml="001"
+                     data-vcss="001">
+                <div class="container">
+                    <div class="row align-items-end g-3 mb-4">
+                        <div class="col-lg-8 s_col_no_bgcolor">
+                            <div class="oe_structure" data-name="Projects Header">
+                                <section class="s_text_block pt0 pb8" data-snippet="s_text_block" data-name="Projects Kicker">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <p class="mb-0"><span class="alaj-kicker">OUR WORK</span></p>
+                                    </div>
+                                </section>
+                                <section class="s_title pt0 pb0" data-snippet="s_title" data-name="Projects Title" data-vcss="001">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <h2 class="alaj-heading" style="text-align:left;">Projects</h2>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 s_col_no_bgcolor">
+                            <div class="oe_structure" data-name="Projects CTA">
+                                <section class="s_text_block pt0 pb0" data-snippet="s_text_block" data-name="Projects Button">
+                                    <div class="container-fluid px-0 s_allow_columns">
+                                        <p class="text-lg-end text-start mb-0">
+                                            <a href="/projects" class="btn btn-primary btn-red">View All</a>
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row alaj-projects-grid">
+                        <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt8 pb8">
+                            <div class="s_card card h-100 alaj-proj-card" data-snippet="s_card" data-name="Project Card">
+                                <div class="alaj-proj-card-img">
+                                    <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg" alt="Project" class="o_we_custom_image" data-name="Image"/>
+                                </div>
+                                <div class="card-body alaj-proj-card-body">
+                                    <h3><a href="/projects" class="text-reset text-decoration-none">Water Treatment Plant Project</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt8 pb8">
+                            <div class="s_card card h-100 alaj-proj-card" data-snippet="s_card" data-name="Project Card">
+                                <div class="alaj-proj-card-img">
+                                    <img src="/alaj_website/static/src/binary/heroes/hero-main.jpg" alt="Project" class="o_we_custom_image" data-name="Image"/>
+                                </div>
+                                <div class="card-body alaj-proj-card-body">
+                                    <h3><a href="/projects" class="text-reset text-decoration-none">Petrochemical Laboratory Setup</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt8 pb8">
+                            <div class="s_card card h-100 alaj-proj-card" data-snippet="s_card" data-name="Project Card">
+                                <div class="alaj-proj-card-img">
+                                    <img src="/alaj_website/static/src/binary/heroes/hero-blur.jpg" alt="Project" class="o_we_custom_image" data-name="Image"/>
+                                </div>
+                                <div class="card-body alaj-proj-card-body">
+                                    <h3><a href="/projects" class="text-reset text-decoration-none">Research Institute Equipment</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <template id="alaj_website_snippets" inherit_id="website.snippets" name="ALAJ Website Snippets">
+            <xpath expr="//div[@id='snippet_structure']" position="after">
+                <div id="snippet_alaj_homepage" class="o_panel">
+                    <div class="o_panel_header">ALAJ Homepage</div>
+                    <div class="o_panel_body">
+                        <t t-snippet="alaj_website.s_alaj_home_hero" string="ALAJ Hero" t-thumbnail="/website/static/src/img/snippets_thumbs/s_cover.svg">
+                            <keywords>hero, banner, intro, chemistry, landing</keywords>
+                        </t>
+                        <t t-snippet="alaj_website.s_alaj_quick_links" string="ALAJ Quick Links" t-thumbnail="/website/static/src/img/snippets_thumbs/s_three_columns.svg">
+                            <keywords>links, cards, navigation, services, shortcuts</keywords>
+                        </t>
+                        <t t-snippet="alaj_website.s_alaj_partners" string="ALAJ Partners" t-thumbnail="/website/static/src/img/snippets_thumbs/s_company_team.svg">
+                            <keywords>partners, logos, references, brands</keywords>
+                        </t>
+                        <t t-snippet="alaj_website.s_alaj_solutions_cards" string="ALAJ Solutions Cards" t-thumbnail="/website/static/src/img/snippets_thumbs/s_three_columns.svg">
+                            <keywords>services, solutions, cards, grid, chemistry</keywords>
+                        </t>
+                        <t t-snippet="alaj_website.s_alaj_about" string="ALAJ About" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_image.svg">
+                            <keywords>about, company, story, image, text</keywords>
+                        </t>
+                        <t t-snippet="alaj_website.s_alaj_founder" string="ALAJ Founder" t-thumbnail="/website/static/src/img/snippets_thumbs/s_text_cover.svg">
+                            <keywords>founder, quote, message, cover</keywords>
+                        </t>
+                        <t t-snippet="alaj_website.s_alaj_store" string="ALAJ Store" t-thumbnail="/website/static/src/img/snippets_thumbs/s_product_list.svg">
+                            <keywords>store, products, cards, catalog, shop</keywords>
+                        </t>
+                        <t t-snippet="alaj_website.s_alaj_news" string="ALAJ News" t-thumbnail="/website/static/src/img/snippets_thumbs/s_media_list.svg">
+                            <keywords>news, events, article, media, updates</keywords>
+                        </t>
+                        <t t-snippet="alaj_website.s_alaj_projects" string="ALAJ Projects" t-thumbnail="/website/static/src/img/snippets_thumbs/s_three_columns.svg">
+                            <keywords>projects, portfolio, case studies, cards</keywords>
+                        </t>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

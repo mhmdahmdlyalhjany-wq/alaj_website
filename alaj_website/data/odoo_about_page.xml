@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
         <template id="about_page_template" name="About Us Page">
@@ -6,279 +6,138 @@
                 <div id="wrap" class="oe_structure oe_empty">
 
                     <style>
-                        #wrap * { box-sizing: border-box; }
-                        #wrap {
-                            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-                            color: #262138; line-height: 1.6;
-                        }
-                        .page-banner { position: relative; width: 100%; height: 400px; overflow: hidden; background-size: cover; background-position: center; background-repeat: no-repeat; }
-                        .page-banner .banner-overlay {
-                            position: absolute; inset: 0;
-                            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-                            display: flex; flex-direction: column; justify-content: center; padding: 0 56px;
-                            pointer-events: none;
-                        }
-                        .page-banner .banner-overlay * { pointer-events: auto; }
-                        .page-banner .banner-title {
-                            color: #fff; font-family: 'Poppins', sans-serif;
-                            font-size: 56px; font-weight: 700; margin: 0 0 16px;
-                        }
-                        .page-banner .breadcrumb {
-                            display: flex; align-items: center; gap: 8px;
-                            color: rgba(255,255,255,0.7); font-family: 'Poppins', sans-serif; font-size: 14px;
-                        }
-                        .page-banner .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
-                        .page-banner .breadcrumb a:hover { color: #fff; }
-                        .page-banner .breadcrumb .sep { margin: 0 4px; }
-                        .page-banner .breadcrumb .current { color: #E1261C; }
-
-                        .about-content { width: 100%; padding: 64px 56px; background: #EFF9FF; }
-                        .about-inner { max-width: 1792px; margin: 0 auto; }
-
-                        .about-intro {
-                            display: grid; grid-template-columns: 1fr 1fr;
-                            gap: 64px; align-items: center; margin-bottom: 80px;
-                        }
-                        .about-intro-title {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 36px; font-weight: 600; margin: 0 0 24px; line-height: 1.3;
-                        }
-                        .about-intro-text {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 400; line-height: 1.8; margin: 0 0 16px;
-                        }
-                        .about-intro-img { border-radius: 20px; overflow: hidden; }
-                        .about-intro-img img { width: 100%; height: auto; display: block; border-radius: 20px; }
-
-                        .vm-section { margin-bottom: 80px; }
-                        .vm-section-title {
-                            color: #E1261C; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 600; text-transform: uppercase;
-                            letter-spacing: 0.05em; margin: 0 0 8px;
-                        }
-                        .vm-section-heading {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 32px; font-weight: 600; margin: 0 0 40px;
-                        }
-                        .vm-grid {
-                            display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-                        }
-                        .vm-card {
-                            background: #fff; border-radius: 20px; padding: 40px;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: box-shadow 0.2s;
-                        }
-                        .vm-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-                        .vm-card-icon {
-                            width: 64px; height: 64px; border-radius: 16px;
-                            background: rgba(225,38,28,0.08);
-                            display: flex; align-items: center; justify-content: center;
-                            margin-bottom: 24px;
-                        }
-                        .vm-card-icon svg { width: 32px; height: 32px; color: #E1261C; }
-                        .vm-card-title {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 22px; font-weight: 600; margin: 0 0 16px;
-                        }
-                        .vm-card-text {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 15px; font-weight: 400; line-height: 1.7; margin: 0;
-                        }
-
-                        .about-stats {
-                            display: grid; grid-template-columns: repeat(4, 1fr);
-                            gap: 32px; margin-bottom: 80px;
-                        }
-                        .about-stat-card {
-                            background: #fff; border-radius: 20px; padding: 40px;
-                            text-align: center;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-                        }
-                        .about-stat-num {
-                            color: #E1261C; font-family: 'Poppins', sans-serif;
-                            font-size: 48px; font-weight: 700; margin: 0 0 8px;
-                        }
-                        .about-stat-label {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 500; margin: 0;
-                        }
-
-                        .heritage-section { margin-bottom: 80px; }
-                        .heritage-title {
-                            color: #E1261C; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 600; text-transform: uppercase;
-                            letter-spacing: 0.05em; margin: 0 0 8px;
-                        }
-                        .heritage-heading {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 32px; font-weight: 600; margin: 0 0 24px;
-                        }
-                        .heritage-text {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 400; line-height: 1.8;
-                            margin: 0 0 16px; max-width: 900px;
-                        }
-
-                        .team-section {}
-                        .team-title {
-                            color: #E1261C; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 600; text-transform: uppercase;
-                            letter-spacing: 0.05em; margin: 0 0 8px;
-                        }
-                        .team-heading {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 32px; font-weight: 600; margin: 0 0 40px;
-                        }
-                        .team-grid {
-                            display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
-                        }
-                        .team-card {
-                            background: #fff; border-radius: 20px; overflow: hidden;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center;
-                        }
-                        .team-card-img { width: 100%; height: 280px; overflow: hidden; }
-                        .team-card-img img { width: 100%; height: 100%; object-fit: cover; }
-                        .team-card-body { padding: 24px; }
-                        .team-card-name {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 18px; font-weight: 600; margin: 0 0 4px;
-                        }
-                        .team-card-role {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 14px; font-weight: 400; margin: 0;
-                        }
-
-                        @media (max-width: 1200px) {
-                            .vm-grid { grid-template-columns: 1fr 1fr; }
-                            .about-stats { grid-template-columns: repeat(2, 1fr); }
-                            .team-grid { grid-template-columns: repeat(2, 1fr); }
-                        }
-                        @media (max-width: 768px) {
-                            .about-intro { grid-template-columns: 1fr; gap: 32px; }
-                            .vm-grid { grid-template-columns: 1fr; }
-                            .about-stats { grid-template-columns: 1fr 1fr; }
-                            .team-grid { grid-template-columns: 1fr; }
-                            .page-banner .banner-title { font-size: 36px; }
-                            .about-content { padding: 40px 16px; }
-                        }
-                        @media (max-width: 480px) {
-                            .about-stats { grid-template-columns: 1fr; }
-                        }
+.about-content { padding: 64px 0; }
+@media (max-width: 767px) { .about-content { padding: 40px 0; } }
+.about-intro-img img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; }
+@media (max-width: 767px) { .about-intro-img img { height: 280px; } }
+.alaj-vm-card .card-body { padding: 28px; }
+.alaj-vm-card-icon { width: 48px; height: 48px; border-radius: 10px; background: rgba(225,38,28,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.alaj-vm-card-icon svg { width: 24px; height: 24px; color: var(--alaj-red); }
+.alaj-stat-card .card-body { padding: 24px; text-align: center; }
+.alaj-stat-number { font-family: var(--alaj-font-heading); font-size: 32px; font-weight: 700; color: var(--alaj-red); margin: 0 0 4px; }
+.alaj-stat-text { font-size: 13px; font-weight: 600; color: var(--alaj-stone); margin: 0; }
                     </style>
 
-                    <section class="page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-main.jpg');">
-                        <div class="banner-overlay">
-                            <h1 class="banner-title">About Us</h1>
-                            <div class="breadcrumb">
-                                <a href="/">Home</a>
-                                <span class="sep">&gt;</span>
-                                <span class="current">About Us</span>
+                    <section class="alaj-page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-home-default.jpg');" data-name="Page Hero">
+                        <div class="alaj-banner-overlay">
+                            <div class="container">
+                                <h1>About Us</h1>
+                                <div class="alaj-breadcrumb">
+                                    <a href="/">Home</a>
+                                    <span>/</span>
+                                    <span class="active">About Us</span>
+                                </div>
                             </div>
                         </div>
                     </section>
 
-                    <section class="about-content">
-                        <div class="about-inner">
-
-                            <div class="about-intro">
-                                <div>
-                                    <h2 class="about-intro-title">Over more than 30 years as distributor or Agent for Equipment of laboratories</h2>
-                                    <p class="about-intro-text">Alajlabchem has continuously accompanied its customers across multiple market segments in a wide range of industries service providers growing to customers who are engaged in industries like Petrochemicals, Oil and Gas industry, Pharmaceuticals, Food and Beverage industry, Drinking Water, Wastewater, Utilities, Research institutes, Academic and university, Government agencies.</p>
-                                    <p class="about-intro-text">We are proud to be one of the leading distributors and agents for laboratory equipment and water analysis solutions in the Kingdom of Saudi Arabia.</p>
+                    <section class="about-content" data-name="About Intro">
+                        <div class="container">
+                            <div class="row align-items-center mb-5">
+                                <div class="col-lg-6 s_col_no_bgcolor pb16">
+                                    <span class="alaj-kicker">Who We Are</span>
+                                    <h2 class="alaj-heading">Over more than 30 years as distributor and agent for laboratory equipment</h2>
+                                    <p class="alaj-copy" style="margin-bottom:12px;">Alajlabchem has continuously accompanied its customers across multiple market segments in a wide range of industries service providers growing to customers who are engaged in industries like Petrochemicals, Oil and Gas industry, Pharmaceuticals, Food and Beverage industry, Drinking Water, Wastewater, Utilities, Research institutes, Academic and university, Government agencies.</p>
+                                    <p class="alaj-copy">We are proud to be one of the leading distributors and agents for laboratory equipment and water analysis solutions in the Kingdom of Saudi Arabia.</p>
                                 </div>
-                                <div class="about-intro-img">
-                                    <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg" alt="About Alajlabchem"/>
-                                </div>
-                            </div>
-
-                            <div class="vm-section">
-                                <p class="vm-section-title">Who We Are</p>
-                                <h2 class="vm-section-heading">Vision, Mission &amp; Values</h2>
-                                <div class="vm-grid">
-                                    <div class="vm-card">
-                                        <div class="vm-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                                        </div>
-                                        <h3 class="vm-card-title">Our Vision</h3>
-                                        <p class="vm-card-text">To be the leading provider of laboratory equipment and chemical solutions in the Kingdom and the region, setting the standard for quality and innovation.</p>
-                                    </div>
-                                    <div class="vm-card">
-                                        <div class="vm-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                                        </div>
-                                        <h3 class="vm-card-title">Our Mission</h3>
-                                        <p class="vm-card-text">Deliver exceptional laboratory products and services that empower researchers and industries to achieve breakthrough results with reliability and excellence.</p>
-                                    </div>
-                                    <div class="vm-card">
-                                        <div class="vm-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                        </div>
-                                        <h3 class="vm-card-title">Our Values</h3>
-                                        <p class="vm-card-text">Integrity, quality, customer focus, and innovation drive everything we do. We are committed to building long-lasting partnerships based on trust.</p>
+                                <div class="col-lg-6 s_col_no_bgcolor pb16">
+                                    <div class="about-intro-img">
+                                        <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg" alt="About Alajlabchem"/>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </section>
 
-                            <div class="about-stats">
-                                <div class="about-stat-card">
-                                    <p class="about-stat-num">30+</p>
-                                    <p class="about-stat-label">Years of Experience</p>
-                                </div>
-                                <div class="about-stat-card">
-                                    <p class="about-stat-num">500+</p>
-                                    <p class="about-stat-label">Products Available</p>
-                                </div>
-                                <div class="about-stat-card">
-                                    <p class="about-stat-num">100+</p>
-                                    <p class="about-stat-label">Satisfied Clients</p>
-                                </div>
-                                <div class="about-stat-card">
-                                    <p class="about-stat-num">50+</p>
-                                    <p class="about-stat-label">Global Partners</p>
-                                </div>
+                    <section data-name="Vision Mission Values">
+                        <div class="container">
+                            <div class="text-center mb-4">
+                                <span class="alaj-kicker">Our Foundation</span>
+                                <h2 class="alaj-heading">Vision, Mission <span class="alaj-heading-ampersand">&amp;</span> Values</h2>
                             </div>
-
-                            <div class="heritage-section">
-                                <p class="heritage-title">Our Story</p>
-                                <h2 class="heritage-heading">Our Heritage</h2>
-                                <p class="heritage-text">Founded in 1990, Abdullatif H. Abdullatif &amp; Sons Co. started as a small distribution company in Jeddah. Over three decades, we have grown into one of the most trusted names in laboratory equipment and chemical solutions in the Kingdom of Saudi Arabia.</p>
-                                <p class="heritage-text">Our journey has been marked by continuous growth, strategic partnerships with world-class manufacturers, and an unwavering commitment to quality. Today, we serve customers across multiple sectors including petrochemicals, pharmaceuticals, food and beverage, water treatment, and academic research.</p>
-                            </div>
-
-                            <div class="team-section">
-                                <p class="team-title">Our People</p>
-                                <h2 class="team-heading">Organizational Structure</h2>
-                                <div class="team-grid">
-                                    <div class="team-card">
-                                        <div class="team-card-img"><img src="/alaj_website/static/src/binary/projects/project-1.jpg" alt="Team Member"/></div>
-                                        <div class="team-card-body">
-                                            <p class="team-card-name">Executive Director</p>
-                                            <p class="team-card-role">Leadership</p>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-vm-card" data-name="Vision Card">
+                                        <div class="card-body">
+                                            <div class="alaj-vm-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Our Vision</h3>
+                                            <p class="card-text">To be the leading provider of laboratory equipment and chemical solutions in the Kingdom and the region, setting the standard for quality and innovation.</p>
                                         </div>
                                     </div>
-                                    <div class="team-card">
-                                        <div class="team-card-img"><img src="/alaj_website/static/src/binary/projects/project-2.jpg" alt="Team Member"/></div>
-                                        <div class="team-card-body">
-                                            <p class="team-card-name">Sales Manager</p>
-                                            <p class="team-card-role">Sales Department</p>
+                                </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-vm-card" data-name="Mission Card">
+                                        <div class="card-body">
+                                            <div class="alaj-vm-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Our Mission</h3>
+                                            <p class="card-text">Deliver exceptional laboratory products and services that empower researchers and industries to achieve breakthrough results with reliability and excellence.</p>
                                         </div>
                                     </div>
-                                    <div class="team-card">
-                                        <div class="team-card-img"><img src="/alaj_website/static/src/binary/projects/project-1.jpg" alt="Team Member"/></div>
-                                        <div class="team-card-body">
-                                            <p class="team-card-name">Technical Director</p>
-                                            <p class="team-card-role">Technical Support</p>
-                                        </div>
-                                    </div>
-                                    <div class="team-card">
-                                        <div class="team-card-img"><img src="/alaj_website/static/src/binary/projects/project-2.jpg" alt="Team Member"/></div>
-                                        <div class="team-card-body">
-                                            <p class="team-card-name">Operations Manager</p>
-                                            <p class="team-card-role">Operations</p>
+                                </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-vm-card" data-name="Values Card">
+                                        <div class="card-body">
+                                            <div class="alaj-vm-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Our Values</h3>
+                                            <p class="card-text">Integrity, quality, customer focus, and innovation drive everything we do. We are committed to building long-lasting partnerships based on trust.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </section>
 
+                    <section class="pt-5 pb-5" data-name="Statistics">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-3 col-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-stat-card" data-name="Stat Card">
+                                        <div class="card-body">
+                                            <p class="alaj-stat-number">30+</p>
+                                            <p class="alaj-stat-text">Years of Experience</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-stat-card" data-name="Stat Card">
+                                        <div class="card-body">
+                                            <p class="alaj-stat-number">500+</p>
+                                            <p class="alaj-stat-text">Store Items Available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-stat-card" data-name="Stat Card">
+                                        <div class="card-body">
+                                            <p class="alaj-stat-number">100+</p>
+                                            <p class="alaj-stat-text">Satisfied Clients</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-stat-card" data-name="Stat Card">
+                                        <div class="card-body">
+                                            <p class="alaj-stat-number">50+</p>
+                                            <p class="alaj-stat-text">Global Partners</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="pt-3 pb-5" data-name="Heritage">
+                        <div class="container">
+                            <span class="alaj-kicker">Our Story</span>
+                            <h2 class="alaj-heading">Our Heritage</h2>
+                            <p class="alaj-copy" style="margin-bottom:12px;max-width:900px;">Founded in 1990, Abdullatif H. Abdullatif <span class="alaj-ampersand">&amp;</span> Sons Co. started as a small distribution company in Jeddah. Over three decades, we have grown into one of the most trusted names in laboratory equipment and chemical solutions in the Kingdom of Saudi Arabia.</p>
+                            <p class="alaj-copy" style="max-width:900px;">Our journey has been marked by continuous growth, strategic partnerships with world-class manufacturers, and an unwavering commitment to quality. Today, we serve customers across multiple sectors including petrochemicals, pharmaceuticals, food and beverage, water treatment, and academic research.</p>
                         </div>
                     </section>
 

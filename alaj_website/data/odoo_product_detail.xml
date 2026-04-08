@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
         <template id="product_detail_template" name="Product Detail Page">
@@ -6,333 +6,305 @@
                 <div id="wrap" class="oe_structure oe_empty">
 
                     <style>
-                        #wrap * { box-sizing: border-box; }
-                        #wrap {
-                            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-                            color: #262138; line-height: 1.6;
-                        }
-                        .page-banner {
-                            position: relative; width: 100%; height: 300px; overflow: hidden;
-                            background-size: cover; background-position: center; background-repeat: no-repeat;
-                        }
-                        .page-banner .banner-overlay {
-                            position: absolute; inset: 0;
-                            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-                            display: flex; flex-direction: column; justify-content: center;
-                            padding: 0 56px;
-                            pointer-events: none;
-                        }
-                        .page-banner .banner-overlay * { pointer-events: auto; }
-                        .page-banner .banner-title {
-                            color: #fff; font-family: 'Poppins', sans-serif;
-                            font-size: 48px; font-weight: 700; margin: 0 0 16px;
-                        }
-                        .page-banner .breadcrumb {
-                            display: flex; align-items: center; gap: 8px;
-                            color: rgba(255,255,255,0.7); font-family: 'Poppins', sans-serif; font-size: 14px;
-                        }
-                        .page-banner .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
-                        .page-banner .breadcrumb a:hover { color: #fff; }
-                        .page-banner .breadcrumb .sep { margin: 0 4px; }
-                        .page-banner .breadcrumb .current { color: #E1261C; }
+.alaj-pd-section { padding: 56px 0; }
+@media (min-width: 768px) { .alaj-pd-section { padding: 80px 0; } }
+.alaj-pd-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+@media (min-width: 992px) { .alaj-pd-grid { grid-template-columns: 1fr 1fr; gap: 48px; } }
+.alaj-pd-gallery {
+    background: #fff;
+    border: 1px solid var(--alaj-border);
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+.alaj-pd-gallery img {
+    max-width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+}
+.alaj-pd-brand {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--alaj-red);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+}
+.alaj-pd-name {
+    font-family: var(--alaj-font-heading);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--alaj-charcoal);
+    margin: 0 0 12px;
+    line-height: 1.2;
+}
+.alaj-pd-stock {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(34,197,94,0.08);
+    color: #16a34a;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.alaj-pd-stock svg { width: 14px; height: 14px; }
+.alaj-pd-specs {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+.alaj-pd-specs tr { border-bottom: 1px solid var(--alaj-border); }
+.alaj-pd-specs td {
+    padding: 10px 0;
+    font-size: 13px;
+}
+.alaj-pd-specs td:first-child {
+    color: var(--alaj-stone);
+    font-weight: 600;
+    width: 40%;
+}
+.alaj-pd-specs td:last-child {
+    color: var(--alaj-charcoal);
+    font-weight: 700;
+}
+.alaj-pd-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.alaj-qty-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--alaj-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.alaj-qty-btn {
+    width: 38px;
+    height: 38px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--alaj-charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alaj-qty-btn:hover { background: var(--alaj-bg); }
+.alaj-qty-value {
+    width: 42px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    border-left: 1px solid var(--alaj-border);
+    border-right: 1px solid var(--alaj-border);
+}
+.alaj-fav-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    background: var(--alaj-bg);
+    border: 1px solid var(--alaj-border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+.alaj-fav-btn:hover { border-color: var(--alaj-red); }
+.alaj-fav-btn svg { width: 16px; height: 16px; color: var(--alaj-stone); }
 
-                        .product-detail-content { width: 100%; padding: 64px 56px; background: #EFF9FF; }
-                        .product-detail-inner {
-                            max-width: 1792px; margin: 0 auto;
-                            display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
-                        }
+.alaj-reviews-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--alaj-border);
+}
+.alaj-review-card {
+    background: #fff;
+    border: 1px solid var(--alaj-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 12px;
+}
+.alaj-review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.alaj-review-author {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--alaj-charcoal);
+    margin: 0;
+}
+.alaj-review-date {
+    font-size: 11px;
+    color: var(--alaj-stone);
+    margin: 0;
+}
+.alaj-review-stars {
+    color: #f59e0b;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.alaj-review-text {
+    font-size: 13px;
+    color: var(--alaj-stone);
+    line-height: 1.6;
+    margin: 0;
+}
 
-                        .product-gallery {
-                            background: #fff; border-radius: 20px; padding: 40px;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-                            display: flex; align-items: center; justify-content: center;
-                            min-height: 500px;
-                        }
-                        .product-gallery img {
-                            max-width: 100%; max-height: 400px; object-fit: contain;
-                        }
-
-                        .product-info {}
-                        .product-brand {
-                            color: #E1261C; font-family: 'Poppins', sans-serif;
-                            font-size: 14px; font-weight: 600;
-                            text-transform: uppercase; letter-spacing: 0.05em;
-                            margin: 0 0 8px;
-                        }
-                        .product-name {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 32px; font-weight: 600; margin: 0 0 16px;
-                            line-height: 1.3;
-                        }
-                        .product-stock {
-                            display: inline-flex; align-items: center; gap: 8px;
-                            padding: 6px 16px; background: rgba(34,197,94,0.1);
-                            color: #16a34a; border-radius: 9999px;
-                            font-family: 'Poppins', sans-serif;
-                            font-size: 13px; font-weight: 500;
-                            margin-bottom: 24px;
-                        }
-                        .product-stock svg { width: 16px; height: 16px; }
-                        .product-desc {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 15px; font-weight: 400; line-height: 1.8;
-                            margin: 0 0 32px;
-                        }
-
-                        .specs-title {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 20px; font-weight: 600; margin: 0 0 16px;
-                        }
-                        .specs-table {
-                            width: 100%; border-collapse: collapse;
-                            margin-bottom: 32px;
-                        }
-                        .specs-table tr { border-bottom: 1px solid #e5e7eb; }
-                        .specs-table td {
-                            padding: 12px 0;
-                            font-family: 'Poppins', sans-serif; font-size: 14px;
-                        }
-                        .specs-table td:first-child {
-                            color: #4A4363; font-weight: 400; width: 40%;
-                        }
-                        .specs-table td:last-child {
-                            color: #262138; font-weight: 500;
-                        }
-
-                        .product-actions {
-                            display: flex; align-items: center; gap: 16px;
-                            margin-bottom: 32px;
-                        }
-                        .qty-control {
-                            display: flex; align-items: center; gap: 0;
-                            border: 1px solid #e5e7eb; border-radius: 12px;
-                            overflow: hidden;
-                        }
-                        .qty-btn {
-                            width: 44px; height: 44px; background: #fff;
-                            border: none; cursor: pointer;
-                            font-size: 18px; color: #262138;
-                            display: flex; align-items: center; justify-content: center;
-                        }
-                        .qty-btn:hover { background: #f3f4f6; }
-                        .qty-value {
-                            width: 50px; height: 44px;
-                            display: flex; align-items: center; justify-content: center;
-                            font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 500;
-                            border-left: 1px solid #e5e7eb;
-                            border-right: 1px solid #e5e7eb;
-                        }
-                        .add-cart-btn {
-                            display: inline-flex; align-items: center; gap: 12px;
-                            padding: 12px 40px; background: #E1261C; color: #fff;
-                            border-radius: 9999px; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 600;
-                            border: none; cursor: pointer; transition: background 0.2s;
-                            text-decoration: none;
-                        }
-                        .add-cart-btn:hover { background: rgba(225,38,28,0.9); }
-                        .fav-btn {
-                            width: 44px; height: 44px; border-radius: 50%;
-                            background: #F1F3F9; border: none; cursor: pointer;
-                            display: flex; align-items: center; justify-content: center;
-                        }
-                        .fav-btn svg { width: 20px; height: 20px; color: #6b7280; }
-
-                        .reviews-section {
-                            margin-top: 48px; padding-top: 48px;
-                            border-top: 1px solid #e5e7eb;
-                        }
-                        .reviews-title {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 24px; font-weight: 600; margin: 0 0 8px;
-                        }
-                        .reviews-subtitle {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 14px; font-weight: 400; margin: 0 0 24px;
-                        }
-                        .review-card {
-                            background: #fff; border-radius: 16px; padding: 24px;
-                            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-                            margin-bottom: 16px;
-                        }
-                        .review-header {
-                            display: flex; align-items: center; justify-content: space-between;
-                            margin-bottom: 12px;
-                        }
-                        .review-author {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 15px; font-weight: 600; margin: 0;
-                        }
-                        .review-date {
-                            color: #9ca3af; font-family: 'Poppins', sans-serif;
-                            font-size: 13px; font-weight: 400; margin: 0;
-                        }
-                        .review-stars { color: #f59e0b; font-size: 16px; margin-bottom: 8px; }
-                        .review-text {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 14px; font-weight: 400; line-height: 1.6;
-                            margin: 0;
-                        }
-
-                        .related-products {
-                            width: 100%; padding: 64px 56px; background: #EFF9FF;
-                        }
-                        .related-inner { max-width: 1792px; margin: 0 auto; }
-                        .related-title-main {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 28px; font-weight: 600; margin: 0 0 32px;
-                        }
-                        .related-grid {
-                            display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
-                        }
-                        .rel-prod-card {
-                            background: #fff; border-radius: 20px; padding: 20px;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-                            transition: box-shadow 0.2s; text-align: center;
-                        }
-                        .rel-prod-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-                        .rel-prod-card img {
-                            width: 100px; height: 100px; object-fit: contain;
-                            margin: 0 auto 16px;
-                        }
-                        .rel-prod-card p {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 15px; font-weight: 500; margin: 0 0 16px;
-                            min-height: 60px;
-                        }
-                        .rel-prod-card a {
-                            width: 42px; height: 42px; border-radius: 50%;
-                            border: 1px solid #262138; background: none;
-                            display: inline-flex; align-items: center; justify-content: center;
-                            color: #262138; text-decoration: none;
-                            transition: all 0.2s;
-                        }
-                        .rel-prod-card a:hover { background: #262138; color: #fff; }
-                        .rel-prod-card a svg { width: 20px; height: 20px; }
-                        .arrow-icon { stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-
-                        @media (max-width: 1024px) {
-                            .product-detail-inner { grid-template-columns: 1fr; }
-                            .related-grid { grid-template-columns: repeat(2, 1fr); }
-                        }
-                        @media (max-width: 768px) {
-                            .page-banner .banner-title { font-size: 32px; }
-                            .related-grid { grid-template-columns: 1fr; }
-                        }
+.alaj-store-card-img { display: flex; align-items: center; justify-content: center; padding: 16px 0; margin-bottom: 16px; }
+.alaj-store-card-img img { width: 100px; height: 100px; object-fit: contain; }
+.alaj-store-arrow { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--alaj-red); text-transform: uppercase; letter-spacing: 0.04em; }
+.alaj-store-arrow svg { width: 14px; height: 14px; }
                     </style>
 
-                    <section class="page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-main.jpg');">
-                        <div class="banner-overlay">
-                            <h1 class="banner-title">Product Details</h1>
-                            <div class="breadcrumb">
-                                <a href="/">Home</a>
-                                <span class="sep">&gt;</span>
-                                <a href="/products">Products</a>
-                                <span class="sep">&gt;</span>
-                                <span class="current">Product Detail</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="product-detail-content">
-                        <div class="product-detail-inner">
-                            <div class="product-gallery">
-                                <img src="/alaj_website/static/src/binary/products/dr-6000.png" alt="DR 6000"/>
-                            </div>
-
-                            <div class="product-info">
-                                <p class="product-brand">HACH</p>
-                                <h1 class="product-name">DR 6000 Without RFID Hach Lange</h1>
-                                <div class="product-stock">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                                    In-Stock and ready to ship
-                                </div>
-                                <p class="product-desc">
-                                    The DR 6000 is a high-performance UV-VIS spectrophotometer designed for laboratory water analysis.
-                                    It features advanced spectrophotometry capabilities with a digital touch screen interface,
-                                    USB connectivity, and pre-programmed methods for fast and accurate results.
-                                </p>
-
-                                <h3 class="specs-title">Key Features</h3>
-                                <table class="specs-table">
-                                    <tr><td>Display</td><td>Digital Touch Screen</td></tr>
-                                    <tr><td>Interface</td><td>USB, Ethernet</td></tr>
-                                    <tr><td>Wavelength Range</td><td>190 - 1100 nm</td></tr>
-                                    <tr><td>Bandwidth</td><td>2 nm</td></tr>
-                                    <tr><td>Photometric Range</td><td>-3 to 3 Abs</td></tr>
-                                </table>
-
-                                <div class="product-actions">
-                                    <div class="qty-control">
-                                        <button class="qty-btn">-</button>
-                                        <div class="qty-value">1</div>
-                                        <button class="qty-btn">+</button>
-                                    </div>
-                                    <a href="/shop" class="add-cart-btn">Add to Cart</a>
-                                    <a href="/shop/wishlist" class="fav-btn">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="max-width: 1792px; margin: 0 auto;">
-                            <div class="reviews-section">
-                                <h2 class="reviews-title">All Reviews</h2>
-                                <p class="reviews-subtitle">Based on 18 reviews</p>
-
-                                <div class="review-card">
-                                    <div class="review-header">
-                                        <p class="review-author">Ahmed K.</p>
-                                        <p class="review-date">Jul 08, 2025</p>
-                                    </div>
-                                    <div class="review-stars">âک…âک…âک…âک…âک…</div>
-                                    <p class="review-text">Excellent spectrophotometer. Very accurate readings and easy to use interface. Highly recommended for laboratory work.</p>
-                                </div>
-                                <div class="review-card">
-                                    <div class="review-header">
-                                        <p class="review-author">Sarah M.</p>
-                                        <p class="review-date">Jul 13, 2025</p>
-                                    </div>
-                                    <div class="review-stars">âک…âک…âک…âک…âک†</div>
-                                    <p class="review-text">Great product overall. The touch screen is responsive and the pre-programmed methods save a lot of time.</p>
-                                </div>
-                                <div class="review-card">
-                                    <div class="review-header">
-                                        <p class="review-author">Mohammed R.</p>
-                                        <p class="review-date">Jul 21, 2025</p>
-                                    </div>
-                                    <div class="review-stars">âک…âک…âک…âک…âک…</div>
-                                    <p class="review-text">Best in class for water analysis. The UV-VIS capability makes it versatile for multiple applications.</p>
+                    <section class="alaj-page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-home-default.jpg');" data-name="Page Hero">
+                        <div class="alaj-banner-overlay">
+                            <div class="container">
+                                <h1>Product Details</h1>
+                                <div class="alaj-breadcrumb">
+                                    <a href="/">Home</a>
+                                    <span>/</span>
+                                    <a href="/products">Store</a>
+                                    <span>/</span>
+                                    <span class="active">Product Detail</span>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <section class="related-products">
-                        <div class="related-inner">
-                            <h2 class="related-title-main">Customers also viewed</h2>
-                            <div class="related-grid">
-                                <div class="rel-prod-card">
-                                    <img src="/alaj_website/static/src/binary/products/balance-scale.png" alt="Balance Scale"/>
-                                    <p>BALANCE COMPACT SCALE 2000G X 1GM</p>
-                                    <a href="/shop"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
+                    <section class="pt-5 pb-5" data-name="Product Detail">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 s_col_no_bgcolor pb16">
+                                    <div class="alaj-pd-gallery" data-name="Product Gallery">
+                                        <img src="/alaj_website/static/src/binary/products/dr-6000.png" alt="DR 6000"/>
+                                    </div>
                                 </div>
-                                <div class="rel-prod-card">
-                                    <img src="/alaj_website/static/src/binary/products/hq1110-meter.png" alt="HQ1110"/>
-                                    <p>HQ1110 Portable pH/ORP Meter</p>
-                                    <a href="/shop"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
+                                <div class="col-lg-6 s_col_no_bgcolor pb16" data-name="Product Info">
+                                    <p class="alaj-pd-brand">HACH</p>
+                                    <h1 class="alaj-pd-name">DR 6000 Without RFID Hach Lange</h1>
+                                    <div class="alaj-pd-stock">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                                        In-Stock
+                                    </div>
+                                    <p class="alaj-copy" style="margin-bottom:24px;">The DR 6000 is a high-performance UV-VIS spectrophotometer designed for laboratory water analysis. It features advanced spectrophotometry capabilities with a digital touch screen interface, USB connectivity, and pre-programmed methods for fast and accurate results.</p>
+
+                                    <span class="alaj-kicker">Specifications</span>
+                                    <table class="alaj-pd-specs">
+                                        <tr><td>Display</td><td>Digital Touch Screen</td></tr>
+                                        <tr><td>Interface</td><td>USB, Ethernet</td></tr>
+                                        <tr><td>Wavelength Range</td><td>190 - 1100 nm</td></tr>
+                                        <tr><td>Bandwidth</td><td>2 nm</td></tr>
+                                        <tr><td>Photometric Range</td><td>-3 to 3 Abs</td></tr>
+                                    </table>
+
+                                    <div class="alaj-pd-actions">
+                                        <div class="alaj-qty-control">
+                                            <button class="alaj-qty-btn">-</button>
+                                            <div class="alaj-qty-value">1</div>
+                                            <button class="alaj-qty-btn">+</button>
+                                        </div>
+                                        <a href="/shop" class="btn-red">Add to Cart</a>
+                                        <button class="alaj-fav-btn">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="rel-prod-card">
-                                    <img src="/alaj_website/static/src/binary/products/lico-690.png" alt="LICO 690"/>
-                                    <p>LICO 690 Professional Spectral Colorimeter</p>
-                                    <a href="/shop"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
+                            </div>
+
+                            <div class="alaj-reviews-section">
+                                <span class="alaj-kicker">Feedback</span>
+                                <h2 class="alaj-heading">All Reviews</h2>
+                                <p class="alaj-copy" style="margin-bottom:20px;">Based on 18 reviews</p>
+
+                                <div class="alaj-review-card" data-name="Review">
+                                    <div class="alaj-review-header">
+                                        <p class="alaj-review-author">Ahmed K.</p>
+                                        <p class="alaj-review-date">Jul 08, 2025</p>
+                                    </div>
+                                    <div class="alaj-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                    <p class="alaj-review-text">Excellent spectrophotometer. Very accurate readings and easy to use interface. Highly recommended for laboratory work.</p>
                                 </div>
-                                <div class="rel-prod-card">
-                                    <img src="/alaj_website/static/src/binary/products/dr-6000.png" alt="HPLC"/>
-                                    <p>HPLC Analytical Instrument</p>
-                                    <a href="/shop"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
+                                <div class="alaj-review-card" data-name="Review">
+                                    <div class="alaj-review-header">
+                                        <p class="alaj-review-author">Sarah M.</p>
+                                        <p class="alaj-review-date">Jul 13, 2025</p>
+                                    </div>
+                                    <div class="alaj-review-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                                    <p class="alaj-review-text">Great product overall. The touch screen is responsive and the pre-programmed methods save a lot of time.</p>
+                                </div>
+                                <div class="alaj-review-card" data-name="Review">
+                                    <div class="alaj-review-header">
+                                        <p class="alaj-review-author">Mohammed R.</p>
+                                        <p class="alaj-review-date">Jul 21, 2025</p>
+                                    </div>
+                                    <div class="alaj-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                    <p class="alaj-review-text">Best in class for water analysis. The UV-VIS capability makes it versatile for multiple applications.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="pt-5 pb-5" style="background:#fff;" data-name="Related Products">
+                        <div class="container">
+                            <span class="alaj-kicker">Discover More</span>
+                            <h2 class="alaj-heading" style="margin-bottom:24px;">Customers Also Viewed</h2>
+                            <div class="row">
+                                <div class="col-lg-3 col-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-store-card" data-name="Product Card">
+                                        <div class="card-body">
+                                            <div class="alaj-store-card-img"><img src="/alaj_website/static/src/binary/products/balance-scale.png" alt="Balance Scale"/></div>
+                                            <h3 class="card-title" style="flex:1;">Balance Compact Scale 2000G X 1GM</h3>
+                                            <a href="/shop" class="alaj-store-arrow">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-store-card" data-name="Product Card">
+                                        <div class="card-body">
+                                            <div class="alaj-store-card-img"><img src="/alaj_website/static/src/binary/products/hq1110-meter.png" alt="HQ1110"/></div>
+                                            <h3 class="card-title" style="flex:1;">HQ1110 Portable pH/ORP Meter</h3>
+                                            <a href="/shop" class="alaj-store-arrow">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-store-card" data-name="Product Card">
+                                        <div class="card-body">
+                                            <div class="alaj-store-card-img"><img src="/alaj_website/static/src/binary/products/lico-690.png" alt="LICO 690"/></div>
+                                            <h3 class="card-title" style="flex:1;">LICO 690 Professional Spectral Colorimeter</h3>
+                                            <a href="/shop" class="alaj-store-arrow">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-store-card" data-name="Product Card">
+                                        <div class="card-body">
+                                            <div class="alaj-store-card-img"><img src="/alaj_website/static/src/binary/products/dr-6000.png" alt="HPLC"/></div>
+                                            <h3 class="card-title" style="flex:1;">HPLC Analytical Instrument</h3>
+                                            <a href="/shop" class="alaj-store-arrow">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

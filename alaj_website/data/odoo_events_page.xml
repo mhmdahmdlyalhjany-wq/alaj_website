@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
         <template id="events_page_template" name="Events Page">
@@ -6,242 +6,255 @@
                 <div id="wrap" class="oe_structure oe_empty">
 
                     <style>
-                        #wrap * { box-sizing: border-box; }
-                        #wrap {
-                            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-                            color: #262138; line-height: 1.6;
-                        }
-                        .page-banner {
-                            position: relative; width: 100%; height: 400px; overflow: hidden;
-                            background-size: cover; background-position: center; background-repeat: no-repeat;
-                        }
-                        .page-banner .banner-overlay {
-                            position: absolute; inset: 0;
-                            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-                            display: flex; flex-direction: column; justify-content: center;
-                            padding: 0 56px;
-                            pointer-events: none;
-                        }
-                        .page-banner .banner-overlay * { pointer-events: auto; }
-                        .page-banner .banner-title {
-                            color: #fff; font-family: 'Poppins', sans-serif;
-                            font-size: 56px; font-weight: 700; margin: 0 0 16px;
-                        }
-                        .page-banner .breadcrumb {
-                            display: flex; align-items: center; gap: 8px;
-                            color: rgba(255,255,255,0.7); font-family: 'Poppins', sans-serif; font-size: 14px;
-                        }
-                        .page-banner .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
-                        .page-banner .breadcrumb a:hover { color: #fff; }
-                        .page-banner .breadcrumb .sep { margin: 0 4px; }
-                        .page-banner .breadcrumb .current { color: #E1261C; }
-
-                        .events-content { width: 100%; padding: 64px 56px; background: #EFF9FF; }
-                        .events-inner { max-width: 1792px; margin: 0 auto; }
-
-                        .events-tabs {
-                            display: flex; align-items: center; gap: 16px;
-                            margin-bottom: 40px; flex-wrap: wrap;
-                        }
-                        .tab-btn {
-                            padding: 10px 24px; border-radius: 9999px;
-                            font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 500;
-                            background: none; cursor: pointer; transition: all 0.2s;
-                        }
-                        .tab-btn.active { border: 1px solid #E1261C; color: #E1261C; }
-                        .tab-btn:not(.active) { border: 1px solid transparent; color: rgba(34,34,34,0.5); }
-                        .tab-btn:not(.active):hover { color: #222; }
-
-                        .events-grid {
-                            display: grid; grid-template-columns: repeat(3, 1fr);
-                            gap: 32px; margin-bottom: 48px;
-                        }
-                        .event-card {
-                            background: #fff; border-radius: 20px; overflow: hidden;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: box-shadow 0.2s;
-                            cursor: pointer;
-                        }
-                        .event-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-                        .event-card-img { width: 100%; height: 220px; overflow: hidden; }
-                        .event-card-img img {
-                            width: 100%; height: 100%; object-fit: cover;
-                            transition: transform 0.3s;
-                        }
-                        .event-card:hover .event-card-img img { transform: scale(1.05); }
-                        .event-card-body { padding: 24px; }
-                        .event-card-date {
-                            color: #E1261C; font-family: 'Poppins', sans-serif;
-                            font-size: 14px; font-weight: 500; margin: 0 0 8px;
-                        }
-                        .event-card-badge {
-                            display: inline-block; padding: 4px 12px;
-                            background: rgba(225,38,28,0.1); color: #E1261C;
-                            border-radius: 9999px; font-family: 'Poppins', sans-serif;
-                            font-size: 12px; font-weight: 500; margin-bottom: 12px;
-                        }
-                        .event-card-title {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 20px; font-weight: 500; margin: 0 0 12px;
-                            line-height: 1.4;
-                        }
-                        .event-card-desc {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 14px; font-weight: 400; margin: 0 0 16px;
-                            line-height: 1.6;
-                            display: -webkit-box; -webkit-line-clamp: 2;
-                            -webkit-box-orient: vertical; overflow: hidden;
-                        }
-                        .event-card-location {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 13px; font-weight: 400; margin: 0;
-                            display: flex; align-items: center; gap: 6px;
-                        }
-                        .event-card-location svg { width: 14px; height: 14px; }
-                        .event-card-arrow {
-                            width: 42px; height: 42px; border-radius: 50%;
-                            border: 1px solid #262138; background: none;
-                            display: inline-flex; align-items: center; justify-content: center;
-                            cursor: pointer; transition: all 0.2s; margin-top: 16px;
-                            text-decoration: none; color: #262138;
-                        }
-                        .event-card-arrow:hover { background: #262138; color: #fff; }
-                        .event-card-arrow svg { width: 20px; height: 20px; }
-                        .arrow-icon { stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-
-                        .pagination-row {
-                            display: flex; align-items: center; justify-content: center; gap: 8px;
-                        }
-                        .page-btn {
-                            width: 40px; height: 40px; border-radius: 50%;
-                            display: flex; align-items: center; justify-content: center;
-                            cursor: pointer; background: #fff; border: 1px solid #e5e7eb;
-                            font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500;
-                            color: #262138; transition: all 0.2s;
-                        }
-                        .page-btn.active { background: #E1261C; color: #fff; border-color: #E1261C; }
-                        .page-btn:hover:not(.active) { border-color: #E1261C; color: #E1261C; }
-
-                        @media (max-width: 1200px) { .events-grid { grid-template-columns: repeat(2, 1fr); } }
-                        @media (max-width: 768px) {
-                            .events-grid { grid-template-columns: 1fr; }
-                            .page-banner .banner-title { font-size: 36px; }
-                        }
+.alaj-events-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+.alaj-events-filter {
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid var(--alaj-border);
+    color: var(--alaj-stone);
+    background: transparent;
+    cursor: pointer;
+}
+.alaj-events-filter:hover,
+.alaj-events-filter.active {
+    border-color: var(--alaj-red);
+    color: var(--alaj-red);
+    background: rgba(225,38,28,0.04);
+}
+.alaj-events-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+@media (min-width: 768px) { .alaj-events-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+.alaj-event-card {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid var(--alaj-border);
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.alaj-event-card:hover {
+    border-color: rgba(225,38,28,0.3);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    text-decoration: none;
+}
+.alaj-event-card-img {
+    overflow: hidden;
+    height: 200px;
+}
+.alaj-event-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+.alaj-event-card:hover .alaj-event-card-img img { transform: scale(1.05); }
+.alaj-event-card-body { padding: 20px; }
+.alaj-event-card-date {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--alaj-red);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+}
+.alaj-event-card-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(225,38,28,0.08);
+    color: var(--alaj-red);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.alaj-event-card-title {
+    font-family: var(--alaj-font-body);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--alaj-charcoal);
+    margin: 0 0 8px;
+    line-height: 1.4;
+}
+.alaj-event-card-desc {
+    font-size: 13px;
+    color: var(--alaj-stone);
+    line-height: 1.6;
+    margin: 0 0 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.alaj-event-card-loc {
+    font-size: 12px;
+    color: var(--alaj-stone);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.alaj-event-card-loc svg { width: 13px; height: 13px; }
+.alaj-event-card-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--alaj-red);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 12px;
+}
+.alaj-event-card-arrow svg { width: 14px; height: 14px; }
+.alaj-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.alaj-page-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid var(--alaj-border);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--alaj-charcoal);
+    transition: all 0.2s;
+}
+.alaj-page-btn.active { background: var(--alaj-red); color: #fff; border-color: var(--alaj-red); }
+.alaj-page-btn:hover:not(.active) { border-color: var(--alaj-red); color: var(--alaj-red); }
                     </style>
 
-                    <section class="page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-main.jpg');">
-                        <div class="banner-overlay">
-                            <h1 class="banner-title">Media Center</h1>
-                            <div class="breadcrumb">
-                                <a href="/">Home</a>
-                                <span class="sep">&gt;</span>
-                                <span class="current">Media Center</span>
+                    <section class="alaj-page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-home-default.jpg');" data-name="Page Hero">
+                        <div class="alaj-banner-overlay">
+                            <div class="container">
+                                <h1>Media Center</h1>
+                                <div class="alaj-breadcrumb">
+                                    <a href="/">Home</a>
+                                    <span>/</span>
+                                    <span class="active">Media Center</span>
+                                </div>
                             </div>
                         </div>
                     </section>
 
-                    <section class="events-content">
-                        <div class="events-inner">
-                            <div class="events-tabs">
-                                <button class="tab-btn active">All</button>
-                                <button class="tab-btn">News</button>
-                                <button class="tab-btn">Events</button>
-                                <button class="tab-btn">Exhibitions</button>
-                                <button class="tab-btn">Announcements</button>
+                    <section class="pt-5 pb-5" data-name="Events">
+                        <div class="container">
+                            <div style="margin-bottom:32px;">
+                                <span class="alaj-kicker">Stay Updated</span>
+                                <h2 class="alaj-heading">News <span class="alaj-heading-ampersand">&amp;</span> Events</h2>
                             </div>
-
-                            <div class="events-grid">
-                                <div class="event-card">
-                                    <div class="event-card-img"><img src="/alaj_website/static/src/binary/news/event-1.jpg" alt="Event"/></div>
-                                    <div class="event-card-body">
-                                        <p class="event-card-date">12 Mar 2025</p>
-                                        <span class="event-card-badge">Exhibition</span>
-                                        <h3 class="event-card-title">Saudi International Lab Expo 2025</h3>
-                                        <p class="event-card-desc">Join us at the largest laboratory equipment exhibition in the Kingdom.</p>
-                                        <p class="event-card-location">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                            Riyadh, KSA
-                                        </p>
-                                        <a href="/event-detail" class="event-card-arrow"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
-                                    </div>
+                            <div class="alaj-events-filters">
+                                <button class="alaj-events-filter active">All</button>
+                                <button class="alaj-events-filter">News</button>
+                                <button class="alaj-events-filter">Events</button>
+                                <button class="alaj-events-filter">Exhibitions</button>
+                                <button class="alaj-events-filter">Announcements</button>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/event-detail" class="card h-100 alaj-event-card" data-name="Event Card" style="text-decoration:none;">
+                                        <div class="alaj-event-card-img"><img src="/alaj_website/static/src/binary/news/event-1.jpg" alt="Event"/></div>
+                                        <div class="card-body alaj-event-card-body">
+                                            <p class="alaj-event-card-date">12 Mar 2025</p>
+                                            <span class="alaj-event-card-badge">Exhibition</span>
+                                            <h3 class="alaj-event-card-title">Saudi International Lab Expo 2025</h3>
+                                            <p class="alaj-event-card-desc">Join us at the largest laboratory equipment exhibition in the Kingdom.</p>
+                                            <p class="alaj-event-card-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Riyadh, KSA</p>
+                                            <span class="alaj-event-card-arrow">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="event-card">
-                                    <div class="event-card-img"><img src="/alaj_website/static/src/binary/news/event-2.jpg" alt="Event"/></div>
-                                    <div class="event-card-body">
-                                        <p class="event-card-date">25 Feb 2025</p>
-                                        <span class="event-card-badge">News</span>
-                                        <h3 class="event-card-title">Advanced Spectral Colorimeters Launch</h3>
-                                        <p class="event-card-desc">Introducing our newest range of professional spectral colorimeters.</p>
-                                        <p class="event-card-location">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                            Jeddah, KSA
-                                        </p>
-                                        <a href="/event-detail" class="event-card-arrow"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
-                                    </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/event-detail" class="card h-100 alaj-event-card" data-name="Event Card" style="text-decoration:none;">
+                                        <div class="alaj-event-card-img"><img src="/alaj_website/static/src/binary/news/event-2.jpg" alt="Event"/></div>
+                                        <div class="card-body alaj-event-card-body">
+                                            <p class="alaj-event-card-date">25 Feb 2025</p>
+                                            <span class="alaj-event-card-badge">News</span>
+                                            <h3 class="alaj-event-card-title">Advanced Spectral Colorimeters Launch</h3>
+                                            <p class="alaj-event-card-desc">Introducing our newest range of professional spectral colorimeters.</p>
+                                            <p class="alaj-event-card-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Jeddah, KSA</p>
+                                            <span class="alaj-event-card-arrow">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="event-card">
-                                    <div class="event-card-img"><img src="/alaj_website/static/src/binary/news/event-3.jpg" alt="Event"/></div>
-                                    <div class="event-card-body">
-                                        <p class="event-card-date">10 Jan 2025</p>
-                                        <span class="event-card-badge">Event</span>
-                                        <h3 class="event-card-title">Annual Quality Workshop for Lab Professionals</h3>
-                                        <p class="event-card-desc">Contact us for registration details and booth information.</p>
-                                        <p class="event-card-location">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                            Dammam, KSA
-                                        </p>
-                                        <a href="/event-detail" class="event-card-arrow"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
-                                    </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/event-detail" class="card h-100 alaj-event-card" data-name="Event Card" style="text-decoration:none;">
+                                        <div class="alaj-event-card-img"><img src="/alaj_website/static/src/binary/news/event-3.jpg" alt="Event"/></div>
+                                        <div class="card-body alaj-event-card-body">
+                                            <p class="alaj-event-card-date">10 Jan 2025</p>
+                                            <span class="alaj-event-card-badge">Event</span>
+                                            <h3 class="alaj-event-card-title">Annual Quality Workshop for Lab Professionals</h3>
+                                            <p class="alaj-event-card-desc">Contact us for registration details and booth information.</p>
+                                            <p class="alaj-event-card-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Dammam, KSA</p>
+                                            <span class="alaj-event-card-arrow">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="event-card">
-                                    <div class="event-card-img"><img src="/alaj_website/static/src/binary/news/event-4.jpg" alt="Event"/></div>
-                                    <div class="event-card-body">
-                                        <p class="event-card-date">05 Dec 2024</p>
-                                        <span class="event-card-badge">Announcement</span>
-                                        <h3 class="event-card-title">Company Celebrates 30 Years of Excellence</h3>
-                                        <p class="event-card-desc">Celebrating three decades of serving the chemical industry.</p>
-                                        <p class="event-card-location">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                            Riyadh, KSA
-                                        </p>
-                                        <a href="/event-detail" class="event-card-arrow"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
-                                    </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/event-detail" class="card h-100 alaj-event-card" data-name="Event Card" style="text-decoration:none;">
+                                        <div class="alaj-event-card-img"><img src="/alaj_website/static/src/binary/news/event-4.jpg" alt="Event"/></div>
+                                        <div class="card-body alaj-event-card-body">
+                                            <p class="alaj-event-card-date">05 Dec 2024</p>
+                                            <span class="alaj-event-card-badge">Announcement</span>
+                                            <h3 class="alaj-event-card-title">Company Celebrates 30 Years of Excellence</h3>
+                                            <p class="alaj-event-card-desc">Celebrating three decades of serving the chemical industry.</p>
+                                            <p class="alaj-event-card-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Riyadh, KSA</p>
+                                            <span class="alaj-event-card-arrow">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="event-card">
-                                    <div class="event-card-img"><img src="/alaj_website/static/src/binary/news/featured-article.jpg" alt="Event"/></div>
-                                    <div class="event-card-body">
-                                        <p class="event-card-date">18 Nov 2024</p>
-                                        <span class="event-card-badge">Exhibition</span>
-                                        <h3 class="event-card-title">Chemical Industry Forum 2024</h3>
-                                        <p class="event-card-desc">The premier event for chemical industry professionals in the region.</p>
-                                        <p class="event-card-location">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                            Jeddah, KSA
-                                        </p>
-                                        <a href="/event-detail" class="event-card-arrow"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
-                                    </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/event-detail" class="card h-100 alaj-event-card" data-name="Event Card" style="text-decoration:none;">
+                                        <div class="alaj-event-card-img"><img src="/alaj_website/static/src/binary/news/featured-article.jpg" alt="Event"/></div>
+                                        <div class="card-body alaj-event-card-body">
+                                            <p class="alaj-event-card-date">18 Nov 2024</p>
+                                            <span class="alaj-event-card-badge">Exhibition</span>
+                                            <h3 class="alaj-event-card-title">Chemical Industry Forum 2024</h3>
+                                            <p class="alaj-event-card-desc">The premier event for chemical industry professionals in the region.</p>
+                                            <p class="alaj-event-card-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Jeddah, KSA</p>
+                                            <span class="alaj-event-card-arrow">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="event-card">
-                                    <div class="event-card-img"><img src="/alaj_website/static/src/binary/projects/project-1.jpg" alt="Event"/></div>
-                                    <div class="event-card-body">
-                                        <p class="event-card-date">02 Oct 2024</p>
-                                        <span class="event-card-badge">News</span>
-                                        <h3 class="event-card-title">New Partnership with Global Lab Equipment Provider</h3>
-                                        <p class="event-card-desc">Expanding our capabilities with world-class partnerships.</p>
-                                        <p class="event-card-location">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                            Dammam, KSA
-                                        </p>
-                                        <a href="/event-detail" class="event-card-arrow"><svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg></a>
-                                    </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/event-detail" class="card h-100 alaj-event-card" data-name="Event Card" style="text-decoration:none;">
+                                        <div class="alaj-event-card-img"><img src="/alaj_website/static/src/binary/projects/project-1.jpg" alt="Event"/></div>
+                                        <div class="card-body alaj-event-card-body">
+                                            <p class="alaj-event-card-date">02 Oct 2024</p>
+                                            <span class="alaj-event-card-badge">News</span>
+                                            <h3 class="alaj-event-card-title">New Partnership with Global Lab Equipment Provider</h3>
+                                            <p class="alaj-event-card-desc">Expanding our capabilities with world-class partnerships.</p>
+                                            <p class="alaj-event-card-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Dammam, KSA</p>
+                                            <span class="alaj-event-card-arrow">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
-
-                            <div class="pagination-row">
-                                <button class="page-btn">&lt;</button>
-                                <button class="page-btn active">1</button>
-                                <button class="page-btn">2</button>
-                                <button class="page-btn">3</button>
-                                <button class="page-btn">&gt;</button>
+                            <div class="alaj-pagination">
+                                <button class="alaj-page-btn">&lt;</button>
+                                <button class="alaj-page-btn active">1</button>
+                                <button class="alaj-page-btn">2</button>
+                                <button class="alaj-page-btn">3</button>
+                                <button class="alaj-page-btn">&gt;</button>
                             </div>
                         </div>
                     </section>

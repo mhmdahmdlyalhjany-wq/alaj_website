@@ -14,4 +14,9 @@
     <record id="alaj_website_record" model="website">
         <field name="menu_id" ref="alaj_top_menu"/>
     </record>
+
+    <function model="website" name="write">
+        <value eval="[ref('alaj_website_record')]"/>
+        <value eval="{'menu_id': ref('alaj_top_menu')}"/>
+    </function>
 </odoo>

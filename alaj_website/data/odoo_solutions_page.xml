@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
         <template id="solutions_page_template" name="Solutions Page">
@@ -6,271 +6,163 @@
                 <div id="wrap" class="oe_structure oe_empty">
 
                     <style>
-                        #wrap * { box-sizing: border-box; }
-                        #wrap {
-                            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-                            color: #262138; line-height: 1.6;
-                        }
-                        .page-banner { position: relative; width: 100%; height: 400px; overflow: hidden; background-size: cover; background-position: center; background-repeat: no-repeat; }
-                        .page-banner .banner-overlay {
-                            position: absolute; inset: 0;
-                            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-                            display: flex; flex-direction: column; justify-content: center; padding: 0 56px;
-                            pointer-events: none;
-                        }
-                        .page-banner .banner-overlay * { pointer-events: auto; }
-                        .page-banner .banner-title {
-                            color: #fff; font-family: 'Poppins', sans-serif;
-                            font-size: 56px; font-weight: 700; margin: 0 0 16px;
-                        }
-                        .page-banner .breadcrumb {
-                            display: flex; align-items: center; gap: 8px;
-                            color: rgba(255,255,255,0.7); font-family: 'Poppins', sans-serif; font-size: 14px;
-                        }
-                        .page-banner .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
-                        .page-banner .breadcrumb a:hover { color: #fff; }
-                        .page-banner .breadcrumb .sep { margin: 0 4px; }
-                        .page-banner .breadcrumb .current { color: #E1261C; }
-
-                        .sol-content { width: 100%; padding: 64px 56px; background: #EFF9FF; }
-                        .sol-inner { max-width: 1792px; margin: 0 auto; }
-
-                        .sol-intro-text {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 18px; font-weight: 400; line-height: 1.8;
-                            max-width: 900px; margin: 0 0 64px; text-align: center;
-                            margin-left: auto; margin-right: auto;
-                        }
-
-                        .sol-cards-grid {
-                            display: grid; grid-template-columns: repeat(2, 1fr);
-                            gap: 40px; margin-bottom: 80px;
-                        }
-                        .sol-card {
-                            position: relative; height: 450px;
-                            border-radius: 20px; overflow: hidden; cursor: pointer;
-                        }
-                        .sol-card > img {
-                            position: absolute; inset: 0;
-                            width: 100%; height: 100%;
-                            object-fit: cover;
-                        }
-                        .sol-card-overlay {
-                            position: absolute; inset: 0;
-                            background: linear-gradient(0deg, rgba(34,34,34,0.8) 0%, rgba(34,34,34,0.3) 100%);
-                            padding: 40px;
-                            display: flex; flex-direction: column; justify-content: flex-end;
-                            pointer-events: none;
-                        }
-                        .sol-card-overlay .sol-card-title,
-                        .sol-card-overlay .sol-card-desc,
-                        .sol-card-overlay .sol-card-btn { pointer-events: auto; }
-                        .sol-card-title {
-                            color: #fff; font-family: 'Poppins', sans-serif;
-                            font-size: 28px; font-weight: 600; margin: 0 0 12px;
-                        }
-                        .sol-card-desc {
-                            color: rgba(255,255,255,0.8); font-family: 'Poppins', sans-serif;
-                            font-size: 15px; font-weight: 400; line-height: 1.7; margin: 0 0 20px;
-                            max-width: 500px;
-                        }
-                        .sol-card-btn {
-                            display: inline-flex; align-items: center; gap: 12px;
-                            padding: 10px 28px; background: #E1261C; color: #fff;
-                            border-radius: 9999px; font-family: 'Poppins', sans-serif;
-                            font-size: 14px; font-weight: 600; text-decoration: none;
-                            border: none; cursor: pointer; transition: background 0.2s;
-                            width: fit-content;
-                        }
-                        .sol-card-btn:hover { background: rgba(225,38,28,0.9); }
-                        .sol-card-btn svg { width: 16px; height: 16px; }
-                        .arrow-icon { stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-
-                        .services-section { margin-bottom: 80px; }
-                        .services-label {
-                            color: #E1261C; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 600; text-transform: uppercase;
-                            letter-spacing: 0.05em; margin: 0 0 8px;
-                        }
-                        .services-heading {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 32px; font-weight: 600; margin: 0 0 40px;
-                        }
-                        .services-grid {
-                            display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-                        }
-                        .service-card {
-                            background: #fff; border-radius: 20px; padding: 40px;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-                            transition: box-shadow 0.2s; border-top: 4px solid transparent;
-                        }
-                        .service-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.15); border-top-color: #E1261C; }
-                        .service-card-icon {
-                            width: 56px; height: 56px; border-radius: 14px;
-                            background: rgba(225,38,28,0.08);
-                            display: flex; align-items: center; justify-content: center;
-                            margin-bottom: 20px;
-                        }
-                        .service-card-icon svg { width: 28px; height: 28px; color: #E1261C; }
-                        .service-card-title {
-                            color: #262138; font-family: 'Poppins', sans-serif;
-                            font-size: 20px; font-weight: 600; margin: 0 0 12px;
-                        }
-                        .service-card-text {
-                            color: #4A4363; font-family: 'Poppins', sans-serif;
-                            font-size: 14px; font-weight: 400; line-height: 1.7; margin: 0;
-                        }
-
-                        .sol-cta {
-                            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-                            border-radius: 20px; padding: 64px;
-                            display: flex; align-items: center; justify-content: space-between;
-                            gap: 40px;
-                        }
-                        .sol-cta-text {
-                            color: #fff; font-family: 'Poppins', sans-serif;
-                            font-size: 28px; font-weight: 600; margin: 0; max-width: 600px;
-                        }
-                        .sol-cta-btn {
-                            display: inline-flex; align-items: center; gap: 12px;
-                            padding: 14px 40px; background: #E1261C; color: #fff;
-                            border-radius: 9999px; font-family: 'Poppins', sans-serif;
-                            font-size: 16px; font-weight: 600; text-decoration: none;
-                            border: none; cursor: pointer; transition: background 0.2s;
-                            white-space: nowrap; flex-shrink: 0;
-                        }
-                        .sol-cta-btn:hover { background: rgba(225,38,28,0.9); }
-
-                        @media (max-width: 1200px) {
-                            .sol-cards-grid { grid-template-columns: 1fr; }
-                            .services-grid { grid-template-columns: 1fr 1fr; }
-                        }
-                        @media (max-width: 768px) {
-                            .services-grid { grid-template-columns: 1fr; }
-                            .sol-cta { flex-direction: column; text-align: center; padding: 40px 24px; }
-                            .page-banner .banner-title { font-size: 36px; }
-                            .sol-content { padding: 40px 16px; }
-                            .sol-card { height: 350px; }
-                        }
+.alaj-sol-big-card { position: relative; height: 360px; border-radius: 8px; overflow: hidden; text-decoration: none; display: block; }
+.alaj-sol-big-card .oe_img_bg, .alaj-sol-big-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.alaj-sol-big-card:hover img { transform: scale(1.05); }
+.alaj-sol-big-card .alaj-sol-big-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(9,14,59,0.82), rgba(9,14,59,0.28), transparent); padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; }
+.alaj-sol-big-card h3 { font-family: var(--alaj-font-heading); color: #fff; font-size: 22px; font-weight: 700; margin: 0 0 8px; }
+.alaj-sol-big-card p { color: rgba(255,255,255,0.7); font-size: 13px; line-height: 1.6; margin: 0 0 16px; }
+.alaj-sol-link { display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; }
+.alaj-sol-link svg { width: 14px; height: 14px; }
+.alaj-service-card .card-body { padding: 24px; border-top: 3px solid transparent; transition: border-color 0.2s; }
+.alaj-service-card:hover .card-body { border-top-color: var(--alaj-red); }
+.alaj-service-card-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(225,38,28,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.alaj-service-card-icon svg { width: 22px; height: 22px; color: var(--alaj-red); }
+.alaj-cta-banner { background: var(--alaj-navy); border-radius: 8px; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+@media (min-width: 768px) { .alaj-cta-banner { padding: 48px; } }
+.alaj-cta-banner h3 { font-family: var(--alaj-font-heading); color: #fff; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 700; margin: 0; max-width: 500px; }
                     </style>
 
-                    <section class="page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-overlay.jpg');">
-                        <div class="banner-overlay">
-                            <h1 class="banner-title">Solutions &amp; Services</h1>
-                            <div class="breadcrumb">
-                                <a href="/">Home</a>
-                                <span class="sep">&gt;</span>
-                                <span class="current">Solutions &amp; Services</span>
+                    <section class="alaj-page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-home-default.jpg');" data-name="Page Hero">
+                        <div class="alaj-banner-overlay">
+                            <div class="container">
+                                <h1>Solutions <span class="alaj-heading-ampersand">&amp;</span> Services</h1>
+                                <div class="alaj-breadcrumb">
+                                    <a href="/">Home</a>
+                                    <span>/</span>
+                                    <span class="active">Solutions</span>
+                                </div>
                             </div>
                         </div>
                     </section>
 
-                    <section class="sol-content">
-                        <div class="sol-inner">
+                    <section class="pt-5 pb-5" data-name="Solutions Intro">
+                        <div class="container">
+                            <div class="text-center mb-4" style="max-width:700px;margin-left:auto;margin-right:auto;">
+                                <span class="alaj-kicker">What We Offer</span>
+                                <h2 class="alaj-heading">Comprehensive Laboratory Solutions</h2>
+                                <p class="alaj-copy" style="margin:0 auto;">We provide comprehensive solutions covering chemical and reagent supply, advanced laboratory equipment, maintenance services, and dedicated after-sales support for all your laboratory needs.</p>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/products" class="alaj-sol-big-card" data-name="Solution Card">
+                                        <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg" alt="Chemical and Reagents"/>
+                                        <div class="alaj-sol-big-overlay">
+                                            <h3>Chemical and Reagents</h3>
+                                            <p>Premium quality chemicals and reagents sourced from world-leading manufacturers for accurate laboratory results.</p>
+                                            <span class="alaj-sol-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/products" class="alaj-sol-big-card" data-name="Solution Card">
+                                        <img src="/alaj_website/static/src/binary/heroes/hero-main.jpg" alt="Equipment"/>
+                                        <div class="alaj-sol-big-overlay">
+                                            <h3>Equipment and Instruments</h3>
+                                            <p>State-of-the-art laboratory instruments from global manufacturers including HACH, ABB, Sigma and more.</p>
+                                            <span class="alaj-sol-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/contact" class="alaj-sol-big-card" data-name="Solution Card">
+                                        <img src="/alaj_website/static/src/binary/heroes/hero-blur.jpg" alt="Maintenance"/>
+                                        <div class="alaj-sol-big-overlay">
+                                            <h3>Maintenance and Spare Parts</h3>
+                                            <p>Professional maintenance services and genuine spare parts to keep your laboratory equipment running at peak performance.</p>
+                                            <span class="alaj-sol-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <a href="/contact" class="alaj-sol-big-card" data-name="Solution Card">
+                                        <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg" alt="After Sales"/>
+                                        <div class="alaj-sol-big-overlay">
+                                            <h3>After Sales Support</h3>
+                                            <p>Dedicated technical support team providing training, calibration, and ongoing assistance for all equipment and instruments.</p>
+                                            <span class="alaj-sol-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
 
-                            <p class="sol-intro-text">We provide comprehensive solutions covering chemical and reagent supply, advanced laboratory equipment, maintenance services, and dedicated after-sales support for all your laboratory needs.</p>
-
-                            <div class="sol-cards-grid">
-                                <div class="sol-card">
-                                    <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg" alt="Chemical and Reagents"/>
-                                    <div class="sol-card-overlay">
-                                        <h3 class="sol-card-title">Chemical and Reagents</h3>
-                                        <p class="sol-card-desc">Premium quality chemicals and reagents sourced from world-leading manufacturers for accurate laboratory results.</p>
-                                        <a href="/products" class="sol-card-btn">
-                                            <span>Learn More</span>
-                                            <svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
-                                        </a>
+                            <div class="mb-4">
+                                <span class="alaj-kicker">Core Services</span>
+                                <h2 class="alaj-heading">Our Core Services</h2>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-service-card" data-name="Service Card">
+                                        <div class="card-body">
+                                            <div class="alaj-service-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Installation</h3>
+                                            <p class="card-text">Professional installation services for all laboratory equipment ensuring optimal setup and configuration.</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="sol-card">
-                                    <img src="/alaj_website/static/src/binary/heroes/hero-main.jpg" alt="Equipment and Instruments"/>
-                                    <div class="sol-card-overlay">
-                                        <h3 class="sol-card-title">Equipment and Instruments</h3>
-                                        <p class="sol-card-desc">State-of-the-art laboratory instruments and equipment from global manufacturers including HACH, ABB, Sigma and more.</p>
-                                        <a href="/products" class="sol-card-btn">
-                                            <span>Learn More</span>
-                                            <svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
-                                        </a>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-service-card" data-name="Service Card">
+                                        <div class="card-body">
+                                            <div class="alaj-service-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Training</h3>
+                                            <p class="card-text">Comprehensive training programs for laboratory staff on equipment operation, safety protocols, and best practices.</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="sol-card">
-                                    <img src="/alaj_website/static/src/binary/heroes/hero-blur.jpg" alt="Maintenance and Spare Parts"/>
-                                    <div class="sol-card-overlay">
-                                        <h3 class="sol-card-title">Maintenance and Spare Parts</h3>
-                                        <p class="sol-card-desc">Professional maintenance services and genuine spare parts to keep your laboratory equipment running at peak performance.</p>
-                                        <a href="/contact" class="sol-card-btn">
-                                            <span>Learn More</span>
-                                            <svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
-                                        </a>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-service-card" data-name="Service Card">
+                                        <div class="card-body">
+                                            <div class="alaj-service-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Calibration</h3>
+                                            <p class="card-text">Precision calibration services to ensure your instruments deliver accurate and reliable measurements.</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="sol-card">
-                                    <img src="/alaj_website/static/src/binary/heroes/hero-overlay.jpg" alt="After Sales Support"/>
-                                    <div class="sol-card-overlay">
-                                        <h3 class="sol-card-title">After Sales Support</h3>
-                                        <p class="sol-card-desc">Dedicated technical support team providing training, calibration, and ongoing assistance for all equipment and instruments.</p>
-                                        <a href="/contact" class="sol-card-btn">
-                                            <span>Learn More</span>
-                                            <svg viewBox="0 0 24 24" class="arrow-icon"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
-                                        </a>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-service-card" data-name="Service Card">
+                                        <div class="card-body">
+                                            <div class="alaj-service-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Preventive Maintenance</h3>
+                                            <p class="card-text">Scheduled maintenance programs to prevent equipment downtime and extend the lifespan of your investments.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-service-card" data-name="Service Card">
+                                        <div class="card-body">
+                                            <div class="alaj-service-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Consultation</h3>
+                                            <p class="card-text">Expert consultation to help you select the right equipment and solutions for your specific laboratory requirements.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 s_col_no_bgcolor pt16 pb16">
+                                    <div class="card h-100 alaj-service-card" data-name="Service Card">
+                                        <div class="card-body">
+                                            <div class="alaj-service-card-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                                            </div>
+                                            <h3 class="card-title">Logistics <span class="alaj-ampersand">&amp;</span> Delivery</h3>
+                                            <p class="card-text">Reliable logistics and delivery services ensuring your equipment arrives safely and on time anywhere in the Kingdom.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="services-section">
-                                <p class="services-label">What We Offer</p>
-                                <h2 class="services-heading">Our Core Services</h2>
-                                <div class="services-grid">
-                                    <div class="service-card">
-                                        <div class="service-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                                        </div>
-                                        <h3 class="service-card-title">Installation</h3>
-                                        <p class="service-card-text">Professional installation services for all laboratory equipment ensuring optimal setup and configuration.</p>
-                                    </div>
-                                    <div class="service-card">
-                                        <div class="service-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                                        </div>
-                                        <h3 class="service-card-title">Training</h3>
-                                        <p class="service-card-text">Comprehensive training programs for laboratory staff on equipment operation, safety protocols, and best practices.</p>
-                                    </div>
-                                    <div class="service-card">
-                                        <div class="service-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                                        </div>
-                                        <h3 class="service-card-title">Calibration</h3>
-                                        <p class="service-card-text">Precision calibration services to ensure your instruments deliver accurate and reliable measurements.</p>
-                                    </div>
-                                    <div class="service-card">
-                                        <div class="service-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                                        </div>
-                                        <h3 class="service-card-title">Preventive Maintenance</h3>
-                                        <p class="service-card-text">Scheduled maintenance programs to prevent equipment downtime and extend the lifespan of your investments.</p>
-                                    </div>
-                                    <div class="service-card">
-                                        <div class="service-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                                        </div>
-                                        <h3 class="service-card-title">Consultation</h3>
-                                        <p class="service-card-text">Expert consultation to help you select the right equipment and solutions for your specific laboratory requirements.</p>
-                                    </div>
-                                    <div class="service-card">
-                                        <div class="service-card-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                                        </div>
-                                        <h3 class="service-card-title">Logistics &amp; Delivery</h3>
-                                        <p class="service-card-text">Reliable logistics and delivery services ensuring your equipment arrives safely and on time anywhere in the Kingdom.</p>
-                                    </div>
-                                </div>
+                            <div class="alaj-cta-banner">
+                                <h3>Need a custom solution for your laboratory? Our team is ready to help.</h3>
+                                <a href="/contact" class="btn-red">Contact Us Today</a>
                             </div>
-
-                            <div class="sol-cta">
-                                <p class="sol-cta-text">Need a custom solution for your laboratory? Our team is ready to help.</p>
-                                <a href="/contact" class="sol-cta-btn">Contact Us Today</a>
-                            </div>
-
                         </div>
                     </section>
 

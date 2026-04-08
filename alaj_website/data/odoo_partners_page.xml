@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="partners_page_template" name="Partners Page">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+
+                    <style>
+.alaj-partner-directory-intro {
+    padding: 56px 0 20px;
+}
+@media (min-width: 768px) {
+    .alaj-partner-directory-intro { padding: 72px 0 24px; }
+}
+.alaj-partner-directory-intro .alaj-copy {
+    margin: 0 auto;
+    text-align: center;
+}
+.alaj-partner-category {
+    padding: 20px 0;
+    scroll-margin-top: 130px;
+}
+.alaj-partner-category:last-of-type {
+    padding-bottom: 64px;
+}
+@media (min-width: 768px) {
+    .alaj-partner-category {
+        padding: 28px 0;
+        scroll-margin-top: 150px;
+    }
+    .alaj-partner-category:last-of-type { padding-bottom: 88px; }
+}
+.alaj-partner-category-head {
+    text-align: center;
+    margin-bottom: 22px;
+}
+.alaj-partner-category-head h2 {
+    margin-bottom: 0;
+}
+.alaj-partner-directory-grid {
+    row-gap: 16px;
+}
+.alaj-partner-directory-card {
+    min-height: 128px;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid var(--alaj-border);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(15, 22, 44, 0.04);
+}
+@media (min-width: 768px) {
+    .alaj-partner-directory-card {
+        min-height: 150px;
+        padding: 28px;
+    }
+}
+.alaj-partner-directory-card img {
+    display: block;
+    max-width: 100%;
+    max-height: 70px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+                    </style>
+
+                    <section class="alaj-page-banner oe_img_bg" style="background-image: url('/alaj_website/static/src/binary/heroes/hero-home-default.jpg');" data-name="Page Hero">
+                        <div class="alaj-banner-overlay">
+                            <div class="container">
+                                <h1>Partners <span class="alaj-heading-ampersand">&amp;</span> Brands</h1>
+                                <div class="alaj-breadcrumb">
+                                    <a href="/">Home</a>
+                                    <span>/</span>
+                                    <span class="active">Partners</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="trusted-by" class="alaj-partner-directory-intro" data-name="Partners Intro">
+                        <div class="container">
+                            <div style="text-align:center;max-width:760px;margin:0 auto;">
+                                <span class="alaj-kicker">Trusted By</span>
+                                <h2 class="alaj-heading">Our Partner Brands</h2>
+                                <p class="alaj-copy">A categorized showcase of the brands and manufacturers we represent across chemicals, labware, and instruments.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="chemicals" class="alaj-partner-category" data-name="Chemicals">
+                        <div class="container">
+                            <div class="alaj-partner-category-head">
+                                <h2 class="alaj-heading">Chemicals</h2>
+                            </div>
+                            <div class="row g-3 alaj-partner-directory-grid">
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/213476_fisher.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/213479_paneriac.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/213481_alfa.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/213482_scharlu.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/213485_cdh.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/213486_techno.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/215950_vwr.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/267098_acros.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Chemicals/267105_fisher-p.jpg" alt=""/></div></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="maintenance" class="alaj-partner-category" data-name="Labware">
+                        <div class="container">
+                            <div class="alaj-partner-category-head">
+                                <h2 class="alaj-heading">Labware</h2>
+                            </div>
+                            <div class="row g-3 alaj-partner-directory-grid">
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Labware/213535_dwk.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Labware/213536_kartel.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Labware/213537_dorsan.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Labware/267107_microlit.jpg" alt=""/></div></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="equipment" class="alaj-partner-category" data-name="Instruments">
+                        <div class="container">
+                            <div class="alaj-partner-category-head">
+                                <h2 class="alaj-heading">Instruments</h2>
+                            </div>
+                            <div class="row g-3 alaj-partner-directory-grid">
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/213538_selecta.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/213539_ohous.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/213541_myron.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/213542_abb.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/213546_asecos.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/215951_hach.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/267106_memmert.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/267109_water-id.jpg" alt=""/></div></div>
+                                <div class="col-6 col-md-4 col-lg-3 s_col_no_bgcolor"><div class="alaj-partner-directory-card" data-name="Partner Logo"><img src="/alaj_website/static/src/binary/partners_catalog/Instruments/267124_myron.jpg" alt=""/></div></div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </t>
+        </template>
+
+        <record id="partners_page" model="website.page">
+            <field name="name">Partners</field>
+            <field name="url">/our-partners</field>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="partners_page_template"/>
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+
+        <record id="partners_page_template" model="ir.ui.view">
+            <field name="website_id" ref="alaj_website_record"/>
+        </record>
+    </data>
+</odoo>

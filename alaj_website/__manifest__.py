@@ -1,12 +1,12 @@
 {
-    'name': 'Website ALAJ',
-    'version': '17.0.2.0.0',
+    'name': 'Website',
+    'version': '17.0.2.3.0',
     'category': 'Website/Website',
-    'summary': 'Abdullatif H. Abdullatif & Sons Co. Website',
+    'summary': '',
     'description': """
-Website ALAJ - Chemical Industry Website Module
+
 """,
-    'author': 'ALAJ',
+    'author': '',
     'license': 'LGPL-3',
     'depends': [
         'website',
@@ -16,19 +16,30 @@ Website ALAJ - Chemical Industry Website Module
     'data': [
         'data/alaj_website_record.xml',
         'data/alaj_layout_override.xml',
+        'data/alaj_homepage_snippets.xml',
         #'data/alaj_login_style.xml',
-        #'data/demo_product_data.xml',
+        'data/demo_product_data.xml',
+        'data/demo_shop_catalog_standard.xml',
         'data/odoo_homepage.xml',
         'data/odoo_about_page.xml',
         'data/odoo_products_page.xml',
         'data/odoo_product_detail.xml',
         'data/odoo_solutions_page.xml',
+        'data/odoo_partners_page.xml',
         'data/odoo_events_page.xml',
         'data/odoo_event_detail.xml',
         'data/odoo_projects_page.xml',
         'data/odoo_faq_page.xml',
         'data/odoo_contact_us.xml',
+        'data/alaj_shop_style.xml',
+        'data/alaj_standard_menu_test.xml',
     ],
+    'assets': {
+        'web.assets_frontend': [
+            'alaj_website/static/src/css/alaj_visual_identity.css',
+            'alaj_website/static/src/css/alaj_shop_product.css',
+        ],
+    },
     'installable': True,
     'auto_install': False,
     'application': False,
